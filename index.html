@@ -234,7 +234,7 @@
             <div class="body">
               <p class="goal">目标：渠道结构标准化并可生码归因；客服 / 运营可自助查询用户基本信息与订单信息，替代线下散表。</p>
               <div class="feat"><div class="ic">🌿</div><div><div class="t">渠道管理 <span class="pill p0">P0</span></div><div class="d">渠道类型 → 一/二/三级渠道树；任意层级生成可复制的渠道 code。</div></div></div>
-              <div class="feat"><div class="ic">👤</div><div><div class="t">用户基本信息查询 <span class="pill p0">P0</span></div><div class="d">按 学生ID/姓名/登录账号/手机号 搜索，业务线、状态筛选；支持 5 种注册方式（含非手机号注册）与登录账号展示；可修改基本资料。</div></div></div>
+              <div class="feat"><div class="ic">👤</div><div><div class="t">用户基本信息查询 <span class="pill p0">P0</span></div><div class="d">按 学生ID/姓名/登录账号/手机号 搜索，业务线、状态、注册方式（登录账号类型）筛选；支持 5 种注册方式（含非手机号注册）与登录账号展示；可修改基本资料。</div></div></div>
               <div class="feat"><div class="ic">🧾</div><div><div class="t">订单信息查询 <span class="pill p0">P0</span></div><div class="d">按 订单ID/学生ID/商品 搜索，订单状态、支付方式筛选。</div></div></div>
               <h4>一期交付物 / 验收</h4>
               <ul class="clean">
@@ -366,7 +366,7 @@
         <h3>用户故事</h3>
         <div class="story">作为<b>客服同学</b>，我希望输入学生ID / 姓名 / 登录账号 / 手机号即可查到该用户，并看到他的注册方式、登录账号、业务线、注册渠道、注册时间与当前状态，以便快速响应咨询——即使用户用谷歌邮箱 / Facebook / AppID 等<b>非手机号方式</b>注册也能查到。</div>
 
-        <div class="callout info"><div class="ic">🆕</div><div><b>本期更新：</b>用户中心支持 <b>5 种注册方式</b>（谷歌邮箱 / Facebook / kakao / 手机号 / AppID），新增「注册方式」「登录账号」两列；非手机号方式（谷歌邮箱 / Facebook / AppID）手机号列显示「—」；学生姓名列仅展示本地名，已去掉英文名。</div></div>
+        <div class="callout info"><div class="ic">🆕</div><div><b>本期更新：</b>用户中心支持 <b>5 种注册方式</b>（谷歌邮箱 / Facebook / kakao / 手机号 / AppID），新增「注册方式」「登录账号」两列；非手机号方式（谷歌邮箱 / Facebook / AppID）手机号列显示「—」；学生姓名列仅展示本地名，已去掉英文名。<br><b>筛选项新增</b>「注册方式 / 登录账号」查询维度，可按登录账号类型单独筛选用户。</div></div>
 
         <h3>功能清单</h3>
         <table class="bordered">
@@ -374,7 +374,8 @@
           <tbody>
             <tr><td>关键字搜索</td><td>支持 学生ID / 姓名 / 登录账号 / 手机号 模糊搜索</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td>多注册方式展示</td><td>谷歌邮箱 / Facebook / kakao / 手机号 / AppID，含登录账号；支持非手机号注册</td><td><span class="pill p0">P0</span></td></tr>
-            <tr><td>条件筛选</td><td>业务线、用户状态（注册/体验/付费/流失）</td><td><span class="pill p0">P0</span></td></tr>
+            <tr><td>条件筛选</td><td>业务线、用户状态（注册/体验/付费/流失）、<b>注册方式（登录账号类型）</b></td><td><span class="pill p0">P0</span></td></tr>
+            <tr><td>登录账号查询 <span class="pill ph1" style="font-size:10px">新增</span></td><td>筛选项新增「注册方式 / 登录账号」查询维度：可按 谷歌邮箱 / Facebook / kakao / 手机号 / AppID 单独筛选用户</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td>列表 + 分页</td><td>展示基本信息字段，支持分页与每页条数</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td>修改基本信息</td><td>本地名 / 性别 / 出生日期 / 业务线（已移除英文名）</td><td><span class="pill p1">P1</span></td></tr>
           </tbody>
@@ -408,8 +409,20 @@
           </tbody>
         </table>
 
+        <h3>用户状态定义</h3>
+        <table class="bordered">
+          <thead><tr><th style="width:110px">用户状态</th><th>定义</th><th style="width:240px">判定口径</th></tr></thead>
+          <tbody>
+            <tr><td><span class="pill p2">注册</span></td><td>已注册未付费</td><td>完成注册，从未付费</td></tr>
+            <tr><td><span class="pill ph1">体验</span></td><td>已付费 7 天体验商品包，且在 7 天有效期内</td><td>持有体验包 且 当前时间 ≤ 体验有效期</td></tr>
+            <tr><td><span class="pill ok">付费</span></td><td>付费正式商品包，且在有效期内（可能首次付费，也可能到期后自动订阅）</td><td>持有正式包 且 当前时间 ≤ 有效期</td></tr>
+            <tr><td><span class="pill p0">流失</span></td><td>付费正式商品包，已过有效期（有效期已过且未继续订阅）</td><td>曾持有正式包 且 当前时间 &gt; 有效期 且 未续订</td></tr>
+          </tbody>
+        </table>
+        <div class="callout info"><div class="ic">🔄</div><div>状态为系统自动流转、不可手工编辑：体验/付费随有效期推移与续订结果变化；正式包到期后自动订阅成功仍为「付费」，到期未续订则转为「流失」。</div></div>
+
         <h3>关键交互流程</h3>
-        <div class="step"><div class="n">1</div><div class="c">输入关键字（学生ID/姓名/登录账号/手机号）或选择业务线 / 状态 → 列表实时过滤。</div></div>
+        <div class="step"><div class="n">1</div><div class="c">输入关键字（学生ID/姓名/登录账号/手机号）或选择业务线 / 状态 / <b>注册方式（登录账号类型）</b> → 列表实时过滤。</div></div>
         <div class="step"><div class="n">2</div><div class="c">查看「注册方式」「登录账号」列定位用户来源；非手机号方式手机号列为「—」。</div></div>
         <div class="step"><div class="n">3</div><div class="c">点「修改信息」→ 弹窗编辑本地名 / 性别 / 出生日期 / 业务线 → 保存。</div></div>
 
@@ -581,9 +594,19 @@
           </tbody>
         </table>
 
-        <h3>状态枚举</h3>
-        <div class="grid c3">
-          <div class="card"><h4 style="margin-top:0">用户状态</h4><ul class="clean"><li>注册</li><li>体验</li><li>付费</li><li>流失</li></ul></div>
+        <h3>用户状态定义</h3>
+        <table class="bordered">
+          <thead><tr><th style="width:110px">用户状态</th><th>定义</th></tr></thead>
+          <tbody>
+            <tr><td>注册</td><td>已注册未付费</td></tr>
+            <tr><td>体验</td><td>已付费 7 天体验商品包，且在 7 天有效期内</td></tr>
+            <tr><td>付费</td><td>付费正式商品包，且在有效期内（可能首次付费，也可能到期后自动订阅）</td></tr>
+            <tr><td>流失</td><td>付费正式商品包，已过有效期（有效期已过且未继续订阅）</td></tr>
+          </tbody>
+        </table>
+
+        <h3>其他状态枚举</h3>
+        <div class="grid c2">
           <div class="card"><h4 style="margin-top:0">订单状态</h4><ul class="clean"><li>待支付</li><li>已支付</li><li>已退款</li><li>已取消</li></ul></div>
           <div class="card"><h4 style="margin-top:0">课包 / 券状态</h4><ul class="clean"><li>课包：上架 / 下架</li><li>券：已生效 / 已结束</li></ul></div>
         </div>
