@@ -234,7 +234,7 @@
             <div class="body">
               <p class="goal">目标：渠道结构标准化并可生码归因；客服 / 运营可自助查询用户基本信息与订单信息，替代线下散表。</p>
               <div class="feat"><div class="ic">🌿</div><div><div class="t">渠道管理 <span class="pill p0">P0</span></div><div class="d">渠道类型 → 一/二/三级渠道树；任意层级生成可复制的渠道 code。</div></div></div>
-              <div class="feat"><div class="ic">👤</div><div><div class="t">用户基本信息查询 <span class="pill p0">P0</span></div><div class="d">按 学生ID/姓名/手机号 搜索，业务线、状态筛选；可修改基本资料。</div></div></div>
+              <div class="feat"><div class="ic">👤</div><div><div class="t">用户基本信息查询 <span class="pill p0">P0</span></div><div class="d">按 学生ID/姓名/登录账号/手机号 搜索，业务线、状态筛选；支持 5 种注册方式（含非手机号注册）与登录账号展示；可修改基本资料。</div></div></div>
               <div class="feat"><div class="ic">🧾</div><div><div class="t">订单信息查询 <span class="pill p0">P0</span></div><div class="d">按 订单ID/学生ID/商品 搜索，订单状态、支付方式筛选。</div></div></div>
               <h4>一期交付物 / 验收</h4>
               <ul class="clean">
@@ -268,7 +268,7 @@
               <p class="goal">会议纪要中提出但不在一 / 二期承诺范围的需求，记录在册、后续评估。</p>
               <div class="grid c2">
                 <ul class="clean"><li>用户标签体系 & 黑名单识别</li><li>角色权限 / 数据权限（市场、销售、客服分权）</li><li>邀约场景 & 提报成单率统计</li></ul>
-                <ul class="clean"><li>第三方整合：Breeze 消息推送、Apespire 流量进度</li><li>商品品类丰富度扩展、活跃测试</li><li>非手机号注册支持、注册平台多样化</li></ul>
+                <ul class="clean"><li>第三方整合：Breeze 消息推送、Apespire 流量进度</li><li>商品品类丰富度扩展、活跃测试</li></ul>
               </div>
             </div>
           </div>
@@ -302,7 +302,8 @@
             <tr><td>系统定位与优先级</td><td>CRM 一期定位为「查得到」：渠道、用户、订单三段信息可查</td><td>全局</td><td><span class="pill ph1">一期</span></td></tr>
             <tr><td>市场渠道管理</td><td>渠道分级体系（类型 → 多级渠道）</td><td>渠道管理</td><td><span class="pill ph1">一期</span></td></tr>
             <tr><td>市场渠道管理</td><td>渠道生码机制：生成实际投放使用的渠道 code</td><td>渠道管理</td><td><span class="pill ph1">一期</span></td></tr>
-            <tr><td>用户数据体系</td><td>用户基本信息：注册平台、注册渠道、国家码、注册时间等</td><td>用户中心</td><td><span class="pill ph1">一期</span></td></tr>
+            <tr><td>用户数据体系</td><td>用户基本信息：注册方式、登录账号、注册渠道、国家码、注册时间等</td><td>用户中心</td><td><span class="pill ph1">一期</span></td></tr>
+            <tr><td>市场渠道管理</td><td>非手机号注册支持：谷歌邮箱 / Facebook / kakao / AppID 等多注册方式</td><td>用户中心</td><td><span class="pill ph1">一期</span></td></tr>
             <tr><td>用户数据体系</td><td>用户状态：注册 / 体验 / 付费 / 流失</td><td>用户中心</td><td><span class="pill ph1">一期</span></td></tr>
             <tr><td>商品/订单</td><td>订单信息查询：订单状态、原价/实付、支付方式</td><td>订单中心</td><td><span class="pill ph1">一期</span></td></tr>
             <tr><td>商品品类丰富度</td><td>课包（商品）配置、上下架、有效期</td><td>课包管理</td><td><span class="pill ph2">二期</span></td></tr>
@@ -310,7 +311,7 @@
             <tr><td>用户数据体系</td><td>标签能力、黑名单识别</td><td>—</td><td><span class="pill later">后续</span></td></tr>
             <tr><td>市场与销售运营</td><td>角色权限、邀约场景、提报成单率</td><td>—</td><td><span class="pill later">后续</span></td></tr>
             <tr><td>第三方系统整合</td><td>Breeze 消息推送、Apespire 流量进度、第三方推送会话</td><td>—</td><td><span class="pill later">后续</span></td></tr>
-            <tr><td>商品/订单</td><td>活跃测试、非手机号注册支持</td><td>—</td><td><span class="pill later">后续</span></td></tr>
+            <tr><td>商品/订单</td><td>活跃测试</td><td>—</td><td><span class="pill later">后续</span></td></tr>
           </tbody>
         </table>
 
@@ -360,19 +361,22 @@
       <!-- ====================== P1: USERS ====================== -->
       <section class="view" id="view-p1-users">
         <h2 class="title">1.2 用户基本信息查询 <span class="pill ph1" style="vertical-align:middle">一期</span> <span class="pill p0" style="vertical-align:middle">P0</span></h2>
-        <p class="lead">客服 / 运营按多条件检索学生（用户），查看其基本信息、注册归因与状态，并可维护可编辑的基础资料。</p>
+        <p class="lead">客服 / 运营按多条件检索学生（用户），查看其基本信息、注册方式与登录账号、注册归因与状态，并可维护可编辑的基础资料。</p>
 
         <h3>用户故事</h3>
-        <div class="story">作为<b>客服同学</b>，我希望输入学生ID / 姓名 / 手机号即可查到该用户，并看到他的业务线、注册渠道、注册时间与当前状态，以便快速响应咨询。</div>
+        <div class="story">作为<b>客服同学</b>，我希望输入学生ID / 姓名 / 登录账号 / 手机号即可查到该用户，并看到他的注册方式、登录账号、业务线、注册渠道、注册时间与当前状态，以便快速响应咨询——即使用户用谷歌邮箱 / Facebook / AppID 等<b>非手机号方式</b>注册也能查到。</div>
+
+        <div class="callout info"><div class="ic">🆕</div><div><b>本期更新：</b>用户中心支持 <b>5 种注册方式</b>（谷歌邮箱 / Facebook / kakao / 手机号 / AppID），新增「注册方式」「登录账号」两列；非手机号方式（谷歌邮箱 / Facebook / AppID）手机号列显示「—」；学生姓名列仅展示本地名，已去掉英文名。</div></div>
 
         <h3>功能清单</h3>
         <table class="bordered">
           <thead><tr><th style="width:170px">功能点</th><th>说明</th><th style="width:90px">优先级</th></tr></thead>
           <tbody>
-            <tr><td>关键字搜索</td><td>支持 学生ID / 姓名 / 手机号 模糊搜索</td><td><span class="pill p0">P0</span></td></tr>
+            <tr><td>关键字搜索</td><td>支持 学生ID / 姓名 / 登录账号 / 手机号 模糊搜索</td><td><span class="pill p0">P0</span></td></tr>
+            <tr><td>多注册方式展示</td><td>谷歌邮箱 / Facebook / kakao / 手机号 / AppID，含登录账号；支持非手机号注册</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td>条件筛选</td><td>业务线、用户状态（注册/体验/付费/流失）</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td>列表 + 分页</td><td>展示基本信息字段，支持分页与每页条数</td><td><span class="pill p0">P0</span></td></tr>
-            <tr><td>修改基本信息</td><td>英文名 / 本地名 / 性别 / 出生日期 / 业务线</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td>修改基本信息</td><td>本地名 / 性别 / 出生日期 / 业务线（已移除英文名）</td><td><span class="pill p1">P1</span></td></tr>
           </tbody>
         </table>
 
@@ -381,8 +385,10 @@
           <thead><tr><th style="width:140px">字段</th><th>说明</th><th style="width:120px">可编辑</th></tr></thead>
           <tbody>
             <tr><td>学生ID</td><td>用户唯一标识</td><td>否</td></tr>
-            <tr><td>学生姓名 / 本地名</td><td>展示名 + 本地语言名</td><td>本地名可编辑</td></tr>
-            <tr><td>手机号</td><td>含国家码</td><td>否（一期）</td></tr>
+            <tr><td>学生姓名</td><td>仅展示本地名（无本地名时回退展示名）</td><td>本地名可编辑</td></tr>
+            <tr><td>注册方式</td><td>谷歌邮箱 / Facebook / kakao / 手机号 / AppID</td><td>否</td></tr>
+            <tr><td>登录账号</td><td>邮箱 / Facebook / kakao ID / AppID / 手机号</td><td>否</td></tr>
+            <tr><td>手机号</td><td>仅 kakao / 手机号 方式有；其余方式显示「—」</td><td>否</td></tr>
             <tr><td>所属业务线</td><td>韩国 / 沙特 / 马来 / 越南 / 其他</td><td>是</td></tr>
             <tr><td>注册渠道 / 渠道 code</td><td>归因来源，关联渠道管理</td><td>否</td></tr>
             <tr><td>注册地国家码 / 注册时间</td><td>国家码 + 北京时间</td><td>否</td></tr>
@@ -390,9 +396,22 @@
           </tbody>
         </table>
 
+        <h3>注册方式与登录账号映射</h3>
+        <table class="bordered">
+          <thead><tr><th style="width:130px">注册方式</th><th>登录账号示例</th><th style="width:120px">是否带手机号</th></tr></thead>
+          <tbody>
+            <tr><td>谷歌邮箱</td><td>邮箱地址</td><td>否（显示 —）</td></tr>
+            <tr><td>Facebook</td><td>邮箱（可拿到邮箱时展示）</td><td>否（显示 —）</td></tr>
+            <tr><td>AppID</td><td>邮箱（可拿到邮箱时展示）</td><td>否（显示 —）</td></tr>
+            <tr><td>kakao</td><td>手机号</td><td>是</td></tr>
+            <tr><td>手机号</td><td>手机号</td><td>是</td></tr>
+          </tbody>
+        </table>
+
         <h3>关键交互流程</h3>
-        <div class="step"><div class="n">1</div><div class="c">输入关键字或选择业务线 / 状态 → 列表实时过滤。</div></div>
-        <div class="step"><div class="n">2</div><div class="c">点「修改信息」→ 弹窗编辑可编辑字段 → 保存。</div></div>
+        <div class="step"><div class="n">1</div><div class="c">输入关键字（学生ID/姓名/登录账号/手机号）或选择业务线 / 状态 → 列表实时过滤。</div></div>
+        <div class="step"><div class="n">2</div><div class="c">查看「注册方式」「登录账号」列定位用户来源；非手机号方式手机号列为「—」。</div></div>
+        <div class="step"><div class="n">3</div><div class="c">点「修改信息」→ 弹窗编辑本地名 / 性别 / 出生日期 / 业务线 → 保存。</div></div>
 
         <div class="proto" data-route="users"></div>
       </section>
@@ -547,6 +566,18 @@
             <tr><td>马来</td><td>林吉特 MYR</td><td>+60</td><td>MYR / USD</td></tr>
             <tr><td>越南</td><td>越南盾 VND</td><td>+84</td><td>VND / USD</td></tr>
             <tr><td>其他</td><td>美元 USD</td><td>+1</td><td>USD</td></tr>
+          </tbody>
+        </table>
+
+        <h3>注册方式（用户中心）</h3>
+        <table class="bordered">
+          <thead><tr><th style="width:140px">注册方式</th><th>登录账号</th><th style="width:130px">是否带手机号</th></tr></thead>
+          <tbody>
+            <tr><td>谷歌邮箱</td><td>邮箱</td><td>否</td></tr>
+            <tr><td>Facebook</td><td>邮箱（可拿到时）</td><td>否</td></tr>
+            <tr><td>AppID</td><td>邮箱（可拿到时）</td><td>否</td></tr>
+            <tr><td>kakao</td><td>手机号</td><td>是</td></tr>
+            <tr><td>手机号</td><td>手机号</td><td>是</td></tr>
           </tbody>
         </table>
 
