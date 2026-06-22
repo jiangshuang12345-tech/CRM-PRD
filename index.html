@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dino English 运营平台（CRM）· 迭代计划 + 交互式 PRD</title>
+<style>
+  :root{
+    --bg:#f5f7fb; --panel:#ffffff; --ink:#1c2536; --muted:#6b7689; --line:#e6eaf2;
+    --primary:#2f6bff; --primary-soft:#eaf1ff;
+    --p1:#2f6bff; --p1-soft:#eaf1ff;
+    --p2:#7a5af8; --p2-soft:#f0ecff;
+    --green:#1a9d5a; --green-soft:#e6f6ec;
+    --amber:#c98a00; --amber-soft:#fff3d6;
+    --red:#d6452f; --red-soft:#fdecea;
+    --radius:14px; --shadow:0 1px 3px rgba(20,30,60,.06),0 8px 24px rgba(20,30,60,.06);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{color:var(--primary);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  /* layout */
+  .app{display:flex;min-height:100vh}
+  .sidebar{width:268px;flex:0 0 268px;background:#0f1729;color:#c7d0e0;position:sticky;top:0;height:100vh;overflow-y:auto;padding:0 0 28px}
+  .brand{padding:22px 22px 16px;display:flex;align-items:center;gap:11px;border-bottom:1px solid rgba(255,255,255,.07)}
+  .brand .logo{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,#2f6bff,#7a5af8);display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:18px}
+  .brand b{color:#fff;font-size:15px;display:block;line-height:1.3}
+  .brand span{font-size:12px;color:#8a96ac}
+  .nav{padding:14px 12px}
+  .nav .group{font-size:11px;letter-spacing:.12em;color:#5e6b85;text-transform:uppercase;padding:14px 12px 6px}
+  .nav a{display:flex;align-items:center;gap:10px;color:#c7d0e0;padding:9px 12px;border-radius:9px;font-size:14px;cursor:pointer;transition:.15s}
+  .nav a .dot{width:7px;height:7px;border-radius:50%;background:#3a4458;opacity:.5}
+  .nav a:hover{background:rgba(255,255,255,.06);text-decoration:none}
+  .nav a.active{background:linear-gradient(90deg,rgba(47,107,255,.22),rgba(122,90,248,.16));color:#fff}
+  .nav a.active .num{color:#fff}
+  .nav a .num{font-size:12px;color:#5e6b85;width:20px}
+  .nav .tag-p1,.nav .tag-p2{font-size:10px;padding:1px 7px;border-radius:20px;margin-left:auto}
+  .nav .tag-p1{background:rgba(47,107,255,.2);color:#9dbcff}
+  .nav .tag-p2{background:rgba(122,90,248,.2);color:#c4b3ff}
+
+  /* main */
+  .main{flex:1;min-width:0}
+  .topbar{position:sticky;top:0;z-index:20;background:rgba(245,247,251,.85);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid var(--line);padding:14px 40px;display:flex;align-items:center;gap:14px}
+  .topbar h1{font-size:16px;margin:0;font-weight:700}
+  .topbar .crumb{color:var(--muted);font-size:13px}
+  .topbar .links{margin-left:auto;display:flex;gap:8px}
+  .btn{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);background:#fff;color:var(--ink);padding:7px 13px;border-radius:9px;font-size:13px;cursor:pointer;transition:.15s;font-weight:500}
+  .btn:hover{border-color:var(--primary);color:var(--primary);text-decoration:none}
+  .btn.primary{background:var(--primary);color:#fff;border-color:var(--primary)}
+  .btn.primary:hover{background:#1f57e6;color:#fff}
+
+  .wrap{max-width:1080px;margin:0 auto;padding:34px 40px 90px}
+  section.view{display:none;animation:fade .3s ease}
+  section.view.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+  h2.title{font-size:26px;margin:0 0 6px;letter-spacing:-.01em}
+  .lead{color:var(--muted);font-size:15px;margin:0 0 26px;max-width:760px}
+  h3{font-size:18px;margin:34px 0 14px;padding-left:12px;border-left:4px solid var(--primary)}
+  h4{font-size:15px;margin:22px 0 10px}
+
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;box-shadow:var(--shadow);margin-bottom:18px}
+  .grid{display:grid;gap:16px}
+  .grid.c2{grid-template-columns:1fr 1fr}
+  .grid.c3{grid-template-columns:repeat(3,1fr)}
+  .grid.c4{grid-template-columns:repeat(4,1fr)}
+  @media(max-width:900px){.grid.c2,.grid.c3,.grid.c4{grid-template-columns:1fr}}
+
+  .pill{display:inline-flex;align-items:center;gap:5px;font-size:12px;padding:2px 10px;border-radius:30px;font-weight:600;white-space:nowrap}
+  .pill.p0{background:var(--red-soft);color:var(--red)}
+  .pill.p1{background:var(--amber-soft);color:var(--amber)}
+  .pill.p2{background:#eef1f6;color:#6b7689}
+  .pill.ph1{background:var(--p1-soft);color:var(--p1)}
+  .pill.ph2{background:var(--p2-soft);color:var(--p2)}
+  .pill.ok{background:var(--green-soft);color:var(--green)}
+  .pill.later{background:#eef1f6;color:#6b7689}
+
+  table{width:100%;border-collapse:collapse;font-size:13.5px;background:#fff;border-radius:10px;overflow:hidden}
+  table.bordered{border:1px solid var(--line)}
+  th,td{text-align:left;padding:10px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:#f7f9fc;font-weight:600;color:#48526a;font-size:12.5px}
+  tr:last-child td{border-bottom:none}
+  td code,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#f3f5f9;padding:1px 6px;border-radius:5px;font-size:12.5px}
+
+  ul.clean{margin:8px 0;padding-left:20px}
+  ul.clean li{margin:5px 0}
+  .muted{color:var(--muted)}
+  .kpi{font-size:30px;font-weight:800;line-height:1}
+  .kpi-label{font-size:12.5px;color:var(--muted);margin-top:6px}
+
+  /* roadmap timeline */
+  .phase{border-radius:var(--radius);border:1px solid var(--line);overflow:hidden;background:#fff;box-shadow:var(--shadow)}
+  .phase .head{padding:18px 22px;color:#fff;display:flex;align-items:center;gap:12px}
+  .phase.one .head{background:linear-gradient(120deg,#2f6bff,#5b86ff)}
+  .phase.two .head{background:linear-gradient(120deg,#7a5af8,#9d83ff)}
+  .phase.three .head{background:linear-gradient(120deg,#4a5468,#6b7689)}
+  .phase .head .badge{background:rgba(255,255,255,.22);padding:3px 11px;border-radius:30px;font-size:12px;font-weight:600}
+  .phase .head b{font-size:17px}
+  .phase .head .when{margin-left:auto;font-size:13px;opacity:.9}
+  .phase .body{padding:18px 22px}
+  .phase .goal{font-size:13.5px;color:var(--muted);margin:0 0 14px}
+
+  .feat{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px dashed var(--line)}
+  .feat:last-child{border-bottom:none}
+  .feat .ic{width:30px;height:30px;border-radius:8px;flex:0 0 30px;display:flex;align-items:center;justify-content:center;font-size:15px;background:var(--primary-soft)}
+  .feat .t{font-weight:600;font-size:14px}
+  .feat .d{font-size:12.5px;color:var(--muted)}
+
+  .callout{border-radius:12px;padding:14px 16px;font-size:13.5px;display:flex;gap:11px;align-items:flex-start}
+  .callout .ic{font-size:17px;line-height:1.3}
+  .callout.info{background:var(--primary-soft);color:#1d3a8a}
+  .callout.warn{background:var(--amber-soft);color:#7a5400}
+  .callout.block{background:var(--red-soft);color:#8a2114}
+
+  /* prototype embed */
+  .proto{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;margin-top:14px}
+  .proto .bar{display:flex;align-items:center;gap:8px;padding:9px 12px;background:#f7f9fc;border-bottom:1px solid var(--line);font-size:12.5px;color:var(--muted)}
+  .proto .bar .dotrow{display:flex;gap:5px}
+  .proto .bar .dotrow i{width:10px;height:10px;border-radius:50%;display:block}
+  .proto .bar .u{background:#fff;border:1px solid var(--line);border-radius:7px;padding:3px 10px;font-family:ui-monospace,monospace;font-size:11.5px;color:#48526a}
+  .proto iframe{width:100%;height:560px;border:0;display:block;background:#fff}
+  .proto .ph{display:none;padding:40px;text-align:center;color:var(--muted)}
+
+  .seg{display:inline-flex;background:#eef1f6;border-radius:10px;padding:4px;gap:3px;flex-wrap:wrap}
+  .seg button{border:0;background:transparent;padding:7px 14px;border-radius:7px;font-size:13px;cursor:pointer;color:#48526a;font-weight:500}
+  .seg button.active{background:#fff;color:var(--primary);box-shadow:0 1px 3px rgba(0,0,0,.1)}
+
+  .story{background:#fafbfe;border:1px dashed var(--line);border-radius:10px;padding:12px 15px;font-size:13.5px;margin:6px 0}
+  .story b{color:var(--primary)}
+
+  .step{display:flex;gap:12px;margin:0 0 4px;align-items:flex-start}
+  .step .n{flex:0 0 24px;width:24px;height:24px;border-radius:50%;background:var(--primary);color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center;font-weight:700;margin-top:2px}
+  .step .c{font-size:13.5px;padding-bottom:8px}
+
+  .footer{color:var(--muted);font-size:12.5px;text-align:center;padding:24px}
+  .anchor{scroll-margin-top:80px}
+  .hide{display:none!important}
+</style>
+</head>
+<body>
+<div class="app">
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="logo">D</div>
+      <div><b>Dino English 运营平台</b><span>CRM · 迭代计划 + 交互式 PRD</span></div>
+    </div>
+    <nav class="nav" id="nav">
+      <div class="group">总览</div>
+      <a data-view="overview" class="active"><span class="num">00</span>文档概览</a>
+      <a data-view="roadmap"><span class="num">01</span>迭代计划 / 路线图</a>
+      <a data-view="mapping"><span class="num">02</span>需求拆解（会议纪要）</a>
+
+      <div class="group">一期 · 基础查询</div>
+      <a data-view="p1-channels"><span class="num">1.1</span>渠道管理<span class="tag-p1">P1期</span></a>
+      <a data-view="p1-users"><span class="num">1.2</span>用户基本信息查询<span class="tag-p1">P1期</span></a>
+      <a data-view="p1-orders"><span class="num">1.3</span>订单信息查询<span class="tag-p1">P1期</span></a>
+
+      <div class="group">二期 · 商业化配置</div>
+      <a data-view="p2-packages"><span class="num">2.1</span>课包管理<span class="tag-p2">P2期</span></a>
+      <a data-view="p2-coupons"><span class="num">2.2</span>优惠券管理<span class="tag-p2">P2期</span></a>
+
+      <div class="group">参考</div>
+      <a data-view="prototype"><span class="num">03</span>交互原型预览</a>
+      <a data-view="appendix"><span class="num">04</span>附录 / 数据字典</a>
+    </nav>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <div class="main">
+    <header class="topbar">
+      <h1 id="crumbTitle">文档概览</h1>
+      <span class="crumb" id="crumbSub">Product Requirement Document</span>
+      <div class="links">
+        <a class="btn" href="https://github.com/jiangshuang12345-tech/CRM.git" target="_blank">原型仓库 ↗</a>
+        <a class="btn primary" href="https://jiangshuang12345-tech.github.io/CRM/#/channels" target="_blank">打开在线原型 ↗</a>
+      </div>
+    </header>
+
+    <div class="wrap">
+
+      <!-- ====================== OVERVIEW ====================== -->
+      <section class="view active" id="view-overview">
+        <h2 class="title">Dino English 运营平台（CRM）产品需求文档</h2>
+        <p class="lead">本文档基于「CRM 与运营平台需求对齐」会议纪要，按业务诉求分期落地。一期聚焦<b>基础查询能力</b>（渠道、用户基本信息、订单信息），二期聚焦<b>商业化配置能力</b>（课包、优惠券）。文档内嵌可交互原型，可逐模块体验。</p>
+
+        <div class="grid c4">
+          <div class="card"><div class="kpi" style="color:var(--p1)">一期</div><div class="kpi-label">基础查询<br>渠道 · 用户 · 订单</div></div>
+          <div class="card"><div class="kpi" style="color:var(--p2)">二期</div><div class="kpi-label">商业化配置<br>课包 · 优惠券</div></div>
+          <div class="card"><div class="kpi">5</div><div class="kpi-label">已建原型模块<br>可点击交互</div></div>
+          <div class="card"><div class="kpi">5</div><div class="kpi-label">业务线<br>韩 / 沙 / 马 / 越 / 其他</div></div>
+        </div>
+
+        <h3>背景与目标</h3>
+        <div class="card">
+          <p style="margin-top:0">Dino English 面向海外多业务线（韩国 / 沙特 / 马来 / 越南 等）开展投放与运营。当前业务依赖人工散表查询用户与订单、渠道归因口径不统一、促销配置依赖研发。CRM 一期目标是<b>先把「查得到、看得清、能归因」做扎实</b>，让市场与客服同学自助完成日常查询；二期再把<b>商品（课包）与促销（优惠券）配置能力</b>交还运营，减少对研发的依赖。</p>
+          <div class="grid c3" style="margin-top:14px">
+            <div><h4>一期价值</h4><ul class="clean"><li>渠道结构标准化、可生成投放 code</li><li>用户注册按渠道 code 归因</li><li>用户 / 订单一处可查，替代散表</li></ul></div>
+            <div><h4>二期价值</h4><ul class="clean"><li>课包（商品）运营自助上下架</li><li>满减券自助配置发放</li><li>促销与商品打通，闭环可用</li></ul></div>
+            <div><h4>衡量指标</h4><ul class="clean"><li>用户/订单查询自助率 ≥ 90%</li><li>渠道归因覆盖率 ≥ 95%</li><li>促销配置不再依赖研发</li></ul></div>
+          </div>
+        </div>
+
+        <h3>分期范围一览</h3>
+        <table class="bordered">
+          <thead><tr><th style="width:130px">期次</th><th>模块</th><th style="width:120px">核心能力</th><th style="width:110px">优先级</th></tr></thead>
+          <tbody>
+            <tr><td rowspan="3"><span class="pill ph1">一期</span><br><span class="muted" style="font-size:12px">基础查询</span></td>
+              <td><b>渠道管理</b></td><td>分级 + 生码</td><td><span class="pill p0">P0</span></td></tr>
+            <tr><td><b>用户中心 · 基本信息查询</b></td><td>查询 + 改资料</td><td><span class="pill p0">P0</span></td></tr>
+            <tr><td><b>订单中心 · 订单信息查询</b></td><td>查询 + 筛选</td><td><span class="pill p0">P0</span></td></tr>
+            <tr><td rowspan="2"><span class="pill ph2">二期</span><br><span class="muted" style="font-size:12px">商业化配置</span></td>
+              <td><b>课包管理</b></td><td>增改 + 上下架</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td><b>优惠券管理</b></td><td>满减券配置</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td><span class="pill later">后续</span></td><td>标签体系 · 黑名单 · 角色权限 · 邀约/提报 · 第三方整合（Breeze/Apespire）· 活跃测试</td><td>暂不归因到一/二期</td><td><span class="pill p2">P2+</span></td></tr>
+          </tbody>
+        </table>
+
+        <div class="callout info" style="margin-top:18px"><div class="ic">💡</div><div>本 PRD 为<b>可交互文档</b>：左侧切换章节；每个模块内嵌真实原型（iframe），也可点「在线原型」按钮在新窗口打开。原型为纯前端 Mock（数据存浏览器 localStorage），登录仅支持 <code>@dinoai.ai</code> 邮箱，验证码会直接显示在页面提示中。</div></div>
+      </section>
+
+      <!-- ====================== ROADMAP ====================== -->
+      <section class="view" id="view-roadmap">
+        <h2 class="title">迭代计划 / 路线图</h2>
+        <p class="lead">按「先查询、后配置」的节奏分两期交付，先解决业务每天都要用的查询场景，再交付运营自助配置能力。下列时间为相对排期建议（可按实际研发资源调整）。</p>
+
+        <div class="grid" style="gap:18px">
+          <!-- phase 1 -->
+          <div class="phase one">
+            <div class="head"><span class="badge">一期</span><b>基础查询能力</b><span class="when">建议 3~4 周</span></div>
+            <div class="body">
+              <p class="goal">目标：渠道结构标准化并可生码归因；客服 / 运营可自助查询用户基本信息与订单信息，替代线下散表。</p>
+              <div class="feat"><div class="ic">🌿</div><div><div class="t">渠道管理 <span class="pill p0">P0</span></div><div class="d">渠道类型 → 一/二/三级渠道树；任意层级生成可复制的渠道 code。</div></div></div>
+              <div class="feat"><div class="ic">👤</div><div><div class="t">用户基本信息查询 <span class="pill p0">P0</span></div><div class="d">按 学生ID/姓名/手机号 搜索，业务线、状态筛选；可修改基本资料。</div></div></div>
+              <div class="feat"><div class="ic">🧾</div><div><div class="t">订单信息查询 <span class="pill p0">P0</span></div><div class="d">按 订单ID/学生ID/商品 搜索，订单状态、支付方式筛选。</div></div></div>
+              <h4>一期交付物 / 验收</h4>
+              <ul class="clean">
+                <li>渠道树可增删改、可生码并复制；用户注册渠道 code 与渠道树打通。</li>
+                <li>用户、订单列表查询、筛选、分页可用；字段口径与本 PRD 数据字典一致。</li>
+                <li>登录鉴权（@dinoai.ai 邮箱验证码）可用。</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- phase 2 -->
+          <div class="phase two">
+            <div class="head"><span class="badge">二期</span><b>商业化配置能力</b><span class="when">建议 3~4 周</span></div>
+            <div class="body">
+              <p class="goal">目标：把商品（课包）与促销（满减券）的配置能力交还运营，与订单 / 商品打通，形成「配置 → 发放 → 核销」闭环。</p>
+              <div class="feat"><div class="ic">📦</div><div><div class="t">课包管理 <span class="pill p1">P1</span></div><div class="d">新增/编辑/详情/上下架；业务线、币种、价格、有效期。</div></div></div>
+              <div class="feat"><div class="ic">🎟️</div><div><div class="t">优惠券管理 <span class="pill p1">P1</span></div><div class="d">满减券配置：发放规则、使用规则（按课包 ID 绑定可用商品）、满减权益；支持编辑/延长/停止发放。</div></div></div>
+              <h4>二期交付物 / 验收</h4>
+              <ul class="clean">
+                <li>课包可上下架，下架后不可被券绑定（前置校验）。</li>
+                <li>满减券可生成、可调整可用商品、可延长领取时间、可停止发放（二次确认）。</li>
+                <li>券与课包通过 <code>课包ID</code> 关联，币种与业务线一致。</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- phase 3 -->
+          <div class="phase three">
+            <div class="head"><span class="badge">后续</span><b>能力增强（暂不在本次范围）</b><span class="when">规划中</span></div>
+            <div class="body">
+              <p class="goal">会议纪要中提出但不在一 / 二期承诺范围的需求，记录在册、后续评估。</p>
+              <div class="grid c2">
+                <ul class="clean"><li>用户标签体系 & 黑名单识别</li><li>角色权限 / 数据权限（市场、销售、客服分权）</li><li>邀约场景 & 提报成单率统计</li></ul>
+                <ul class="clean"><li>第三方整合：Breeze 消息推送、Apespire 流量进度</li><li>商品品类丰富度扩展、活跃测试</li><li>非手机号注册支持、注册平台多样化</li></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3>依赖与里程碑</h3>
+        <table class="bordered">
+          <thead><tr><th style="width:120px">里程碑</th><th>内容</th><th style="width:140px">依赖 / 前置</th></tr></thead>
+          <tbody>
+            <tr><td><b>M1 · 一期上线</b></td><td>渠道 / 用户查询 / 订单查询 三模块可用</td><td>登录鉴权、渠道 code 口径确认</td></tr>
+            <tr><td><b>M2 · 二期上线</b></td><td>课包 + 优惠券配置闭环</td><td>依赖 M1 的课包/订单数据结构</td></tr>
+            <tr><td><b>M3 · 增强</b></td><td>标签 / 权限 / 第三方整合</td><td>依赖 M1、M2 沉淀的数据</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ====================== MAPPING ====================== -->
+      <section class="view" id="view-mapping">
+        <h2 class="title">需求拆解（基于会议纪要）</h2>
+        <p class="lead">下表将「CRM 与运营平台需求对齐」会议纪要中的诉求逐条映射到分期与对应模块，明确哪些进入一 / 二期、哪些后续评估，做到需求可追溯。</p>
+
+        <div class="card">
+          <img src="assets/meeting-notes.png" alt="会议纪要" style="width:100%;border-radius:10px;border:1px solid var(--line)" />
+          <p class="muted" style="font-size:12.5px;margin:10px 0 0">▲ 原始会议纪要：CRM 与运营平台需求对齐</p>
+        </div>
+
+        <h3>需求映射表</h3>
+        <table class="bordered">
+          <thead><tr><th style="width:150px">纪要议题</th><th>业务诉求</th><th style="width:120px">归属</th><th style="width:110px">期次</th></tr></thead>
+          <tbody>
+            <tr><td>系统定位与优先级</td><td>CRM 一期定位为「查得到」：渠道、用户、订单三段信息可查</td><td>全局</td><td><span class="pill ph1">一期</span></td></tr>
+            <tr><td>市场渠道管理</td><td>渠道分级体系（类型 → 多级渠道）</td><td>渠道管理</td><td><span class="pill ph1">一期</span></td></tr>
+            <tr><td>市场渠道管理</td><td>渠道生码机制：生成实际投放使用的渠道 code</td><td>渠道管理</td><td><span class="pill ph1">一期</span></td></tr>
+            <tr><td>用户数据体系</td><td>用户基本信息：注册平台、注册渠道、国家码、注册时间等</td><td>用户中心</td><td><span class="pill ph1">一期</span></td></tr>
+            <tr><td>用户数据体系</td><td>用户状态：注册 / 体验 / 付费 / 流失</td><td>用户中心</td><td><span class="pill ph1">一期</span></td></tr>
+            <tr><td>商品/订单</td><td>订单信息查询：订单状态、原价/实付、支付方式</td><td>订单中心</td><td><span class="pill ph1">一期</span></td></tr>
+            <tr><td>商品品类丰富度</td><td>课包（商品）配置、上下架、有效期</td><td>课包管理</td><td><span class="pill ph2">二期</span></td></tr>
+            <tr><td>优惠券系统</td><td>满减券配置：发放/使用规则、可用商品、满减权益</td><td>优惠券管理</td><td><span class="pill ph2">二期</span></td></tr>
+            <tr><td>用户数据体系</td><td>标签能力、黑名单识别</td><td>—</td><td><span class="pill later">后续</span></td></tr>
+            <tr><td>市场与销售运营</td><td>角色权限、邀约场景、提报成单率</td><td>—</td><td><span class="pill later">后续</span></td></tr>
+            <tr><td>第三方系统整合</td><td>Breeze 消息推送、Apespire 流量进度、第三方推送会话</td><td>—</td><td><span class="pill later">后续</span></td></tr>
+            <tr><td>商品/订单</td><td>活跃测试、非手机号注册支持</td><td>—</td><td><span class="pill later">后续</span></td></tr>
+          </tbody>
+        </table>
+
+        <div class="callout block" style="margin-top:18px"><div class="ic">⛔</div><div><b>核心阻塞与共识：</b>渠道 code 口径需在一期前与投放侧拉齐（生码规则 / 归因字段），否则用户注册渠道归因无法闭环。课包币种与业务线映射需固化（见附录），作为二期券与课包关联的前置。</div></div>
+      </section>
+
+      <!-- ====================== P1: CHANNELS ====================== -->
+      <section class="view" id="view-p1-channels">
+        <h2 class="title">1.1 渠道管理 <span class="pill ph1" style="vertical-align:middle">一期</span> <span class="pill p0" style="vertical-align:middle">P0</span></h2>
+        <p class="lead">维护标准化的渠道分级结构，并在任意层级生成实际投放使用的渠道 code，作为用户注册归因的唯一口径。</p>
+
+        <h3>用户故事</h3>
+        <div class="story">作为<b>市场投放同学</b>，我希望按「渠道类型 → 一级 → 二级 → 三级」维护渠道，并为具体投放位生成唯一 code，以便用户注册时能准确归因到来源。</div>
+
+        <h3>功能清单</h3>
+        <table class="bordered">
+          <thead><tr><th style="width:170px">功能点</th><th>说明</th><th style="width:90px">优先级</th></tr></thead>
+          <tbody>
+            <tr><td>新增渠道类型</td><td>如 自然流量 / landingpage / KOL，作为树的根</td><td><span class="pill p0">P0</span></td></tr>
+            <tr><td>分级渠道维护</td><td>在类型下逐级新增 一/二/三级渠道（如 国家 → 媒体 → 达人）</td><td><span class="pill p0">P0</span></td></tr>
+            <tr><td>生成 / 查看渠道 code</td><td>任意层级生成唯一 code，可一键复制；已生成则展示并支持复制</td><td><span class="pill p0">P0</span></td></tr>
+            <tr><td>重命名 / 删除</td><td>删除会级联删除其下级渠道与 code（二次确认）</td><td><span class="pill p1">P1</span></td></tr>
+          </tbody>
+        </table>
+
+        <h3>数据字典</h3>
+        <table class="bordered">
+          <thead><tr><th style="width:150px">字段</th><th>说明</th><th style="width:200px">示例 / 规则</th></tr></thead>
+          <tbody>
+            <tr><td>渠道类型</td><td>渠道树根节点</td><td>自然流量 / landingpage / KOL</td></tr>
+            <tr><td>渠道层级</td><td>一级 / 二级 / 三级</td><td>一期支持至三级，结构可扩展</td></tr>
+            <tr><td>渠道 code</td><td>实际投放/归因使用的唯一标识</td><td><code>natural_kr_aso_4f9k2a</code>（类型前缀 + 随机串）</td></tr>
+          </tbody>
+        </table>
+
+        <h3>关键交互流程</h3>
+        <div class="step"><div class="n">1</div><div class="c">点击「新增渠道类型」→ 输入名称（如 KOL）。</div></div>
+        <div class="step"><div class="n">2</div><div class="c">在类型/渠道节点 hover，点「+」逐级新增下级渠道。</div></div>
+        <div class="step"><div class="n">3</div><div class="c">在目标层级点闪电图标「生成 code」→ 弹窗展示 code → 复制。</div></div>
+        <div class="step"><div class="n">4</div><div class="c">该 code 即用于投放链接；用户由此注册时写入 <code>渠道 code</code>，在用户中心可见。</div></div>
+
+        <div class="callout info"><div class="ic">🔗</div><div>归因闭环：渠道 code 是「渠道管理」与「用户中心 / 订单」的连接键。务必与投放侧统一生码与回传口径。</div></div>
+
+        <div class="proto" data-route="channels"></div>
+      </section>
+
+      <!-- ====================== P1: USERS ====================== -->
+      <section class="view" id="view-p1-users">
+        <h2 class="title">1.2 用户基本信息查询 <span class="pill ph1" style="vertical-align:middle">一期</span> <span class="pill p0" style="vertical-align:middle">P0</span></h2>
+        <p class="lead">客服 / 运营按多条件检索学生（用户），查看其基本信息、注册归因与状态，并可维护可编辑的基础资料。</p>
+
+        <h3>用户故事</h3>
+        <div class="story">作为<b>客服同学</b>，我希望输入学生ID / 姓名 / 手机号即可查到该用户，并看到他的业务线、注册渠道、注册时间与当前状态，以便快速响应咨询。</div>
+
+        <h3>功能清单</h3>
+        <table class="bordered">
+          <thead><tr><th style="width:170px">功能点</th><th>说明</th><th style="width:90px">优先级</th></tr></thead>
+          <tbody>
+            <tr><td>关键字搜索</td><td>支持 学生ID / 姓名 / 手机号 模糊搜索</td><td><span class="pill p0">P0</span></td></tr>
+            <tr><td>条件筛选</td><td>业务线、用户状态（注册/体验/付费/流失）</td><td><span class="pill p0">P0</span></td></tr>
+            <tr><td>列表 + 分页</td><td>展示基本信息字段，支持分页与每页条数</td><td><span class="pill p0">P0</span></td></tr>
+            <tr><td>修改基本信息</td><td>英文名 / 本地名 / 性别 / 出生日期 / 业务线</td><td><span class="pill p1">P1</span></td></tr>
+          </tbody>
+        </table>
+
+        <h3>数据字典（列表字段）</h3>
+        <table class="bordered">
+          <thead><tr><th style="width:140px">字段</th><th>说明</th><th style="width:120px">可编辑</th></tr></thead>
+          <tbody>
+            <tr><td>学生ID</td><td>用户唯一标识</td><td>否</td></tr>
+            <tr><td>学生姓名 / 本地名</td><td>展示名 + 本地语言名</td><td>本地名可编辑</td></tr>
+            <tr><td>手机号</td><td>含国家码</td><td>否（一期）</td></tr>
+            <tr><td>所属业务线</td><td>韩国 / 沙特 / 马来 / 越南 / 其他</td><td>是</td></tr>
+            <tr><td>注册渠道 / 渠道 code</td><td>归因来源，关联渠道管理</td><td>否</td></tr>
+            <tr><td>注册地国家码 / 注册时间</td><td>国家码 + 北京时间</td><td>否</td></tr>
+            <tr><td>用户状态</td><td>注册 / 体验 / 付费 / 流失</td><td>否（系统流转）</td></tr>
+          </tbody>
+        </table>
+
+        <h3>关键交互流程</h3>
+        <div class="step"><div class="n">1</div><div class="c">输入关键字或选择业务线 / 状态 → 列表实时过滤。</div></div>
+        <div class="step"><div class="n">2</div><div class="c">点「修改信息」→ 弹窗编辑可编辑字段 → 保存。</div></div>
+
+        <div class="proto" data-route="users"></div>
+      </section>
+
+      <!-- ====================== P1: ORDERS ====================== -->
+      <section class="view" id="view-p1-orders">
+        <h2 class="title">1.3 订单信息查询 <span class="pill ph1" style="vertical-align:middle">一期</span> <span class="pill p0" style="vertical-align:middle">P0</span></h2>
+        <p class="lead">按多条件检索订单，查看商品、归属用户、金额与支付信息，支撑客服对账与退款核查。</p>
+
+        <h3>用户故事</h3>
+        <div class="story">作为<b>客服 / 财务同学</b>，我希望按订单ID / 学生ID / 商品检索订单，并能按订单状态、支付方式筛选，快速核对实付金额与支付时间。</div>
+
+        <h3>功能清单</h3>
+        <table class="bordered">
+          <thead><tr><th style="width:170px">功能点</th><th>说明</th><th style="width:90px">优先级</th></tr></thead>
+          <tbody>
+            <tr><td>关键字搜索</td><td>订单ID / 学生ID / 商品名称 模糊搜索</td><td><span class="pill p0">P0</span></td></tr>
+            <tr><td>条件筛选</td><td>订单状态（待支付/已支付/已退款/已取消）、支付方式</td><td><span class="pill p0">P0</span></td></tr>
+            <tr><td>列表 + 分页</td><td>原价 / 实付 / 币种 / 支付时间</td><td><span class="pill p0">P0</span></td></tr>
+          </tbody>
+        </table>
+
+        <h3>数据字典（列表字段）</h3>
+        <table class="bordered">
+          <thead><tr><th style="width:150px">字段</th><th>说明</th></tr></thead>
+          <tbody>
+            <tr><td>订单ID</td><td>订单唯一标识，如 <code>DN2026061800001</code></td></tr>
+            <tr><td>商品名称 / 学生ID</td><td>所购商品 + 归属用户</td></tr>
+            <tr><td>用户状态 / 订单状态</td><td>用户状态 + 订单状态双标签</td></tr>
+            <tr><td>原价 / 实际付款金额</td><td>含币种，按业务线本地币种或 USD 展示</td></tr>
+            <tr><td>支付方式</td><td>App Store / Google Play / Stripe / PayPal</td></tr>
+            <tr><td>成功支付时间</td><td>未支付为 —</td></tr>
+          </tbody>
+        </table>
+
+        <div class="callout warn"><div class="ic">📌</div><div>一期仅做<b>订单查询</b>，不含创建 / 退款操作；退款等写操作建议待权限体系（后续）就绪后再开放。</div></div>
+
+        <div class="proto" data-route="orders"></div>
+      </section>
+
+      <!-- ====================== P2: PACKAGES ====================== -->
+      <section class="view" id="view-p2-packages">
+        <h2 class="title">2.1 课包管理 <span class="pill ph2" style="vertical-align:middle">二期</span> <span class="pill p1" style="vertical-align:middle">P1</span></h2>
+        <p class="lead">运营自助维护课包（商品）：新增、编辑、查看详情、上下架，作为订单与优惠券绑定的商品基础。</p>
+
+        <h3>用户故事</h3>
+        <div class="story">作为<b>运营同学</b>，我希望自助创建课包（设置业务线、价格、币种、有效期）并控制上下架，无需每次找研发。</div>
+
+        <h3>功能清单</h3>
+        <table class="bordered">
+          <thead><tr><th style="width:170px">功能点</th><th>说明</th><th style="width:90px">优先级</th></tr></thead>
+          <tbody>
+            <tr><td>新增课包</td><td>业务线 / 名称 / 币种 / 价格 / 有效期；默认上架</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td>编辑课包</td><td>修改上述字段</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td>详情查看</td><td>含创建人、创建时间、状态</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td>上 / 下架</td><td>二次确认；下架后不可被新券绑定</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td>搜索 / 筛选</td><td>课包ID / 名称、业务线</td><td><span class="pill p1">P1</span></td></tr>
+          </tbody>
+        </table>
+
+        <h3>数据字典</h3>
+        <table class="bordered">
+          <thead><tr><th style="width:140px">字段</th><th>说明</th><th style="width:180px">规则</th></tr></thead>
+          <tbody>
+            <tr><td>课包ID</td><td>唯一标识</td><td><code>PKG1001</code></td></tr>
+            <tr><td>业务线</td><td>归属业务线</td><td>决定可选币种</td></tr>
+            <tr><td>币种</td><td>本地币种 + USD</td><td>见附录映射</td></tr>
+            <tr><td>价格 / 有效期</td><td>售价 + 起止时间</td><td>有效期为时间段</td></tr>
+            <tr><td>课包状态</td><td>上架 / 下架</td><td>下架不可售卖/绑券</td></tr>
+          </tbody>
+        </table>
+
+        <div class="callout info"><div class="ic">🔗</div><div>课包 <code>课包ID</code> 是二期优惠券「可用商品」的绑定键；优惠券通过课包 ID 回车搜索添加可用商品。</div></div>
+
+        <div class="proto" data-route="packages"></div>
+      </section>
+
+      <!-- ====================== P2: COUPONS ====================== -->
+      <section class="view" id="view-p2-coupons">
+        <h2 class="title">2.2 优惠券管理 <span class="pill ph2" style="vertical-align:middle">二期</span> <span class="pill p1" style="vertical-align:middle">P1</span></h2>
+        <p class="lead">运营自助配置满减券：定义发放/领取规则、使用规则（绑定可用课包）、满减权益，并支持编辑、延长、停止发放。</p>
+
+        <h3>用户故事</h3>
+        <div class="story">作为<b>运营同学</b>，我希望为某业务线生成满减券，设置发放数量、领取/使用有效期、可用课包与「满 X 减 Y」权益，并能在活动中途调整或停止发放。</div>
+
+        <h3>功能清单</h3>
+        <table class="bordered">
+          <thead><tr><th style="width:170px">功能点</th><th>说明</th><th style="width:90px">优先级</th></tr></thead>
+          <tbody>
+            <tr><td>生成券（选业务线）</td><td>先选业务类型 → 进入满减券表单（一期券类型仅满减券）</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td>发放及领取规则</td><td>发放数量、领取有效期</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td>使用规则</td><td>使用有效期 + 可用商品（按课包ID搜索添加）</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td>权益规则</td><td>满减：满 X 减 Y（抵扣 ≤ 门槛）</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td>编辑可用商品 / 延长领取时间</td><td>列表内操作</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td>停止发放</td><td>二次确认 → 领取状态置「已结束」</td><td><span class="pill p1">P1</span></td></tr>
+          </tbody>
+        </table>
+
+        <h3>数据字典</h3>
+        <table class="bordered">
+          <thead><tr><th style="width:150px">字段</th><th>说明</th></tr></thead>
+          <tbody>
+            <tr><td>券ID / 券码</td><td>唯一标识 + 12 位券码</td></tr>
+            <tr><td>业务线 / 币种</td><td>生成时锁定，与课包一致</td></tr>
+            <tr><td>券总量 / 剩余数量</td><td>发放总量与库存</td></tr>
+            <tr><td>领取有效期 / 使用有效期</td><td>两段独立时间</td></tr>
+            <tr><td>可用商品</td><td>课包列表（ID / 用户侧名称 / 现价）</td></tr>
+            <tr><td>满减规则</td><td>满 thresholdAmount 减 deductAmount</td></tr>
+            <tr><td>领取状态</td><td>已生效 / 已结束</td></tr>
+          </tbody>
+        </table>
+
+        <h3>关键业务规则</h3>
+        <ul class="clean">
+          <li>抵扣金额不得大于门槛金额（表单校验）。</li>
+          <li>可用商品必须为<b>已存在的课包</b>，按课包 ID 校验，不存在则报错。</li>
+          <li>停止发放后不可继续领取；领取截止时间可向后延长以恢复「已生效」。</li>
+          <li>券币种、业务线与所绑课包须一致（前置约束）。</li>
+        </ul>
+
+        <div class="proto" data-route="coupons"></div>
+      </section>
+
+      <!-- ====================== PROTOTYPE ====================== -->
+      <section class="view" id="view-prototype">
+        <h2 class="title">交互原型预览</h2>
+        <p class="lead">下方为完整在线原型，可在各模块间自由切换体验。原型为纯前端 Mock，登录仅支持 <code>@dinoai.ai</code> 邮箱，点「获取验证码」后验证码会显示在提示中。</p>
+
+        <div class="seg" id="protoSeg" style="margin-bottom:14px">
+          <button data-route="channels" class="active">渠道管理</button>
+          <button data-route="users">用户中心</button>
+          <button data-route="orders">订单中心</button>
+          <button data-route="packages">课包管理</button>
+          <button data-route="coupons">优惠券管理</button>
+        </div>
+
+        <div class="proto" id="bigProto" style="margin-top:0"></div>
+        <p class="muted" style="font-size:12.5px;margin-top:10px">若内嵌页面无法加载，请点右上角「打开在线原型」在新窗口访问。</p>
+      </section>
+
+      <!-- ====================== APPENDIX ====================== -->
+      <section class="view" id="view-appendix">
+        <h2 class="title">附录 / 数据字典</h2>
+        <p class="lead">跨模块的公共定义：业务线与币种 / 国家码映射、状态枚举、术语表。</p>
+
+        <h3>业务线 · 币种 · 国家码映射</h3>
+        <table class="bordered">
+          <thead><tr><th>业务线</th><th>本地币种</th><th>国家码</th><th>可选币种</th></tr></thead>
+          <tbody>
+            <tr><td>韩国</td><td>韩元 KRW</td><td>+82</td><td>KRW / USD</td></tr>
+            <tr><td>沙特</td><td>里亚尔 SAR</td><td>+966</td><td>SAR / USD</td></tr>
+            <tr><td>马来</td><td>林吉特 MYR</td><td>+60</td><td>MYR / USD</td></tr>
+            <tr><td>越南</td><td>越南盾 VND</td><td>+84</td><td>VND / USD</td></tr>
+            <tr><td>其他</td><td>美元 USD</td><td>+1</td><td>USD</td></tr>
+          </tbody>
+        </table>
+
+        <h3>状态枚举</h3>
+        <div class="grid c3">
+          <div class="card"><h4 style="margin-top:0">用户状态</h4><ul class="clean"><li>注册</li><li>体验</li><li>付费</li><li>流失</li></ul></div>
+          <div class="card"><h4 style="margin-top:0">订单状态</h4><ul class="clean"><li>待支付</li><li>已支付</li><li>已退款</li><li>已取消</li></ul></div>
+          <div class="card"><h4 style="margin-top:0">课包 / 券状态</h4><ul class="clean"><li>课包：上架 / 下架</li><li>券：已生效 / 已结束</li></ul></div>
+        </div>
+
+        <h3>术语表</h3>
+        <table class="bordered">
+          <thead><tr><th style="width:160px">术语</th><th>含义</th></tr></thead>
+          <tbody>
+            <tr><td>渠道 code</td><td>投放与归因的唯一标识，由渠道管理生成</td></tr>
+            <tr><td>业务线</td><td>按国家 / 地区划分的运营单元</td></tr>
+            <tr><td>课包</td><td>面向用户售卖的商品（课程包）</td></tr>
+            <tr><td>满减券</td><td>满 X 减 Y 的优惠券，绑定可用课包</td></tr>
+          </tbody>
+        </table>
+
+        <h3>相关链接</h3>
+        <div class="card">
+          <ul class="clean">
+            <li>原型仓库：<a href="https://github.com/jiangshuang12345-tech/CRM.git" target="_blank">github.com/jiangshuang12345-tech/CRM</a></li>
+            <li>在线原型：<a href="https://jiangshuang12345-tech.github.io/CRM/#/channels" target="_blank">jiangshuang12345-tech.github.io/CRM</a></li>
+            <li>技术栈：Vite + React + TypeScript + Ant Design 5（纯前端 Mock，localStorage）</li>
+          </ul>
+        </div>
+      </section>
+
+      <div class="footer">Dino English 运营平台（CRM）· 迭代计划 + 交互式 PRD · 基于会议纪要整理</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const PROTO_BASE = 'https://jiangshuang12345-tech.github.io/CRM/#/';
+  const ROUTE_NAME = {channels:'渠道管理',users:'用户中心',orders:'订单中心',packages:'课包管理',coupons:'优惠券管理'};
+  const VIEW_TITLE = {
+    overview:'文档概览', roadmap:'迭代计划 / 路线图', mapping:'需求拆解（会议纪要）',
+    'p1-channels':'渠道管理', 'p1-users':'用户基本信息查询', 'p1-orders':'订单信息查询',
+    'p2-packages':'课包管理', 'p2-coupons':'优惠券管理',
+    prototype:'交互原型预览', appendix:'附录 / 数据字典'
+  };
+  const VIEW_SUB = {
+    overview:'Overview', roadmap:'Roadmap', mapping:'Requirement Mapping',
+    'p1-channels':'一期 · P0', 'p1-users':'一期 · P0', 'p1-orders':'一期 · P0',
+    'p2-packages':'二期 · P1', 'p2-coupons':'二期 · P1',
+    prototype:'Live Prototype', appendix:'Appendix'
+  };
+
+  // build iframe lazily for a .proto container
+  function ensureIframe(box, route){
+    if(box.dataset.loaded === route) return;
+    box.dataset.loaded = route;
+    box.innerHTML = ''
+      + '<div class="bar"><div class="dotrow"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></div>'
+      + '<span class="u">'+PROTO_BASE+route+'</span>'
+      + '<a class="btn" style="margin-left:auto;padding:3px 10px;font-size:12px" target="_blank" href="'+PROTO_BASE+route+'">新窗口打开 ↗</a></div>'
+      + '<iframe loading="lazy" src="'+PROTO_BASE+route+'" title="'+ROUTE_NAME[route]+'"></iframe>';
+  }
+
+  function showView(view){
+    document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+    const el = document.getElementById('view-'+view);
+    if(el) el.classList.add('active');
+    document.querySelectorAll('#nav a').forEach(a=>a.classList.toggle('active', a.dataset.view===view));
+    document.getElementById('crumbTitle').textContent = VIEW_TITLE[view] || view;
+    document.getElementById('crumbSub').textContent = VIEW_SUB[view] || '';
+    // load any prototype embeds in this view
+    el && el.querySelectorAll('.proto[data-route]').forEach(box=>ensureIframe(box, box.dataset.route));
+    if(view==='prototype') ensureIframe(document.getElementById('bigProto'), currentBigRoute);
+    window.scrollTo({top:0,behavior:'smooth'});
+    if(location.hash.slice(1)!==view) history.replaceState(null,'','#'+view);
+  }
+
+  document.querySelectorAll('#nav a').forEach(a=>{
+    a.addEventListener('click',()=>showView(a.dataset.view));
+  });
+
+  // big prototype segmented control
+  let currentBigRoute = 'channels';
+  document.querySelectorAll('#protoSeg button').forEach(b=>{
+    b.addEventListener('click',()=>{
+      document.querySelectorAll('#protoSeg button').forEach(x=>x.classList.remove('active'));
+      b.classList.add('active');
+      currentBigRoute = b.dataset.route;
+      const box = document.getElementById('bigProto');
+      box.dataset.loaded = '';
+      ensureIframe(box, currentBigRoute);
+    });
+  });
+
+  // init from hash
+  const initial = location.hash.slice(1);
+  showView(VIEW_TITLE[initial] ? initial : 'overview');
+</script>
+</body>
+</html>
