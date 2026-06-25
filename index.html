@@ -188,7 +188,7 @@
         <h2 class="title">Dino English 运营平台（CRM）产品需求文档</h2>
         <p class="lead">本文档基于「CRM 与运营平台需求对齐」会议纪要，按业务诉求分期落地。一期聚焦<b>基础查询能力</b>（渠道、用户基本信息、订单信息），二期聚焦<b>商业化配置能力</b>（商品包、优惠券）。文档内嵌可交互原型，可逐模块体验。</p>
 
-        <div class="callout warn"><div class="ic">🔄</div><div><b>本次同步原型变更：</b>① <b>课包统一更名为「商品包」</b>（全平台导航、字段、文案）；② 优惠券支持<b>一券多优惠码（按 KOL）</b>，分别统计使用量用于结算，新增「管理优惠码」与批量复制；③ <b>新增「落地页管理」模块</b>（二期）：一键关联渠道 + 商品包 + 优惠码生成投放链接，按业务线模版拼装。<br><span class="muted">前序变更：渠道树顶层「业务线」+7 位随机 code；用户中心列与搜索调整（到期时间/最近修改人）；订单中心新增所属业务线与有效期；多语言（中/英/韩/阿）与业务线全局筛选。详见各模块「本期更新」。</span></div></div>
+        <div class="callout warn"><div class="ic">🔄</div><div><b>本次同步原型变更：</b><b>用户中心编辑弹窗「业务线」改为只读</b>——由注册渠道决定、不允许修改（仅可改 本地名 / 性别 / 出生日期）。<br><span class="muted">前序变更：课包统一更名为「商品包」；优惠券支持一券多优惠码（按 KOL）独立统计用于结算；新增「落地页管理」模块（二期）；渠道树顶层「业务线」+7 位随机 code；用户中心列与搜索调整（到期时间/最近修改人）；订单中心新增所属业务线与有效期；多语言（中/英/韩/阿）与业务线全局筛选。详见各模块「本期更新」。</span></div></div>
 
         <div class="grid c4">
           <div class="card"><div class="kpi" style="color:var(--p1)">一期</div><div class="kpi-label">基础查询<br>渠道 · 用户 · 订单</div></div>
@@ -380,7 +380,7 @@
         <h3>用户故事</h3>
         <div class="story">作为<b>客服同学</b>，我希望输入学生ID / 姓名 / 登录账号 / 手机号即可查到该用户，并看到他的注册方式、登录账号、业务线、注册渠道、注册时间与当前状态，以便快速响应咨询——即使用户用谷歌邮箱 / Facebook / AppID 等<b>非手机号方式</b>注册也能查到。</div>
 
-        <div class="callout info"><div class="ic">🆕</div><div><b>本期更新：</b>列表<b>移除「手机号」「注册地国家码」两列</b>（手机号已并入登录账号：kakao / 手机号 方式的登录账号即手机号）；「注册渠道」列改为展示 <b>业务线 · 渠道</b>；<b>新增「到期时间」「最近修改人」两列</b>；关键字搜索维度调整为 <b>用户ID / 姓名 / 登录账号</b>；业务线筛选改为<b>全局共享</b>（与订单中心联动）。</div></div>
+        <div class="callout info"><div class="ic">🆕</div><div><b>本期更新：</b>编辑弹窗中<b>「业务线」改为只读</b>——由注册渠道决定、不允许修改（仅可改 本地名 / 性别 / 出生日期）。<br><span class="muted">前序：列表移除「手机号」「注册地国家码」两列（手机号已并入登录账号）；「注册渠道」列展示 业务线 · 渠道；新增「到期时间」「最近修改人」两列；关键字搜索为 用户ID / 姓名 / 登录账号；业务线筛选全局共享（与订单中心联动）。</span></div></div>
 
         <h3>功能清单</h3>
         <table class="bordered">
@@ -391,7 +391,7 @@
             <tr><td>条件筛选</td><td>业务线（全局共享）、用户状态（注册/体验/付费/流失）</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td>列表 + 分页</td><td>展示基本信息字段，支持分页与每页条数</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td>到期时间 / 最近修改人 <span class="pill ph1" style="font-size:10px">新增</span></td><td>展示会员到期时间（无则—）与最近一次资料修改人（无则—）</td><td><span class="pill p0">P0</span></td></tr>
-            <tr><td>修改基本信息</td><td>本地名 / 性别 / 出生日期 / 业务线；保存后记录「最近修改人」</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td>修改基本信息</td><td>本地名 / 性别 / 出生日期；保存后记录「最近修改人」（<b>业务线只读，由注册渠道决定，不可修改</b>）</td><td><span class="pill p1">P1</span></td></tr>
           </tbody>
         </table>
 
@@ -404,7 +404,7 @@
             <tr><td>注册方式</td><td>谷歌邮箱 / Facebook / kakao / 手机号 / AppID</td><td>否</td></tr>
             <tr><td>登录账号</td><td>邮箱 / Facebook / kakao ID / AppID / 手机号</td><td>否</td></tr>
             <tr><td>注册渠道</td><td>展示「业务线 · 渠道」，关联渠道管理</td><td>否</td></tr>
-            <tr><td>所属业务线</td><td>业务线（与渠道管理业务线一致）</td><td>是</td></tr>
+            <tr><td>所属业务线</td><td>业务线（与渠道管理业务线一致）；编辑弹窗中<b>只读展示</b>，由注册渠道决定</td><td>否</td></tr>
             <tr><td>渠道 code</td><td>归因来源 code</td><td>否</td></tr>
             <tr><td>注册时间</td><td>北京时间</td><td>否</td></tr>
             <tr><td>到期时间 <span class="pill ph1" style="font-size:10px">新增</span></td><td>会员/商品包到期时间，无则显示「—」</td><td>否</td></tr>
@@ -440,7 +440,7 @@
         <h3>关键交互流程</h3>
         <div class="step"><div class="n">1</div><div class="c">输入关键字（用户ID/姓名/登录账号）或选择业务线（全局）/ 用户状态 → 列表实时过滤。</div></div>
         <div class="step"><div class="n">2</div><div class="c">查看「注册方式」「登录账号」列定位用户来源；非手机号方式登录账号为邮箱/第三方账号。</div></div>
-        <div class="step"><div class="n">3</div><div class="c">点「修改信息」→ 弹窗编辑本地名 / 性别 / 出生日期 / 业务线 → 保存，系统记录「最近修改人」。</div></div>
+        <div class="step"><div class="n">3</div><div class="c">点「修改信息」→ 弹窗编辑本地名 / 性别 / 出生日期 → 保存，系统记录「最近修改人」（业务线在弹窗中只读，由注册渠道决定）。</div></div>
 
         <div class="proto" data-route="users"></div>
       </section>

@@ -16,7 +16,6 @@ import { EditOutlined, SearchOutlined } from '@ant-design/icons'
 import type { ColumnsType } from 'antd/es/table'
 import dayjs from 'dayjs'
 import { setState, useStore } from '../store'
-import { BUSINESS_LINES } from '../types'
 import type { LoginMethod, Student, UserStatus } from '../types'
 import { useSession } from '../auth'
 import { useI18n } from '../i18n'
@@ -90,7 +89,6 @@ export default function UserCenter() {
               localName: v.localName,
               gender: v.gender,
               birthday: v.birthday ? v.birthday.format('YYYY-MM-DD') : undefined,
-              businessLine: v.businessLine,
               lastModifier: session?.email ?? 'admin@dinoai.ai',
             }
           : s,
@@ -219,12 +217,8 @@ export default function UserCenter() {
           <Form.Item name="birthday" label={t('user.label.birthday')}>
             <DatePicker style={{ width: '100%' }} placeholder={t('user.birthdayPlaceholder')} />
           </Form.Item>
-          <Form.Item name="businessLine" label={t('user.col.line')} rules={[{ required: true, message: t('common.pleaseSelect') }]}>
-            <Select
-              showSearch
-              placeholder={t('common.pleaseSelect')}
-              options={BUSINESS_LINES.map((c) => ({ label: c, value: c }))}
-            />
+          <Form.Item label={t('user.col.line')} tooltip={t('user.lineReadonly')}>
+            <Input value={editing?.businessLine} disabled />
           </Form.Item>
         </Form>
       </Modal>
