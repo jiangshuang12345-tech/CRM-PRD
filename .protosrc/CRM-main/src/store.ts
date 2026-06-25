@@ -1,16 +1,20 @@
 import { useSyncExternalStore } from 'react'
 import dayjs from 'dayjs'
 import type {
+  Account,
+  AuditLog,
   ChannelLine,
   Coupon,
   CoursePackage,
   LandingPage,
+  ModuleKey,
   Order,
+  Role,
   Student,
 } from './types'
 import { LINE_CURRENCY } from './types'
 
-const KEY = 'dinoai_crm_state_v17'
+const KEY = 'dinoai_crm_state_v19'
 
 export type AppState = {
   channels: ChannelLine[]
@@ -19,6 +23,9 @@ export type AppState = {
   packages: CoursePackage[]
   coupons: Coupon[]
   landingPages: LandingPage[]
+  roles: Role[]
+  accounts: Account[]
+  logs: AuditLog[]
 }
 
 const listeners = new Set<() => void>()
@@ -330,5 +337,197 @@ function seed(): AppState {
     },
   ]
 
-  return { channels, students, orders, packages, coupons, landingPages }
+  const roles: Role[] = [
+    {
+      id: 'role_growth',
+      name: '市场投放 / 增长',
+      desc: '渠道管理、落地页（生码 + 归因 + 投放链接）',
+      builtin: true,
+      dataScope: 'line',
+      perms: {
+        channels: 'operate',
+        landing: 'operate',
+        packages: 'view',
+        coupons: 'view',
+        users: 'none',
+        orders: 'none',
+        finance: 'none',
+        system: 'none',
+      },
+    },
+    {
+      id: 'role_ops',
+      name: '运营 / 商业化',
+      desc: '商品包、优惠券、落地页，后期触达 / 服务编排',
+      builtin: true,
+      dataScope: 'line',
+      perms: {
+        channels: 'view',
+        landing: 'operate',
+        packages: 'operate',
+        coupons: 'operate',
+        users: 'view',
+        orders: 'view',
+        finance: 'none',
+        system: 'none',
+      },
+    },
+    {
+      id: 'role_support',
+      name: '客服 / 用户支持',
+      desc: '用户中心、订单中心，后期单点触达答疑 / 关怀',
+      builtin: true,
+      dataScope: 'line',
+      perms: {
+        channels: 'none',
+        landing: 'none',
+        packages: 'none',
+        coupons: 'none',
+        users: 'operate',
+        orders: 'view',
+        finance: 'none',
+        system: 'none',
+      },
+    },
+    {
+      id: 'role_finance',
+      name: '财务 / 商业分析',
+      desc: '订单对账、优惠码按 KOL 结算',
+      builtin: true,
+      dataScope: 'all',
+      perms: {
+        channels: 'none',
+        landing: 'none',
+        packages: 'view',
+        coupons: 'view',
+        users: 'view',
+        orders: 'view',
+        finance: 'operate',
+        system: 'none',
+      },
+    },
+    {
+      id: 'role_admin',
+      name: '管理员 / 系统配置',
+      desc: '账号鉴权、业务线 / 模版，角色权限',
+      builtin: true,
+      dataScope: 'all',
+      perms: {
+        channels: 'operate',
+        landing: 'operate',
+        packages: 'operate',
+        coupons: 'operate',
+        users: 'operate',
+        orders: 'operate',
+        finance: 'operate',
+        system: 'operate',
+      },
+    },
+    {
+      id: 'role_mentor',
+      name: '学习服务 / 班主任',
+      desc: '体验跟进、续费引导、流失挽回（后期随服务节点引入）',
+      builtin: true,
+      planned: true,
+      dataScope: 'line',
+      perms: {
+        channels: 'none',
+        landing: 'none',
+        packages: 'none',
+        coupons: 'none',
+        users: 'view',
+        orders: 'view',
+        finance: 'none',
+        system: 'none',
+      },
+    },
+  ]
+
+  const accounts: Account[] = [
+    {
+      id: uid('acc_'),
+      email: 'admin@dinoai.ai',
+      name: '系统管理员',
+      roleId: 'role_admin',
+      businessLines: [],
+      status: '启用',
+      lastLogin: now.subtract(1, 'hour').format('YYYY-MM-DD HH:mm:ss'),
+    },
+    {
+      id: uid('acc_'),
+      email: 'growth.kr@dinoai.ai',
+      name: '金敏修',
+      roleId: 'role_growth',
+      businessLines: ['韩国'],
+      status: '启用',
+      lastLogin: now.subtract(3, 'hour').format('YYYY-MM-DD HH:mm:ss'),
+    },
+    {
+      id: uid('acc_'),
+      email: 'ops.vn@dinoai.ai',
+      name: 'Trần Thị B',
+      roleId: 'role_ops',
+      businessLines: ['越南', '泰国'],
+      status: '启用',
+      lastLogin: now.subtract(1, 'day').format('YYYY-MM-DD HH:mm:ss'),
+    },
+    {
+      id: uid('acc_'),
+      email: 'cs.sa@dinoai.ai',
+      name: 'Sara Al-Otaibi',
+      roleId: 'role_support',
+      businessLines: ['沙特'],
+      status: '启用',
+      lastLogin: now.subtract(2, 'day').format('YYYY-MM-DD HH:mm:ss'),
+    },
+    {
+      id: uid('acc_'),
+      email: 'finance@dinoai.ai',
+      name: '李雪',
+      roleId: 'role_finance',
+      businessLines: [],
+      status: '启用',
+      lastLogin: now.subtract(5, 'hour').format('YYYY-MM-DD HH:mm:ss'),
+    },
+    {
+      id: uid('acc_'),
+      email: 'mentor.kr@dinoai.ai',
+      name: '박지은',
+      roleId: 'role_mentor',
+      businessLines: ['韩国'],
+      status: '停用',
+    },
+  ]
+
+  const logs: AuditLog[] = [
+    {
+      id: uid('log_'),
+      time: now.subtract(1, 'hour').format('YYYY-MM-DD HH:mm:ss'),
+      actor: 'admin@dinoai.ai',
+      module: 'system',
+      action: '更新角色权限',
+      target: '客服 / 用户支持',
+    },
+    {
+      id: uid('log_'),
+      time: now.subtract(3, 'hour').format('YYYY-MM-DD HH:mm:ss'),
+      actor: 'admin@dinoai.ai',
+      module: 'system',
+      action: '新增成员',
+      target: 'ops.vn@dinoai.ai',
+    },
+  ]
+
+  return { channels, students, orders, packages, coupons, landingPages, roles, accounts, logs }
+}
+
+// ---------- 操作日志 ----------
+export function addLog(entry: { actor: string; module: ModuleKey; action: string; target?: string }) {
+  const log: AuditLog = {
+    id: uid('log_'),
+    time: dayjs().format('YYYY-MM-DD HH:mm:ss'),
+    ...entry,
+  }
+  state = { ...state, logs: [log, ...state.logs].slice(0, 300) }
+  emit()
 }

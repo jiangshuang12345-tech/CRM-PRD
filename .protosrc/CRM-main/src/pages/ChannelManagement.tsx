@@ -26,6 +26,7 @@ import type { DataNode } from 'antd/es/tree'
 import { genChannelCode, setState, uid, useStore } from '../store'
 import type { ChannelLevelNode, ChannelLine, ChannelType } from '../types'
 import { useI18n } from '../i18n'
+import { usePerm } from '../perm'
 
 const { Text } = Typography
 const LEVEL_COLOR = ['', 'blue', 'cyan', 'green']
@@ -39,6 +40,8 @@ type AddCtx =
 export default function ChannelManagement() {
   const { t } = useI18n()
   const channels = useStore((s) => s.channels)
+  const { can } = usePerm()
+  const canEdit = can('channels') === 'operate'
   const [addCtx, setAddCtx] = useState<AddCtx | null>(null)
   const [renameNode, setRenameNode] = useState<{ id: string; name: string } | null>(null)
   const [form] = Form.useForm()
@@ -229,6 +232,7 @@ export default function ChannelManagement() {
           code: {n.code}
         </Tag>
       )}
+      {canEdit && (
       <Space size={2} className="node-actions">
         {n.level < 3 && (
           <Tooltip title={t('ch.addChild', { level: levelLabel((n.level + 1) as 1 | 2 | 3) })}>
@@ -266,6 +270,7 @@ export default function ChannelManagement() {
           <Button type="text" size="small" danger icon={<DeleteOutlined />} onClick={() => deleteLevel(lineId, typeId, n.id)} />
         </Tooltip>
       </Space>
+      )}
     </span>
   )
 
@@ -281,6 +286,7 @@ export default function ChannelManagement() {
         {t('ch.type')}
       </Tag>
       <Text strong>{tp.name}</Text>
+      {canEdit && (
       <Space size={2} className="node-actions">
         <Tooltip title={t('ch.addChild', { level: levelLabel(1) })}>
           <Button
@@ -305,6 +311,7 @@ export default function ChannelManagement() {
           <Button type="text" size="small" danger icon={<DeleteOutlined />} onClick={() => deleteType(lineId, tp.id)} />
         </Tooltip>
       </Space>
+      )}
     </span>
   )
 
@@ -316,6 +323,7 @@ export default function ChannelManagement() {
           {t('ch.line')}
         </Tag>
         <Text strong>{line.name}</Text>
+        {canEdit && (
         <Space size={2} className="node-actions">
           <Tooltip title={t('ch.addType')}>
             <Button
@@ -340,6 +348,7 @@ export default function ChannelManagement() {
             <Button type="text" size="small" danger icon={<DeleteOutlined />} onClick={() => deleteLine(line.id)} />
           </Tooltip>
         </Space>
+        )}
       </span>
     ),
     children: line.children.map((tp) => ({
@@ -355,9 +364,11 @@ export default function ChannelManagement() {
       bordered={false}
       title={<span className="section-title">{t('ch.title')}</span>}
       extra={
-        <Button type="primary" icon={<PlusOutlined />} onClick={() => openAdd({ kind: 'line' })}>
-          {t('ch.addLine')}
-        </Button>
+        canEdit ? (
+          <Button type="primary" icon={<PlusOutlined />} onClick={() => openAdd({ kind: 'line' })}>
+            {t('ch.addLine')}
+          </Button>
+        ) : null
       }
     >
       <style>{`

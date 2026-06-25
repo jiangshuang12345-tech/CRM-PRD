@@ -15,10 +15,10 @@ import {
 import { EditOutlined, SearchOutlined } from '@ant-design/icons'
 import type { ColumnsType } from 'antd/es/table'
 import dayjs from 'dayjs'
-import { setState, useStore } from '../store'
+import { addLog, setState, useStore } from '../store'
 import type { LoginMethod, Student, UserStatus } from '../types'
-import { useSession } from '../auth'
 import { useI18n } from '../i18n'
+import { usePerm } from '../perm'
 import { setBizFilter, useBizFilter } from '../bizFilter'
 
 const { Text } = Typography
@@ -42,18 +42,25 @@ export default function UserCenter() {
   const { t } = useI18n()
   const students = useStore((s) => s.students)
   const channels = useStore((s) => s.channels)
-  const session = useSession()
+  const { can, allowedLines, actor } = usePerm()
+  const canEdit = can('users') === 'operate'
+  const scope = allowedLines()
   const [keyword, setKeyword] = useState('')
   const lineFilter = useBizFilter()
   const [statusFilter, setStatusFilter] = useState<string | undefined>()
   const [editing, setEditing] = useState<Student | null>(null)
   const [form] = Form.useForm()
 
-  const lines = useMemo(() => channels.map((c) => c.name), [channels])
+  // 数据范围内的业务线（null 表示全部）
+  const lines = useMemo(() => {
+    const all = channels.map((c) => c.name)
+    return scope ? all.filter((l) => scope.includes(l)) : all
+  }, [channels, scope])
 
   const data = useMemo(
     () =>
       students.filter((s) => {
+        if (scope && !scope.includes(s.businessLine)) return false
         const kw = keyword.trim().toLowerCase()
         const matchKw =
           !kw ||
@@ -64,7 +71,7 @@ export default function UserCenter() {
         const matchStatus = !statusFilter || s.status === statusFilter
         return matchKw && matchLine && matchStatus
       }),
-    [students, keyword, lineFilter, statusFilter],
+    [students, keyword, lineFilter, statusFilter, scope],
   )
 
   const openEdit = (s: Student) => {
@@ -89,11 +96,12 @@ export default function UserCenter() {
               localName: v.localName,
               gender: v.gender,
               birthday: v.birthday ? v.birthday.format('YYYY-MM-DD') : undefined,
-              lastModifier: session?.email ?? 'admin@dinoai.ai',
+              lastModifier: actor,
             }
           : s,
       ),
     }))
+    addLog({ actor, module: 'users', action: t('user.log.edit'), target: editing.studentId })
     setEditing(null)
   }
 
@@ -144,17 +152,21 @@ export default function UserCenter() {
       width: 180,
       render: (v: string | undefined) => (v ? v : <Text type="secondary">—</Text>),
     },
-    {
-      title: t('common.action'),
-      key: 'action',
-      width: 120,
-      fixed: 'right',
-      render: (_, r) => (
-        <Button type="link" icon={<EditOutlined />} onClick={() => openEdit(r)}>
-          {t('user.editInfo')}
-        </Button>
-      ),
-    },
+    ...(canEdit
+      ? [
+          {
+            title: t('common.action'),
+            key: 'action',
+            width: 120,
+            fixed: 'right' as const,
+            render: (_: unknown, r: Student) => (
+              <Button type="link" icon={<EditOutlined />} onClick={() => openEdit(r)}>
+                {t('user.editInfo')}
+              </Button>
+            ),
+          },
+        ]
+      : []),
   ]
 
   return (

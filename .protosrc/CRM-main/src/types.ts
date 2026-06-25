@@ -122,6 +122,67 @@ export type LandingPage = {
   createdAt: string
 }
 
+// ---------- 角色权限（RBAC） ----------
+// 权限级别：无权限 / 只读 / 可操作
+export type PermLevel = 'none' | 'view' | 'operate'
+
+// 数据权限：全部业务线 / 指定业务线
+export type DataScope = 'all' | 'line'
+
+// 受权限管控的功能模块
+export type ModuleKey =
+  | 'channels'
+  | 'landing'
+  | 'packages'
+  | 'coupons'
+  | 'users'
+  | 'orders'
+  | 'finance'
+  | 'system'
+
+export const PERMISSION_MODULES: ModuleKey[] = [
+  'channels',
+  'landing',
+  'packages',
+  'coupons',
+  'users',
+  'orders',
+  'finance',
+  'system',
+]
+
+export type Role = {
+  id: string
+  name: string
+  desc: string
+  builtin: boolean // 内置角色（不可删除）
+  planned?: boolean // 后期随服务节点引入
+  dataScope: DataScope
+  perms: Record<ModuleKey, PermLevel>
+}
+
+export type AccountStatus = '启用' | '停用'
+
+export type Account = {
+  id: string
+  email: string
+  name: string
+  roleId: string
+  businessLines: string[] // 数据权限范围（dataScope='line' 时生效）
+  status: AccountStatus
+  lastLogin?: string
+}
+
+// 操作日志（审计）
+export type AuditLog = {
+  id: string
+  time: string
+  actor: string // 操作人邮箱
+  module: ModuleKey
+  action: string // 动作描述
+  target?: string // 操作对象
+}
+
 export type CouponStatus = '已生效' | '已结束'
 
 export type CouponProduct = {

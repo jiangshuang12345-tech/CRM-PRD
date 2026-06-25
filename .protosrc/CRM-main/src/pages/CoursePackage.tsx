@@ -19,11 +19,11 @@ import {
 import { PlusOutlined, SearchOutlined } from '@ant-design/icons'
 import type { ColumnsType } from 'antd/es/table'
 import dayjs, { Dayjs } from 'dayjs'
-import { setState, useStore } from '../store'
+import { addLog, setState, useStore } from '../store'
 import { BUSINESS_LINES, LINE_CURRENCY } from '../types'
 import type { BusinessLine, CoursePackage } from '../types'
-import { useSession } from '../auth'
 import { useI18n } from '../i18n'
+import { usePerm } from '../perm'
 
 const { Text } = Typography
 const { RangePicker } = DatePicker
@@ -40,7 +40,8 @@ function currencyOptions(line?: BusinessLine) {
 export default function CoursePackagePage() {
   const { t } = useI18n()
   const packages = useStore((s) => s.packages)
-  const session = useSession()
+  const { can, actor } = usePerm()
+  const canEdit = can('packages') === 'operate'
   const [keyword, setKeyword] = useState('')
   const [lineFilter, setLineFilter] = useState<string | undefined>()
   const [modal, setModal] = useState<{ mode: 'add' | 'edit'; record?: CoursePackage } | null>(null)
@@ -85,11 +86,12 @@ export default function CoursePackagePage() {
         price: v.price,
         validStart: validStart.format('YYYY-MM-DD HH:mm:ss'),
         validEnd: validEnd.format('YYYY-MM-DD HH:mm:ss'),
-        creator: session?.email ?? 'admin@dinoai.ai',
+        creator: actor,
         status: '上架',
         createdAt: dayjs().format('YYYY-MM-DD HH:mm:ss'),
       }
       setState((prev) => ({ ...prev, packages: [pkg, ...prev.packages] }))
+      addLog({ actor, module: 'packages', action: t('pkg.log.add'), target: `${pkg.id} · ${pkg.name}` })
       message.success(t('pkg.added'))
     } else if (modal?.record) {
       setState((prev) => ({
@@ -108,6 +110,7 @@ export default function CoursePackagePage() {
             : p,
         ),
       }))
+      addLog({ actor, module: 'packages', action: t('pkg.log.edit'), target: `${modal.record.id} · ${v.name}` })
       message.success(t('pkg.updated'))
     }
     setModal(null)
@@ -121,11 +124,18 @@ export default function CoursePackagePage() {
       okText: t('common.confirm'),
       cancelText: t('common.cancel'),
       okButtonProps: next === '下架' ? { danger: true } : undefined,
-      onOk: () =>
+      onOk: () => {
         setState((prev) => ({
           ...prev,
           packages: prev.packages.map((p) => (p.id === record.id ? { ...p, status: next } : p)),
-        })),
+        }))
+        addLog({
+          actor,
+          module: 'packages',
+          action: next === '下架' ? t('pkg.log.off') : t('pkg.log.on'),
+          target: `${record.id} · ${record.name}`,
+        })
+      },
     })
   }
 
@@ -170,12 +180,16 @@ export default function CoursePackagePage() {
           <Button type="link" onClick={() => setDetail(r)}>
             {t('common.detail')}
           </Button>
-          <Button type="link" onClick={() => openEdit(r)}>
-            {t('common.edit')}
-          </Button>
-          <Button type="link" danger={r.status === '上架'} onClick={() => toggleShelf(r)}>
-            {r.status === '上架' ? t('pkg.offShelf') : t('pkg.onShelf')}
-          </Button>
+          {canEdit && (
+            <Button type="link" onClick={() => openEdit(r)}>
+              {t('common.edit')}
+            </Button>
+          )}
+          {canEdit && (
+            <Button type="link" danger={r.status === '上架'} onClick={() => toggleShelf(r)}>
+              {r.status === '上架' ? t('pkg.offShelf') : t('pkg.onShelf')}
+            </Button>
+          )}
         </Space>
       ),
     },
@@ -187,9 +201,11 @@ export default function CoursePackagePage() {
       bordered={false}
       title={<span className="section-title">{t('pkg.title')}</span>}
       extra={
-        <Button type="primary" icon={<PlusOutlined />} onClick={openAdd}>
-          {t('pkg.addBtn')}
-        </Button>
+        canEdit ? (
+          <Button type="primary" icon={<PlusOutlined />} onClick={openAdd}>
+            {t('pkg.addBtn')}
+          </Button>
+        ) : null
       }
     >
       <Alert

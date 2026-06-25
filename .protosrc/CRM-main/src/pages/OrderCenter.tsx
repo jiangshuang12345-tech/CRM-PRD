@@ -5,6 +5,7 @@ import type { ColumnsType } from 'antd/es/table'
 import { useStore } from '../store'
 import type { Order, OrderStatus, UserStatus } from '../types'
 import { useI18n } from '../i18n'
+import { usePerm } from '../perm'
 import { setBizFilter, useBizFilter } from '../bizFilter'
 
 const { Text } = Typography
@@ -35,17 +36,23 @@ export default function OrderCenter() {
   const [orderStatus, setOrderStatus] = useState<string | undefined>()
   const [payMethod, setPayMethod] = useState<string | undefined>()
   const lineFilter = useBizFilter()
+  const { allowedLines } = usePerm()
+  const scope = allowedLines()
 
   const lineOf = useMemo(() => {
     const map = new Map(students.map((s) => [s.studentId, s.businessLine]))
     return (studentId: string) => map.get(studentId) ?? '—'
   }, [students])
 
-  const lines = useMemo(() => channels.map((c) => c.name), [channels])
+  const lines = useMemo(() => {
+    const all = channels.map((c) => c.name)
+    return scope ? all.filter((l) => scope.includes(l)) : all
+  }, [channels, scope])
 
   const data = useMemo(
     () =>
       orders.filter((o) => {
+        if (scope && !scope.includes(lineOf(o.studentId))) return false
         const kw = keyword.trim().toLowerCase()
         const matchKw =
           !kw ||
@@ -59,7 +66,7 @@ export default function OrderCenter() {
           (!lineFilter || lineOf(o.studentId) === lineFilter)
         )
       }),
-    [orders, keyword, orderStatus, payMethod, lineFilter, lineOf],
+    [orders, keyword, orderStatus, payMethod, lineFilter, lineOf, scope],
   )
 
   const columns: ColumnsType<Order> = [

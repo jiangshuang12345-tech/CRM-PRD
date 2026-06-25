@@ -20,10 +20,10 @@ const { RangePicker } = DatePicker
 import { CopyOutlined, DeleteOutlined, LinkOutlined, ThunderboltOutlined } from '@ant-design/icons'
 import type { ColumnsType } from 'antd/es/table'
 import dayjs from 'dayjs'
-import { setState, uid, useStore } from '../store'
+import { addLog, setState, uid, useStore } from '../store'
 import type { ChannelLevelNode, ChannelLine, LandingPage } from '../types'
-import { useSession } from '../auth'
 import { useI18n } from '../i18n'
+import { usePerm } from '../perm'
 
 const { Text, Paragraph } = Typography
 
@@ -75,11 +75,17 @@ function copy(text: string, ok: string) {
 
 export default function LandingPageManagement() {
   const { t } = useI18n()
-  const session = useSession()
+  const { can, allowedLines, actor } = usePerm()
+  const canEdit = can('landing') === 'operate'
+  const scope = allowedLines()
   const channels = useStore((s) => s.channels)
   const packages = useStore((s) => s.packages)
   const coupons = useStore((s) => s.coupons)
-  const landingPages = useStore((s) => s.landingPages)
+  const landingPagesAll = useStore((s) => s.landingPages)
+  const landingPages = useMemo(
+    () => (scope ? landingPagesAll.filter((lp) => scope.includes(lp.businessLine)) : landingPagesAll),
+    [landingPagesAll, scope],
+  )
 
   const [open, setOpen] = useState(false)
   const [form] = Form.useForm()
@@ -87,7 +93,10 @@ export default function LandingPageManagement() {
   const line = Form.useWatch('businessLine', form) as string | undefined
   const couponId = Form.useWatch('couponId', form) as string | undefined
 
-  const lines = useMemo(() => channels.map((c) => c.name), [channels])
+  const lines = useMemo(() => {
+    const all = channels.map((c) => c.name)
+    return scope ? all.filter((l) => scope.includes(l)) : all
+  }, [channels, scope])
   const codeOptions = useMemo(() => {
     const c = channels.find((x) => x.name === line)
     return c ? collectCodes(c) : []
@@ -151,10 +160,11 @@ export default function LandingPageManagement() {
       validFrom: range?.[0]?.format('YYYY-MM-DD HH:mm:ss'),
       validUntil: range?.[1]?.format('YYYY-MM-DD HH:mm:ss'),
       url,
-      creator: session?.email ?? 'admin@dinoai.ai',
+      creator: actor,
       createdAt: dayjs().format('YYYY-MM-DD HH:mm:ss'),
     }
     setState((prev) => ({ ...prev, landingPages: [lp, ...prev.landingPages] }))
+    addLog({ actor, module: 'landing', action: t('lp.log.create'), target: `${lp.businessLine} · ${lp.channelCode}` })
     message.success(t('lp.genOk'))
     setOpen(false)
   }
@@ -166,8 +176,10 @@ export default function LandingPageManagement() {
       okText: t('common.confirm'),
       cancelText: t('common.cancel'),
       okButtonProps: { danger: true },
-      onOk: () =>
-        setState((prev) => ({ ...prev, landingPages: prev.landingPages.filter((x) => x.id !== lp.id) })),
+      onOk: () => {
+        setState((prev) => ({ ...prev, landingPages: prev.landingPages.filter((x) => x.id !== lp.id) }))
+        addLog({ actor, module: 'landing', action: t('lp.log.delete'), target: `${lp.businessLine} · ${lp.channelCode}` })
+      },
     })
 
   const columns: ColumnsType<LandingPage> = [
@@ -222,17 +234,21 @@ export default function LandingPageManagement() {
     },
     { title: t('lp.col.creator'), dataIndex: 'creator', width: 170 },
     { title: t('lp.col.createTime'), dataIndex: 'createdAt', width: 170 },
-    {
-      title: t('common.action'),
-      key: 'op',
-      width: 90,
-      fixed: 'right',
-      render: (_, r) => (
-        <Button type="link" danger size="small" icon={<DeleteOutlined />} onClick={() => remove(r)}>
-          {t('common.delete')}
-        </Button>
-      ),
-    },
+    ...(canEdit
+      ? [
+          {
+            title: t('common.action'),
+            key: 'op',
+            width: 90,
+            fixed: 'right' as const,
+            render: (_: unknown, r: LandingPage) => (
+              <Button type="link" danger size="small" icon={<DeleteOutlined />} onClick={() => remove(r)}>
+                {t('common.delete')}
+              </Button>
+            ),
+          },
+        ]
+      : []),
   ]
 
   return (
@@ -241,9 +257,11 @@ export default function LandingPageManagement() {
       bordered={false}
       title={<span className="section-title">{t('lp.title')}</span>}
       extra={
-        <Button type="primary" icon={<ThunderboltOutlined />} onClick={openModal}>
-          {t('lp.genBtn')}
-        </Button>
+        canEdit ? (
+          <Button type="primary" icon={<ThunderboltOutlined />} onClick={openModal}>
+            {t('lp.genBtn')}
+          </Button>
+        ) : null
       }
     >
       <Alert type="warning" showIcon message={t('phase2.banner')} style={{ marginBottom: 16 }} />

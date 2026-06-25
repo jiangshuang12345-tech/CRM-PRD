@@ -28,11 +28,11 @@ import {
 } from '@ant-design/icons'
 import type { ColumnsType } from 'antd/es/table'
 import dayjs, { Dayjs } from 'dayjs'
-import { genCouponCode, getState, setState, uid, useStore } from '../store'
+import { addLog, genCouponCode, getState, setState, uid, useStore } from '../store'
 import { BUSINESS_LINES, LINE_CURRENCY } from '../types'
 import type { BusinessLine, Coupon, CouponCode, CouponProduct, CouponStatus } from '../types'
-import { useSession } from '../auth'
 import { useI18n } from '../i18n'
+import { usePerm } from '../perm'
 
 const { Text, Title } = Typography
 const { RangePicker } = DatePicker
@@ -224,7 +224,7 @@ function CodePicker({
 // 生成券表单
 function CreateCoupon({ line, onBack }: { line: BusinessLine; onBack: () => void }) {
   const { t } = useI18n()
-  const session = useSession()
+  const { actor } = usePerm()
   const [form] = Form.useForm()
 
   const submit = async () => {
@@ -242,7 +242,7 @@ function CreateCoupon({ line, onBack }: { line: BusinessLine; onBack: () => void
       businessLine: line,
       couponType: '满减券',
       currency: v.currency,
-      creator: session?.email ?? 'admin@dinoai.ai',
+      creator: actor,
       total: v.total,
       remaining: v.total,
       claimStart: claimStart.format('YYYY-MM-DD HH:mm:ss'),
@@ -256,6 +256,7 @@ function CreateCoupon({ line, onBack }: { line: BusinessLine; onBack: () => void
       createdAt: dayjs().format('YYYY-MM-DD HH:mm:ss'),
     }
     setState((prev) => ({ ...prev, coupons: [coupon, ...prev.coupons] }))
+    addLog({ actor, module: 'coupons', action: t('cp.log.create'), target: `${coupon.id} · ${coupon.name}` })
     message.success(t('cp.genOk'))
     onBack()
   }
@@ -283,7 +284,7 @@ function CreateCoupon({ line, onBack }: { line: BusinessLine; onBack: () => void
         initialValues={{
           businessLine: line,
           couponType: '满减券',
-          creator: session?.email ?? 'admin@dinoai.ai',
+          creator: actor,
         }}
       >
         <Title level={5}>{t('cp.basic')}</Title>
@@ -378,6 +379,9 @@ function CreateCoupon({ line, onBack }: { line: BusinessLine; onBack: () => void
 export default function CouponPage() {
   const { t } = useI18n()
   const coupons = useStore((s) => s.coupons)
+  const { can, allowedLines, actor } = usePerm()
+  const canEdit = can('coupons') === 'operate'
+  const scope = allowedLines()
   const [view, setView] = useState<'list' | 'create'>('list')
   const [createLine, setCreateLine] = useState<BusinessLine>('韩国')
   const [pickLineOpen, setPickLineOpen] = useState(false)
@@ -401,6 +405,7 @@ export default function CouponPage() {
   const data = useMemo(
     () =>
       coupons.filter((c) => {
+        if (scope && !scope.includes(c.businessLine)) return false
         const kw = keyword.trim().toLowerCase()
         const matchKw =
           !kw ||
@@ -413,7 +418,7 @@ export default function CouponPage() {
           (!statusFilter || c.status === statusFilter)
         )
       }),
-    [coupons, keyword, lineFilter, statusFilter],
+    [coupons, keyword, lineFilter, statusFilter, scope],
   )
 
   const confirmPickLine = () => {
@@ -440,6 +445,7 @@ export default function CouponPage() {
       ...prev,
       coupons: prev.coupons.map((c) => (c.id === editCoupon.id ? { ...c, products: editProducts } : c)),
     }))
+    addLog({ actor, module: 'coupons', action: t('cp.log.editProducts'), target: `${editCoupon.id} · ${editCoupon.name}` })
     message.success(t('cp.saveProductsOk'))
     setEditCoupon(null)
   }
@@ -458,6 +464,7 @@ export default function CouponPage() {
       ...prev,
       coupons: prev.coupons.map((c) => (c.id === codesCoupon.id ? { ...c, codes: codesList } : c)),
     }))
+    addLog({ actor, module: 'coupons', action: t('cp.log.codes'), target: `${codesCoupon.id} · ${codesCoupon.name}` })
     message.success(t('cp.saveCodesOk'))
     setCodesCoupon(null)
   }
@@ -483,6 +490,7 @@ export default function CouponPage() {
           : c,
       ),
     }))
+    addLog({ actor, module: 'coupons', action: t('cp.log.extend'), target: `${extendCoupon.id} · ${extendCoupon.name}` })
     message.success(t('cp.extendOk'))
     setExtendCoupon(null)
   }
@@ -494,11 +502,13 @@ export default function CouponPage() {
       okText: t('cp.stopOk'),
       okButtonProps: { danger: true },
       cancelText: t('common.cancel'),
-      onOk: () =>
+      onOk: () => {
         setState((prev) => ({
           ...prev,
           coupons: prev.coupons.map((x) => (x.id === c.id ? { ...x, status: '已结束' } : x)),
-        })),
+        }))
+        addLog({ actor, module: 'coupons', action: t('cp.log.stop'), target: `${c.id} · ${c.name}` })
+      },
     })
 
   const columns: ColumnsType<Coupon> = [
@@ -541,18 +551,26 @@ export default function CouponPage() {
           <Button type="link" size="small" onClick={() => setDetailCoupon(r)}>
             {t('common.detail')}
           </Button>
-          <Button type="link" size="small" onClick={() => openEdit(r)}>
-            {t('common.edit')}
-          </Button>
-          <Button type="link" size="small" onClick={() => openCodes(r)}>
-            {t('cp.manageCodes')}
-          </Button>
-          <Button type="link" size="small" onClick={() => openExtend(r)}>
-            {t('cp.extend')}
-          </Button>
-          <Button type="link" size="small" danger disabled={r.status === '已结束'} onClick={() => stopIssue(r)}>
-            {t('cp.stop')}
-          </Button>
+          {canEdit && (
+            <Button type="link" size="small" onClick={() => openEdit(r)}>
+              {t('common.edit')}
+            </Button>
+          )}
+          {canEdit && (
+            <Button type="link" size="small" onClick={() => openCodes(r)}>
+              {t('cp.manageCodes')}
+            </Button>
+          )}
+          {canEdit && (
+            <Button type="link" size="small" onClick={() => openExtend(r)}>
+              {t('cp.extend')}
+            </Button>
+          )}
+          {canEdit && (
+            <Button type="link" size="small" danger disabled={r.status === '已结束'} onClick={() => stopIssue(r)}>
+              {t('cp.stop')}
+            </Button>
+          )}
         </Space>
       ),
     },
@@ -568,16 +586,18 @@ export default function CouponPage() {
       bordered={false}
       title={<span className="section-title">{t('cp.title')}</span>}
       extra={
-        <Button
-          type="primary"
-          icon={<PlusOutlined />}
-          onClick={() => {
-            setPickedLine(null)
-            setPickLineOpen(true)
-          }}
-        >
-          {t('cp.genBtn')}
-        </Button>
+        canEdit ? (
+          <Button
+            type="primary"
+            icon={<PlusOutlined />}
+            onClick={() => {
+              setPickedLine(null)
+              setPickLineOpen(true)
+            }}
+          >
+            {t('cp.genBtn')}
+          </Button>
+        ) : null
       }
     >
       <Alert

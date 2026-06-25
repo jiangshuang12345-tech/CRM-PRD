@@ -1,5 +1,7 @@
 import { Navigate, Route, HashRouter, Routes } from 'react-router-dom'
 import { useSession } from './auth'
+import { usePerm } from './perm'
+import type { ModuleKey } from './types'
 import Login from './pages/Login'
 import AppLayout from './components/AppLayout'
 import ChannelManagement from './pages/ChannelManagement'
@@ -8,11 +10,39 @@ import OrderCenter from './pages/OrderCenter'
 import CoursePackagePage from './pages/CoursePackage'
 import CouponPage from './pages/Coupon'
 import LandingPageManagement from './pages/LandingPage'
+import SystemConfig from './pages/SystemConfig'
 
 function RequireAuth({ children }: { children: JSX.Element }) {
   const session = useSession()
   if (!session) return <Navigate to="/login" replace />
   return children
+}
+
+const MODULE_PATH: { module: ModuleKey; path: string }[] = [
+  { module: 'channels', path: '/channels' },
+  { module: 'users', path: '/users' },
+  { module: 'orders', path: '/orders' },
+  { module: 'packages', path: '/packages' },
+  { module: 'coupons', path: '/coupons' },
+  { module: 'landing', path: '/landing' },
+  { module: 'system', path: '/system' },
+]
+
+function firstAllowedPath(can: (m: ModuleKey) => string): string {
+  const hit = MODULE_PATH.find((m) => can(m.module) !== 'none')
+  return hit?.path ?? '/channels'
+}
+
+// 无权限访问的模块直接重定向到第一个可访问页面
+function Guard({ module, children }: { module: ModuleKey; children: JSX.Element }) {
+  const { can } = usePerm()
+  if (can(module) === 'none') return <Navigate to={firstAllowedPath(can)} replace />
+  return children
+}
+
+function HomeRedirect() {
+  const { can } = usePerm()
+  return <Navigate to={firstAllowedPath(can)} replace />
 }
 
 export default function App() {
@@ -32,13 +62,14 @@ export default function App() {
             </RequireAuth>
           }
         >
-          <Route index element={<Navigate to="/channels" replace />} />
-          <Route path="channels" element={<ChannelManagement />} />
-          <Route path="landing" element={<LandingPageManagement />} />
-          <Route path="users" element={<UserCenter />} />
-          <Route path="orders" element={<OrderCenter />} />
-          <Route path="packages" element={<CoursePackagePage />} />
-          <Route path="coupons" element={<CouponPage />} />
+          <Route index element={<HomeRedirect />} />
+          <Route path="channels" element={<Guard module="channels"><ChannelManagement /></Guard>} />
+          <Route path="landing" element={<Guard module="landing"><LandingPageManagement /></Guard>} />
+          <Route path="users" element={<Guard module="users"><UserCenter /></Guard>} />
+          <Route path="orders" element={<Guard module="orders"><OrderCenter /></Guard>} />
+          <Route path="packages" element={<Guard module="packages"><CoursePackagePage /></Guard>} />
+          <Route path="coupons" element={<Guard module="coupons"><CouponPage /></Guard>} />
+          <Route path="system" element={<Guard module="system"><SystemConfig /></Guard>} />
         </Route>
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
