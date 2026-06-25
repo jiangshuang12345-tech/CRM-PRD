@@ -190,7 +190,7 @@
         <h2 class="title">Dino English 运营平台（CRM）产品需求文档</h2>
         <p class="lead">本文档基于「CRM 与运营平台需求对齐」会议纪要，按业务诉求分期落地。一期聚焦<b>基础查询能力</b>（渠道、用户基本信息、订单信息），二期聚焦<b>商业化配置能力</b>（商品包、优惠券）。文档内嵌可交互原型，可逐模块体验。</p>
 
-        <div class="callout warn"><div class="ic">🔄</div><div><b>本次同步原型变更：</b><b>新增「系统配置 · 角色权限」模块（RBAC 全平台落地）</b>——角色权限矩阵（无权限/只读/可操作）、成员账号、操作日志三页签；权限全局生效：菜单按角色过滤、无权限路由重定向、操作按钮按权限显隐、列表数据按业务线数据权限隔离；关键操作留痕审计。<br><span class="muted">前序变更：用户中心编辑弹窗业务线只读；课包更名为「商品包」；优惠券一券多码（按 KOL）；新增「落地页管理」模块；渠道树顶层「业务线」+7 位随机 code；订单中心所属业务线与有效期；多语言（中/英/韩/阿）与业务线全局筛选。详见各模块「本期更新」。</span></div></div>
+        <div class="callout warn"><div class="ic">🔄</div><div><b>本次同步原型变更：</b><b>平台默认语言改为英文（English）</b>，语言切换顺序调整为 英 / 韩 / 阿 / 中（未手动选择时默认英文）；同时系统配置的权限模块与内置角色<b>已彻底移除「财务」</b>，与本 PRD 保持一致。<br><span class="muted">前序变更：新增「系统配置 · 角色权限」模块（RBAC）；用户中心编辑弹窗业务线只读；课包更名为「商品包」；优惠券一券多码（按 KOL）；新增「落地页管理」模块；渠道树顶层「业务线」+7 位随机 code；订单中心所属业务线与有效期；业务线全局筛选。详见各模块「本期更新」。</span></div></div>
 
         <div class="grid c4">
           <div class="card"><div class="kpi" style="color:var(--p1)">一期</div><div class="kpi-label">基础查询<br>渠道 · 用户 · 订单</div></div>
@@ -347,7 +347,7 @@
               <div class="feat"><div class="ic">🌿</div><div><div class="t">渠道管理 <span class="pill p0">P0</span></div><div class="d">业务线 → 渠道类型 → 一/二/三级渠道树；任意层级生成可复制的渠道 code（7 位随机码）。</div></div></div>
               <div class="feat"><div class="ic">👤</div><div><div class="t">用户基本信息查询 <span class="pill p0">P0</span></div><div class="d">按 用户ID/姓名/登录账号 搜索，业务线、状态筛选；支持 5 种注册方式（含非手机号注册）与登录账号、到期时间、最近修改人展示；可修改基本资料。</div></div></div>
               <div class="feat"><div class="ic">🧾</div><div><div class="t">订单信息查询 <span class="pill p0">P0</span></div><div class="d">按 订单ID/用户ID/商品 搜索，业务线、订单状态、支付方式筛选；展示所属业务线与有效期到期时间。</div></div></div>
-              <div class="feat"><div class="ic">🌐</div><div><div class="t">平台能力 <span class="pill p0">P0</span></div><div class="d">多语言（中 / 英 / 韩 / 阿）切换；业务线筛选全局共享联动；登录限 @dinoai.ai 邮箱。</div></div></div>
+              <div class="feat"><div class="ic">🌐</div><div><div class="t">平台能力 <span class="pill p0">P0</span></div><div class="d">多语言（英 / 韩 / 阿 / 中，默认英文）切换；业务线筛选全局共享联动；登录限 @dinoai.ai 邮箱。</div></div></div>
               <h4>一期交付物 / 验收</h4>
               <ul class="clean">
                 <li>渠道树可增删改、可生码并复制；用户注册渠道 code 与渠道树打通。</li>
@@ -417,7 +417,7 @@
           <tbody>
             <tr><td>系统定位与优先级</td><td>CRM 一期定位为「查得到」：渠道、用户、订单三段信息可查</td><td>全局</td><td><span class="pill ph1">一期</span></td></tr>
             <tr><td>市场渠道管理</td><td>渠道分级体系（业务线 → 类型 → 多级渠道）</td><td>渠道管理</td><td><span class="pill ph1">一期</span></td></tr>
-            <tr><td>系统定位与优先级</td><td>平台多语言支持（中 / 英 / 韩 / 阿）、业务线全局筛选</td><td>全局</td><td><span class="pill ph1">一期</span></td></tr>
+            <tr><td>系统定位与优先级</td><td>平台多语言支持（英 / 韩 / 阿 / 中，默认英文）、业务线全局筛选</td><td>全局</td><td><span class="pill ph1">一期</span></td></tr>
             <tr><td>市场渠道管理</td><td>渠道生码机制：生成实际投放使用的渠道 code</td><td>渠道管理</td><td><span class="pill ph1">一期</span></td></tr>
             <tr><td>用户数据体系</td><td>用户基本信息：注册方式、登录账号、注册渠道、国家码、注册时间等</td><td>用户中心</td><td><span class="pill ph1">一期</span></td></tr>
             <tr><td>市场渠道管理</td><td>非手机号注册支持：谷歌邮箱 / Facebook / kakao / AppID 等多注册方式</td><td>用户中心</td><td><span class="pill ph1">一期</span></td></tr>
@@ -859,7 +859,7 @@
         <table class="bordered">
           <thead><tr><th style="width:160px">能力</th><th>说明</th></tr></thead>
           <tbody>
-            <tr><td>多语言</td><td>简体中文 / English / 한국어 / العربية，右上角切换</td></tr>
+            <tr><td>多语言</td><td>English / 한국어 / العربية / 简体中文，右上角切换；<b>默认英文（English）</b>（底层已接入更多语言，当前对外开放 4 种）</td></tr>
             <tr><td>业务线全局筛选</td><td>用户中心、订单中心共享同一业务线筛选，切换一处全局联动</td></tr>
             <tr><td>登录鉴权</td><td>邮箱验证码登录，仅允许 @dinoai.ai</td></tr>
             <tr><td>角色权限（RBAC）</td><td>角色按模块分级（无权限/只读/可操作）；菜单过滤、路由重定向、操作按钮显隐均按权限生效</td></tr>
@@ -917,7 +917,7 @@
           <ul class="clean">
             <li>原型仓库：<a href="https://github.com/jiangshuang12345-tech/CRM.git" target="_blank">github.com/jiangshuang12345-tech/CRM</a></li>
             <li>在线原型：<a href="https://jiangshuang12345-tech.github.io/CRM/#/channels" target="_blank">jiangshuang12345-tech.github.io/CRM</a></li>
-            <li>技术栈：Vite + React + TypeScript + Ant Design 5（纯前端 Mock，localStorage）；内置多语言（中/英/韩/阿）</li>
+            <li>技术栈：Vite + React + TypeScript + Ant Design 5（纯前端 Mock，localStorage）；内置多语言（英/韩/阿/中，默认英文）</li>
           </ul>
         </div>
       </section>

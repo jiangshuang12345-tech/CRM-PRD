@@ -137,7 +137,6 @@ export type ModuleKey =
   | 'coupons'
   | 'users'
   | 'orders'
-  | 'finance'
   | 'system'
 
 export const PERMISSION_MODULES: ModuleKey[] = [
@@ -147,7 +146,6 @@ export const PERMISSION_MODULES: ModuleKey[] = [
   'coupons',
   'users',
   'orders',
-  'finance',
   'system',
 ]
 

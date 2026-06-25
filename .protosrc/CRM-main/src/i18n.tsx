@@ -45,10 +45,10 @@ export type Lang =
   | 'nl' | 'pl' | 'pt' | 'ru' | 'zh' | 'zhTW' | 'th' | 'vi' | 'tr'
 
 export const LANGS: { value: Lang; label: string; flag: string }[] = [
-  { value: 'zh', label: '简体中文', flag: '🇨🇳' },
   { value: 'en', label: 'English', flag: '🇬🇧' },
   { value: 'ko', label: '한국어', flag: '🇰🇷' },
   { value: 'ar', label: 'العربية', flag: '🇸🇦' },
+  { value: 'zh', label: '简体中文', flag: '🇨🇳' },
 ]
 
 export const ANTD_LOCALE: Record<Lang, Locale> = {
@@ -2145,7 +2145,7 @@ const LANG_KEY = 'dinoai_crm_lang'
 export function I18nProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>(() => {
     const saved = localStorage.getItem(LANG_KEY) as Lang | null
-    return saved && LANGS.some((l) => l.value === saved) ? saved : 'zh'
+    return saved && LANGS.some((l) => l.value === saved) ? saved : 'en'
   })
 
   const setLang = useCallback((l: Lang) => {

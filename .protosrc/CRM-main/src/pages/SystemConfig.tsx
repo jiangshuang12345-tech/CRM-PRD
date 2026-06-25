@@ -56,8 +56,7 @@ export default function SystemConfig() {
   const logs = useStore((s) => s.logs)
   const lines = useMemo(() => channels.map((c) => c.name), [channels])
 
-  const moduleLabel = (m: ModuleKey) =>
-    m === 'finance' ? t('sys.mod.finance') : t(`app.nav.${m}`)
+  const moduleLabel = (m: ModuleKey) => t(`app.nav.${m}`)
   const levelLabel = (lv: PermLevel) => t(`sys.level.${lv}`)
   const scopeLabel = (sc: DataScope) => t(`sys.scope.${sc}`)
   const roleName = (id: string) => roles.find((r) => r.id === id)?.name ?? id

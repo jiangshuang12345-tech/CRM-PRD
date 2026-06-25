@@ -14,7 +14,7 @@ import type {
 } from './types'
 import { LINE_CURRENCY } from './types'
 
-const KEY = 'dinoai_crm_state_v19'
+const KEY = 'dinoai_crm_state_v20'
 
 export type AppState = {
   channels: ChannelLine[]
@@ -351,7 +351,6 @@ function seed(): AppState {
         coupons: 'view',
         users: 'none',
         orders: 'none',
-        finance: 'none',
         system: 'none',
       },
     },
@@ -368,7 +367,6 @@ function seed(): AppState {
         coupons: 'operate',
         users: 'view',
         orders: 'view',
-        finance: 'none',
         system: 'none',
       },
     },
@@ -385,24 +383,6 @@ function seed(): AppState {
         coupons: 'none',
         users: 'operate',
         orders: 'view',
-        finance: 'none',
-        system: 'none',
-      },
-    },
-    {
-      id: 'role_finance',
-      name: '财务 / 商业分析',
-      desc: '订单对账、优惠码按 KOL 结算',
-      builtin: true,
-      dataScope: 'all',
-      perms: {
-        channels: 'none',
-        landing: 'none',
-        packages: 'view',
-        coupons: 'view',
-        users: 'view',
-        orders: 'view',
-        finance: 'operate',
         system: 'none',
       },
     },
@@ -419,7 +399,6 @@ function seed(): AppState {
         coupons: 'operate',
         users: 'operate',
         orders: 'operate',
-        finance: 'operate',
         system: 'operate',
       },
     },
@@ -437,7 +416,6 @@ function seed(): AppState {
         coupons: 'none',
         users: 'view',
         orders: 'view',
-        finance: 'none',
         system: 'none',
       },
     },
@@ -479,15 +457,6 @@ function seed(): AppState {
       businessLines: ['沙特'],
       status: '启用',
       lastLogin: now.subtract(2, 'day').format('YYYY-MM-DD HH:mm:ss'),
-    },
-    {
-      id: uid('acc_'),
-      email: 'finance@dinoai.ai',
-      name: '李雪',
-      roleId: 'role_finance',
-      businessLines: [],
-      status: '启用',
-      lastLogin: now.subtract(5, 'hour').format('YYYY-MM-DD HH:mm:ss'),
     },
     {
       id: uid('acc_'),
