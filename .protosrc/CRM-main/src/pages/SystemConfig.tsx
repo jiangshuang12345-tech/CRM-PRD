@@ -98,7 +98,7 @@ export default function SystemConfig() {
         perms: draftPerms,
       }
       setState((prev) => ({ ...prev, roles: [...prev.roles, role] }))
-      addLog({ actor, module: 'system', action: t('sys.log.addRole'), target: role.name })
+      addLog({ actor, module: 'system', action: 'sys.log.addRole', target: role.name })
       message.success(t('sys.addRoleOk'))
     } else {
       const id = roleModal.role.id
@@ -110,7 +110,7 @@ export default function SystemConfig() {
             : r,
         ),
       }))
-      addLog({ actor, module: 'system', action: t('sys.log.editRole'), target: draftName.trim() })
+      addLog({ actor, module: 'system', action: 'sys.log.editRole', target: draftName.trim() })
       message.success(t('sys.saveRoleOk'))
     }
     setRoleModal(null)
@@ -129,7 +129,7 @@ export default function SystemConfig() {
       okButtonProps: { danger: true },
       onOk: () => {
         setState((prev) => ({ ...prev, roles: prev.roles.filter((x) => x.id !== r.id) }))
-        addLog({ actor, module: 'system', action: t('sys.log.delRole'), target: r.name })
+        addLog({ actor, module: 'system', action: 'sys.log.delRole', target: r.name })
       },
     })
   }
@@ -250,7 +250,7 @@ export default function SystemConfig() {
     addLog({
       actor,
       module: 'system',
-      action: accEditing ? t('sys.log.editAcc') : t('sys.log.addAcc'),
+      action: accEditing ? 'sys.log.editAcc' : 'sys.log.addAcc',
       target: next.email,
     })
     message.success(t(accEditing ? 'sys.acc.updateOk' : 'sys.acc.addOk'))
@@ -266,7 +266,7 @@ export default function SystemConfig() {
     addLog({
       actor,
       module: 'system',
-      action: a.status === '启用' ? t('sys.log.disableAcc') : t('sys.log.enableAcc'),
+      action: a.status === '启用' ? 'sys.log.disableAcc' : 'sys.log.enableAcc',
       target: a.email,
     })
   }
@@ -339,12 +339,11 @@ export default function SystemConfig() {
     { title: t('sys.log.col.time'), dataIndex: 'time', width: 180 },
     { title: t('sys.log.col.actor'), dataIndex: 'actor', width: 220 },
     {
-      title: t('sys.log.col.module'),
-      dataIndex: 'module',
-      width: 140,
-      render: (m: ModuleKey) => <Tag>{moduleLabel(m)}</Tag>,
+      title: t('sys.log.col.action'),
+      dataIndex: 'action',
+      width: 200,
+      render: (v: string) => t(v),
     },
-    { title: t('sys.log.col.action'), dataIndex: 'action', width: 160 },
     { title: t('sys.log.col.target'), dataIndex: 'target', render: (v) => v || <Text type="secondary">—</Text> },
   ]
 

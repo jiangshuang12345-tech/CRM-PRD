@@ -19,7 +19,7 @@ import {
 import { PlusOutlined, SearchOutlined } from '@ant-design/icons'
 import type { ColumnsType } from 'antd/es/table'
 import dayjs, { Dayjs } from 'dayjs'
-import { addLog, setState, useStore } from '../store'
+import { setState, useStore } from '../store'
 import { BUSINESS_LINES, LINE_CURRENCY } from '../types'
 import type { BusinessLine, CoursePackage } from '../types'
 import { useI18n } from '../i18n'
@@ -91,7 +91,6 @@ export default function CoursePackagePage() {
         createdAt: dayjs().format('YYYY-MM-DD HH:mm:ss'),
       }
       setState((prev) => ({ ...prev, packages: [pkg, ...prev.packages] }))
-      addLog({ actor, module: 'packages', action: t('pkg.log.add'), target: `${pkg.id} · ${pkg.name}` })
       message.success(t('pkg.added'))
     } else if (modal?.record) {
       setState((prev) => ({
@@ -110,7 +109,6 @@ export default function CoursePackagePage() {
             : p,
         ),
       }))
-      addLog({ actor, module: 'packages', action: t('pkg.log.edit'), target: `${modal.record.id} · ${v.name}` })
       message.success(t('pkg.updated'))
     }
     setModal(null)
@@ -124,18 +122,11 @@ export default function CoursePackagePage() {
       okText: t('common.confirm'),
       cancelText: t('common.cancel'),
       okButtonProps: next === '下架' ? { danger: true } : undefined,
-      onOk: () => {
+      onOk: () =>
         setState((prev) => ({
           ...prev,
           packages: prev.packages.map((p) => (p.id === record.id ? { ...p, status: next } : p)),
-        }))
-        addLog({
-          actor,
-          module: 'packages',
-          action: next === '下架' ? t('pkg.log.off') : t('pkg.log.on'),
-          target: `${record.id} · ${record.name}`,
-        })
-      },
+        })),
     })
   }
 

@@ -14,7 +14,7 @@ import type {
 } from './types'
 import { LINE_CURRENCY } from './types'
 
-const KEY = 'dinoai_crm_state_v20'
+const KEY = 'dinoai_crm_state_v21'
 
 export type AppState = {
   channels: ChannelLine[]
@@ -474,7 +474,7 @@ function seed(): AppState {
       time: now.subtract(1, 'hour').format('YYYY-MM-DD HH:mm:ss'),
       actor: 'admin@dinoai.ai',
       module: 'system',
-      action: '更新角色权限',
+      action: 'sys.log.editRole',
       target: '客服 / 用户支持',
     },
     {
@@ -482,7 +482,7 @@ function seed(): AppState {
       time: now.subtract(3, 'hour').format('YYYY-MM-DD HH:mm:ss'),
       actor: 'admin@dinoai.ai',
       module: 'system',
-      action: '新增成员',
+      action: 'sys.log.addAcc',
       target: 'ops.vn@dinoai.ai',
     },
   ]

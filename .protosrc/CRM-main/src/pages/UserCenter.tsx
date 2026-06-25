@@ -15,7 +15,7 @@ import {
 import { EditOutlined, SearchOutlined } from '@ant-design/icons'
 import type { ColumnsType } from 'antd/es/table'
 import dayjs from 'dayjs'
-import { addLog, setState, useStore } from '../store'
+import { setState, useStore } from '../store'
 import type { LoginMethod, Student, UserStatus } from '../types'
 import { useI18n } from '../i18n'
 import { usePerm } from '../perm'
@@ -101,7 +101,6 @@ export default function UserCenter() {
           : s,
       ),
     }))
-    addLog({ actor, module: 'users', action: t('user.log.edit'), target: editing.studentId })
     setEditing(null)
   }
 

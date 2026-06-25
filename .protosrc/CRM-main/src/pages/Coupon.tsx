@@ -28,7 +28,7 @@ import {
 } from '@ant-design/icons'
 import type { ColumnsType } from 'antd/es/table'
 import dayjs, { Dayjs } from 'dayjs'
-import { addLog, genCouponCode, getState, setState, uid, useStore } from '../store'
+import { genCouponCode, getState, setState, uid, useStore } from '../store'
 import { BUSINESS_LINES, LINE_CURRENCY } from '../types'
 import type { BusinessLine, Coupon, CouponCode, CouponProduct, CouponStatus } from '../types'
 import { useI18n } from '../i18n'
@@ -256,7 +256,6 @@ function CreateCoupon({ line, onBack }: { line: BusinessLine; onBack: () => void
       createdAt: dayjs().format('YYYY-MM-DD HH:mm:ss'),
     }
     setState((prev) => ({ ...prev, coupons: [coupon, ...prev.coupons] }))
-    addLog({ actor, module: 'coupons', action: t('cp.log.create'), target: `${coupon.id} · ${coupon.name}` })
     message.success(t('cp.genOk'))
     onBack()
   }
@@ -379,7 +378,7 @@ function CreateCoupon({ line, onBack }: { line: BusinessLine; onBack: () => void
 export default function CouponPage() {
   const { t } = useI18n()
   const coupons = useStore((s) => s.coupons)
-  const { can, allowedLines, actor } = usePerm()
+  const { can, allowedLines } = usePerm()
   const canEdit = can('coupons') === 'operate'
   const scope = allowedLines()
   const [view, setView] = useState<'list' | 'create'>('list')
@@ -445,7 +444,6 @@ export default function CouponPage() {
       ...prev,
       coupons: prev.coupons.map((c) => (c.id === editCoupon.id ? { ...c, products: editProducts } : c)),
     }))
-    addLog({ actor, module: 'coupons', action: t('cp.log.editProducts'), target: `${editCoupon.id} · ${editCoupon.name}` })
     message.success(t('cp.saveProductsOk'))
     setEditCoupon(null)
   }
@@ -464,7 +462,6 @@ export default function CouponPage() {
       ...prev,
       coupons: prev.coupons.map((c) => (c.id === codesCoupon.id ? { ...c, codes: codesList } : c)),
     }))
-    addLog({ actor, module: 'coupons', action: t('cp.log.codes'), target: `${codesCoupon.id} · ${codesCoupon.name}` })
     message.success(t('cp.saveCodesOk'))
     setCodesCoupon(null)
   }
@@ -490,7 +487,6 @@ export default function CouponPage() {
           : c,
       ),
     }))
-    addLog({ actor, module: 'coupons', action: t('cp.log.extend'), target: `${extendCoupon.id} · ${extendCoupon.name}` })
     message.success(t('cp.extendOk'))
     setExtendCoupon(null)
   }
@@ -502,13 +498,11 @@ export default function CouponPage() {
       okText: t('cp.stopOk'),
       okButtonProps: { danger: true },
       cancelText: t('common.cancel'),
-      onOk: () => {
+      onOk: () =>
         setState((prev) => ({
           ...prev,
           coupons: prev.coupons.map((x) => (x.id === c.id ? { ...x, status: '已结束' } : x)),
-        }))
-        addLog({ actor, module: 'coupons', action: t('cp.log.stop'), target: `${c.id} · ${c.name}` })
-      },
+        })),
     })
 
   const columns: ColumnsType<Coupon> = [

@@ -20,7 +20,7 @@ const { RangePicker } = DatePicker
 import { CopyOutlined, DeleteOutlined, LinkOutlined, ThunderboltOutlined } from '@ant-design/icons'
 import type { ColumnsType } from 'antd/es/table'
 import dayjs from 'dayjs'
-import { addLog, setState, uid, useStore } from '../store'
+import { setState, uid, useStore } from '../store'
 import type { ChannelLevelNode, ChannelLine, LandingPage } from '../types'
 import { useI18n } from '../i18n'
 import { usePerm } from '../perm'
@@ -164,7 +164,6 @@ export default function LandingPageManagement() {
       createdAt: dayjs().format('YYYY-MM-DD HH:mm:ss'),
     }
     setState((prev) => ({ ...prev, landingPages: [lp, ...prev.landingPages] }))
-    addLog({ actor, module: 'landing', action: t('lp.log.create'), target: `${lp.businessLine} · ${lp.channelCode}` })
     message.success(t('lp.genOk'))
     setOpen(false)
   }
@@ -176,10 +175,8 @@ export default function LandingPageManagement() {
       okText: t('common.confirm'),
       cancelText: t('common.cancel'),
       okButtonProps: { danger: true },
-      onOk: () => {
-        setState((prev) => ({ ...prev, landingPages: prev.landingPages.filter((x) => x.id !== lp.id) }))
-        addLog({ actor, module: 'landing', action: t('lp.log.delete'), target: `${lp.businessLine} · ${lp.channelCode}` })
-      },
+      onOk: () =>
+        setState((prev) => ({ ...prev, landingPages: prev.landingPages.filter((x) => x.id !== lp.id) })),
     })
 
   const columns: ColumnsType<LandingPage> = [
