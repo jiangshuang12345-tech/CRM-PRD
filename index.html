@@ -151,6 +151,7 @@
     <nav class="nav" id="nav">
       <div class="group">总览</div>
       <a data-view="overview" class="active"><span class="num">00</span>文档概览</a>
+      <a data-view="positioning"><span class="num">★</span>产品定位 &amp; 目标用户</a>
       <a data-view="roadmap"><span class="num">01</span>迭代计划 / 路线图</a>
       <a data-view="mapping"><span class="num">02</span>需求拆解（会议纪要）</a>
 
@@ -224,6 +225,115 @@
         </table>
 
         <div class="callout info" style="margin-top:18px"><div class="ic">💡</div><div>本 PRD 为<b>可交互文档</b>：左侧切换章节；每个模块内嵌真实原型（iframe），也可点「在线原型」按钮在新窗口打开。原型为纯前端 Mock（数据存浏览器 localStorage），登录仅支持 <code>@dinoai.ai</code> 邮箱，验证码会直接显示在页面提示中。</div></div>
+      </section>
+
+      <!-- ====================== POSITIONING ====================== -->
+      <section class="view" id="view-positioning">
+        <h2 class="title">产品定位 &amp; 目标用户</h2>
+        <p class="lead">基于一期（基础查询）、二期（商业化配置）已规划能力，并前瞻后期「单点触达用户、增加服务节点」方向，明确平台的产品定位、能力演进与目标用户。</p>
+
+        <div class="callout info"><div class="ic">🎯</div><div><b>一句话定位：</b>Dino English 运营平台（CRM）是面向海外多业务线的<b>一体化运营中台</b>——以「<b>用户 · 渠道 · 商品</b>」三大主数据为核心，打通「<b>渠道归因 → 商品/促销配置 → 投放落地 → 用户触达 → 服务履约</b>」的运营闭环，让市场、运营、客服、财务等<b>非研发角色自助完成日常运营</b>，把对研发的依赖降到最低。</div></div>
+
+        <div class="grid c3" style="margin-top:16px">
+          <div class="card"><div class="kpi" style="color:var(--p1);font-size:22px">看得清</div><div class="kpi-label"><b>阶段一 / 一期</b><br>数据查询底座<br><span class="muted">渠道 · 用户 · 订单</span></div></div>
+          <div class="card"><div class="kpi" style="color:var(--p2);font-size:22px">配得了</div><div class="kpi-label"><b>阶段二 / 二期</b><br>商业化自助配置<br><span class="muted">商品包 · 优惠券 · 落地页</span></div></div>
+          <div class="card"><div class="kpi" style="color:#0a9c6f;font-size:22px">够得着</div><div class="kpi-label"><b>阶段三 / 后期</b><br>用户触达与服务<br><span class="muted">单点触达 · 服务节点</span></div></div>
+        </div>
+
+        <h3>产品定位详述</h3>
+        <div class="card">
+          <p style="margin-top:0">平台不是一个孤立的「查询工具」，而是随业务成熟度<b>逐层演进的运营中台</b>：先把分散在各处的运营数据收拢为「单一事实来源」，再把商业化配置能力交还运营，最终以用户为中心做精细化触达与服务。其价值主线始终围绕<b>「降低对研发的依赖、提升一线自助效率、让运营动作可归因可衡量」</b>。</p>
+          <div class="grid c3" style="margin-top:14px">
+            <div><h4>是什么</h4><ul class="clean"><li>海外多业务线的运营中台</li><li>用户 / 渠道 / 商品主数据中心</li><li>运营动作的统一操作台</li></ul></div>
+            <div><h4>解决什么</h4><ul class="clean"><li>散表查询、口径不统一</li><li>归因断链、促销依赖研发</li><li>触达与服务无抓手、难闭环</li></ul></div>
+            <div><h4>不做什么（边界）</h4><ul class="clean"><li>不替代 App / 学习产品本身</li><li>不做面向 C 端用户的前台</li><li>初期不做复杂 BI / 数仓（对接为主）</li></ul></div>
+          </div>
+        </div>
+
+        <h3>能力演进路线</h3>
+        <table class="bordered">
+          <thead><tr><th style="width:120px">阶段</th><th style="width:150px">定位关键词</th><th>核心能力</th><th style="width:130px">主要服务对象</th></tr></thead>
+          <tbody>
+            <tr><td><span class="pill ph1">一期</span></td><td><b>数据可查 · 看得清</b></td><td>渠道分级生码与归因、用户基本信息查询、订单信息查询；多语言与业务线全局筛选</td><td>客服 · 市场 · 财务</td></tr>
+            <tr><td><span class="pill ph2">二期</span></td><td><b>自助配置 · 配得了</b></td><td>商品包增改/上下架、满减券（一券多码按 KOL 结算）、落地页一键生成投放链接</td><td>运营 · 市场投放</td></tr>
+            <tr><td><span class="pill" style="background:#dff5ee;color:#0a9c6f">后期</span></td><td><b>触达服务 · 够得着</b></td><td><b>单点触达用户</b>（push / 站内信 / 短信 / EDM / 客服外呼）、<b>增加服务节点</b>（生命周期 SOP、任务流转、关怀/召回/续费节点）</td><td>运营 · 客服 · 学习服务</td></tr>
+          </tbody>
+        </table>
+
+        <h3>目标用户（角色画像）</h3>
+        <p class="muted" style="font-size:13px;margin-top:-4px">平台为<b>内部 B 端工具</b>，使用者均为公司内部团队；按职能划分为以下角色。</p>
+        <div class="grid c2">
+          <div class="card"><h4 style="margin-top:0">📣 市场投放 / 增长</h4>
+            <p style="font-size:13px;margin:6px 0">负责海外各业务线的拉新投放与渠道归因。</p>
+            <div style="font-size:12.5px"><b>核心诉求：</b>渠道结构清晰、能生成投放 code、投放链接一键可得、归因可追。</div>
+            <div style="font-size:12.5px;margin-top:6px"><b>高频模块：</b>渠道管理 · 落地页管理 ·（看）用户/订单归因</div>
+          </div>
+          <div class="card"><h4 style="margin-top:0">🛠️ 运营 / 商业化运营</h4>
+            <p style="font-size:13px;margin:6px 0">负责商品上下架、促销活动与用户运营动作。</p>
+            <div style="font-size:12.5px"><b>核心诉求：</b>商品/促销自助配置、不依赖研发、活动可灵活调整；后期做触达与服务编排。</div>
+            <div style="font-size:12.5px;margin-top:6px"><b>高频模块：</b>商品包 · 优惠券 · 落地页 ·（后期）触达/服务节点</div>
+          </div>
+          <div class="card"><h4 style="margin-top:0">🎧 客服 / 用户支持</h4>
+            <p style="font-size:13px;margin:6px 0">响应用户咨询、处理订单与账号问题。</p>
+            <div style="font-size:12.5px"><b>核心诉求：</b>按多条件快速查到用户与订单、看清状态与有效期；后期可单点触达答疑与关怀。</div>
+            <div style="font-size:12.5px;margin-top:6px"><b>高频模块：</b>用户中心 · 订单中心 ·（后期）单点触达/服务节点</div>
+          </div>
+          <div class="card"><h4 style="margin-top:0">💰 财务 / 商业分析</h4>
+            <p style="font-size:13px;margin:6px 0">核对收入、对账与促销结算分析。</p>
+            <div style="font-size:12.5px"><b>核心诉求：</b>订单实付/退款可查、优惠码按 KOL 统计用于结算、币种与业务线口径一致。</div>
+            <div style="font-size:12.5px;margin-top:6px"><b>高频模块：</b>订单中心 · 优惠券（结算）</div>
+          </div>
+          <div class="card"><h4 style="margin-top:0">⚙️ 管理员 / 系统配置</h4>
+            <p style="font-size:13px;margin:6px 0">维护业务线、账号与（后续）角色权限。</p>
+            <div style="font-size:12.5px"><b>核心诉求：</b>账号鉴权（限 @dinoai.ai）、业务线/模版配置；后续角色权限与数据范围管控。</div>
+            <div style="font-size:12.5px;margin-top:6px"><b>高频模块：</b>全局配置 ·（后续）权限管理</div>
+          </div>
+          <div class="card"><h4 style="margin-top:0">🧑‍🏫 学习服务 / 班主任 <span class="pill" style="background:#dff5ee;color:#0a9c6f;font-size:10px">后期</span></h4>
+            <p style="font-size:13px;margin:6px 0">随「服务节点」上线而引入，负责体验期跟进、续费引导与流失挽回。</p>
+            <div style="font-size:12.5px"><b>核心诉求：</b>按生命周期节点拿到待办、对单个用户触达与跟进、记录服务结果。</div>
+            <div style="font-size:12.5px;margin-top:6px"><b>高频模块：</b>（后期）服务节点 · 单点触达 · 用户中心</div>
+          </div>
+        </div>
+
+        <h3>用户 × 模块 使用矩阵</h3>
+        <p class="muted" style="font-size:12.5px;margin-top:-4px">● 主要使用（高频/核心）　◐ 偶尔使用 / 只读查看　空 = 基本不涉及</p>
+        <table class="bordered">
+          <thead><tr>
+            <th style="width:150px">角色 \ 模块</th>
+            <th>渠道</th><th>用户中心</th><th>订单中心</th><th>商品包</th><th>优惠券</th><th>落地页</th>
+            <th style="background:#f3fbf8">触达<br><span class="muted" style="font-weight:400">后期</span></th>
+            <th style="background:#f3fbf8">服务节点<br><span class="muted" style="font-weight:400">后期</span></th>
+          </tr></thead>
+          <tbody style="text-align:center">
+            <tr><td style="text-align:left"><b>市场投放 / 增长</b></td><td>●</td><td>◐</td><td>◐</td><td>◐</td><td>◐</td><td>●</td><td>◐</td><td></td></tr>
+            <tr><td style="text-align:left"><b>运营 / 商业化</b></td><td>◐</td><td>◐</td><td>◐</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+            <tr><td style="text-align:left"><b>客服 / 用户支持</b></td><td></td><td>●</td><td>●</td><td>◐</td><td>◐</td><td></td><td>●</td><td>●</td></tr>
+            <tr><td style="text-align:left"><b>财务 / 商业分析</b></td><td></td><td>◐</td><td>●</td><td>◐</td><td>●</td><td></td><td></td><td></td></tr>
+            <tr><td style="text-align:left"><b>管理员 / 系统配置</b></td><td>●</td><td>◐</td><td>◐</td><td>◐</td><td>◐</td><td>◐</td><td>◐</td><td>◐</td></tr>
+            <tr><td style="text-align:left"><b>学习服务 / 班主任 <span class="pill" style="background:#dff5ee;color:#0a9c6f;font-size:10px">后期</span></b></td><td></td><td>●</td><td>◐</td><td></td><td></td><td></td><td>●</td><td>●</td></tr>
+          </tbody>
+        </table>
+
+        <h3>后期能力前瞻：单点触达 &amp; 服务节点</h3>
+        <div class="grid c2">
+          <div class="card"><h4 style="margin-top:0">📨 单点触达用户</h4>
+            <p style="font-size:13px;margin:6px 0">从用户中心选定单个用户或人群，触发 push / 站内信 / 短信 / EDM / 客服外呼等触达动作。</p>
+            <ul class="clean" style="font-size:12.5px">
+              <li><b>场景：</b>体验转化、到期续费提醒、流失召回、关怀通知</li>
+              <li><b>抓手：</b>复用已有「用户状态（注册/体验/付费/流失）」与业务线/渠道维度做精准圈选</li>
+              <li><b>受益角色：</b>运营、客服、学习服务</li>
+            </ul>
+          </div>
+          <div class="card"><h4 style="margin-top:0">🧩 增加服务节点</h4>
+            <p style="font-size:13px;margin:6px 0">在用户生命周期上编排服务节点，形成 SOP 与任务流转，把触达沉淀为可跟踪的服务动作。</p>
+            <ul class="clean" style="font-size:12.5px">
+              <li><b>场景：</b>体验期跟进、付费引导、续费提醒、流失挽回、学习陪伴</li>
+              <li><b>抓手：</b>以订单有效期 / 到期时间驱动节点触发，任务可分派、可记录结果</li>
+              <li><b>受益角色：</b>学习服务/班主任、客服、运营</li>
+            </ul>
+          </div>
+        </div>
+        <div class="callout info" style="margin-top:14px"><div class="ic">🔄</div><div>后期能力与一/二期天然衔接：一期沉淀的<b>用户状态与归因数据</b>是触达的圈选依据，二期的<b>商品包/优惠券</b>是触达与服务节点的转化承接，形成「<b>查得到 → 配得了 → 够得着</b>」的完整运营闭环。</div></div>
       </section>
 
       <!-- ====================== ROADMAP ====================== -->
@@ -737,13 +847,13 @@
   const PROTO_BASE = 'https://jiangshuang12345-tech.github.io/CRM/#/';
   const ROUTE_NAME = {channels:'渠道管理',landing:'落地页管理',users:'用户中心',orders:'订单中心',packages:'商品包管理',coupons:'优惠券管理'};
   const VIEW_TITLE = {
-    overview:'文档概览', roadmap:'迭代计划 / 路线图', mapping:'需求拆解（会议纪要）',
+    overview:'文档概览', positioning:'产品定位 & 目标用户', roadmap:'迭代计划 / 路线图', mapping:'需求拆解（会议纪要）',
     'p1-channels':'渠道管理', 'p1-users':'用户基本信息查询', 'p1-orders':'订单信息查询',
     'p2-packages':'商品包管理', 'p2-coupons':'优惠券管理', 'p2-landing':'落地页管理',
     prototype:'交互原型预览', appendix:'附录 / 数据字典'
   };
   const VIEW_SUB = {
-    overview:'Overview', roadmap:'Roadmap', mapping:'Requirement Mapping',
+    overview:'Overview', positioning:'Positioning & Personas', roadmap:'Roadmap', mapping:'Requirement Mapping',
     'p1-channels':'一期 · P0', 'p1-users':'一期 · P0', 'p1-orders':'一期 · P0',
     'p2-packages':'二期 · P1', 'p2-coupons':'二期 · P1', 'p2-landing':'二期 · P1',
     prototype:'Live Prototype', appendix:'Appendix'
