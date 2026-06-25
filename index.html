@@ -190,8 +190,6 @@
         <h2 class="title">Dino English 运营平台（CRM）产品需求文档</h2>
         <p class="lead">本文档基于「CRM 与运营平台需求对齐」会议纪要，按业务诉求分期落地。一期聚焦<b>基础查询能力</b>（渠道、用户基本信息、订单信息），二期聚焦<b>商业化配置能力</b>（商品包、优惠券）。文档内嵌可交互原型，可逐模块体验。</p>
 
-        <div class="callout warn"><div class="ic">🔄</div><div><b>本次同步原型变更：</b><b>操作日志范围收敛为「系统配置」自身</b>——仅记录角色与成员账号的变更（用户/商品包/优惠券/落地页等业务模块操作不再写入日志）；操作日志表<b>去掉「模块」列</b>，改为 时间 / 操作人 / 操作 / 操作对象。<br><span class="muted">前序变更：默认语言改为英文（英/韩/阿/中）；系统配置移除「财务」；新增「系统配置 · 角色权限」模块（RBAC）；用户中心业务线只读；课包更名为「商品包」；优惠券一券多码（按 KOL）；新增「落地页管理」；渠道树顶层「业务线」+7 位随机 code；订单中心所属业务线与有效期。详见各模块「本期更新」。</span></div></div>
-
         <div class="grid c4">
           <div class="card"><div class="kpi" style="color:var(--p1)">一期</div><div class="kpi-label">基础查询<br>渠道 · 用户 · 订单</div></div>
           <div class="card"><div class="kpi" style="color:var(--p2)">二期</div><div class="kpi-label">商业化配置<br>商品包 · 券 · 落地页 · 权限</div></div>
@@ -442,8 +440,6 @@
         <h2 class="title">1.1 渠道管理 <span class="pill ph1" style="vertical-align:middle">一期</span> <span class="pill p0" style="vertical-align:middle">P0</span></h2>
         <p class="lead">维护标准化的渠道分级结构，并在任意层级生成实际投放使用的渠道 code，作为用户注册归因的唯一口径。</p>
 
-        <div class="callout info"><div class="ic">🆕</div><div><b>本期更新：</b>渠道树新增<b>最顶层「业务线」</b>层级，结构调整为 <b>业务线 → 渠道类型 → 一级 → 二级 → 三级</b>；入口按钮改为「新增业务线」。渠道 code 生成规则改为 <b>7 位随机字母数字</b>（如 <code>K2000Gh</code>），不再带类型前缀。</div></div>
-
         <h3>用户故事</h3>
         <div class="story">作为<b>市场投放同学</b>，我希望按「业务线 → 渠道类型 → 一级 → 二级 → 三级」维护渠道，并为具体投放位生成唯一 code，以便用户注册时能准确归因到业务线与来源。</div>
 
@@ -489,8 +485,6 @@
 
         <h3>用户故事</h3>
         <div class="story">作为<b>客服同学</b>，我希望输入学生ID / 姓名 / 登录账号 / 手机号即可查到该用户，并看到他的注册方式、登录账号、业务线、注册渠道、注册时间与当前状态，以便快速响应咨询——即使用户用谷歌邮箱 / Facebook / AppID 等<b>非手机号方式</b>注册也能查到。</div>
-
-        <div class="callout info"><div class="ic">🆕</div><div><b>本期更新：</b>编辑弹窗中<b>「业务线」改为只读</b>——由注册渠道决定、不允许修改（仅可改 本地名 / 性别 / 出生日期）。<br><span class="muted">前序：列表移除「手机号」「注册地国家码」两列（手机号已并入登录账号）；「注册渠道」列展示 业务线 · 渠道；新增「到期时间」「最近修改人」两列；关键字搜索为 用户ID / 姓名 / 登录账号；业务线筛选全局共享（与订单中心联动）。</span></div></div>
 
         <h3>功能清单</h3>
         <table class="bordered">
@@ -563,8 +557,6 @@
         <h3>用户故事</h3>
         <div class="story">作为<b>客服同学</b>，我希望按订单ID / 用户ID / 商品检索订单，并能按业务线、订单状态、支付方式筛选，快速核对实付金额、支付时间与有效期。</div>
 
-        <div class="callout info"><div class="ic">🆕</div><div><b>本期更新：</b>订单列表<b>新增「所属业务线」「有效期到期时间」两列</b>，并新增<b>业务线筛选</b>（与用户中心全局共享）。</div></div>
-
         <h3>功能清单</h3>
         <table class="bordered">
           <thead><tr><th style="width:170px">功能点</th><th>说明</th><th style="width:90px">优先级</th></tr></thead>
@@ -599,8 +591,6 @@
       <section class="view" id="view-p2-packages">
         <h2 class="title">2.1 商品包管理 <span class="pill ph2" style="vertical-align:middle">二期</span> <span class="pill p1" style="vertical-align:middle">P1</span></h2>
         <p class="lead">运营自助维护商品包（商品）：新增、编辑、查看详情、上下架，作为订单与优惠券绑定的商品基础。</p>
-
-        <div class="callout warn"><div class="ic">🏷️</div><div><b>二期功能：</b>原型中本模块导航已标记「二期」，进入页面顶部带提示横幅「该模块为二期规划功能，当前页面仅作原型展示，相关功能将在二期上线」。</div></div>
 
         <h3>用户故事</h3>
         <div class="story">作为<b>运营同学</b>，我希望自助创建商品包（设置业务线、价格、币种、有效期）并控制上下架，无需每次找研发。</div>
@@ -638,10 +628,6 @@
       <section class="view" id="view-p2-coupons">
         <h2 class="title">2.2 优惠券管理 <span class="pill ph2" style="vertical-align:middle">二期</span> <span class="pill p1" style="vertical-align:middle">P1</span></h2>
         <p class="lead">运营自助配置满减券：定义发放/领取规则、使用规则（绑定可用商品包）、满减权益，并支持编辑、延长、停止发放。</p>
-
-        <div class="callout warn"><div class="ic">🏷️</div><div><b>二期功能：</b>原型中本模块导航已标记「二期」，进入页面顶部带提示横幅「该模块为二期规划功能，当前页面仅作原型展示，相关功能将在二期上线」。</div></div>
-
-        <div class="callout info"><div class="ic">🆕</div><div><b>本期更新：</b>一张券支持<b>多个优惠码（按 KOL / 使用方）</b>——为不同 KOL 各生成一个优惠码，<b>分别统计已使用数量用于结算</b>。生成 / 管理优惠码时可按 KOL 追加、批量复制（仅优惠码 / KOL+优惠码）；列表新增「优惠码」列与「管理优惠码」操作；详情含各码使用量及合计；搜索支持 券ID / 券名称 / 券码 / KOL。</div></div>
 
         <h3>用户故事</h3>
         <div class="story">作为<b>运营同学</b>，我希望为某业务线生成满减券，设置发放数量、<b>按 KOL 生成多个优惠码</b>、领取/使用有效期、可用商品包与「满 X 减 Y」权益，并能在活动中途追加优惠码、调整或停止发放，<b>按优惠码维度统计使用量做结算</b>。</div>
@@ -703,8 +689,6 @@
         <h2 class="title">2.3 落地页管理 <span class="pill ph2" style="vertical-align:middle">二期</span> <span class="pill p1" style="vertical-align:middle">P1</span> <span class="pill ph2" style="vertical-align:middle;font-size:10px">新增模块</span></h2>
         <p class="lead">一键生成投放落地页链接，关联渠道、商品包与优惠券（优惠码）；不同业务线使用各自的落地页模版生成对应链接，作为投放与归因的统一出口。</p>
 
-        <div class="callout warn"><div class="ic">🏷️</div><div><b>二期功能：</b>原型中本模块导航已标记「二期」，进入页面顶部带二期提示横幅。</div></div>
-
         <h3>用户故事</h3>
         <div class="story">作为<b>市场投放同学</b>，我希望选择业务线、渠道（已生成 code）、商品包、（可选）优惠券与具体 KOL 优惠码，再设投放有效期，<b>一键生成可直接投放的落地页链接</b>并复制，无需手工拼参数。</div>
 
@@ -742,10 +726,6 @@
       <section class="view" id="view-p2-system">
         <h2 class="title">2.4 系统配置 · 角色权限 <span class="pill ph2" style="vertical-align:middle">二期</span> <span class="pill p1" style="vertical-align:middle">P1</span> <span class="pill ph2" style="vertical-align:middle;font-size:10px">新增模块</span></h2>
         <p class="lead">面向内部 B 端使用者的角色与权限配置：定义每个角色可访问的功能模块及操作级别，并为成员账号分配角色与数据权限（业务线）范围；角色与成员账号的变更留痕可审计。</p>
-
-        <div class="callout warn"><div class="ic">🏷️</div><div><b>二期功能：</b>原型中本模块导航已标记「二期」，进入页面顶部带二期提示横幅。</div></div>
-
-        <div class="callout info"><div class="ic">🆕</div><div><b>RBAC 全平台落地：</b>「系统配置 · 角色权限」含<b>角色权限、成员账号、操作日志</b>三个页签；权限在全平台生效——<b>菜单按角色过滤、无权限模块直接重定向、操作按钮按「可操作」权限显隐、列表数据按业务线数据权限过滤</b>。<b>操作日志当前覆盖系统配置自身的角色与成员变更</b>（业务模块操作暂不计入）。原型右上角提供<b>「以某成员身份查看」</b>切换，便于体验不同角色视角。</div></div>
 
         <h3>用户故事</h3>
         <div class="story">作为<b>管理员</b>，我希望按职能配置角色（每个模块设 无权限 / 只读 / 可操作）、为成员分配角色与可见业务线范围，并能查看谁在什么时间做了什么操作，以便<b>权限最小化、数据隔离、操作可追溯</b>。</div>
