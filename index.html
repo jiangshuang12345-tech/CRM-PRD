@@ -503,7 +503,7 @@
             <tr><td>条件筛选</td><td>注册渠道（App Store / Google Play）、国家、用户状态（注册/体验中/体验逾期/付费/付费逾期）</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td>列表 + 分页</td><td>展示基本信息字段，支持分页与每页条数</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td>到期时间 / 最近修改人</td><td>展示会员到期时间（无则—）与最近一次资料修改人（无则—）</td><td><span class="pill p0">P0</span></td></tr>
-            <tr><td>修改基本信息</td><td>本地名 / 性别 / 出生日期；保存后记录「最近修改人」（国家只读、不可修改）</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td>修改基本信息</td><td>本地名 / 年龄段；保存后记录「最近修改人」（国家只读、不可修改）</td><td><span class="pill p1">P1</span></td></tr>
           </tbody>
         </table>
 
@@ -513,6 +513,7 @@
           <tbody>
             <tr><td>用户ID</td><td>用户唯一标识（长数字ID）</td><td>否</td></tr>
             <tr><td>学生姓名</td><td>单一姓名字段，取 App 内的 <code>Student_Name</code></td><td>可编辑</td></tr>
+            <tr><td>年龄段 <span class="pill ph1" style="font-size:10px">新增</span></td><td>3-5 / 6-8 / 9-12 / 13-17 / 18+（替代原「性别 / 出生日期」编辑项）</td><td>可编辑</td></tr>
             <tr><td>注册方式</td><td>谷歌邮箱 / Facebook / kakao / 手机号 / AppID</td><td>否</td></tr>
             <tr><td>登录账号</td><td>邮箱 / Facebook / kakao ID / AppID / 手机号</td><td>否</td></tr>
             <tr><td>注册渠道 <span class="pill ph1" style="font-size:10px">一期口径</span></td><td>仅区分应用商店来源：<b>App Store / Google Play</b>（一期无渠道树）</td><td>否</td></tr>
@@ -540,7 +541,7 @@
         <h3>关键交互流程</h3>
         <div class="step"><div class="n">1</div><div class="c">输入关键字（用户ID/姓名/登录账号）或选择 注册渠道（App Store/Google Play）/ 国家 / 用户状态 → 列表实时过滤。</div></div>
         <div class="step"><div class="n">2</div><div class="c">查看「注册方式」「登录账号」列定位用户来源；非手机号方式登录账号为邮箱/第三方账号。</div></div>
-        <div class="step"><div class="n">3</div><div class="c">点「修改信息」→ 弹窗编辑本地名 / 性别 / 出生日期（国家只读）→ 保存，系统记录「最近修改人」。</div></div>
+        <div class="step"><div class="n">3</div><div class="c">点「修改信息」→ 弹窗编辑本地名 / 年龄段（国家只读）→ 保存，系统记录「最近修改人」。</div></div>
 
         <div class="proto" data-route="users"></div>
       </section>
