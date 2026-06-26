@@ -345,7 +345,7 @@
             <div class="body">
               <p class="goal">目标：客服 / 运营可自助查询用户与订单信息，替代线下散表。一期暂无渠道体系，用户归因仅区分应用商店来源（App Store / Google Play）与国家。</p>
               <div class="feat"><div class="ic">👤</div><div><div class="t">用户中心（一期） <span class="pill p0">P0</span></div><div class="d">按 用户ID/姓名/登录账号 搜索；按 注册渠道（App Store/Google Play）、国家、状态筛选；支持 5 种注册方式（含非手机号注册）与登录账号、到期时间、最近修改人展示；可修改基本资料。</div></div></div>
-              <div class="feat"><div class="ic">🧾</div><div><div class="t">订单中心 <span class="pill p0">P0</span></div><div class="d">按 订单ID/用户ID/商品 搜索，订单状态、支付方式筛选；展示有效期到期时间。</div></div></div>
+              <div class="feat"><div class="ic">🧾</div><div><div class="t">订单中心 <span class="pill p0">P0</span></div><div class="d">按 订单ID/用户ID/商品 搜索，国家、订单状态、支付方式筛选；展示有效期到期时间。</div></div></div>
               <div class="feat"><div class="ic">🌐</div><div><div class="t">平台能力 <span class="pill p0">P0</span></div><div class="d">多语言（英 / 韩 / 阿 / 中，默认英文）切换；登录限 @dinoai.ai 邮箱。</div></div></div>
               <h4>一期交付物 / 验收</h4>
               <ul class="clean">
@@ -625,14 +625,14 @@
         <p class="lead">按多条件检索订单，查看商品、归属用户、金额与支付信息，支撑客服对账与退款核查。</p>
 
         <h3>用户故事</h3>
-        <div class="story">作为<b>客服同学</b>，我希望按订单ID / 用户ID / 商品检索订单，并能按业务线、订单状态、支付方式筛选，快速核对实付金额、支付时间与有效期。</div>
+        <div class="story">作为<b>客服同学</b>，我希望按订单ID / 用户ID / 商品检索订单，并能按国家、订单状态、支付方式筛选，快速核对实付金额、支付时间与有效期。</div>
 
         <h3>功能清单</h3>
         <table class="bordered">
           <thead><tr><th style="width:170px">功能点</th><th>说明</th><th style="width:90px">优先级</th></tr></thead>
           <tbody>
             <tr><td>关键字搜索</td><td>订单ID / 用户ID / 商品名称 模糊搜索</td><td><span class="pill p0">P0</span></td></tr>
-            <tr><td>条件筛选</td><td>业务线（全局共享）、订单状态（待支付/已支付/已退款/已取消）、支付方式</td><td><span class="pill p0">P0</span></td></tr>
+            <tr><td>条件筛选</td><td>国家（按归属用户注册国家）、订单状态（待支付/已支付/已退款/已取消）、支付方式</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td>列表 + 分页</td><td>原价 / 实付 / 币种 / 支付时间 / 有效期到期时间</td><td><span class="pill p0">P0</span></td></tr>
           </tbody>
         </table>
@@ -643,7 +643,7 @@
           <tbody>
             <tr><td>订单ID</td><td>订单唯一标识，如 <code>DN2026061800001</code></td></tr>
             <tr><td>商品名称 / 用户ID</td><td>所购商品 + 归属用户</td></tr>
-            <tr><td>所属业务线 <span class="pill ph1" style="font-size:10px">新增</span></td><td>按归属用户的业务线展示</td></tr>
+            <tr><td>国家</td><td>按归属用户的注册国家展示（替代原「所属业务线」列，与一期用户中心口径一致）</td></tr>
             <tr><td>用户状态 / 订单状态</td><td>用户状态 + 订单状态双标签</td></tr>
             <tr><td>原价 / 实际付款金额</td><td>含币种，按业务线本地币种或 USD 展示</td></tr>
             <tr><td>支付方式</td><td>App Store / Google Play / Stripe / PayPal</td></tr>
@@ -913,7 +913,7 @@
             <tr><td>多语言</td><td>English / 한국어 / العربية / 简体中文，右上角切换；<b>默认英文（English）</b>（底层已接入更多语言，当前对外开放 4 种）</td></tr>
             <tr><td>时间展示（按时区换算）</td><td>所有时间字段（注册时间 / 到期时间 / 支付时间等）<b>底层统一以 UTC 存储</b>，展示时按用户<b>注册国家</b>换算为当地时间，并标注时区（如 <code>UTC+09:00</code>）；映射见下方「国家 · 时区映射」</td></tr>
             <tr><td>一期归因口径</td><td>用户中心（一期）按<b>应用商店来源（App Store / Google Play）+ 国家（注册 IP）</b>做粗归因，无渠道树与业务线</td></tr>
-            <tr><td>业务线全局筛选</td><td>订单中心与用户中心·二期共享同一业务线筛选，切换一处全局联动；<b>用户中心（一期）不含业务线</b>，改按国家展示</td></tr>
+            <tr><td>业务线筛选（二期）</td><td>业务线筛选用于<b>用户中心·二期</b>（按渠道归因）；<b>一期用户中心与订单中心均不含业务线</b>，统一改按<b>国家</b>筛选/展示</td></tr>
             <tr><td>登录鉴权</td><td>邮箱验证码登录，仅允许 @dinoai.ai</td></tr>
             <tr><td>角色权限（RBAC）</td><td>角色按模块分级（无权限/只读/可操作）；菜单过滤、路由重定向、操作按钮显隐均按权限生效</td></tr>
             <tr><td>数据权限</td><td>全部业务线 / 指定业务线；列表数据按成员可见业务线隔离</td></tr>
