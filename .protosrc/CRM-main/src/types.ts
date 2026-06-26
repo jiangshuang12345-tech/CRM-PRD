@@ -55,6 +55,10 @@ export const METHOD_HAS_PHONE: Record<LoginMethod, boolean> = {
   AppID: false,
 }
 
+// 应用商店渠道（一期：无渠道体系，仅区分应用商店来源）
+export type AppChannel = 'App Store' | 'Google Play'
+export const APP_CHANNELS: AppChannel[] = ['App Store', 'Google Play']
+
 export type Student = {
   studentId: string
   name: string
@@ -68,6 +72,8 @@ export type Student = {
   registerChannel: string
   countryCode: string
   channelCode: string
+  country?: string // 注册时 IP 对应的国家（一期用户中心）
+  appChannel?: AppChannel // 注册渠道（一期：App Store / Google Play）
   registerTime: string // Beijing
   status: UserStatus
   expireTime?: string // 到期时间

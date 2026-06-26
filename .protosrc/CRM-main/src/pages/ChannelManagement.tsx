@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import type { Key } from 'react'
 import {
+  Alert,
   Button,
   Card,
   Empty,
@@ -377,6 +378,7 @@ export default function ChannelManagement() {
         .ant-tree-node-content-wrapper { width: 100%; }
         .ant-tree .ant-tree-treenode { padding: 4px 0; align-items: center; }
       `}</style>
+      <Alert type="warning" showIcon message={t('phase2.banner')} style={{ marginBottom: 16 }} />
       <div style={{ marginBottom: 12 }}>
         <Text type="secondary">{t('ch.intro')}</Text>
       </div>

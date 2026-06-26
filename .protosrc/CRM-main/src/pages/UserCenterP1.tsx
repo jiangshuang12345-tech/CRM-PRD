@@ -16,10 +16,10 @@ import { EditOutlined, SearchOutlined } from '@ant-design/icons'
 import type { ColumnsType } from 'antd/es/table'
 import dayjs from 'dayjs'
 import { setState, useStore } from '../store'
-import type { LoginMethod, Student, UserStatus } from '../types'
+import type { AppChannel, LoginMethod, Student, UserStatus } from '../types'
+import { APP_CHANNELS } from '../types'
 import { useI18n } from '../i18n'
 import { usePerm } from '../perm'
-import { setBizFilter, useBizFilter } from '../bizFilter'
 
 const { Text } = Typography
 
@@ -38,40 +38,50 @@ const METHOD_COLOR: Record<LoginMethod, string> = {
   AppID: 'purple',
 }
 
-export default function UserCenter() {
+const APP_CHANNEL_COLOR: Record<AppChannel, string> = {
+  'App Store': 'blue',
+  'Google Play': 'green',
+}
+
+export default function UserCenterP1() {
   const { t } = useI18n()
   const students = useStore((s) => s.students)
-  const channels = useStore((s) => s.channels)
-  const { can, allowedLines, actor } = usePerm()
+  const { can, allowedLines } = usePerm()
   const canEdit = can('users') === 'operate'
   const scope = allowedLines()
   const [keyword, setKeyword] = useState('')
-  const lineFilter = useBizFilter()
+  const [countryFilter, setCountryFilter] = useState<string | undefined>()
+  const [channelFilter, setChannelFilter] = useState<string | undefined>()
   const [statusFilter, setStatusFilter] = useState<string | undefined>()
   const [editing, setEditing] = useState<Student | null>(null)
   const [form] = Form.useForm()
 
-  // 数据范围内的业务线（null 表示全部）
-  const lines = useMemo(() => {
-    const all = channels.map((c) => c.name)
-    return scope ? all.filter((l) => scope.includes(l)) : all
-  }, [channels, scope])
+  // 数据权限：底层仍按业务线隔离（一期不展示业务线，仅展示国家）
+  const scoped = useMemo(
+    () => (scope ? students.filter((s) => scope.includes(s.businessLine)) : students),
+    [students, scope],
+  )
+
+  const countries = useMemo(
+    () => Array.from(new Set(scoped.map((s) => s.country).filter(Boolean))) as string[],
+    [scoped],
+  )
 
   const data = useMemo(
     () =>
-      students.filter((s) => {
-        if (scope && !scope.includes(s.businessLine)) return false
+      scoped.filter((s) => {
         const kw = keyword.trim().toLowerCase()
         const matchKw =
           !kw ||
           s.studentId.toLowerCase().includes(kw) ||
           (s.localName ?? s.name).toLowerCase().includes(kw) ||
           s.account.toLowerCase().includes(kw)
-        const matchLine = !lineFilter || s.businessLine === lineFilter
+        const matchCountry = !countryFilter || s.country === countryFilter
+        const matchChannel = !channelFilter || s.appChannel === channelFilter
         const matchStatus = !statusFilter || s.status === statusFilter
-        return matchKw && matchLine && matchStatus
+        return matchKw && matchCountry && matchChannel && matchStatus
       }),
-    [students, keyword, lineFilter, statusFilter, scope],
+    [scoped, keyword, countryFilter, channelFilter, statusFilter],
   )
 
   const openEdit = (s: Student) => {
@@ -80,7 +90,6 @@ export default function UserCenter() {
       localName: s.localName,
       gender: s.gender,
       birthday: s.birthday ? dayjs(s.birthday) : undefined,
-      businessLine: s.businessLine,
     })
   }
 
@@ -96,7 +105,6 @@ export default function UserCenter() {
               localName: v.localName,
               gender: v.gender,
               birthday: v.birthday ? v.birthday.format('YYYY-MM-DD') : undefined,
-              lastModifier: actor,
             }
           : s,
       ),
@@ -121,17 +129,22 @@ export default function UserCenter() {
     {
       title: t('user.col.account'),
       dataIndex: 'account',
-      width: 200,
+      width: 220,
       render: (v) => <Text>{v}</Text>,
     },
     {
-      title: t('user.col.channel'),
-      dataIndex: 'registerChannel',
-      width: 220,
-      render: (v: string, r) => `${r.businessLine} · ${v}`,
+      title: t('user.col.appChannel'),
+      dataIndex: 'appChannel',
+      width: 140,
+      render: (v: AppChannel | undefined) =>
+        v ? <Tag color={APP_CHANNEL_COLOR[v]}>{v}</Tag> : <Text type="secondary">—</Text>,
     },
-    { title: t('user.col.line'), dataIndex: 'businessLine', width: 110, render: (v) => <Tag>{v}</Tag> },
-    { title: t('user.col.code'), dataIndex: 'channelCode', width: 200, render: (v) => <Text code>{v}</Text> },
+    {
+      title: t('user.col.country'),
+      dataIndex: 'country',
+      width: 120,
+      render: (v: string | undefined) => (v ? <Tag>{v}</Tag> : <Text type="secondary">—</Text>),
+    },
     { title: t('user.col.regTime'), dataIndex: 'registerTime', width: 180 },
     {
       title: t('user.col.expireTime'),
@@ -169,7 +182,7 @@ export default function UserCenter() {
   ]
 
   return (
-    <Card className="page-card" bordered={false} title={<span className="section-title">{t('user.titleV2')}</span>}>
+    <Card className="page-card" bordered={false} title={<span className="section-title">{t('user.title')}</span>}>
       <Space wrap style={{ marginBottom: 16 }}>
         <Input
           allowClear
@@ -181,11 +194,19 @@ export default function UserCenter() {
         />
         <Select
           allowClear
-          placeholder={t('user.col.line')}
+          placeholder={t('user.col.appChannel')}
           style={{ width: 150 }}
-          value={lineFilter}
-          onChange={setBizFilter}
-          options={lines.map((c) => ({ label: c, value: c }))}
+          value={channelFilter}
+          onChange={setChannelFilter}
+          options={APP_CHANNELS.map((c) => ({ label: c, value: c }))}
+        />
+        <Select
+          allowClear
+          placeholder={t('user.col.country')}
+          style={{ width: 130 }}
+          value={countryFilter}
+          onChange={setCountryFilter}
+          options={countries.map((c) => ({ label: c, value: c }))}
         />
         <Select
           allowClear
@@ -201,7 +222,7 @@ export default function UserCenter() {
         rowKey="studentId"
         columns={columns}
         dataSource={data}
-        scroll={{ x: 1950 }}
+        scroll={{ x: 1700 }}
         pagination={{ showTotal: (n) => t('common.total', { n }), showSizeChanger: true }}
       />
 
@@ -228,8 +249,8 @@ export default function UserCenter() {
           <Form.Item name="birthday" label={t('user.label.birthday')}>
             <DatePicker style={{ width: '100%' }} placeholder={t('user.birthdayPlaceholder')} />
           </Form.Item>
-          <Form.Item label={t('user.col.line')} tooltip={t('user.lineReadonly')}>
-            <Input value={editing?.businessLine} disabled />
+          <Form.Item label={t('user.col.country')}>
+            <Input value={editing?.country} disabled />
           </Form.Item>
         </Form>
       </Modal>
