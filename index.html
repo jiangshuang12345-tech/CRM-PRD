@@ -517,8 +517,8 @@
             <tr><td>登录账号</td><td>邮箱 / Facebook / kakao ID / AppID / 手机号</td><td>否</td></tr>
             <tr><td>注册渠道 <span class="pill ph1" style="font-size:10px">一期口径</span></td><td>仅区分应用商店来源：<b>App Store / Google Play</b>（一期无渠道树）</td><td>否</td></tr>
             <tr><td>国家 <span class="pill ph1" style="font-size:10px">一期口径</span></td><td>注册时 IP 对应的国家（替代二期的「业务线」展示）</td><td>否</td></tr>
-            <tr><td>注册时间</td><td>UTC 时间</td><td>否</td></tr>
-            <tr><td>到期时间</td><td>会员/商品包到期时间，无则显示「—」</td><td>否</td></tr>
+            <tr><td>注册时间</td><td>底层以 UTC 存储，按<b>注册国家</b>换算为当地时间展示，并标注时区（如 <code>UTC+09:00</code>）</td><td>否</td></tr>
+            <tr><td>到期时间</td><td>会员/商品包到期时间，按<b>注册国家</b>换算为当地时间展示并标注时区；无则显示「—」</td><td>否</td></tr>
             <tr><td>用户状态</td><td>注册 / 体验中 / 体验逾期 / 付费 / 付费逾期</td><td>否（系统流转）</td></tr>
             <tr><td>最近修改人</td><td>最近一次资料修改的操作人，无则显示「—」</td><td>否（系统记录）</td></tr>
           </tbody>
@@ -579,8 +579,8 @@
             <tr><td>注册渠道</td><td>展示「业务线 · 渠道」，关联渠道管理</td><td>否</td></tr>
             <tr><td>所属业务线</td><td>业务线（与渠道管理业务线一致）；编辑弹窗中<b>只读展示</b>，由注册渠道决定</td><td>否</td></tr>
             <tr><td>渠道 code</td><td>归因来源 code</td><td>否</td></tr>
-            <tr><td>注册时间</td><td>UTC 时间</td><td>否</td></tr>
-            <tr><td>到期时间 <span class="pill ph1" style="font-size:10px">新增</span></td><td>会员/商品包到期时间，无则显示「—」</td><td>否</td></tr>
+            <tr><td>注册时间</td><td>底层以 UTC 存储，按<b>注册国家</b>换算为当地时间展示，并标注时区（如 <code>UTC+09:00</code>）</td><td>否</td></tr>
+            <tr><td>到期时间 <span class="pill ph1" style="font-size:10px">新增</span></td><td>会员/商品包到期时间，按<b>注册国家</b>换算为当地时间展示并标注时区；无则显示「—」</td><td>否</td></tr>
             <tr><td>用户状态</td><td>注册 / 体验中 / 体验逾期 / 付费 / 付费逾期</td><td>否（系统流转）</td></tr>
             <tr><td>最近修改人 <span class="pill ph1" style="font-size:10px">新增</span></td><td>最近一次资料修改的操作人，无则显示「—」</td><td>否（系统记录）</td></tr>
           </tbody>
@@ -647,8 +647,8 @@
             <tr><td>用户状态 / 订单状态</td><td>用户状态 + 订单状态双标签</td></tr>
             <tr><td>原价 / 实际付款金额</td><td>含币种，按业务线本地币种或 USD 展示</td></tr>
             <tr><td>支付方式</td><td>App Store / Google Play / Stripe / PayPal</td></tr>
-            <tr><td>成功支付时间</td><td>未支付为 —</td></tr>
-            <tr><td>有效期到期时间 <span class="pill ph1" style="font-size:10px">新增</span></td><td>订单对应权益的到期时间，无则显示「—」</td></tr>
+            <tr><td>成功支付时间</td><td>底层 UTC 存储，按归属用户<b>注册国家</b>换算为当地时间展示并标注时区；未支付为 —</td></tr>
+            <tr><td>有效期到期时间 <span class="pill ph1" style="font-size:10px">新增</span></td><td>订单对应权益的到期时间，按归属用户<b>注册国家</b>换算为当地时间展示并标注时区；无则显示「—」</td></tr>
           </tbody>
         </table>
 
@@ -911,6 +911,7 @@
           <thead><tr><th style="width:160px">能力</th><th>说明</th></tr></thead>
           <tbody>
             <tr><td>多语言</td><td>English / 한국어 / العربية / 简体中文，右上角切换；<b>默认英文（English）</b>（底层已接入更多语言，当前对外开放 4 种）</td></tr>
+            <tr><td>时间展示（按时区换算）</td><td>所有时间字段（注册时间 / 到期时间 / 支付时间等）<b>底层统一以 UTC 存储</b>，展示时按用户<b>注册国家</b>换算为当地时间，并标注时区（如 <code>UTC+09:00</code>）；映射见下方「国家 · 时区映射」</td></tr>
             <tr><td>一期归因口径</td><td>用户中心（一期）按<b>应用商店来源（App Store / Google Play）+ 国家（注册 IP）</b>做粗归因，无渠道树与业务线</td></tr>
             <tr><td>业务线全局筛选</td><td>订单中心与用户中心·二期共享同一业务线筛选，切换一处全局联动；<b>用户中心（一期）不含业务线</b>，改按国家展示</td></tr>
             <tr><td>登录鉴权</td><td>邮箱验证码登录，仅允许 @dinoai.ai</td></tr>
@@ -919,6 +920,22 @@
             <tr><td>操作日志</td><td>角色与成员账号的变更留痕：时间 · 操作人 · 操作 · 对象（当前不含业务模块操作）</td></tr>
             <tr><td>二期标记</td><td>渠道管理 / 用户中心·二期 / 商品包 / 优惠券 / 落地页 / 系统配置 导航带「二期」标签并显示二期提示横幅</td></tr>
             <tr><td>落地页模版</td><td>按业务线维护各自落地页链接模版（已配置：韩国 / 越南 / 印尼 / 马来），无模版业务线不可生成</td></tr>
+          </tbody>
+        </table>
+
+        <h3>国家 · 时区映射</h3>
+        <p class="muted" style="font-size:12.5px;margin-top:-4px">时间字段以 UTC 存储，按用户注册国家换算为下列时区的当地时间展示；未匹配到的国家默认按 UTC 展示。</p>
+        <table class="bordered">
+          <thead><tr><th style="width:160px">国家 / 业务线</th><th style="width:200px">时区（IANA）</th><th>UTC 偏移</th></tr></thead>
+          <tbody>
+            <tr><td>中国</td><td>Asia/Shanghai</td><td>UTC+08:00</td></tr>
+            <tr><td>韩国</td><td>Asia/Seoul</td><td>UTC+09:00</td></tr>
+            <tr><td>沙特</td><td>Asia/Riyadh</td><td>UTC+03:00</td></tr>
+            <tr><td>越南</td><td>Asia/Ho_Chi_Minh</td><td>UTC+07:00</td></tr>
+            <tr><td>印尼</td><td>Asia/Jakarta</td><td>UTC+07:00</td></tr>
+            <tr><td>泰国</td><td>Asia/Bangkok</td><td>UTC+07:00</td></tr>
+            <tr><td>马来 / 马来西亚</td><td>Asia/Kuala_Lumpur</td><td>UTC+08:00</td></tr>
+            <tr><td>其他 / 未匹配</td><td>UTC</td><td>UTC+00:00</td></tr>
           </tbody>
         </table>
 
