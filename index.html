@@ -511,10 +511,11 @@
           <tbody>
             <tr><td>关键字搜索</td><td>支持 用户ID / 姓名 / 登录账号 模糊搜索（登录账号即覆盖手机号场景）</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td>多注册方式展示</td><td>谷歌邮箱 / Facebook / kakao / 手机号 / AppID，含登录账号；支持非手机号注册</td><td><span class="pill p0">P0</span></td></tr>
-            <tr><td>条件筛选</td><td>注册渠道（App Store / Google Play）、国家、用户状态（注册/体验中/体验逾期/付费/付费逾期）</td><td><span class="pill p0">P0</span></td></tr>
+            <tr><td>条件筛选</td><td>用户类型（正式/测试）、注册渠道（App Store / Google Play）、国家、用户状态（注册/体验中/体验逾期/付费/付费逾期）</td><td><span class="pill p0">P0</span></td></tr>
+            <tr><td>用户类型识别 <span class="pill ph1" style="font-size:10px">新增</span></td><td>正式用户 / 测试用户；手机号 / kakao 登录按手机号规则<b>自动判定</b>，其余第三方登录可后台手动设置</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td>列表 + 分页</td><td>展示基本信息字段，支持分页与每页条数</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td>到期时间 / 最近修改人</td><td>展示会员到期时间（无则—）与最近一次资料修改人（无则—）</td><td><span class="pill p0">P0</span></td></tr>
-            <tr><td>修改基本信息</td><td>本地名 / 年龄段；保存后记录「最近修改人」（国家只读、不可修改）</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td>修改基本信息</td><td>本地名 / 年龄段 / 用户类型（仅第三方登录可改）；保存后记录「最近修改人」（国家只读、不可修改）</td><td><span class="pill p1">P1</span></td></tr>
           </tbody>
         </table>
 
@@ -524,6 +525,7 @@
           <tbody>
             <tr><td>用户ID</td><td>用户唯一标识（长数字ID）</td><td>否</td></tr>
             <tr><td>学生姓名</td><td>单一姓名字段，取 App 内的 <code>Student_Name</code></td><td>可编辑</td></tr>
+            <tr><td>用户类型 <span class="pill ph1" style="font-size:10px">新增</span></td><td>正式用户 / 测试用户；手机号 / kakao 登录由规则自动判定（不可改），其余第三方登录可手动设置</td><td>部分可编辑</td></tr>
             <tr><td>年龄段 <span class="pill ph1" style="font-size:10px">新增</span></td><td>3-5 / 6-8 / 9-12 / 13-17 / 18+（替代原「性别 / 出生日期」编辑项）</td><td>可编辑</td></tr>
             <tr><td>注册方式</td><td>谷歌邮箱 / Facebook / kakao / 手机号 / AppID</td><td>否</td></tr>
             <tr><td>登录账号</td><td>邮箱 / Facebook / kakao ID / AppID / 手机号</td><td>否</td></tr>
@@ -535,6 +537,8 @@
             <tr><td>最近修改人</td><td>最近一次资料修改的操作人，无则显示「—」</td><td>否（系统记录）</td></tr>
           </tbody>
         </table>
+
+        <div class="callout info"><div class="ic">🧪</div><div><b>测试用户判定规则：</b>对<b>手机号 / kakao</b> 登录用户，将手机号去除国家码并归一化后，若<b>前 5 位连续为 0</b>（<code>00000…</code>）则判定为<b>测试用户</b>，否则为正式用户——该类用户类型<b>系统自动判定、不可手动修改</b>；谷歌邮箱 / Facebook / AppID 等第三方登录用户无手机号，其用户类型由后台<b>手动设置</b>（默认正式用户）。</div></div>
 
         <h3>用户状态定义</h3>
         <table class="bordered">
@@ -550,9 +554,9 @@
         <div class="callout info"><div class="ic">🔄</div><div>状态为系统自动流转、不可手工编辑：体验中/付费随有效期推移与续订结果变化；体验到期未转正式即为「体验逾期」；正式包到期后自动订阅成功仍为「付费」，到期未续订则转为「付费逾期」。</div></div>
 
         <h3>关键交互流程</h3>
-        <div class="step"><div class="n">1</div><div class="c">输入关键字（用户ID/姓名/登录账号）或选择 注册渠道（App Store/Google Play）/ 国家 / 用户状态 → 列表实时过滤。</div></div>
+        <div class="step"><div class="n">1</div><div class="c">输入关键字（用户ID/姓名/登录账号）或选择 用户类型（正式/测试）/ 注册渠道（App Store/Google Play）/ 国家 / 用户状态 → 列表实时过滤。</div></div>
         <div class="step"><div class="n">2</div><div class="c">查看「注册方式」「登录账号」列定位用户来源；非手机号方式登录账号为邮箱/第三方账号。</div></div>
-        <div class="step"><div class="n">3</div><div class="c">点「修改信息」→ 弹窗编辑本地名 / 年龄段（国家只读）→ 保存，系统记录「最近修改人」。</div></div>
+        <div class="step"><div class="n">3</div><div class="c">点「修改信息」→ 弹窗编辑本地名 / 年龄段 / 用户类型（国家只读；手机号/kakao 用户的用户类型由规则自动判定、不可改）→ 保存，系统记录「最近修改人」。</div></div>
 
         <div class="proto" data-route="users"></div>
       </section>
@@ -573,10 +577,11 @@
           <tbody>
             <tr><td>关键字搜索</td><td>支持 用户ID / 姓名 / 登录账号 模糊搜索（登录账号即覆盖手机号场景）</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td>多注册方式展示</td><td>谷歌邮箱 / Facebook / kakao / 手机号 / AppID，含登录账号；支持非手机号注册</td><td><span class="pill p0">P0</span></td></tr>
-            <tr><td>条件筛选</td><td>业务线（全局共享）、用户状态（注册/体验中/体验逾期/付费/付费逾期）</td><td><span class="pill p0">P0</span></td></tr>
+            <tr><td>条件筛选</td><td>用户类型（正式/测试）、业务线（全局共享）、用户状态（注册/体验中/体验逾期/付费/付费逾期）</td><td><span class="pill p0">P0</span></td></tr>
+            <tr><td>用户类型识别 <span class="pill ph1" style="font-size:10px">新增</span></td><td>正式用户 / 测试用户；手机号 / kakao 登录按手机号规则<b>自动判定</b>，其余第三方登录可后台手动设置</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td>列表 + 分页</td><td>展示基本信息字段，支持分页与每页条数</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td>到期时间 / 最近修改人 <span class="pill ph1" style="font-size:10px">新增</span></td><td>展示会员到期时间（无则—）与最近一次资料修改人（无则—）</td><td><span class="pill p0">P0</span></td></tr>
-            <tr><td>修改基本信息</td><td>本地名 / 性别 / 出生日期；保存后记录「最近修改人」（<b>业务线只读，由注册渠道决定，不可修改</b>）</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td>修改基本信息</td><td>本地名 / 性别 / 出生日期 / 用户类型（仅第三方登录可改）；保存后记录「最近修改人」（<b>业务线只读，由注册渠道决定，不可修改</b>）</td><td><span class="pill p1">P1</span></td></tr>
           </tbody>
         </table>
 
@@ -586,6 +591,7 @@
           <tbody>
             <tr><td>用户ID</td><td>用户唯一标识（长数字ID）</td><td>否</td></tr>
             <tr><td>学生姓名</td><td>单一姓名字段，取 App 内的 <code>Student_Name</code></td><td>可编辑</td></tr>
+            <tr><td>用户类型 <span class="pill ph1" style="font-size:10px">新增</span></td><td>正式用户 / 测试用户；手机号 / kakao 登录由规则自动判定（不可改），其余第三方登录可手动设置</td><td>部分可编辑</td></tr>
             <tr><td>注册方式</td><td>谷歌邮箱 / Facebook / kakao / 手机号 / AppID</td><td>否</td></tr>
             <tr><td>登录账号</td><td>邮箱 / Facebook / kakao ID / AppID / 手机号</td><td>否</td></tr>
             <tr><td>注册渠道</td><td>展示「业务线 · 渠道」，关联渠道管理</td><td>否</td></tr>
@@ -644,7 +650,7 @@
           <thead><tr><th style="width:170px">功能点</th><th>说明</th><th style="width:90px">优先级</th></tr></thead>
           <tbody>
             <tr><td>关键字搜索</td><td>订单ID / 用户ID / 商品名称 模糊搜索</td><td><span class="pill p0">P0</span></td></tr>
-            <tr><td>条件筛选</td><td>国家（按归属用户注册国家）、订单状态（待支付/已支付/已退款/已取消）、支付方式</td><td><span class="pill p0">P0</span></td></tr>
+            <tr><td>条件筛选</td><td>用户类型（正式/测试）、国家（按归属用户注册国家）、订单状态（待支付/已支付/已退款/已取消）、支付方式</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td>列表 + 分页</td><td>原价 / 实付 / 币种 / 支付时间 / 有效期到期时间</td><td><span class="pill p0">P0</span></td></tr>
           </tbody>
         </table>
@@ -655,6 +661,7 @@
           <tbody>
             <tr><td>订单ID</td><td>订单唯一标识，如 <code>DN2026061800001</code></td></tr>
             <tr><td>商品名称 / 用户ID</td><td>所购商品 + 归属用户</td></tr>
+            <tr><td>用户类型 <span class="pill ph1" style="font-size:10px">新增</span></td><td>按归属用户的用户类型展示：正式用户 / 测试用户（便于剔除测试订单）</td></tr>
             <tr><td>国家</td><td>按归属用户的注册国家展示（替代原「所属业务线」列，与一期用户中心口径一致）</td></tr>
             <tr><td>用户状态 / 订单状态</td><td>用户状态 + 订单状态双标签</td></tr>
             <tr><td>原价 / 实际付款金额</td><td>含币种，按业务线本地币种或 USD 展示</td></tr>
@@ -926,6 +933,7 @@
             <tr><td>多语言</td><td>English / 한국어 / العربية / 简体中文，右上角切换；<b>默认英文（English）</b>（底层已接入更多语言，当前对外开放 4 种）</td></tr>
             <tr><td>时间展示（按时区换算）</td><td>所有时间字段（注册时间 / 到期时间 / 支付时间等）<b>底层统一以 UTC 存储</b>，展示时按用户<b>注册国家</b>换算为当地时间，并标注时区（如 <code>UTC+09:00</code>）；映射见下方「国家 · 时区映射」</td></tr>
             <tr><td>一期归因口径</td><td>用户中心（一期）按<b>应用商店来源（App Store / Google Play）+ 国家（注册 IP）</b>做粗归因，无渠道树与业务线</td></tr>
+            <tr><td>用户类型（正式 / 测试）</td><td>用户中心、订单中心均支持「用户类型」列与筛选；<b>手机号 / kakao</b> 登录用户按手机号归一化后<b>前 5 位连续为 0</b>（<code>00000…</code>）自动判定为测试用户（不可改），其余第三方登录用户由后台手动设置（默认正式用户），便于剔除测试数据</td></tr>
             <tr><td>业务线筛选（二期）</td><td>业务线筛选用于<b>用户中心·二期</b>（按渠道归因）；<b>一期用户中心与订单中心均不含业务线</b>，统一改按<b>国家</b>筛选/展示</td></tr>
             <tr><td>登录鉴权</td><td>邮箱验证码登录，仅允许 @dinoai.ai</td></tr>
             <tr><td>角色权限（RBAC）</td><td>角色按模块分级（无权限/只读/可操作）；菜单过滤、路由重定向、操作按钮显隐均按权限生效</td></tr>
@@ -987,6 +995,7 @@
         <table class="bordered">
           <thead><tr><th style="width:160px">术语</th><th>含义</th></tr></thead>
           <tbody>
+            <tr><td>用户类型</td><td>正式用户 / 测试用户；手机号归一化后前 5 位连续为 0 即测试用户（手机号/kakao 自动判定），其余第三方登录可手动设置</td></tr>
             <tr><td>注册渠道（一期）</td><td>一期口径，仅区分应用商店来源：App Store / Google Play</td></tr>
             <tr><td>渠道 code</td><td>投放与归因的唯一标识，由渠道管理生成（二期）</td></tr>
             <tr><td>业务线</td><td>按国家 / 地区划分的运营单元</td></tr>
