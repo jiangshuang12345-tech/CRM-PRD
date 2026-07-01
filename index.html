@@ -516,6 +516,7 @@
             <tr><td>列表 + 分页</td><td>展示基本信息字段，支持分页与每页条数</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td>到期时间 / 最近修改人</td><td>展示会员到期时间（无则—）与最近一次资料修改人（无则—）</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td>修改基本信息</td><td>本地名 / 年龄段 / 用户类型（仅第三方登录可改）；保存后记录「最近修改人」（国家只读、不可修改）</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td>修改历史 <span class="pill ph1" style="font-size:10px">新增</span></td><td>点击「最近修改人」查看该用户的资料修改记录：操作时间、变更内容（字段修改前 → 修改后）、修改人</td><td><span class="pill p1">P1</span></td></tr>
           </tbody>
         </table>
 
@@ -525,6 +526,7 @@
           <tbody>
             <tr><td>用户ID</td><td>用户唯一标识（长数字ID）</td><td>否</td></tr>
             <tr><td>学生姓名</td><td>单一姓名字段，取 App 内的 <code>Student_Name</code></td><td>可编辑</td></tr>
+            <tr><td>用户状态</td><td>注册 / 体验中 / 体验逾期 / 付费 / 付费逾期</td><td>否（系统流转）</td></tr>
             <tr><td>用户类型 <span class="pill ph1" style="font-size:10px">新增</span></td><td>正式用户 / 测试用户；手机号 / kakao 登录由规则自动判定（不可改），其余第三方登录可手动设置</td><td>部分可编辑</td></tr>
             <tr><td>年龄段 <span class="pill ph1" style="font-size:10px">新增</span></td><td>3-5 / 6-8 / 9-12 / 13-17 / 18+（替代原「性别 / 出生日期」编辑项）</td><td>可编辑</td></tr>
             <tr><td>注册方式</td><td>谷歌邮箱 / Facebook / kakao / 手机号 / AppID</td><td>否</td></tr>
@@ -533,8 +535,7 @@
             <tr><td>国家 <span class="pill ph1" style="font-size:10px">一期口径</span></td><td>注册时 IP 对应的国家（替代二期的「业务线」展示）</td><td>否</td></tr>
             <tr><td>注册时间</td><td>底层以 UTC 存储，按<b>注册国家</b>换算为当地时间展示，并标注时区（如 <code>UTC+09:00</code>）</td><td>否</td></tr>
             <tr><td>到期时间</td><td>会员/商品包到期时间，按<b>注册国家</b>换算为当地时间展示并标注时区；无则显示「—」</td><td>否</td></tr>
-            <tr><td>用户状态</td><td>注册 / 体验中 / 体验逾期 / 付费 / 付费逾期</td><td>否（系统流转）</td></tr>
-            <tr><td>最近修改人</td><td>最近一次资料修改的操作人，无则显示「—」</td><td>否（系统记录）</td></tr>
+            <tr><td>最近修改人 <span class="pill ph1" style="font-size:10px">可查历史</span></td><td>最近一次资料修改的操作人（无则显示「—」）；<b>点击可查看完整「修改历史」</b>（时间 / 变更前后 / 修改人）</td><td>否（系统记录）</td></tr>
           </tbody>
         </table>
 
@@ -556,7 +557,8 @@
         <h3>关键交互流程</h3>
         <div class="step"><div class="n">1</div><div class="c">输入关键字（用户ID/姓名/登录账号）或选择 用户类型（正式/测试）/ 注册渠道（App Store/Google Play）/ 国家 / 用户状态 → 列表实时过滤。</div></div>
         <div class="step"><div class="n">2</div><div class="c">查看「注册方式」「登录账号」列定位用户来源；非手机号方式登录账号为邮箱/第三方账号。</div></div>
-        <div class="step"><div class="n">3</div><div class="c">点「修改信息」→ 弹窗编辑本地名 / 年龄段 / 用户类型（国家只读；手机号/kakao 用户的用户类型由规则自动判定、不可改）→ 保存，系统记录「最近修改人」。</div></div>
+        <div class="step"><div class="n">3</div><div class="c">点「修改信息」→ 弹窗编辑本地名 / 年龄段 / 用户类型（国家只读；手机号/kakao 用户的用户类型由规则自动判定、不可改）→ 保存，系统按字段记录变更前后并写入「修改历史」，同时更新「最近修改人」。</div></div>
+        <div class="step"><div class="n">4</div><div class="c">点列表中的「最近修改人」→ 弹出「修改历史」，按时间倒序展示每次操作的<b>变更内容（字段：修改前 → 修改后）</b>与修改人。</div></div>
 
         <div class="proto" data-route="users"></div>
       </section>
@@ -934,6 +936,7 @@
             <tr><td>时间展示（按时区换算）</td><td>所有时间字段（注册时间 / 到期时间 / 支付时间等）<b>底层统一以 UTC 存储</b>，展示时按用户<b>注册国家</b>换算为当地时间，并标注时区（如 <code>UTC+09:00</code>）；映射见下方「国家 · 时区映射」</td></tr>
             <tr><td>一期归因口径</td><td>用户中心（一期）按<b>应用商店来源（App Store / Google Play）+ 国家（注册 IP）</b>做粗归因，无渠道树与业务线</td></tr>
             <tr><td>用户类型（正式 / 测试）</td><td>用户中心、订单中心均支持「用户类型」列与筛选；<b>手机号 / kakao</b> 登录用户按手机号归一化后<b>前 5 位连续为 0</b>（<code>00000…</code>）自动判定为测试用户（不可改），其余第三方登录用户由后台手动设置（默认正式用户），便于剔除测试数据</td></tr>
+            <tr><td>用户资料修改历史</td><td>用户中心（一期）对每次资料修改按字段记录<b>变更前 → 变更后</b>、操作时间与修改人；点击列表「最近修改人」即可查看完整历史，用于追溯与审计</td></tr>
             <tr><td>业务线筛选（二期）</td><td>业务线筛选用于<b>用户中心·二期</b>（按渠道归因）；<b>一期用户中心与订单中心均不含业务线</b>，统一改按<b>国家</b>筛选/展示</td></tr>
             <tr><td>登录鉴权</td><td>邮箱验证码登录，仅允许 @dinoai.ai</td></tr>
             <tr><td>角色权限（RBAC）</td><td>角色按模块分级（无权限/只读/可操作）；菜单过滤、路由重定向、操作按钮显隐均按权限生效</td></tr>
