@@ -475,7 +475,7 @@
             <tr><td>新增业务线 <span class="pill ph1" style="font-size:10px">新增</span></td><td>最顶层节点，如 韩国 / 沙特 / 泰国 / 越南 / 印尼…</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td>新增渠道类型</td><td>在业务线下新增 自然流量 / landingpage / KOL 等类型</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td>分级渠道维护</td><td>在类型下逐级新增 一/二/三级渠道（如 媒体 → 达人）</td><td><span class="pill p0">P0</span></td></tr>
-            <tr><td>生成 / 查看渠道 code</td><td>任意层级生成唯一 code（7 位随机码），可一键复制；已生成则展示并支持复制</td><td><span class="pill p0">P0</span></td></tr>
+            <tr><td>生成 / 查看渠道 code</td><td>任意层级生成 code（7 位随机码），可一键复制；已生成则展示并支持复制。<b>生成时对整棵渠道树已有 code 自动查重去重，保证全局唯一</b></td><td><span class="pill p0">P0</span></td></tr>
             <tr><td>渠道参数 <span class="pill ph1" style="font-size:10px">新增</span></td><td>为<b>已生成 code</b> 的渠道填写自定义参数（<b>暂支持 2 个</b>：参数1 / 参数2），用于生成落地页链接时带入投放侧自定义信息</td><td><span class="pill p1">P1</span></td></tr>
             <tr><td>重命名 / 删除</td><td>删除会级联删除其下级（业务线/类型/渠道）与 code（二次确认）</td><td><span class="pill p1">P1</span></td></tr>
           </tbody>
@@ -488,7 +488,7 @@
             <tr><td>业务线</td><td>渠道树最顶层节点，可自定义新增</td><td>韩国 / 沙特 / 泰国 / 越南 / 印尼…</td></tr>
             <tr><td>渠道类型</td><td>业务线下的渠道类型</td><td>自然流量 / landingpage / KOL</td></tr>
             <tr><td>渠道层级</td><td>一级 / 二级 / 三级</td><td>一期支持至三级，结构可扩展</td></tr>
-            <tr><td>渠道 code</td><td>实际投放/归因使用的唯一标识</td><td><code>K2000Gh</code>（7 位随机字母数字）</td></tr>
+            <tr><td>渠道 code</td><td>实际投放/归因使用的唯一标识；生成时系统对已有 code 去重，保证全局唯一</td><td><code>K2000Gh</code>（7 位随机字母数字）</td></tr>
             <tr><td>渠道参数（参数1/参数2）<span class="pill ph1" style="font-size:10px">新增</span></td><td>已生成 code 的渠道可填写的自定义参数，均为选填；节点上以标签展示</td><td>落地页生成链接时拼接为 <code>&p1=…&p2=…</code></td></tr>
           </tbody>
         </table>
@@ -837,7 +837,7 @@
           <thead><tr><th style="width:150px">字段</th><th>说明</th></tr></thead>
           <tbody>
             <tr><td>KOL / 使用方</td><td>该优惠码分发的对象（如某达人 / 渠道），同券内唯一</td></tr>
-            <tr><td>优惠码</td><td>系统生成的码，用户领取/核销使用</td></tr>
+            <tr><td>优惠码</td><td>系统生成的码（12 位随机码），用户领取/核销使用；<b>生成时对全部券已有码及本券未保存码去重，保证全局唯一</b></td></tr>
             <tr><td>已使用</td><td>该码已核销张数，详情页含「合计已使用」</td></tr>
           </tbody>
         </table>
@@ -845,6 +845,7 @@
         <h3>关键业务规则</h3>
         <ul class="clean">
           <li>一张券至少包含一个优惠码；同券内 KOL / 使用方不可重复。</li>
+          <li>优惠码由系统生成并<b>全局唯一</b>：生成时对全部券的已有码去重，追加新码时也会避开本券尚未保存的码。</li>
           <li>各优惠码的「已使用」数量独立统计，用于按 KOL 结算。</li>
           <li>抵扣金额不得大于门槛金额（表单校验）。</li>
           <li>可用商品必须为<b>已存在的商品包</b>，按商品包 ID 校验，不存在则报错。</li>
@@ -1032,6 +1033,7 @@
             <tr><td>营销中心（菜单分组）</td><td>二期将 <b>渠道管理 / 商品包 / 优惠券 / 落地页</b> 收拢到「营销中心」一级菜单下作为子菜单；<b>销售中心</b>、用户中心·二期、系统配置作为独立菜单项</td></tr>
             <tr><td>二期标记</td><td>销售中心 / 用户中心·二期 / 营销中心（渠道/商品包/优惠券/落地页）/ 系统配置 导航带「二期」标签并显示二期提示横幅</td></tr>
             <tr><td>落地页模版</td><td>按业务线维护各自落地页链接模版（已配置：韩国 / 越南 / 印尼 / 马来），无模版业务线不可生成</td></tr>
+            <tr><td>code 生成唯一性</td><td>渠道 code（7 位）与优惠码（12 位）生成时均对<b>已有码集合自动查重去重</b>；极端情况下追加计数器兜底，保证<b>全局绝对唯一</b>，避免归因/核销冲突</td></tr>
           </tbody>
         </table>
 
