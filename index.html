@@ -96,6 +96,7 @@
   /* roadmap timeline */
   .phase{border-radius:var(--radius);border:1px solid var(--line);overflow:hidden;background:#fff;box-shadow:var(--shadow)}
   .phase .head{padding:18px 22px;color:#fff;display:flex;align-items:center;gap:12px}
+  .phase.zero .head{background:linear-gradient(120deg,#e8890c,#f0a92e)}
   .phase.one .head{background:linear-gradient(120deg,#2f6bff,#5b86ff)}
   .phase.two .head{background:linear-gradient(120deg,#7a5af8,#9d83ff)}
   .phase.three .head{background:linear-gradient(120deg,#4a5468,#6b7689)}
@@ -219,6 +220,8 @@
         <table class="bordered">
           <thead><tr><th style="width:130px">期次</th><th>模块</th><th style="width:160px">核心能力</th><th style="width:110px">优先级</th></tr></thead>
           <tbody>
+            <tr><td><span class="pill" style="background:#fff4e6;color:#e8890c">过渡期</span><br><span class="muted" style="font-size:12px">一期上线前</span></td>
+              <td><b>线下导表触达</b></td><td>产研导表 → 业务录入 Lark 分配 leads → 外呼公司平台外呼（人工过渡，三期由销售中心替代）</td><td><span class="pill p0">现状</span></td></tr>
             <tr><td rowspan="2"><span class="pill ph1">一期</span><br><span class="muted" style="font-size:12px">基础查询 · 当前目标 7/16</span></td>
               <td><b>用户中心（一期）</b></td><td>查看用户基本信息 + 改资料；应用商店来源 + 国家</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td><b>订单中心</b></td><td>查看订单基本信息 + 筛选</td><td><span class="pill p0">P0</span></td></tr>
@@ -371,9 +374,21 @@
       <!-- ====================== ROADMAP ====================== -->
       <section class="view" id="view-roadmap">
         <h2 class="title">迭代计划 / 路线图</h2>
-        <p class="lead">按官方计划分四期推进：一期查询（排期由 7/9 延至 <b>当前目标 7/16</b>，第三次时间待 7/9 App 版本评审后确认）→ 二期配置渠道 / 商品(SKU) / 投放链接 → 三期销售分配 / 跟进 leads（接入外呼）与用户触达服务 → 四期本地化配置自助。下列时间为相对排期建议（二期起暂无上线时间，可按实际研发资源调整）。</p>
+        <p class="lead">按官方计划分四期推进：<b>过渡期</b>（一期上线前先以线下导表支持业务触达）→ 一期查询（排期由 7/9 延至 <b>当前目标 7/16</b>，第三次时间待 7/9 App 版本评审后确认）→ 二期配置渠道 / 商品(SKU) / 投放链接 → 三期销售分配 / 跟进 leads（接入外呼）与用户触达服务 → 四期本地化配置自助。下列时间为相对排期建议（二期起暂无上线时间，可按实际研发资源调整）。</p>
 
         <div class="grid" style="gap:18px">
+          <!-- phase 0 · 过渡期 -->
+          <div class="phase zero">
+            <div class="head"><span class="badge">过渡期</span><b>一期上线前 · 线下导表触达</b><span class="when">当前 / 一期上线前</span></div>
+            <div class="body">
+              <p class="goal">CRM 一期上线前，业务对用户的触达先<b>以线下导表的方式过渡支持</b>，保证在系统能力就绪前业务不断档。当前为纯人工、多系统协作流程，也是三期「销售中心（分配 / 跟进 leads + 外呼）」要替代的现状。</p>
+              <div class="feat"><div class="ic">📤</div><div><div class="t">① 产研导表 <span class="pill p0">现状</span></div><div class="d">由产研按业务需要，从后台导出用户 / 线索数据表，交付给业务。</div></div></div>
+              <div class="feat"><div class="ic">📋</div><div><div class="t">② 业务录入 Lark 分配 leads <span class="pill p0">现状</span></div><div class="d">业务老师把导出的数据录入 Lark 表格，在表中进行 leads 分配（谁跟哪些线索）。</div></div></div>
+              <div class="feat"><div class="ic">📞</div><div><div class="t">③ 外呼公司平台外呼 <span class="pill p0">现状</span></div><div class="d">销售老师在<b>外呼公司提供的平台</b>上，对分配到的 leads 进行外呼跟进。</div></div></div>
+              <div class="callout warn"><div class="ic">⚠️</div><div><b>过渡方案痛点（后续由 CRM 收敛）：</b>数据靠人工导表、时效差；Lark 手工分配易错漏、无法沉淀；导表 / Lark / 外呼平台三套系统割裂，跟进记录与外呼结果<b>难归因、难回流到用户档案</b>。一期先解决「查得到」，三期销售中心再把「分配 → 跟进 → 外呼 → 归档」搬进 CRM 形成闭环。</div></div>
+            </div>
+          </div>
+
           <!-- phase 1 -->
           <div class="phase one">
             <div class="head"><span class="badge">一期</span><b>基础查询能力</b><span class="when">当前目标 7/16</span></div>
@@ -486,6 +501,7 @@
         <table class="bordered">
           <thead><tr><th style="width:150px">纪要议题</th><th>业务诉求</th><th style="width:120px">归属</th><th style="width:110px">期次</th></tr></thead>
           <tbody>
+            <tr><td>过渡触达方案</td><td>一期上线前，先以<b>线下导表</b>过渡支持业务触达：① 产研导表 → ② 业务老师录入 Lark 表分配 leads → ③ 销售在外呼公司平台外呼；系统就绪后由 CRM 收敛（三期销售中心替代）</td><td>线下导表</td><td><span class="pill" style="background:#fff4e6;color:#e8890c">过渡期</span></td></tr>
             <tr><td>系统定位与优先级</td><td>CRM 一期定位为「查得到」：用户、订单两段信息可查（渠道体系二期建设）</td><td>全局</td><td><span class="pill ph1">一期</span></td></tr>
             <tr><td>用户数据体系</td><td>用户基本信息：注册方式、登录账号、注册渠道（App Store/Google Play）、国家、注册时间等</td><td>用户中心（一期）</td><td><span class="pill ph1">一期</span></td></tr>
             <tr><td>系统定位与优先级</td><td>平台多语言支持（英 / 韩 / 阿 / 中，默认英文）</td><td>全局</td><td><span class="pill ph1">一期</span></td></tr>
