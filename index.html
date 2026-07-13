@@ -598,6 +598,7 @@
             <tr><td>到期时间 / 最近修改人</td><td>展示会员到期时间（无则—）与最近一次资料修改人（无则—）</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td>修改基本信息</td><td>本地名 / 年龄段 / 用户类型（仅第三方登录可改）；保存后记录「最近修改人」（国家只读、不可修改）</td><td><span class="pill p1">P1</span></td></tr>
             <tr><td>修改历史 <span class="pill ph1" style="font-size:10px">新增</span></td><td>点击「最近修改人」查看该用户的资料修改记录：操作时间、变更内容（字段修改前 → 修改后）、修改人</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td>试听报告（临时入口）<span class="pill ph1" style="font-size:10px">新增</span></td><td>对有「已完课体验课且带报告」的用户，操作列展示「试听报告」链接，点击跳转外部 <b>Trial Report</b> 原型页；一期不做完整详情页，仅提供此临时入口，完整课程信息见二期用户详情页</td><td><span class="pill p1">P1</span></td></tr>
           </tbody>
         </table>
 
@@ -647,7 +648,7 @@
         <h2 class="title">2.5 用户中心 · 二期 <span class="pill ph2" style="vertical-align:middle">二期</span> <span class="pill p1" style="vertical-align:middle">P1</span></h2>
         <p class="lead">渠道管理上线后，用户中心升级为按「业务线 · 渠道 · 渠道 code」精准归因的增强版：在一期基础上，把粗粒度的「应用商店 + 国家」替换为完整的渠道归因，并支持业务线全局筛选。</p>
 
-        <div class="callout info"><div class="ic">🆕</div><div><b>相对一期新增：</b>① 列表「注册渠道」展示「业务线 · 渠道」并关联渠道树；② 新增「渠道 code」「所属业务线」字段；③ 筛选项由「应用商店 + 国家」升级为<b>业务线（全局共享）</b>+ 用户状态。其余（查询、改资料、状态口径）与一期一致。</div></div>
+        <div class="callout info"><div class="ic">🆕</div><div><b>相对一期新增：</b>① 列表「注册渠道」展示「业务线 · 渠道」并关联渠道树；② 新增「渠道 code」「所属业务线」字段；③ 筛选项由「应用商店 + 国家」升级为<b>业务线（全局共享）</b>+ 用户状态；④ <b>用户ID 可点击进入「用户详情页」</b>，查看完整基本信息与<b>课程信息（上课记录 + 课程报告 + 回放）</b>。其余（查询、改资料、状态口径）与一期一致。</div></div>
 
         <h3>用户故事</h3>
         <div class="story">作为<b>运营 / 销售同学</b>，我希望输入学生ID / 姓名 / 登录账号 / 手机号即可查到该用户，并看到他的注册方式、登录账号、业务线、注册渠道、注册时间与当前状态，以便快速响应咨询——即使用户用谷歌邮箱 / Facebook / AppID 等<b>非手机号方式</b>注册也能查到。</div>
@@ -662,8 +663,12 @@
             <tr><td>用户类型识别 <span class="pill ph1" style="font-size:10px">新增</span></td><td>正式用户 / 测试用户；手机号 / kakao 登录按手机号规则<b>自动判定</b>，其余第三方登录可后台手动设置</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td>列表 + 分页</td><td>展示基本信息字段，支持分页与每页条数</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td>到期时间 / 最近修改人 <span class="pill ph1" style="font-size:10px">新增</span></td><td>展示会员到期时间（无则—）与最近一次资料修改人（无则—）</td><td><span class="pill p0">P0</span></td></tr>
-            <tr><td>修改基本信息</td><td>本地名 / 性别 / 出生日期 / 用户类型（仅第三方登录可改）；保存后记录「最近修改人」（<b>业务线只读，由注册渠道决定，不可修改</b>）</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td>修改基本信息</td><td>本地名 / 年龄段 / 用户类型（仅第三方登录可改）；保存后记录「最近修改人」（<b>业务线只读，由注册渠道决定，不可修改</b>）</td><td><span class="pill p1">P1</span></td></tr>
             <tr><td>修改历史 <span class="pill ph1" style="font-size:10px">新增</span></td><td>点击「最近修改人」查看该用户的资料修改记录：操作时间、变更内容（字段修改前 → 修改后）、修改人（与一期一致）</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td>用户详情页 <span class="pill ph1" style="font-size:10px">新增</span></td><td>点击列表<b>用户ID</b>进入详情页，展示「基本信息」+「课程信息」两块；受<b>业务线数据权限</b>约束，越权/不存在时提示无权限</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td>课程信息（上课记录）<span class="pill ph1" style="font-size:10px">新增</span></td><td>详情页展示该用户所有<b>「已完课」</b>课标（体验课 + 正式课），按完课时间倒序：课标 / 课时类型 / 老师 / 完课时间 / 报告 / 回放</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td>课程报告 <span class="pill ph1" style="font-size:10px">新增</span></td><td><b>体验课 → Trial Report</b>（跳外部原型页）；<b>正式课 → Lesson Report</b>（内部弹窗：能力评估星级 + 课堂小结 + 老师评语 + 课后作业）</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td>课程回放 <span class="pill ph1" style="font-size:10px">新增</span></td><td>有回放链接的课时可点「回放」，新标签页全屏播放录播视频（无真实录播时用占位视频）</td><td><span class="pill p1">P1</span></td></tr>
             <tr><td>手动加会员 / 加有效期 <span class="pill" style="background:#fff4e6;color:#e8590c;font-size:10px">待评估</span></td><td>对单个用户手动添加不同时长的会员有效期，替代当前「找产研后台改库」的方式；<b>属高风险写操作，需评估开放范围与审批流</b>（详见下方说明）</td><td><span class="pill" style="background:#fff4e6;color:#e8590c">评估中</span></td></tr>
           </tbody>
         </table>
@@ -688,6 +693,34 @@
             <tr><td>最近修改人 <span class="pill ph1" style="font-size:10px">可查历史</span></td><td>最近一次资料修改的操作人（无则显示「—」）；<b>点击可查看完整「修改历史」</b>（时间 / 变更前后 / 修改人）</td><td>否（系统记录）</td></tr>
           </tbody>
         </table>
+
+        <h3>用户详情页 <span class="pill ph1" style="font-size:12px">新增</span></h3>
+        <p class="muted" style="font-size:13px;margin-top:-4px">点击列表「用户ID」进入。分「基本信息」与「课程信息」两块，供运营 / 销售快速了解用户全貌与学习情况。</p>
+        <div class="callout info"><div class="ic">📄</div><div><b>基本信息（详情页）：</b>用户ID · 姓名 · 用户状态 · 用户类型 · 年龄段 · 登录方式 · 登录账号 · 业务线 · 渠道（业务线 · 渠道）· 渠道 code · 注册时间 · 到期时间（时间均按注册国家换算并标注时区）。</div></div>
+        <h4>课程信息（上课记录）字段</h4>
+        <table class="bordered">
+          <thead><tr><th style="width:150px">字段</th><th>说明</th></tr></thead>
+          <tbody>
+            <tr><td>课标</td><td>课时的课程标识，如 <code>TCELA-L1-U2-LC1-11</code></td></tr>
+            <tr><td>课时类型</td><td><b>体验课</b> / <b>正式课</b></td></tr>
+            <tr><td>老师</td><td>授课老师（无则 —）</td></tr>
+            <tr><td>完课时间</td><td>仅展示「已完课」课时，按完课时间倒序；按注册国家换算并标注时区</td></tr>
+            <tr><td>报告</td><td>体验课 → <b>Trial Report</b>（点击跳外部原型页）；正式课 → <b>Lesson Report</b>（点击内部弹窗）；无报告显示 —</td></tr>
+            <tr><td>回放</td><td>有回放链接的课时可点「回放」，新标签页全屏播放；无则 —</td></tr>
+          </tbody>
+        </table>
+        <h4>Lesson Report（正式课报告）弹窗内容</h4>
+        <table class="bordered">
+          <thead><tr><th style="width:150px">字段</th><th>说明</th></tr></thead>
+          <tbody>
+            <tr><td>课标 / 类型 / 老师 / 完课时间</td><td>报告头部基础信息</td></tr>
+            <tr><td>能力评估</td><td>多个评估维度，每项以 1–5 星（Rate）展示</td></tr>
+            <tr><td>课堂小结</td><td>本节课整体总结</td></tr>
+            <tr><td>老师评语</td><td>授课老师针对该学生的点评</td></tr>
+            <tr><td>课后作业</td><td>本节课布置的作业（可选）</td></tr>
+          </tbody>
+        </table>
+        <div class="callout info"><div class="ic">🎬</div><div><b>报告与回放来源：</b>体验课「Trial Report」跳转外部试听报告原型页；正式课「Lesson Report」为管台内弹窗；「回放」在新标签页以全屏播放器播放录播视频（原型无真实录播时使用占位示例视频）。</div></div>
 
         <h3>注册方式与登录账号映射</h3>
         <table class="bordered">
@@ -715,8 +748,10 @@
         <h3>关键交互流程</h3>
         <div class="step"><div class="n">1</div><div class="c">输入关键字（用户ID/姓名/登录账号）或选择业务线（全局）/ 用户状态 → 列表实时过滤。</div></div>
         <div class="step"><div class="n">2</div><div class="c">查看「注册方式」「登录账号」列定位用户来源；非手机号方式登录账号为邮箱/第三方账号。</div></div>
-        <div class="step"><div class="n">3</div><div class="c">点「修改信息」→ 弹窗编辑本地名 / 性别 / 出生日期 / 用户类型 → 保存，系统按字段记录变更前后并写入「修改历史」，同时更新「最近修改人」（业务线在弹窗中只读，由注册渠道决定）。</div></div>
+        <div class="step"><div class="n">3</div><div class="c">点「修改信息」→ 弹窗编辑本地名 / 年龄段 / 用户类型 → 保存，系统按字段记录变更前后并写入「修改历史」，同时更新「最近修改人」（业务线在弹窗中只读，由注册渠道决定）。</div></div>
         <div class="step"><div class="n">4</div><div class="c">点列表中的「最近修改人」→ 弹出「修改历史」，按时间倒序展示每次操作的<b>变更内容（字段：修改前 → 修改后）</b>与修改人。</div></div>
+        <div class="step"><div class="n">5</div><div class="c">点列表「用户ID」→ 进入<b>用户详情页</b>，上半部看「基本信息」，下半部看「课程信息」（已完课课标列表）。</div></div>
+        <div class="step"><div class="n">6</div><div class="c">在课程信息中：点「报告」查看 <b>Trial Report</b>（体验课，外链）或 <b>Lesson Report</b>（正式课，弹窗含能力评估 / 小结 / 评语 / 作业）；点「回放」新标签全屏播放录播。</div></div>
 
         <div class="proto" data-route="users-v2"></div>
       </section>
@@ -1133,6 +1168,7 @@
             <tr><td>外呼 / 通话记录（销售中心）</td><td>坐席在「我的跟进」点客户号码发起外呼（无手机号不可外呼），挂断后填通话小结（结果/时长/跟进记录），系统生成通话记录并<b>自动归档到客户档案与销售跟进记录</b>；「通话记录」Tab 集中查看，数据按业务线隔离、非超管仅见本人坐席记录</td></tr>
             <tr><td>code / ID 生成唯一性</td><td>渠道 code（7 位）、优惠码（12 位）、商品包 ID（<code>PKG####</code>）、优惠券 ID（<code>CP####</code>）生成时均对<b>已有集合自动查重去重</b>；极端情况下追加计数器兜底，保证<b>全局绝对唯一</b>，避免归因/核销/绑定冲突</td></tr>
             <tr><td>筛选项动态来源</td><td>商品包 / 优惠券 / 销售中心等列表的<b>业务线筛选项来源于当前数据范围内实际存在的值</b>（而非全部业务线常量），随权限数据范围自动收敛</td></tr>
+            <tr><td>用户详情页与课程信息（用户中心·二期）</td><td>二期用户中心点用户ID进入<b>详情页</b>：上部基本信息、下部<b>课程信息</b>（已完课课标：体验课 + 正式课，倒序）。报告分 <b>Trial Report</b>（体验课外链）/ <b>Lesson Report</b>（正式课弹窗：能力评估星级 + 课堂小结 + 老师评语 + 课后作业）；课时可全屏<b>回放</b>。一期仅提供「试听报告」临时入口。详情页受业务线数据权限约束</td></tr>
           </tbody>
         </table>
 
@@ -1193,6 +1229,9 @@
             <tr><td>跟进进度</td><td>销售线索在销售中心的状态：待领取 / 跟进中 / 暂不跟进；转「已付费」即离开销售中心</td></tr>
             <tr><td>外呼 / 通话记录</td><td>坐席点号码发起外呼，挂断后填通话小结（结果 已接通/无人接听、时长、跟进记录），自动归档到客户档案与销售跟进记录</td></tr>
             <tr><td>手动加会员（待评估）</td><td>二期规划：管台内对单个用户手动添加会员有效期，替代找产研改库；高风险写操作，权限开放对象与风控措施待评估</td></tr>
+            <tr><td>课标 / 上课记录</td><td>用户已完成课时的记录，以「课标」（如 <code>TCELA-L1-U2-LC1-11</code>）标识，含体验课 / 正式课、老师、完课时间、报告与回放</td></tr>
+            <tr><td>Trial Report / Lesson Report</td><td>体验课报告（Trial Report，外链原型页）与正式课报告（Lesson Report，管台弹窗：能力评估 + 课堂小结 + 老师评语 + 课后作业）</td></tr>
+            <tr><td>课程回放</td><td>课时录播视频，在用户详情页点「回放」新标签全屏播放（原型无真实录播时用占位视频）</td></tr>
             <tr><td>本地化配置平台（四期）</td><td>把现有本地化文案 / 物料自助配置平台迁入 CRM，业务按业务线 / 语言自助维护文案与物料</td></tr>
             <tr><td>业务线</td><td>按国家 / 地区划分的运营单元</td></tr>
             <tr><td>商品包</td><td>面向用户售卖的商品（原「课包」，本期统一更名为商品包）</td></tr>
