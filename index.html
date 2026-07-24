@@ -162,18 +162,18 @@
       <a data-view="p1-users"><span class="num">1.1</span>用户中心（一期）<span class="tag-p1">P1期</span></a>
       <a data-view="p1-orders"><span class="num">1.2</span>订单中心<span class="tag-p1">P1期</span></a>
 
-      <div class="group">二期 · 营销中心</div>
-      <a data-view="p2-channels"><span class="num">2.1</span>渠道管理<span class="tag-p2">P2期</span></a>
-      <a data-view="p2-packages"><span class="num">2.2</span>商品包管理<span class="tag-p2">P2期</span></a>
-      <a data-view="p2-coupons"><span class="num">2.3</span>优惠券管理<span class="tag-p2">P2期</span></a>
-      <a data-view="p2-landing"><span class="num">2.4</span>落地页管理<span class="tag-p2">P2期</span></a>
+      <div class="group">二期 · 销售与权限</div>
+      <a data-view="p3-sales"><span class="num">2.1</span>销售中心<span class="tag-p2">P2期</span></a>
+      <a data-view="p2-system"><span class="num">2.2</span>系统配置 · 角色权限<span class="tag-p2">P2期</span></a>
 
-      <div class="group">二期 · 用户与权限</div>
-      <a data-view="p2-users"><span class="num">2.5</span>用户中心 · 二期<span class="tag-p2">P2期</span></a>
-      <a data-view="p2-system"><span class="num">2.6</span>系统配置 · 角色权限<span class="tag-p2">P2期</span></a>
+      <div class="group">三期 · 营销中心</div>
+      <a data-view="p2-channels"><span class="num">3.1</span>渠道管理<span class="tag-p3">P3期</span></a>
+      <a data-view="p2-packages"><span class="num">3.2</span>商品包管理<span class="tag-p3">P3期</span></a>
+      <a data-view="p2-coupons"><span class="num">3.3</span>优惠券管理<span class="tag-p3">P3期</span></a>
+      <a data-view="p2-landing"><span class="num">3.4</span>落地页管理<span class="tag-p3">P3期</span></a>
 
-      <div class="group">三期 · 销售中心</div>
-      <a data-view="p3-sales"><span class="num">3.1</span>销售中心<span class="tag-p3">P3期</span></a>
+      <div class="group">三期 · 用户中心</div>
+      <a data-view="p2-users"><span class="num">3.5</span>用户中心 · 二期<span class="tag-p3">P3期</span></a>
 
       <div class="group">参考</div>
       <a data-view="prototype"><span class="num">03</span>交互原型预览</a>
@@ -197,22 +197,22 @@
       <!-- ====================== OVERVIEW ====================== -->
       <section class="view active" id="view-overview">
         <h2 class="title">Dino English 运营平台（CRM）产品需求文档</h2>
-        <p class="lead">本文档基于「CRM 与运营平台需求对齐」会议纪要与最新官方迭代计划，按业务诉求分期落地。<b>一期</b>聚焦<b>基础查询能力</b>（查看用户基本信息、订单基本信息，因 App 优化需求高优历经延期，当前目标 7/24 上午上线，详见路线图）；<b>二期</b>建设<b>渠道体系与商业化配置</b>——配置渠道、商品(SKU)、优惠券并生成投放链接，收拢到<b>「营销中心」</b>，另含用户中心二期与角色权限；<b>三期</b>做<b>销售分配 leads、跟进 leads（接入外呼）</b>；<b>四期</b>把<b>本地化文案 / 物料配置平台迁入 CRM</b>，并做<b>用户单点触达与服务节点</b>，评估<b>手动加会员（待评估）</b>。文档内嵌可交互原型，可逐模块体验。</p>
+        <p class="lead">本文档基于「CRM 与运营平台需求对齐」会议纪要与最新官方迭代计划，按业务诉求分期落地。<b>一期</b>聚焦<b>基础查询能力</b>（查看用户基本信息、订单基本信息，因 App 优化需求高优历经延期，当前目标 7/24 上午上线，详见路线图）；<b>二期</b>做<b>销售分配 leads、跟进 leads（接入外呼）</b>并落地<b>角色权限（系统配置）</b>；<b>三期</b>建设<b>渠道体系与商业化配置</b>——配置渠道、商品(SKU)、优惠券并生成投放链接，收拢到<b>「营销中心」</b>，同时把用户中心升级为「业务线 · 渠道」精准归因（用户中心二期）；<b>四期</b>把<b>本地化文案 / 物料配置平台迁入 CRM</b>，并做<b>用户单点触达与服务节点</b>，评估<b>手动加会员（待评估）</b>。文档内嵌可交互原型，可逐模块体验。</p>
 
         <div class="grid c4">
           <div class="card"><div class="kpi" style="color:var(--p1)">一期</div><div class="kpi-label">基础查询（当前目标 7/24）<br>用户 · 订单</div></div>
-          <div class="card"><div class="kpi" style="color:var(--p2)">二期</div><div class="kpi-label">配置能力<br>渠道 · 商品(SKU) · 券 · 投放链接 · 用户二期 · 权限</div></div>
-          <div class="card"><div class="kpi" style="color:#0a9c6f">三 / 四期</div><div class="kpi-label">销售 leads(外呼) · 本地化 + 触达服务<br>分配/跟进线索 · 文案/物料 · 触达/服务节点</div></div>
+          <div class="card"><div class="kpi" style="color:var(--p2)">二期</div><div class="kpi-label">销售 leads(外呼) + 权限<br>销售中心 · 分配/跟进 · 外呼 · 角色权限</div></div>
+          <div class="card"><div class="kpi" style="color:#0a9c6f">三 / 四期</div><div class="kpi-label">营销配置 · 用户二期 · 本地化 + 触达服务<br>渠道/商品/券/投放 · 精准归因 · 文案/物料 · 触达</div></div>
           <div class="card"><div class="kpi">9</div><div class="kpi-label">已建原型模块<br>可点击交互</div></div>
         </div>
 
         <h3>背景与目标</h3>
         <div class="card">
-          <p style="margin-top:0">Dino English 面向海外多业务线（韩国 / 沙特 / 马来 / 越南 等）开展投放与运营。当前业务依赖人工散表查询用户与订单、渠道归因口径不统一、促销配置依赖研发。CRM 一期目标是<b>先把「用户、订单查得到、看得清」做扎实</b>，让运营与销售同学自助完成日常查询（此时仅按应用商店来源 + 国家做粗归因）；二期再建设<b>渠道分级体系</b>，把用户中心升级为按「业务线 · 渠道」精准归因，并把<b>商品（商品包）与促销（优惠券、落地页）配置能力</b>交还运营，减少对研发的依赖。</p>
+          <p style="margin-top:0">Dino English 面向海外多业务线（韩国 / 沙特 / 马来 / 越南 等）开展投放与运营。当前业务依赖人工散表查询用户与订单、线索靠线下导表分配、渠道归因口径不统一、促销配置依赖研发。CRM 一期目标是<b>先把「用户、订单查得到、看得清」做扎实</b>，让运营与销售同学自助完成日常查询；二期把线下导表的<b>线索分配 / 跟进</b>收进<b>销售中心并接入外呼</b>，同时落地<b>角色权限（系统配置）</b>；三期再建设<b>渠道分级体系</b>，把用户中心升级为按「业务线 · 渠道」精准归因，并把<b>商品（商品包）与促销（优惠券、落地页）配置能力</b>交还运营，减少对研发的依赖。</p>
           <div class="grid c3" style="margin-top:14px">
             <div><h4>一期价值</h4><ul class="clean"><li>用户 / 订单一处可查，替代散表</li><li>用户按应用商店来源 + 国家粗归因</li><li>运营 / 销售按多条件秒级定位用户/订单</li></ul></div>
-            <div><h4>二期价值</h4><ul class="clean"><li>渠道结构标准化、可生成投放 code</li><li>用户中心升级为「业务线 · 渠道」精准归因</li><li>商品包自助上下架 + 满减券（KOL 多码结算）</li><li>落地页一键打通渠道/商品/促销；角色权限 + 数据隔离 + 审计</li></ul></div>
-            <div><h4>衡量指标</h4><ul class="clean"><li>用户/订单查询自助率 ≥ 90%</li><li>渠道归因覆盖率 ≥ 95%（二期）</li><li>促销配置不再依赖研发</li></ul></div>
+            <div><h4>二期价值</h4><ul class="clean"><li>注册线索自动沉淀销售中心、分配 / 跟进闭环</li><li>接入外呼：点号码拨打 + 通话录音 + AI 通话小结自动归档</li><li>销售组长按权重自动分配、超时掉库、重新分配</li><li>角色权限（RBAC 子权限）+ 数据隔离 + 操作日志</li></ul></div>
+            <div><h4>三 / 四期价值</h4><ul class="clean"><li>渠道结构标准化、可生成投放 code</li><li>用户中心升级为「业务线 · 渠道」精准归因</li><li>商品包自助上下架 + 折扣券（KOL 多码结算）+ 落地页一键投放</li><li>本地化文案 / 物料自助、单点触达与服务节点</li></ul></div>
           </div>
         </div>
 
@@ -221,20 +221,20 @@
           <thead><tr><th style="width:130px">期次</th><th>模块</th><th style="width:160px">核心能力</th><th style="width:110px">优先级</th></tr></thead>
           <tbody>
             <tr><td><span class="pill" style="background:#fff4e6;color:#e8890c">过渡期</span><br><span class="muted" style="font-size:12px">一期上线前</span></td>
-              <td><b>线下导表触达</b></td><td>产研导表 → 业务录入 Lark 分配 leads → 外呼公司平台外呼（人工过渡，三期由销售中心替代）</td><td><span class="pill p0">现状</span></td></tr>
+              <td><b>线下导表触达</b></td><td>产研导表 → 业务录入 Lark 分配 leads → 外呼公司平台外呼（人工过渡，二期由销售中心替代）</td><td><span class="pill p0">现状</span></td></tr>
             <tr><td rowspan="2"><span class="pill ph1">一期</span><br><span class="muted" style="font-size:12px">基础查询 · 当前目标 7/24</span></td>
               <td><b>用户中心（一期）</b></td><td>查看用户基本信息 + 改资料；应用商店来源 + 国家</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td><b>订单中心</b></td><td>查看订单基本信息 + 筛选</td><td><span class="pill p0">P0</span></td></tr>
-            <tr><td rowspan="4"><span class="pill ph2">二期</span><br><span class="muted" style="font-size:12px">营销中心 · 目标 8/7</span></td>
+            <tr><td rowspan="2"><span class="pill ph2">二期</span><br><span class="muted" style="font-size:12px">销售与权限 · 目标 8/7</span></td>
+              <td><b>销售中心</b> <span class="pill ph1" style="font-size:10px">原型已就绪</span></td><td>销售分配 leads + 跟进 leads + <b>外呼（录音 / AI 小结）</b> + 自动分配/掉库 + 组长重分配 + 转化闭环</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td><b>系统配置 · 角色权限</b></td><td>RBAC 子权限 + 成员 + 日志</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td rowspan="4"><span class="pill ph3">三期</span><br><span class="muted" style="font-size:12px">营销中心 · 目标 8/21</span></td>
               <td><b>渠道管理</b></td><td>分级 + 生码 + 渠道参数</td><td><span class="pill p1">P1</span></td></tr>
-            <tr><td><b>商品包管理（SKU）</b></td><td>增改 + 上下架</td><td><span class="pill p1">P1</span></td></tr>
-            <tr><td><b>优惠券管理</b></td><td>满减券 + 多码结算</td><td><span class="pill p1">P1</span></td></tr>
-            <tr><td><b>落地页管理</b></td><td>一键生成投放链接（带渠道参数）</td><td><span class="pill p1">P1</span></td></tr>
-            <tr><td rowspan="2"><span class="pill ph2">二期</span><br><span class="muted" style="font-size:12px">用户与权限 · 目标 8/7</span></td>
-              <td><b>用户中心 · 二期</b></td><td>「业务线 · 渠道」精准归因</td><td><span class="pill p1">P1</span></td></tr>
-            <tr><td><b>系统配置 · 角色权限</b></td><td>RBAC + 成员 + 日志</td><td><span class="pill p1">P1</span></td></tr>
-            <tr><td><span class="pill ph3">三期</span><br><span class="muted" style="font-size:12px">销售 · 目标 8/21</span></td>
-              <td><b>销售中心</b> <span class="pill ph1" style="font-size:10px">原型已就绪</span></td><td>销售分配 leads + 跟进 leads + <b>外呼</b> + 转化闭环</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td><b>商品包管理（SKU）</b></td><td>增改 + 上下架 + Best Value</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td><b>优惠券管理</b></td><td>折扣券（折扣率 %）+ 多码结算</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td><b>落地页管理</b></td><td>一键生成投放链接（多商品包 + 划线价 + 渠道参数）</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td><span class="pill ph3">三期</span><br><span class="muted" style="font-size:12px">用户中心 · 目标 8/21</span></td>
+              <td><b>用户中心 · 二期</b></td><td>「业务线 · 渠道」精准归因 + 课程信息 / 报告 / 回放</td><td><span class="pill p1">P1</span></td></tr>
             <tr><td rowspan="3"><span class="pill" style="background:#e9f0ff;color:#2f6bff">四期</span><br><span class="muted" style="font-size:12px">本地化 + 触达 + 加会员</span></td>
               <td><b>本地化文案 / 物料平台</b> <span class="pill ph1" style="font-size:10px">新增</span></td><td>现有本地化配置平台迁入 CRM，业务自助维护文案与物料</td><td><span class="pill p2">P2</span></td></tr>
             <tr><td><b>单点触达 / 服务节点</b></td><td>push/站内信/短信/EDM + 生命周期服务节点</td><td><span class="pill p2">P2</span></td></tr>
@@ -249,14 +249,14 @@
       <!-- ====================== POSITIONING ====================== -->
       <section class="view" id="view-positioning">
         <h2 class="title">产品定位 &amp; 目标用户</h2>
-        <p class="lead">基于一期（基础查询）、二期（渠道 / 商品 SKU / 投放链接等商业化配置）、三期（销售分配 / 跟进 leads 与外呼 + 用户触达服务）与四期（本地化配置自助），明确平台的产品定位、能力演进与目标用户。</p>
+        <p class="lead">基于一期（基础查询）、二期（销售分配 / 跟进 leads 与外呼 + 角色权限）、三期（渠道 / 商品 SKU / 投放链接等商业化配置 + 用户中心精准归因）与四期（本地化配置自助 + 用户触达服务），明确平台的产品定位、能力演进与目标用户。</p>
 
         <div class="callout info"><div class="ic">🎯</div><div><b>一句话定位：</b>Dino English 运营平台（CRM）是面向海外多业务线的<b>一体化运营中台</b>——以「<b>用户 · 渠道 · 商品</b>」三大主数据为核心，打通「<b>渠道归因 → 商品/促销配置 → 投放落地 → 用户触达 → 服务履约</b>」的运营闭环，让市场、运营、客服等<b>非研发角色自助完成日常运营</b>，把对研发的依赖降到最低。</div></div>
 
         <div class="grid c4" style="margin-top:16px">
           <div class="card"><div class="kpi" style="color:var(--p1);font-size:20px">看得清</div><div class="kpi-label"><b>阶段一 / 一期</b><br>数据查询底座<br><span class="muted">用户 · 订单</span></div></div>
-          <div class="card"><div class="kpi" style="color:var(--p2);font-size:20px">配得了</div><div class="kpi-label"><b>阶段二 / 二期</b><br>归因 + 商业化配置<br><span class="muted">渠道 · 商品(SKU) · 券 · 落地页 · 用户二期 · 权限</span></div></div>
-          <div class="card"><div class="kpi" style="color:#0a9c6f;font-size:20px">够得着</div><div class="kpi-label"><b>阶段三 / 三期</b><br>销售 leads(外呼)<br><span class="muted">销售中心 · 分配/跟进 · 外呼</span></div></div>
+          <div class="card"><div class="kpi" style="color:var(--p2);font-size:20px">够得着</div><div class="kpi-label"><b>阶段二 / 二期</b><br>销售 leads(外呼) + 权限<br><span class="muted">销售中心 · 分配/跟进 · 外呼 · 角色权限</span></div></div>
+          <div class="card"><div class="kpi" style="color:#0a9c6f;font-size:20px">配得了</div><div class="kpi-label"><b>阶段三 / 三期</b><br>归因 + 商业化配置<br><span class="muted">渠道 · 商品(SKU) · 券 · 落地页 · 用户二期</span></div></div>
           <div class="card"><div class="kpi" style="color:#2f6bff;font-size:20px">改得动</div><div class="kpi-label"><b>阶段四 / 四期</b><br>本地化配置 + 触达服务<br><span class="muted">文案/物料 · 单点触达 · 服务节点</span></div></div>
         </div>
 
@@ -275,8 +275,8 @@
           <thead><tr><th style="width:120px">阶段</th><th style="width:150px">定位关键词</th><th>核心能力</th><th style="width:130px">主要服务对象</th></tr></thead>
           <tbody>
             <tr><td><span class="pill ph1">一期</span></td><td><b>数据可查 · 看得清</b></td><td>用户中心（应用商店来源 + 国家粗归因）、订单中心查询；多语言</td><td>运营 · 销售</td></tr>
-            <tr><td><span class="pill ph2">二期</span></td><td><b>归因 + 自助配置 · 配得了</b></td><td>渠道分级生码与归因（含渠道参数）、用户中心升级为「业务线 · 渠道」精准归因、商品包(SKU)增改/上下架、满减券（一券多码按 KOL 结算）、落地页一键生成投放链接、角色权限；<b>手动给单用户加会员（待评估）</b></td><td>运营 · 市场投放</td></tr>
-            <tr><td><span class="pill ph3">三期</span></td><td><b>销售 leads · 够得着</b></td><td><b>销售中心：分配 leads、跟进 leads、接入外呼与通话归档，注册线索转化闭环</b></td><td>销售 · 客服 · 运营</td></tr>
+            <tr><td><span class="pill ph2">二期</span></td><td><b>销售 leads · 够得着</b></td><td><b>销售中心：分配 leads、跟进 leads、接入外呼（点号码拨打 + 通话录音 + AI 通话小结）与通话归档、销售组长按权重自动分配 / 超时掉库 / 重新分配，注册线索转化闭环；角色权限（RBAC 子权限）+ 数据隔离 + 操作日志</b></td><td>销售 · 客服 · 管理员</td></tr>
+            <tr><td><span class="pill ph3">三期</span></td><td><b>归因 + 自助配置 · 配得了</b></td><td>渠道分级生码与归因（含渠道参数）、用户中心升级为「业务线 · 渠道」精准归因（含课程信息 / 报告 / 回放）、商品包(SKU)增改 / 上下架 / Best Value、折扣券（折扣率 %，一券多码按 KOL 结算）、落地页一键生成投放链接（多商品包 + 划线价）</td><td>运营 · 市场投放</td></tr>
             <tr><td><span class="pill" style="background:#e9f0ff;color:#2f6bff">四期</span></td><td><b>本地化自助 + 触达服务 · 改得动</b></td><td>将现有<b>本地化文案 / 物料配置平台迁入 CRM</b>，业务按业务线 / 语言自助维护文案与物料；<b>单点触达用户</b>（push / 站内信 / 短信 / EDM）、<b>增加服务节点</b>（生命周期 SOP、任务流转、关怀/召回/续费节点）</td><td>运营 · 市场投放 · 本地化 · 客服 · 学习服务</td></tr>
           </tbody>
         </table>
@@ -287,13 +287,13 @@
         <div class="grid c2">
           <div class="card"><h4 style="margin-top:0">🛠️ 运营 / 商业化运营 <span class="pill ph1" style="font-size:10px">当前使用方</span></h4>
             <p style="font-size:13px;margin:6px 0">负责商品上下架、促销活动与用户运营动作；一期高频查询用户与订单。</p>
-            <div style="font-size:12.5px"><b>核心诉求：</b>快速查到用户/订单、看清状态与有效期；二期商品/促销自助配置、不依赖研发；后期做触达与服务编排。</div>
-            <div style="font-size:12.5px;margin-top:6px"><b>高频模块：</b>用户中心 · 订单中心 ·（二期）商品包 / 优惠券 / 落地页 ·（后期）触达/服务节点</div>
+            <div style="font-size:12.5px"><b>核心诉求：</b>快速查到用户/订单、看清状态与有效期；三期商品/促销自助配置、不依赖研发；后期做触达与服务编排。</div>
+            <div style="font-size:12.5px;margin-top:6px"><b>高频模块：</b>用户中心 · 订单中心 ·（三期）商品包 / 优惠券 / 落地页 ·（后期）触达/服务节点</div>
           </div>
           <div class="card"><h4 style="margin-top:0">💼 销售 / 业务跟进 <span class="pill ph1" style="font-size:10px">当前使用方</span></h4>
             <p style="font-size:13px;margin:6px 0">负责注册线索的领取跟进、意向 / 付费用户的转化、续费与对账核查。</p>
             <div style="font-size:12.5px"><b>核心诉求：</b>在销售中心领取「注册 + 有手机号」线索并记录跟进、促成付费；按多条件快速查到用户与订单、看清付费状态与有效期；后期可单点触达跟进。</div>
-            <div style="font-size:12.5px;margin-top:6px"><b>高频模块：</b><b>销售中心</b> · 用户中心 · 订单中心 ·（二期看）优惠券/落地页转化 ·（后期）单点触达</div>
+            <div style="font-size:12.5px;margin-top:6px"><b>高频模块：</b><b>销售中心</b> · 用户中心 · 订单中心 ·（三期看）优惠券/落地页转化 ·（后期）单点触达</div>
           </div>
           <div class="card"><h4 style="margin-top:0">📣 市场投放 / 增长 <span class="pill p2" style="font-size:10px">后续</span></h4>
             <p style="font-size:13px;margin:6px 0">负责海外各业务线的拉新投放与渠道归因。</p>
@@ -335,10 +335,10 @@
             <tr><td style="text-align:left"><b>学习服务 / 班主任 <span class="pill" style="background:#dff5ee;color:#0a9c6f;font-size:10px">后期</span></b></td><td></td><td>●</td><td>●</td><td>◐</td><td></td><td></td><td></td><td>●</td><td>●</td></tr>
           </tbody>
         </table>
-        <div class="callout info" style="margin-top:12px"><div class="ic">🛡️</div><div>上述角色已在<b>「系统配置 · 角色权限」</b>中落地为<b>内置角色</b>，并按模块细分为 无权限 / 只读 / 可操作；数据可见范围按业务线隔离。详见 <a href="#p2-system" onclick="setTimeout(()=>document.querySelector('[data-view=p2-system]').click(),0)">2.6 系统配置 · 角色权限</a>。</div></div>
+        <div class="callout info" style="margin-top:12px"><div class="ic">🛡️</div><div>上述角色已在<b>「系统配置 · 角色权限」</b>中落地为<b>内置角色</b>，并按模块细分为 无权限 / 只读 / 可操作；数据可见范围按业务线隔离。详见 <a href="#p2-system" onclick="setTimeout(()=>document.querySelector('[data-view=p2-system]').click(),0)">2.2 系统配置 · 角色权限</a>。</div></div>
 
-        <h3>三期能力：销售分配 / 跟进 leads（外呼）</h3>
-        <p class="muted" style="font-size:13px;margin-top:-4px">三期核心是<b>销售中心（分配 / 跟进 leads + 外呼）</b>，原型已就绪，详见 <a href="#p3-sales" onclick="setTimeout(()=>document.querySelector('[data-view=p3-sales]').click(),0)">3.1 销售中心</a>。用户触达与服务节点已并入四期。</p>
+        <h3>二期能力：销售分配 / 跟进 leads（外呼）</h3>
+        <p class="muted" style="font-size:13px;margin-top:-4px">二期核心是<b>销售中心（分配 / 跟进 leads + 外呼）</b>与<b>角色权限（系统配置）</b>，原型已就绪，详见 <a href="#p3-sales" onclick="setTimeout(()=>document.querySelector('[data-view=p3-sales]').click(),0)">2.1 销售中心</a>。用户触达与服务节点已并入四期。</p>
 
         <h3>四期能力前瞻：本地化配置 + 用户触达与服务</h3>
         <div class="card" style="margin-bottom:14px">
@@ -374,18 +374,18 @@
       <!-- ====================== ROADMAP ====================== -->
       <section class="view" id="view-roadmap">
         <h2 class="title">迭代计划 / 路线图</h2>
-        <p class="lead">按官方计划分四期推进：<b>过渡期</b>（一期上线前先以线下导表支持业务触达）→ 一期查询（排期 7/9 → 7/16 → <b>当前目标 7/24 上午</b>：7/20 提测、测试约 3 天）→ 二期配置渠道 / 商品(SKU) / 投放链接（<b>8/7 上线</b>）→ 三期销售分配 / 跟进 leads（接入外呼）（<b>8/21 上线</b>）→ 四期本地化配置自助 + 用户触达与服务节点。下列时间为相对排期建议（四期暂无上线时间，可按实际研发资源调整）。</p>
+        <p class="lead">按官方计划分四期推进：<b>过渡期</b>（一期上线前先以线下导表支持业务触达）→ 一期查询（排期 7/9 → 7/16 → <b>当前目标 7/24 上午</b>：7/20 提测、测试约 3 天）→ 二期销售分配 / 跟进 leads（接入外呼）+ 角色权限（<b>8/7 上线</b>）→ 三期配置渠道 / 商品(SKU) / 投放链接 + 用户中心精准归因（<b>8/21 上线</b>）→ 四期本地化配置自助 + 用户触达与服务节点。下列时间为相对排期建议（四期暂无上线时间，可按实际研发资源调整）。</p>
 
         <div class="grid" style="gap:18px">
           <!-- phase 0 · 过渡期 -->
           <div class="phase zero">
             <div class="head"><span class="badge">过渡期</span><b>一期上线前 · 线下导表触达</b><span class="when">当前 / 一期上线前</span></div>
             <div class="body">
-              <p class="goal">CRM 一期上线前，业务对用户的触达先<b>以线下导表的方式过渡支持</b>，保证在系统能力就绪前业务不断档。当前为纯人工、多系统协作流程，也是三期「销售中心（分配 / 跟进 leads + 外呼）」要替代的现状。</p>
+              <p class="goal">CRM 一期上线前，业务对用户的触达先<b>以线下导表的方式过渡支持</b>，保证在系统能力就绪前业务不断档。当前为纯人工、多系统协作流程，也是二期「销售中心（分配 / 跟进 leads + 外呼）」要替代的现状。</p>
               <div class="feat"><div class="ic">📤</div><div><div class="t">① 产研导表 <span class="pill p0">现状</span></div><div class="d">由产研按业务需要，从后台导出用户 / 线索数据表，交付给业务。</div></div></div>
               <div class="feat"><div class="ic">📋</div><div><div class="t">② 业务录入 Lark 分配 leads <span class="pill p0">现状</span></div><div class="d">业务老师把导出的数据录入 Lark 表格，在表中进行 leads 分配（谁跟哪些线索）。</div></div></div>
               <div class="feat"><div class="ic">📞</div><div><div class="t">③ 外呼公司平台外呼 <span class="pill p0">现状</span></div><div class="d">销售老师在<b>外呼公司提供的平台</b>上，对分配到的 leads 进行外呼跟进。</div></div></div>
-              <div class="callout warn"><div class="ic">⚠️</div><div><b>过渡方案痛点（后续由 CRM 收敛）：</b>数据靠人工导表、时效差；Lark 手工分配易错漏、无法沉淀；导表 / Lark / 外呼平台三套系统割裂，跟进记录与外呼结果<b>难归因、难回流到用户档案</b>。一期先解决「查得到」，三期销售中心再把「分配 → 跟进 → 外呼 → 归档」搬进 CRM 形成闭环。</div></div>
+              <div class="callout warn"><div class="ic">⚠️</div><div><b>过渡方案痛点（后续由 CRM 收敛）：</b>数据靠人工导表、时效差；Lark 手工分配易错漏、无法沉淀；导表 / Lark / 外呼平台三套系统割裂，跟进记录与外呼结果<b>难归因、难回流到用户档案</b>。一期先解决「查得到」，二期销售中心再把「分配 → 跟进 → 外呼 → 归档」搬进 CRM 形成闭环。</div></div>
             </div>
           </div>
 
@@ -413,27 +413,52 @@
             </div>
           </div>
 
-          <!-- phase 2 -->
+          <!-- phase 2 · 销售中心 + 系统配置 -->
           <div class="phase two">
-            <div class="head"><span class="badge">二期</span><b>渠道体系与商业化配置能力</b></div>
+            <div class="head"><span class="badge">二期</span><b>销售分配 / 跟进 leads（接入外呼）+ 角色权限</b></div>
             <div class="body">
-              <p class="goal">目标（对应官方二期「配置渠道、商品 SKU、生成投放链接」）：建设渠道分级体系并把用户中心升级为「业务线 · 渠道」精准归因；把商品（商品包 SKU）、促销（满减券 + 多码结算）与投放（落地页）的配置能力交还运营，形成「归因 → 配置 → 投放 → 发放 → 核销 → 结算」闭环。<b>渠道、商品包、优惠券、落地页</b>统一归入<b>「营销中心」</b>菜单，用户中心二期与角色权限独立陈列。</p>
-              <div class="feat"><div class="ic">🛍️</div><div><div class="t">营销中心（菜单分组） <span class="pill ph2" style="font-size:10px">新增</span></div><div class="d">将渠道管理 / 商品包 / 优惠券 / 落地页 收拢为「营销中心」一级菜单下的子菜单，集中承载市场投放与商业化配置动作。</div></div></div>
-              <div class="feat"><div class="ic">🌿</div><div><div class="t">渠道管理 <span class="pill p1">P1</span> <span class="muted" style="font-size:11px">营销中心</span></div><div class="d">业务线 → 渠道类型 → 一/二/三级渠道树；任意层级生成可复制的渠道 code（7 位随机码）；已生码渠道可填 2 个渠道参数带入落地页链接。</div></div></div>
-              <div class="feat"><div class="ic">👥</div><div><div class="t">用户中心 · 二期 <span class="pill p1">P1</span></div><div class="d">在一期基础上把「应用商店 + 国家」升级为「业务线 · 渠道 · 渠道 code」精准归因，支持业务线全局筛选。</div></div></div>
-              <div class="feat"><div class="ic">📦</div><div><div class="t">商品包管理 <span class="pill p1">P1</span> <span class="muted" style="font-size:11px">营销中心</span></div><div class="d">新增/编辑/详情/上下架；业务线、币种、价格、有效期。</div></div></div>
-              <div class="feat"><div class="ic">🎟️</div><div><div class="t">优惠券管理（多码结算） <span class="pill p1">P1</span> <span class="muted" style="font-size:11px">营销中心</span></div><div class="d">满减券配置 + 一券多优惠码（按 KOL），独立统计使用量用于结算；支持管理优惠码/批量复制/编辑/延长/停止发放。</div></div></div>
-              <div class="feat"><div class="ic">🔗</div><div><div class="t">落地页管理 <span class="pill p1">P1</span> <span class="muted" style="font-size:11px">营销中心</span></div><div class="d">一键关联渠道（code）+ 商品包 +（可选）优惠码，按业务线模版生成投放落地页链接，可预览/复制/删除。</div></div></div>
-              <div class="feat"><div class="ic">🛡️</div><div><div class="t">系统配置 · 角色权限 <span class="pill p1">P1</span> <span class="pill ph2" style="font-size:10px">新增</span></div><div class="d">RBAC：角色权限矩阵（无/只读/可操作）、成员账号与业务线数据权限、操作日志；权限全平台生效。</div></div></div>
+              <p class="goal">目标（对应官方二期「销售分配 leads、跟进 leads、接入外呼」）：新增<b>销售中心</b>承接注册线索的分配与人工跟进转化，并接入<b>外呼</b>，形成「注册 → 分配 → 跟进/外呼 → 付费」的转化闭环，付费后回流用户中心；同时落地<b>系统配置 · 角色权限</b>（RBAC）为全平台权限打底。</p>
+              <div class="feat"><div class="ic">📞</div><div><div class="t">销售中心（分配/跟进 leads + 外呼） <span class="pill p1">P1</span> <span class="pill ph2" style="font-size:10px">原型已就绪</span></div><div class="d">「未付费-未体验 + 有手机号」用户自动沉淀为销售线索，经「待领取 → 领取跟进 → 更新进度 → 转化付费」闭环；付费后回流用户中心。<b>接入外呼</b>：坐席点号码发起外呼、挂断后 <b>AI 自动生成通话小结</b>（可编辑），生成<b>通话录音</b>与通话记录，自动归档到客户档案与跟进记录，「通话记录」Tab 集中查看。</div></div></div>
+              <div class="feat"><div class="ic">🧑‍💼</div><div><div class="t">销售组长 · 分配与掉库设置 <span class="pill p1">P1</span></div><div class="d">销售组长可配置<b>按坐席权重自动分配</b>、<b>领取超时未跟进自动掉库并重分配</b>，并可<b>重新分配</b>组内任一线索；可查看组内全部销售的跟进线索。</div></div></div>
+              <div class="feat"><div class="ic">🛡️</div><div><div class="t">系统配置 · 角色权限 <span class="pill p1">P1</span> <span class="pill ph2" style="font-size:10px">新增</span></div><div class="d">RBAC：角色权限矩阵（无/只读/可操作）细分到<b>子权限</b>（如渠道生码 / 券延长 / 销售外呼 等）、成员账号与业务线数据权限、操作日志；权限全平台生效。</div></div></div>
               <h4>二期交付物 / 验收</h4>
               <ul class="clean">
+                <li>「未付费-未体验 + 有手机号」用户自动进入销售中心待领取池；领取后进入「我的跟进」。</li>
+                <li>接入外呼：点号码发起外呼、通话录音可播放、AI 自动生成通话小结（可编辑）；通话记录自动归档到客户档案与跟进记录。</li>
+                <li>销售组长可配置自动分配权重、超时掉库时长，并可重新分配线索；数据按业务线隔离。</li>
+                <li>角色权限细分到子权限并全平台生效：菜单过滤、操作按钮显隐、数据按业务线隔离；角色与成员变更可在操作日志中追溯。</li>
+              </ul>
+              <h4>工时估算 <span class="muted" style="font-weight:400;font-size:12px">（pd = 人日）</span></h4>
+              <table class="bordered">
+                <thead><tr><th style="width:120px">角色</th><th style="width:150px">预计工时</th><th>说明</th></tr></thead>
+                <tbody>
+                  <tr><td>服务端</td><td><b>8 pd</b></td><td>销售分配 / 跟进 leads 相关后端</td></tr>
+                  <tr><td>前端</td><td><b>待定</b></td><td>依赖<b>外呼接入方案</b>确定开发时间</td></tr>
+                  <tr><td>测试</td><td><b>3 天 + 待定</b></td><td>3 天（外呼接入外的场景）；接入外呼的工作量依赖外呼接入方案确定</td></tr>
+                </tbody>
+              </table>
+              <div class="callout warn"><div class="ic">📞</div><div><b>二期工时依赖外呼接入方案：</b>服务端约 8pd；<b>前端开发时间与外呼相关测试量</b>需待「外呼接入方案」明确后再评估（测试已知非外呼场景约 3 天）。目标 8/7 上线，若外呼方案确定较晚可能顺延。</div></div>
+            </div>
+          </div>
+
+          <!-- phase 3 · 营销中心 + 用户中心二期 -->
+          <div class="phase three">
+            <div class="head"><span class="badge">三期</span><b>渠道体系与商业化配置能力 + 用户中心精准归因</b></div>
+            <div class="body">
+              <p class="goal">目标（对应官方三期「配置渠道、商品 SKU、生成投放链接」）：建设渠道分级体系并把用户中心升级为「业务线 · 渠道」精准归因；把商品（商品包 SKU）、促销（折扣券 + 多码结算）与投放（落地页）的配置能力交还运营，形成「归因 → 配置 → 投放 → 发放 → 核销 → 结算」闭环。<b>渠道、商品包、优惠券、落地页</b>统一归入<b>「营销中心」</b>菜单，用户中心二期独立陈列。</p>
+              <div class="feat"><div class="ic">🛍️</div><div><div class="t">营销中心（菜单分组） <span class="pill ph3" style="font-size:10px">新增</span></div><div class="d">将渠道管理 / 商品包 / 优惠券 / 落地页 收拢为「营销中心」一级菜单下的子菜单，集中承载市场投放与商业化配置动作。</div></div></div>
+              <div class="feat"><div class="ic">🌿</div><div><div class="t">渠道管理 <span class="pill p1">P1</span> <span class="muted" style="font-size:11px">营销中心</span></div><div class="d">业务线 → 渠道类型 → 一/二/三级渠道树；任意层级生成可复制的渠道 code（7 位随机码）；已生码渠道可填 2 个渠道参数带入落地页链接。</div></div></div>
+              <div class="feat"><div class="ic">👥</div><div><div class="t">用户中心 · 二期 <span class="pill p1">P1</span></div><div class="d">在一期基础上把「应用商店 + 国家」升级为「业务线 · 渠道 · 渠道 code」精准归因，新增课程等级 / 体验状况 / 付费状况 / 支付端 / campaign 等列，用户ID 可进入详情页看课程信息 / 报告 / 回放。</div></div></div>
+              <div class="feat"><div class="ic">📦</div><div><div class="t">商品包管理 <span class="pill p1">P1</span> <span class="muted" style="font-size:11px">营销中心</span></div><div class="d">新增/编辑/上下架；业务线、币种、价格、有效期，可标记 <b>Best Value</b> 前端推荐标签，列表展示创建人/创建时间。</div></div></div>
+              <div class="feat"><div class="ic">🎟️</div><div><div class="t">优惠券管理（多码结算） <span class="pill p1">P1</span> <span class="muted" style="font-size:11px">营销中心</span></div><div class="d"><b>折扣券</b>（折扣率 %，如立减 10%）+ 一券多优惠码（按 KOL），独立统计使用量用于结算；支持管理优惠码/批量复制/延长/停止发放。</div></div></div>
+              <div class="feat"><div class="ic">🔗</div><div><div class="t">落地页管理 <span class="pill p1">P1</span> <span class="muted" style="font-size:11px">营销中心</span></div><div class="d">一键关联渠道（code）+ <b>多商品包</b> + 划线价 +（可选）优惠码，按业务线模版生成投放落地页链接，可预览/复制/删除。</div></div></div>
+              <h4>三期交付物 / 验收</h4>
+              <ul class="clean">
                 <li>渠道树可增删改、可生码并复制；已生码渠道可填写 2 个渠道参数并在落地页链接中带入。</li>
-                <li>用户中心 · 二期按「业务线 · 渠道」归因，支持业务线全局筛选。</li>
-                <li>商品包可上下架，下架后不可被券绑定（前置校验）。</li>
-                <li>满减券可生成多优惠码、按 KOL 统计使用量；可调整可用商品、延长领取时间、停止发放（二次确认）。</li>
-                <li>券与商品包通过 <code>商品包ID</code> 关联，币种与业务线一致。</li>
-                <li>落地页可基于已配置业务线模版生成可用投放链接，并关联到对应渠道/商品包/优惠码。</li>
-                <li>角色权限按模块分级生效：菜单过滤、操作按钮显隐、数据按业务线隔离；角色与成员变更可在操作日志中追溯。</li>
+                <li>用户中心 · 二期按「业务线 · 渠道」归因，支持业务线全局筛选；用户ID 可进入详情页看课程信息。</li>
+                <li>商品包可上下架、可标记 Best Value；下架后不可被券绑定（前置校验）。</li>
+                <li>折扣券可生成多优惠码、按 KOL 统计使用量；可调整可用商品、延长使用时间、停止发放（二次确认）。</li>
+                <li>落地页可基于业务线模版生成可用投放链接，关联多商品包 / 划线价 / 优惠码。</li>
               </ul>
               <h4>工时估算 <span class="muted" style="font-weight:400;font-size:12px">（pd = 人日）</span></h4>
               <table class="bordered">
@@ -444,26 +469,7 @@
                   <tr><td>测试</td><td><b>8 天</b></td><td>功能与回归测试</td></tr>
                 </tbody>
               </table>
-              <div class="callout info"><div class="ic">🗓️</div><div><b>二期工时合计</b>：服务端 14pd、前端 15pd（含 2 天联调）、测试 8 天。</div></div>
-            </div>
-          </div>
-
-          <!-- phase 3 -->
-          <div class="phase three">
-            <div class="head"><span class="badge">三期</span><b>销售分配 / 跟进 leads（接入外呼）</b></div>
-            <div class="body">
-              <p class="goal">目标（对应官方三期「销售分配 leads、跟进 leads、接入外呼」）：新增<b>销售中心</b>承接注册线索的分配与人工跟进转化，并接入<b>外呼</b>，形成「注册 → 分配 → 跟进/外呼 → 付费」的转化闭环，付费后回流用户中心。</p>
-              <div class="feat"><div class="ic">📞</div><div><div class="t">销售中心（分配/跟进 leads + 外呼） <span class="pill p1">P1</span> <span class="pill ph2" style="font-size:10px">原型已就绪</span></div><div class="d">「注册 + 有手机号」用户自动沉淀为销售线索，经「待领取 → 领取跟进 → 更新进度 → 转化付费」闭环；付费后回流用户中心。<b>接入外呼</b>：坐席点号码发起外呼、挂断填通话小结，自动归档到客户档案与跟进记录，「通话记录」Tab 集中查看。用户状态精简为 注册/付费/付费逾期。</div></div></div>
-              <h4>工时估算 <span class="muted" style="font-weight:400;font-size:12px">（pd = 人日）</span></h4>
-              <table class="bordered">
-                <thead><tr><th style="width:120px">角色</th><th style="width:150px">预计工时</th><th>说明</th></tr></thead>
-                <tbody>
-                  <tr><td>服务端</td><td><b>8 pd</b></td><td>销售分配 / 跟进 leads 相关后端</td></tr>
-                  <tr><td>前端</td><td><b>待定</b></td><td>依赖<b>外呼接入方案</b>确定开发时间</td></tr>
-                  <tr><td>测试</td><td><b>3 天 + 待定</b></td><td>3 天（外呼接入外的场景）；接入外呼的工作量依赖外呼接入方案确定</td></tr>
-                </tbody>
-              </table>
-              <div class="callout warn"><div class="ic">📞</div><div><b>三期工时依赖外呼接入方案：</b>服务端约 8pd；<b>前端开发时间与外呼相关测试量</b>需待「外呼接入方案」明确后再评估（测试已知非外呼场景约 3 天）。目标 8/21 上线，若外呼方案确定较晚可能顺延。</div></div>
+              <div class="callout info"><div class="ic">🗓️</div><div><b>三期工时合计</b>：服务端 14pd、前端 15pd（含 2 天联调）、测试 8 天。目标 8/21 上线。</div></div>
             </div>
           </div>
 
@@ -499,8 +505,8 @@
           <thead><tr><th style="width:120px">里程碑</th><th>内容</th><th style="width:140px">依赖 / 前置</th></tr></thead>
           <tbody>
             <tr><td><b>M1 · 一期上线</b><br><span class="muted" style="font-size:11px">7/9 → 7/16 → 7/24 上午</span></td><td>用户中心（一期）/ 订单中心 可用；用户按应用商店来源 + 国家归因</td><td>登录鉴权、应用商店来源/国家口径确认；7/20 下班前提测、测试约 3 天</td></tr>
-            <tr><td><b>M2 · 二期上线</b><br><span class="muted" style="font-size:11px">目标 8/7</span></td><td>渠道体系 + 用户中心二期归因 + 商品包(SKU) + 优惠券 + 落地页 + 权限闭环</td><td>渠道 code 口径确认；依赖 M1 的用户/订单数据结构</td></tr>
-            <tr><td><b>M3 · 三期上线</b><br><span class="muted" style="font-size:11px">目标 8/21</span></td><td>销售中心：分配 leads + 跟进 leads + 外呼 + 通话记录</td><td>依赖 M1、M2 沉淀的用户/线索数据；外呼服务对接</td></tr>
+            <tr><td><b>M2 · 二期上线</b><br><span class="muted" style="font-size:11px">目标 8/7</span></td><td>销售中心：分配 leads + 跟进 leads + 外呼（录音 / AI 小结）+ 自动分配/掉库 + 通话记录；系统配置 · 角色权限闭环</td><td>外呼服务对接方案；依赖 M1 沉淀的用户/线索数据</td></tr>
+            <tr><td><b>M3 · 三期上线</b><br><span class="muted" style="font-size:11px">目标 8/21</span></td><td>渠道体系 + 用户中心二期精准归因（含课程信息）+ 商品包(SKU) + 折扣券 + 落地页</td><td>渠道 code 口径确认；依赖 M1、M2 沉淀的数据结构</td></tr>
             <tr><td><b>M4 · 四期</b></td><td>本地化配置（文案 + 物料）平台迁入 CRM；单点触达用户 + 服务节点；手动加会员（待评估）</td><td>现有本地化平台能力/数据可迁移；账号权限打通；依赖前序用户/线索数据</td></tr>
             <tr><td><b>后续 · 增强</b></td><td>标签 / 黑名单 / 邀约提报 / 第三方整合</td><td>依赖前序阶段沉淀的数据</td></tr>
           </tbody>
@@ -521,23 +527,23 @@
         <table class="bordered">
           <thead><tr><th style="width:150px">纪要议题</th><th>业务诉求</th><th style="width:120px">归属</th><th style="width:110px">期次</th></tr></thead>
           <tbody>
-            <tr><td>过渡触达方案</td><td>一期上线前，先以<b>线下导表</b>过渡支持业务触达：① 产研导表 → ② 业务老师录入 Lark 表分配 leads → ③ 销售在外呼公司平台外呼；系统就绪后由 CRM 收敛（三期销售中心替代）</td><td>线下导表</td><td><span class="pill" style="background:#fff4e6;color:#e8890c">过渡期</span></td></tr>
-            <tr><td>系统定位与优先级</td><td>CRM 一期定位为「查得到」：用户、订单两段信息可查（渠道体系二期建设）</td><td>全局</td><td><span class="pill ph1">一期</span></td></tr>
+            <tr><td>过渡触达方案</td><td>一期上线前，先以<b>线下导表</b>过渡支持业务触达：① 产研导表 → ② 业务老师录入 Lark 表分配 leads → ③ 销售在外呼公司平台外呼；系统就绪后由 CRM 收敛（二期销售中心替代）</td><td>线下导表</td><td><span class="pill" style="background:#fff4e6;color:#e8890c">过渡期</span></td></tr>
+            <tr><td>系统定位与优先级</td><td>CRM 一期定位为「查得到」：用户、订单两段信息可查（渠道体系三期建设）</td><td>全局</td><td><span class="pill ph1">一期</span></td></tr>
             <tr><td>用户数据体系</td><td>用户基本信息：注册方式、登录账号、注册渠道（App Store/Google Play）、国家、注册时间等</td><td>用户中心（一期）</td><td><span class="pill ph1">一期</span></td></tr>
             <tr><td>系统定位与优先级</td><td>平台多语言支持（英 / 韩 / 阿 / 中，默认英文）</td><td>全局</td><td><span class="pill ph1">一期</span></td></tr>
-            <tr><td>市场渠道管理</td><td>渠道分级体系（业务线 → 类型 → 多级渠道）</td><td>渠道管理</td><td><span class="pill ph2">二期</span></td></tr>
-            <tr><td>市场渠道管理</td><td>渠道生码机制：生成实际投放使用的渠道 code；已生码渠道可填 2 个渠道参数带入落地页链接</td><td>渠道管理</td><td><span class="pill ph2">二期</span></td></tr>
-            <tr><td>市场与销售运营</td><td>销售分配 / 跟进 leads：「注册+有手机号」自动进入销售中心，领取/更新跟进，转化付费回流用户中心</td><td>销售中心</td><td><span class="pill ph3">三期</span></td></tr>
-            <tr><td>市场与销售运营</td><td>外呼：坐席点号码发起外呼，挂断后填通话小结，自动归档到客户档案与销售跟进记录；通话记录集中查看</td><td>销售中心</td><td><span class="pill ph3">三期</span></td></tr>
+            <tr><td>市场渠道管理</td><td>渠道分级体系（业务线 → 类型 → 多级渠道）</td><td>渠道管理</td><td><span class="pill ph3">三期</span></td></tr>
+            <tr><td>市场渠道管理</td><td>渠道生码机制：生成实际投放使用的渠道 code；已生码渠道可填 2 个渠道参数带入落地页链接</td><td>渠道管理</td><td><span class="pill ph3">三期</span></td></tr>
+            <tr><td>市场与销售运营</td><td>销售分配 / 跟进 leads：「未付费-未体验+有手机号」自动进入销售中心，领取/更新跟进，转化付费回流用户中心；组长按权重自动分配 / 超时掉库 / 重新分配</td><td>销售中心</td><td><span class="pill ph2">二期</span></td></tr>
+            <tr><td>市场与销售运营</td><td>外呼：坐席点号码发起外呼，挂断后 AI 自动生成通话小结（可编辑），生成通话录音并归档到客户档案与销售跟进记录；通话记录集中查看</td><td>销售中心</td><td><span class="pill ph2">二期</span></td></tr>
             <tr><td>用户权益运营</td><td>手动给单个用户加会员（不同时长有效期）：从「找产研改库」迁到管台自助；<b>高风险，权限开放对象与风控待评估</b></td><td>用户中心 · 二期</td><td><span class="pill" style="background:#e9f0ff;color:#2f6bff">四期</span> <span class="pill" style="background:#fff4e6;color:#e8590c;font-size:10px">待评估</span></td></tr>
-            <tr><td>用户数据体系</td><td>用户中心升级：按「业务线 · 渠道」精准归因、业务线全局筛选</td><td>用户中心 · 二期</td><td><span class="pill ph2">二期</span></td></tr>
+            <tr><td>用户数据体系</td><td>用户中心升级：按「业务线 · 渠道」精准归因、业务线全局筛选、课程信息 / 报告 / 回放</td><td>用户中心 · 二期</td><td><span class="pill ph3">三期</span></td></tr>
             <tr><td>市场渠道管理</td><td>非手机号注册支持：谷歌邮箱 / Facebook / kakao / AppID 等多注册方式</td><td>用户中心</td><td><span class="pill ph1">一期</span></td></tr>
-            <tr><td>用户数据体系</td><td>用户状态：注册 / 付费 / 付费逾期</td><td>用户中心</td><td><span class="pill ph1">一期</span></td></tr>
+            <tr><td>用户数据体系</td><td>用户状态：未付费-未体验 / 未付费-体验中 / 未付费-已体验 / 付费 / 付费逾期</td><td>用户中心</td><td><span class="pill ph1">一期</span></td></tr>
             <tr><td>商品/订单</td><td>订单信息查询：订单状态、原价/实付、支付方式</td><td>订单中心</td><td><span class="pill ph1">一期</span></td></tr>
-            <tr><td>商品品类丰富度</td><td>商品包（商品）配置、上下架、有效期</td><td>商品包管理</td><td><span class="pill ph2">二期</span></td></tr>
-            <tr><td>优惠券系统</td><td>满减券配置：发放/使用规则、可用商品、满减权益；一券多优惠码（KOL）独立统计用于结算</td><td>优惠券管理</td><td><span class="pill ph2">二期</span></td></tr>
-            <tr><td>投放与归因</td><td>落地页一键生成：渠道 code + 商品包 + 优惠码按业务线模版拼装投放链接</td><td>落地页管理</td><td><span class="pill ph2">二期</span></td></tr>
-            <tr><td>权限与安全</td><td>角色权限（RBAC）、数据权限（业务线隔离）、成员账号、操作日志审计</td><td>系统配置</td><td><span class="pill ph2">二期</span></td></tr>
+            <tr><td>商品品类丰富度</td><td>商品包（商品）配置、上下架、有效期、Best Value 标签</td><td>商品包管理</td><td><span class="pill ph3">三期</span></td></tr>
+            <tr><td>优惠券系统</td><td>折扣券配置：使用规则、可用商品、折扣率（%）权益；一券多优惠码（KOL）独立统计用于结算</td><td>优惠券管理</td><td><span class="pill ph3">三期</span></td></tr>
+            <tr><td>投放与归因</td><td>落地页一键生成：渠道 code + 多商品包 + 划线价 + 优惠码按业务线模版拼装投放链接</td><td>落地页管理</td><td><span class="pill ph3">三期</span></td></tr>
+            <tr><td>权限与安全</td><td>角色权限（RBAC 子权限）、数据权限（业务线隔离）、成员账号、操作日志审计</td><td>系统配置</td><td><span class="pill ph2">二期</span></td></tr>
             <tr><td>用户触达与服务</td><td>单点触达用户（push/站内信/短信/EDM/外呼）、增加服务节点（生命周期 SOP、任务流转、召回/续费/关怀）</td><td>触达 / 服务节点</td><td><span class="pill" style="background:#e9f0ff;color:#2f6bff">四期</span></td></tr>
             <tr><td>本地化运营</td><td>本地化文案与物料自助配置：把现有本地化配置平台迁入 CRM，业务按业务线/语言自助维护</td><td>本地化配置平台</td><td><span class="pill" style="background:#e9f0ff;color:#2f6bff">四期</span></td></tr>
             <tr><td>用户数据体系</td><td>标签能力、黑名单识别</td><td>—</td><td><span class="pill later">后续</span></td></tr>
@@ -547,13 +553,13 @@
           </tbody>
         </table>
 
-        <div class="callout block" style="margin-top:18px"><div class="ic">⛔</div><div><b>核心阻塞与共识：</b>渠道 code 口径需在一期前与投放侧拉齐（生码规则 / 归因字段），否则用户注册渠道归因无法闭环。商品包币种与业务线映射需固化（见附录），作为二期券与商品包关联的前置。</div></div>
+        <div class="callout block" style="margin-top:18px"><div class="ic">⛔</div><div><b>核心阻塞与共识：</b>渠道 code 口径需在一期前与投放侧拉齐（生码规则 / 归因字段），否则用户注册渠道归因无法闭环。商品包币种与业务线映射需固化（见附录），作为三期券与商品包关联的前置。</div></div>
       </section>
 
       <!-- ====================== P1: CHANNELS ====================== -->
       <section class="view" id="view-p2-channels">
-        <h2 class="title">2.1 渠道管理 <span class="pill ph2" style="vertical-align:middle">二期</span> <span class="pill p1" style="vertical-align:middle">P1</span></h2>
-        <p class="lead">维护标准化的渠道分级结构，并在任意层级生成实际投放使用的渠道 code，作为用户注册归因的唯一口径。<b>渠道体系为二期能力</b>：一期用户中心仅按应用商店来源（App Store / Google Play）与国家做粗归因，二期引入渠道树后，用户中心升级为「用户中心 · 二期」并按「业务线 · 渠道」精准归因。</p>
+        <h2 class="title">3.1 渠道管理 <span class="pill ph3" style="vertical-align:middle">三期</span> <span class="pill p1" style="vertical-align:middle">P1</span></h2>
+        <p class="lead">维护标准化的渠道分级结构，并在任意层级生成实际投放使用的渠道 code，作为用户注册归因的唯一口径。<b>渠道体系为三期能力</b>：一期用户中心仅按应用商店来源（App Store / Google Play）与国家做粗归因，三期引入渠道树后，用户中心升级为「用户中心 · 二期」并按「业务线 · 渠道」精准归因。</p>
 
         <h3>用户故事</h3>
         <div class="story">作为<b>市场投放同学</b>，我希望按「业务线 → 渠道类型 → 一级 → 二级 → 三级」维护渠道，并为具体投放位生成唯一 code，以便用户注册时能准确归因到业务线与来源。</div>
@@ -601,7 +607,7 @@
         <h2 class="title">1.1 用户中心（一期） <span class="pill ph1" style="vertical-align:middle">一期</span> <span class="pill p0" style="vertical-align:middle">P0</span></h2>
         <p class="lead">运营 / 销售按多条件检索学生（用户），查看其基本信息、注册方式与登录账号、状态与有效期，并可维护可编辑的基础资料。<b>一期暂无渠道体系</b>：注册来源仅区分应用商店（App Store / Google Play），归属国家取注册时 IP 对应国家。</p>
 
-        <div class="callout info"><div class="ic">🧭</div><div><b>一期 vs 二期：</b>一期用户中心不展示「业务线 / 渠道 / 渠道 code」，仅用<b>注册渠道（App Store / Google Play）+ 国家</b>做粗粒度归因；待二期渠道管理上线后，升级为「<a href="#p2-users" onclick="setTimeout(()=>document.querySelector('[data-view=p2-users]').click(),0)">用户中心 · 二期</a>」，按「业务线 · 渠道 · 渠道 code」精准归因。</div></div>
+        <div class="callout info"><div class="ic">🧭</div><div><b>一期 vs 三期：</b>一期用户中心不展示「业务线 / 渠道 / 渠道 code」，仅用<b>注册渠道（App Store / Google Play）+ 国家</b>做粗粒度归因；待三期渠道管理上线后，升级为「<a href="#p2-users" onclick="setTimeout(()=>document.querySelector('[data-view=p2-users]').click(),0)">用户中心 · 二期</a>」，按「业务线 · 渠道 · 渠道 code」精准归因。</div></div>
 
         <h3>用户故事</h3>
         <div class="story">作为<b>运营 / 销售同学</b>，我希望输入学生ID / 姓名 / 登录账号即可查到该用户，并看到他的注册方式、登录账号、注册渠道（App Store / Google Play）、国家、注册时间、到期时间与当前状态，以便快速响应咨询——即使用户用谷歌邮箱 / Facebook / AppID 等<b>非手机号方式</b>注册也能查到。</div>
@@ -612,13 +618,13 @@
           <tbody>
             <tr><td>关键字搜索</td><td>支持 用户ID / 姓名 / 登录账号 模糊搜索（登录账号即覆盖手机号场景）</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td>多注册方式展示</td><td>谷歌邮箱 / Facebook / kakao / 手机号 / AppID，含登录账号；支持非手机号注册</td><td><span class="pill p0">P0</span></td></tr>
-            <tr><td>条件筛选</td><td>用户类型（正式/测试）、注册渠道（App Store / Google Play）、国家、用户状态（注册/付费/付费逾期）</td><td><span class="pill p0">P0</span></td></tr>
+            <tr><td>条件筛选</td><td>用户类型（正式/测试）、注册方式、渠道来源（落地页 / App）、国家、用户状态（未付费-未体验 / 未付费-体验中 / 未付费-已体验 / 付费 / 付费逾期）</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td>用户类型识别 <span class="pill ph1" style="font-size:10px">新增</span></td><td>正式用户 / 测试用户；手机号 / kakao 登录按手机号规则<b>自动判定</b>，其余第三方登录可后台手动设置</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td>列表 + 分页</td><td>展示基本信息字段，支持分页与每页条数</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td>到期时间 / 最近修改人</td><td>展示会员到期时间（无则—）与最近一次资料修改人（无则—）</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td>修改基本信息</td><td>本地名 / 年龄段 / 用户类型（仅第三方登录可改）；保存后记录「最近修改人」（国家只读、不可修改）</td><td><span class="pill p1">P1</span></td></tr>
             <tr><td>修改历史 <span class="pill ph1" style="font-size:10px">新增</span></td><td>点击「最近修改人」查看该用户的资料修改记录：操作时间、变更内容（字段修改前 → 修改后）、修改人</td><td><span class="pill p1">P1</span></td></tr>
-            <tr><td>试听报告（临时入口）<span class="pill ph1" style="font-size:10px">新增</span></td><td>对有「已完课体验课且带报告」的用户，操作列展示「试听报告」链接，点击跳转外部 <b>Trial Report</b> 原型页；一期不做完整详情页，仅提供此临时入口，完整课程信息见二期用户详情页</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td>试听报告（临时入口）<span class="pill ph1" style="font-size:10px">新增</span></td><td>对有「已完课体验课且带报告」的用户，操作列展示「试听报告」链接，点击跳转外部 <b>Trial Report</b> 原型页；一期不做完整详情页，仅提供此临时入口，完整课程信息见「用户中心·二期」详情页</td><td><span class="pill p1">P1</span></td></tr>
           </tbody>
         </table>
 
@@ -628,13 +634,13 @@
           <tbody>
             <tr><td>用户ID</td><td>用户唯一标识（长数字ID）</td><td>否</td></tr>
             <tr><td>学生姓名</td><td>单一姓名字段，取 App 内的 <code>Student_Name</code></td><td>可编辑</td></tr>
-            <tr><td>用户状态</td><td>注册 / 付费 / 付费逾期</td><td>否（系统流转）</td></tr>
+            <tr><td>用户状态</td><td>未付费-未体验 / 未付费-体验中 / 未付费-已体验 / 付费 / 付费逾期（由是否付费 + 体验课完课情况自动判定）</td><td>否（系统流转）</td></tr>
             <tr><td>用户类型 <span class="pill ph1" style="font-size:10px">新增</span></td><td>正式用户 / 测试用户；手机号 / kakao 登录由规则自动判定（不可改），其余第三方登录可手动设置</td><td>部分可编辑</td></tr>
             <tr><td>年龄段 <span class="pill ph1" style="font-size:10px">新增</span></td><td>3-5 / 6-8 / 9-12 / 13-17 / 18+（替代原「性别 / 出生日期」编辑项）</td><td>可编辑</td></tr>
             <tr><td>注册方式</td><td>谷歌邮箱 / Facebook / kakao / 手机号 / AppID</td><td>否</td></tr>
             <tr><td>登录账号</td><td>邮箱 / Facebook / kakao ID / AppID / 手机号</td><td>否</td></tr>
             <tr><td>注册渠道 <span class="pill ph1" style="font-size:10px">一期口径</span></td><td>仅区分应用商店来源：<b>App Store / Google Play</b>（一期无渠道树）</td><td>否</td></tr>
-            <tr><td>国家 <span class="pill ph1" style="font-size:10px">一期口径</span></td><td>注册时 IP 对应的国家（替代二期的「业务线」展示）</td><td>否</td></tr>
+            <tr><td>国家 <span class="pill ph1" style="font-size:10px">一期口径</span></td><td>注册时 IP 对应的国家（替代「用户中心·二期」的业务线展示）</td><td>否</td></tr>
             <tr><td>注册时间</td><td>底层以 UTC 存储，按<b>注册国家</b>换算为当地时间展示，并标注时区（如 <code>UTC+09:00</code>）</td><td>否</td></tr>
             <tr><td>到期时间</td><td>会员/商品包到期时间，按<b>注册国家</b>换算为当地时间展示并标注时区；无则显示「—」</td><td>否</td></tr>
             <tr><td>最近修改人 <span class="pill ph1" style="font-size:10px">可查历史</span></td><td>最近一次资料修改的操作人（无则显示「—」）；<b>点击可查看完整「修改历史」</b>（时间 / 变更前后 / 修改人）</td><td>否（系统记录）</td></tr>
@@ -647,16 +653,18 @@
         <table class="bordered">
           <thead><tr><th style="width:110px">用户状态</th><th>定义</th><th style="width:240px">判定口径</th></tr></thead>
           <tbody>
-            <tr><td><span class="pill p2">注册</span></td><td>已注册未付费</td><td>完成注册，从未付费</td></tr>
+            <tr><td><span class="pill p2">未付费-未体验</span></td><td>已注册、未付费，且体验课一节都没上完</td><td>无付费订单 且 无「已完课/进行中」体验课</td></tr>
+            <tr><td><span class="pill p1">未付费-体验中</span></td><td>已注册、未付费，体验课进行中（有「进行中」体验课但尚无已完课）</td><td>无付费订单 且 有「进行中」体验课 且 无「已完课」体验课</td></tr>
+            <tr><td><span class="pill ph1">未付费-已体验</span></td><td>已注册、未付费，但已完课过体验课（任意一节）</td><td>无付费订单 且 有「已完课」体验课</td></tr>
             <tr><td><span class="pill ok">付费</span></td><td>付费正式商品包，且在有效期内（可能首次付费，也可能到期后自动订阅）</td><td>持有正式包 且 当前时间 ≤ 有效期</td></tr>
-            <tr><td><span class="pill p0">付费逾期</span></td><td>付费正式商品包，已过有效期且未续订（原「流失」）</td><td>曾持有正式包 且 当前时间 &gt; 有效期 且 未续订</td></tr>
+            <tr><td><span class="pill p0">付费逾期</span></td><td>付费正式商品包，已过有效期且未续订</td><td>曾持有正式包 且 当前时间 &gt; 有效期 且 未续订</td></tr>
           </tbody>
         </table>
-        <div class="callout info"><div class="ic">🔄</div><div>状态为系统自动流转、不可手工编辑：正式包到期后自动订阅成功仍为「付费」，到期未续订则转为「付费逾期」。<b>本轮已精简为 3 类</b>（移除「体验中 / 体验逾期」）：未付费一律为「注册」，其中「已注册未付费 + 能拿到手机号」的用户会自动进入<b>销售中心</b>做线索跟进。</div></div>
+        <div class="callout info"><div class="ic">🔄</div><div>状态为系统自动流转、不可手工编辑：由<b>是否有付费订单</b> + <b>体验课完课情况</b>联合判定；正式包到期后自动订阅成功仍为「付费」，到期未续订则转为「付费逾期」。其中「<b>未付费-未体验 + 能拿到手机号</b>」的用户会自动进入<b>销售中心</b>做线索跟进。</div></div>
 
         <h3>关键交互流程</h3>
-        <div class="step"><div class="n">1</div><div class="c">输入关键字（用户ID/姓名/登录账号）或选择 用户类型（正式/测试）/ 注册渠道（App Store/Google Play）/ 国家 / 用户状态 → 列表实时过滤。</div></div>
-        <div class="step"><div class="n">2</div><div class="c">查看「注册方式」「登录账号」列定位用户来源；非手机号方式登录账号为邮箱/第三方账号。</div></div>
+        <div class="step"><div class="n">1</div><div class="c">输入关键字（用户ID/姓名/登录账号）或选择 用户类型（正式/测试）/ 注册方式 / 渠道来源（落地页 / App）/ 国家 / 用户状态（5 类）→ 列表实时过滤。</div></div>
+        <div class="step"><div class="n">2</div><div class="c">查看「注册方式」「登录账号」列定位用户来源；非手机号方式登录账号为邮箱/第三方账号。对有「已完课体验课且带报告」的用户，操作列出现「试听报告」入口，点击跳转外部 Trial Report 原型页。</div></div>
         <div class="step"><div class="n">3</div><div class="c">点「修改信息」→ 弹窗编辑本地名 / 年龄段 / 用户类型（国家只读；手机号/kakao 用户的用户类型由规则自动判定、不可改）→ 保存，系统按字段记录变更前后并写入「修改历史」，同时更新「最近修改人」。</div></div>
         <div class="step"><div class="n">4</div><div class="c">点列表中的「最近修改人」→ 弹出「修改历史」，按时间倒序展示每次操作的<b>变更内容（字段：修改前 → 修改后）</b>与修改人。</div></div>
 
@@ -665,10 +673,10 @@
 
       <!-- ====================== P2: USERS (渠道归因增强) ====================== -->
       <section class="view" id="view-p2-users">
-        <h2 class="title">2.5 用户中心 · 二期 <span class="pill ph2" style="vertical-align:middle">二期</span> <span class="pill p1" style="vertical-align:middle">P1</span></h2>
+        <h2 class="title">3.5 用户中心 · 二期 <span class="pill ph3" style="vertical-align:middle">三期</span> <span class="pill p1" style="vertical-align:middle">P1</span></h2>
         <p class="lead">渠道管理上线后，用户中心升级为按「业务线 · 渠道 · 渠道 code」精准归因的增强版：在一期基础上，把粗粒度的「应用商店 + 国家」替换为完整的渠道归因，并支持业务线全局筛选。</p>
 
-        <div class="callout info"><div class="ic">🆕</div><div><b>相对一期新增：</b>① 列表「注册渠道」展示「业务线 · 渠道」并关联渠道树；② 新增「渠道 code」「所属业务线」字段；③ 筛选项由「应用商店 + 国家」升级为<b>业务线（全局共享）</b>+ 用户状态；④ <b>用户ID 可点击进入「用户详情页」</b>，查看完整基本信息与<b>课程信息（上课记录 + 课程报告 + 回放）</b>。其余（查询、改资料、状态口径）与一期一致。</div></div>
+        <div class="callout info"><div class="ic">🆕</div><div><b>相对一期新增：</b>① 列表「注册渠道」展示「业务线 · 渠道」并关联渠道树；② 新增「渠道 code」「所属业务线」字段；③ 筛选项由「应用商店 + 国家」升级为<b>业务线（全局共享）</b>+ 国家 + 用户类型 + 用户状态；④ 新增列 <b>课程等级 / campaign / campaign_id / 体验状况 / 付费状况 / 支付端</b>；⑤ <b>用户ID 可点击进入「用户详情页」</b>，查看完整基本信息与<b>课程信息（上课记录 + 课程报告 + 回放）</b>。其余（查询、改资料、状态口径）与一期一致。</div></div>
 
         <h3>用户故事</h3>
         <div class="story">作为<b>运营 / 销售同学</b>，我希望输入学生ID / 姓名 / 登录账号 / 手机号即可查到该用户，并看到他的注册方式、登录账号、业务线、注册渠道、注册时间与当前状态，以便快速响应咨询——即使用户用谷歌邮箱 / Facebook / AppID 等<b>非手机号方式</b>注册也能查到。</div>
@@ -679,11 +687,11 @@
           <tbody>
             <tr><td>关键字搜索</td><td>支持 用户ID / 姓名 / 登录账号 模糊搜索（登录账号即覆盖手机号场景）</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td>多注册方式展示</td><td>谷歌邮箱 / Facebook / kakao / 手机号 / AppID，含登录账号；支持非手机号注册</td><td><span class="pill p0">P0</span></td></tr>
-            <tr><td>条件筛选</td><td>用户类型（正式/测试）、业务线（全局共享）、用户状态（注册/付费/付费逾期）</td><td><span class="pill p0">P0</span></td></tr>
+            <tr><td>条件筛选</td><td>用户类型（正式/测试）、业务线（全局共享）、国家、用户状态（未付费-未体验 / 未付费-体验中 / 未付费-已体验 / 付费 / 付费逾期）</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td>用户类型识别 <span class="pill ph1" style="font-size:10px">新增</span></td><td>正式用户 / 测试用户；手机号 / kakao 登录按手机号规则<b>自动判定</b>，其余第三方登录可后台手动设置</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td>列表 + 分页</td><td>展示基本信息字段，支持分页与每页条数</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td>到期时间 / 最近修改人 <span class="pill ph1" style="font-size:10px">新增</span></td><td>展示会员到期时间（无则—）与最近一次资料修改人（无则—）</td><td><span class="pill p0">P0</span></td></tr>
-            <tr><td>修改基本信息</td><td>本地名 / 年龄段 / 用户类型（仅第三方登录可改）；保存后记录「最近修改人」（<b>业务线只读，由注册渠道决定，不可修改</b>）</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td>修改基本信息</td><td>本地名 / 性别 / 出生日期 / 用户类型（仅第三方登录可改）；保存后记录「最近修改人」（<b>业务线只读，由注册渠道决定，不可修改</b>）</td><td><span class="pill p1">P1</span></td></tr>
             <tr><td>修改历史 <span class="pill ph1" style="font-size:10px">新增</span></td><td>点击「最近修改人」查看该用户的资料修改记录：操作时间、变更内容（字段修改前 → 修改后）、修改人（与一期一致）</td><td><span class="pill p1">P1</span></td></tr>
             <tr><td>用户详情页 <span class="pill ph1" style="font-size:10px">新增</span></td><td>点击列表<b>用户ID</b>进入详情页，展示「基本信息」+「课程信息」两块；受<b>业务线数据权限</b>约束，越权/不存在时提示无权限</td><td><span class="pill p1">P1</span></td></tr>
             <tr><td>课程信息（上课记录）<span class="pill ph1" style="font-size:10px">新增</span></td><td>详情页展示该用户所有<b>「已完课」</b>课标（体验课 + 正式课），按完课时间倒序：课标 / 课时类型 / 老师 / 完课时间 / 报告 / 回放</td><td><span class="pill p1">P1</span></td></tr>
@@ -704,12 +712,18 @@
             <tr><td>用户类型 <span class="pill ph1" style="font-size:10px">新增</span></td><td>正式用户 / 测试用户；手机号 / kakao 登录由规则自动判定（不可改），其余第三方登录可手动设置</td><td>部分可编辑</td></tr>
             <tr><td>注册方式</td><td>谷歌邮箱 / Facebook / kakao / 手机号 / AppID</td><td>否</td></tr>
             <tr><td>登录账号</td><td>邮箱 / Facebook / kakao ID / AppID / 手机号</td><td>否</td></tr>
-            <tr><td>注册渠道</td><td>展示「业务线 · 渠道」，关联渠道管理</td><td>否</td></tr>
+            <tr><td>年龄段</td><td>3-5 / 6-8 / 9-12 / 13-17 / 18+</td><td>否（弹窗改性别/出生日期）</td></tr>
+            <tr><td>课程等级 <span class="pill ph1" style="font-size:10px">新增</span></td><td>用户当前课程等级（如 Level1）</td><td>否</td></tr>
+            <tr><td>注册渠道 / 渠道来源</td><td>展示「业务线 · 渠道」，关联渠道管理</td><td>否</td></tr>
             <tr><td>所属业务线</td><td>业务线（与渠道管理业务线一致）；编辑弹窗中<b>只读展示</b>，由注册渠道决定</td><td>否</td></tr>
             <tr><td>渠道 code</td><td>归因来源 code</td><td>否</td></tr>
+            <tr><td>campaign / campaign_id <span class="pill ph1" style="font-size:10px">新增</span></td><td>投放归因的 campaign 名称与 ID（无则 —）</td><td>否</td></tr>
+            <tr><td>体验状况 <span class="pill ph1" style="font-size:10px">新增</span></td><td>体验课进展描述（如「已体验未完课」，无则 —）</td><td>否</td></tr>
+            <tr><td>付费状况 <span class="pill ph1" style="font-size:10px">新增</span></td><td>付费进展描述（如「未付费」，无则 —）</td><td>否</td></tr>
+            <tr><td>支付端 <span class="pill ph1" style="font-size:10px">新增</span></td><td>支付发生的端（如「app端支付」，无则 —）</td><td>否</td></tr>
             <tr><td>注册时间</td><td>底层以 UTC 存储，按<b>注册国家</b>换算为当地时间展示，并标注时区（如 <code>UTC+09:00</code>）</td><td>否</td></tr>
             <tr><td>到期时间 <span class="pill ph1" style="font-size:10px">新增</span></td><td>会员/商品包到期时间，按<b>注册国家</b>换算为当地时间展示并标注时区；无则显示「—」</td><td>否</td></tr>
-            <tr><td>用户状态</td><td>注册 / 付费 / 付费逾期</td><td>否（系统流转）</td></tr>
+            <tr><td>用户状态</td><td>未付费-未体验 / 未付费-体验中 / 未付费-已体验 / 付费 / 付费逾期（由是否付费 + 体验课完课情况自动判定）</td><td>否（系统流转）</td></tr>
             <tr><td>最近修改人 <span class="pill ph1" style="font-size:10px">可查历史</span></td><td>最近一次资料修改的操作人（无则显示「—」）；<b>点击可查看完整「修改历史」</b>（时间 / 变更前后 / 修改人）</td><td>否（系统记录）</td></tr>
           </tbody>
         </table>
@@ -758,17 +772,19 @@
         <table class="bordered">
           <thead><tr><th style="width:110px">用户状态</th><th>定义</th><th style="width:240px">判定口径</th></tr></thead>
           <tbody>
-            <tr><td><span class="pill p2">注册</span></td><td>已注册未付费</td><td>完成注册，从未付费</td></tr>
+            <tr><td><span class="pill p2">未付费-未体验</span></td><td>已注册、未付费，且体验课一节都没上完</td><td>无付费订单 且 无「已完课/进行中」体验课</td></tr>
+            <tr><td><span class="pill p1">未付费-体验中</span></td><td>已注册、未付费，体验课进行中</td><td>无付费订单 且 有「进行中」体验课 且 无「已完课」体验课</td></tr>
+            <tr><td><span class="pill ph1">未付费-已体验</span></td><td>已注册、未付费，但已完课过体验课</td><td>无付费订单 且 有「已完课」体验课</td></tr>
             <tr><td><span class="pill ok">付费</span></td><td>付费正式商品包，且在有效期内（可能首次付费，也可能到期后自动订阅）</td><td>持有正式包 且 当前时间 ≤ 有效期</td></tr>
-            <tr><td><span class="pill p0">付费逾期</span></td><td>付费正式商品包，已过有效期且未续订（原「流失」）</td><td>曾持有正式包 且 当前时间 &gt; 有效期 且 未续订</td></tr>
+            <tr><td><span class="pill p0">付费逾期</span></td><td>付费正式商品包，已过有效期且未续订</td><td>曾持有正式包 且 当前时间 &gt; 有效期 且 未续订</td></tr>
           </tbody>
         </table>
-        <div class="callout info"><div class="ic">🔄</div><div>状态为系统自动流转、不可手工编辑：正式包到期后自动订阅成功仍为「付费」，到期未续订则转为「付费逾期」。<b>本轮已精简为 3 类</b>（移除「体验中 / 体验逾期」），未付费一律为「注册」，付费转化交由销售中心跟进闭环。</div></div>
+        <div class="callout info"><div class="ic">🔄</div><div>状态为系统自动流转、不可手工编辑：由<b>是否有付费订单</b> + <b>体验课完课情况</b>联合判定；正式包到期后自动订阅成功仍为「付费」，到期未续订则转为「付费逾期」；「未付费-未体验 + 有手机号」用户由销售中心跟进闭环。</div></div>
 
         <h3>关键交互流程</h3>
-        <div class="step"><div class="n">1</div><div class="c">输入关键字（用户ID/姓名/登录账号）或选择业务线（全局）/ 用户状态 → 列表实时过滤。</div></div>
+        <div class="step"><div class="n">1</div><div class="c">输入关键字（用户ID/姓名/登录账号）或选择业务线（全局）/ 国家 / 用户类型 / 用户状态（5 类）→ 列表实时过滤。</div></div>
         <div class="step"><div class="n">2</div><div class="c">查看「注册方式」「登录账号」列定位用户来源；非手机号方式登录账号为邮箱/第三方账号。</div></div>
-        <div class="step"><div class="n">3</div><div class="c">点「修改信息」→ 弹窗编辑本地名 / 年龄段 / 用户类型 → 保存，系统按字段记录变更前后并写入「修改历史」，同时更新「最近修改人」（业务线在弹窗中只读，由注册渠道决定）。</div></div>
+        <div class="step"><div class="n">3</div><div class="c">点「修改信息」→ 弹窗编辑本地名 / 性别 / 出生日期 / 用户类型 → 保存，系统按字段记录变更前后并写入「修改历史」，同时更新「最近修改人」（业务线在弹窗中只读，由注册渠道决定）。</div></div>
         <div class="step"><div class="n">4</div><div class="c">点列表中的「最近修改人」→ 弹出「修改历史」，按时间倒序展示每次操作的<b>变更内容（字段：修改前 → 修改后）</b>与修改人。</div></div>
         <div class="step"><div class="n">5</div><div class="c">点列表「用户ID」→ 进入<b>用户详情页</b>，上半部看「基本信息」，下半部看「课程信息」（已完课课标列表）。</div></div>
         <div class="step"><div class="n">6</div><div class="c">在课程信息中：点「报告」查看 <b>Trial Report</b>（体验课，外链）或 <b>Lesson Report</b>（正式课，弹窗含能力评估 / 小结 / 评语 / 作业）；点「回放」新标签全屏播放录播。</div></div>
@@ -778,22 +794,23 @@
 
       <!-- ====================== P3: SALES CENTER（销售中心 · 线索分配与跟进） ====================== -->
       <section class="view" id="view-p3-sales">
-        <h2 class="title">3.1 销售中心 <span class="pill ph3" style="vertical-align:middle">三期</span> <span class="pill ph2" style="vertical-align:middle;font-size:10px">原型已就绪</span></h2>
-        <p class="lead">面向<b>销售同学</b>的线索分配与跟进工作台（对应官方三期「<b>销售分配 leads、跟进 leads、接入外呼</b>」）：把「已注册未付费、且能拿到手机号」的用户自动沉淀为销售线索，经「待领取 → 领取跟进 → 更新进度 → 外呼跟进 → 转化付费」形成闭环，一旦付费即回流到用户中心。</p>
+        <h2 class="title">2.1 销售中心 <span class="pill ph2" style="vertical-align:middle">二期</span> <span class="pill ph2" style="vertical-align:middle;font-size:10px">原型已就绪</span></h2>
+        <p class="lead">面向<b>销售同学</b>的线索分配与跟进工作台（对应官方二期「<b>销售分配 leads、跟进 leads、接入外呼</b>」）：把「未付费-未体验、且能拿到手机号」的用户自动沉淀为销售线索，经「待领取 → 领取跟进 → 更新进度 → 外呼跟进 → 转化付费」形成闭环，一旦付费即回流到用户中心。</p>
 
-        <div class="callout info"><div class="ic">🗓️</div><div><b>分期归属：</b>按官方迭代计划，<b>销售中心（leads 分配 / 跟进 + 外呼）属三期</b>；原型已提前实现，可在下方预览。一期为用户 / 订单查询，二期为渠道 / 商品(SKU) / 投放链接等配置能力。</div></div>
+        <div class="callout info"><div class="ic">🗓️</div><div><b>分期归属：</b>按最新官方迭代计划，<b>销售中心（leads 分配 / 跟进 + 外呼）与角色权限属二期</b>；原型已就绪，可在下方预览。一期为用户 / 订单查询，三期为渠道 / 商品(SKU) / 优惠券 / 落地页等配置能力与用户中心精准归因。</div></div>
 
-        <div class="callout info"><div class="ic">🎯</div><div><b>为什么要有销售中心：</b>用户状态精简为「注册 / 付费 / 付费逾期」后，付费转化的临门一脚交给销售人工跟进。系统按「注册 + 有手机号」自动圈出可触达线索，销售无需手动录入手机号即可认领、记录跟进、直到促成付费。</div></div>
+        <div class="callout info"><div class="ic">🎯</div><div><b>为什么要有销售中心：</b>付费转化的临门一脚交给销售人工跟进。系统按「<b>未付费-未体验 + 有手机号</b>」自动圈出可触达线索，销售无需手动录入手机号即可认领、记录跟进、外呼、直到促成付费；销售组长可配置自动分配与掉库规则。</div></div>
 
         <h3>用户故事</h3>
-        <div class="story">作为<b>销售同学</b>，我希望系统自动把「刚注册、有手机号、还没付费」的用户推送到我的线索池，我能一键领取、记录每次跟进（家长反馈 / 下次跟进时间），并在促成付费后自动把用户交回用户中心，避免手工登记和重复跟进。</div>
+        <div class="story">作为<b>销售同学</b>，我希望系统自动把「刚注册、没体验、有手机号、还没付费」的用户推送到我的线索池，我能一键领取、点号码外呼、AI 帮我总结通话、记录每次跟进（家长反馈 / 下次跟进时间），并在促成付费后自动把用户交回用户中心，避免手工登记和重复跟进。</div>
 
         <h3>进入 / 离开规则（漏斗口径）</h3>
         <table class="bordered">
           <thead><tr><th style="width:180px">场景</th><th>归属</th><th style="width:150px">说明</th></tr></thead>
           <tbody>
-            <tr><td>注册（未付费）+ 有手机号</td><td><b>销售中心线索</b></td><td>自动进入待领取池</td></tr>
-            <tr><td>注册（未付费）+ 无手机号（第三方登录）</td><td>用户中心</td><td>拿不到手机号，无法电话跟进</td></tr>
+            <tr><td>未付费-未体验 + 有手机号</td><td><b>销售中心线索</b></td><td>自动进入待领取池</td></tr>
+            <tr><td>未付费-未体验 + 无手机号（第三方登录）</td><td>用户中心</td><td>拿不到手机号，无法电话跟进</td></tr>
+            <tr><td>完成体验（转为未付费-已体验）</td><td>回流用户中心</td><td>已完课体验课后不再是「未付费-未体验」，离开销售中心</td></tr>
             <tr><td>跟进中转为「已付费」</td><td>回流用户中心</td><td>用户状态改写为「付费」，离开销售中心</td></tr>
             <tr><td>已付费 / 付费逾期</td><td>用户中心</td><td>全部在用户中心管理</td></tr>
           </tbody>
@@ -803,21 +820,25 @@
         <table class="bordered">
           <thead><tr><th style="width:170px">功能点</th><th>说明</th><th style="width:90px">优先级</th></tr></thead>
           <tbody>
-            <tr><td>线索自动沉淀</td><td>「注册 + 有手机号」用户自动进入销售中心，<b>不支持手动录入手机号</b>；列表展示渠道来源</td><td><span class="pill p0">P0</span></td></tr>
+            <tr><td>线索自动沉淀</td><td>「未付费-未体验 + 有手机号」用户自动进入销售中心，<b>不支持手动录入手机号</b>；列表展示渠道来源</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td>待领取注册用户（Tab）</td><td>展示尚无领取人的线索；支持关键字（手机号/用户ID/姓名/渠道来源）+ 业务线筛选（选项来源于当前数据范围内实际存在的业务线）</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td>领取跟进</td><td>销售点「领取跟进」→ 认领为本人线索，进度置为「跟进中」，进入「我的跟进」</td><td><span class="pill p0">P0</span></td></tr>
-            <tr><td>我的跟进（Tab）</td><td>展示本人已领取线索（超管可见全部）；支持关键字 + 跟进进度筛选</td><td><span class="pill p0">P0</span></td></tr>
-            <tr><td>更新跟进</td><td>更新跟进进度、下次跟进时间、本次备注（必填）；每次更新写入跟进记录</td><td><span class="pill p0">P0</span></td></tr>
+            <tr><td>我的跟进（Tab）</td><td>展示本人已领取线索（超管 / 组长可见范围内全部）；支持关键字 + 跟进进度筛选</td><td><span class="pill p0">P0</span></td></tr>
+            <tr><td>更新跟进</td><td>更新跟进进度、本次备注（必填）；每次更新写入跟进记录</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td>转化闭环</td><td>进度选「已付费」→ 用户状态改写为「付费」，从销售中心流转到用户中心</td><td><span class="pill p0">P0</span></td></tr>
-            <tr><td>外呼（点号码拨打）<span class="pill ph2" style="font-size:10px">新增</span></td><td>「我的跟进」操作列点「外呼」按钮发起呼叫（<b>无手机号不可外呼</b>）；弹窗模拟「正在呼叫 → 通话中」，挂断后填写通话小结（通话结果 / 时长 / 本次跟进记录）</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td>外呼（点号码拨打）<span class="pill ph2" style="font-size:10px">新增</span></td><td>「我的跟进」操作列点「外呼」按钮发起呼叫（<b>无手机号不可外呼</b>）；弹窗模拟「正在呼叫 → 通话中 → 挂断」，挂断后填写通话小结（通话结果 / 时长 / 本次跟进记录）</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td>AI 通话小结 <span class="pill ph2" style="font-size:10px">新增</span></td><td>已接通并挂断后，系统<b>AI 自动生成通话小结</b>填入「本次跟进记录」，销售可在保存前编辑修改</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td>通话录音 <span class="pill ph2" style="font-size:10px">新增</span></td><td>已接通的通话生成<b>通话录音</b>，归档到跟进记录时间轴，可内嵌播放器回放</td><td><span class="pill p1">P1</span></td></tr>
             <tr><td>通话自动归档 <span class="pill ph2" style="font-size:10px">新增</span></td><td>保存通话小结后，系统生成一条通话记录，并自动<b>归档到该线索的销售跟进记录</b>（备注前缀「【外呼自动记录】」）</td><td><span class="pill p1">P1</span></td></tr>
             <tr><td>通话记录（Tab）<span class="pill ph2" style="font-size:10px">新增</span></td><td>集中查看历史外呼：起呼时间 / 客户 / 手机号 / 业务线 / 通话结果 / 时长 / 跟进记录 / 坐席；支持关键字（手机号/用户ID/客户/备注）+ 通话结果筛选</td><td><span class="pill p1">P1</span></td></tr>
-            <tr><td>跟进记录</td><td>时间轴展示历次跟进（进度 · 备注 · 时间 · 领取人）</td><td><span class="pill p1">P1</span></td></tr>
-            <tr><td>数据权限</td><td>按业务线数据隔离；销售仅见本人领取，超管/管理员可见全业务线全部线索；通话记录非超管仅见本人坐席记录</td><td><span class="pill p0">P0</span></td></tr>
+            <tr><td>自动分配 / 掉库设置（销售组长）<span class="pill ph2" style="font-size:10px">新增</span></td><td>销售组长在「分配与掉库设置」中：① 配置<b>掉库规则</b>（领取后超过 N 小时无跟进 → 自动掉库并重新按比例分配）；② 配置<b>线索分配比例</b>（按坐席权重随机分配，权重填 0 表示不分配）</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td>重新分配（销售组长）<span class="pill ph2" style="font-size:10px">新增</span></td><td>组长可把任一线索<b>重新分配</b>给组内其他销售，动作写入跟进记录；组长可查看组内（业务线范围）全部销售的跟进线索</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td>跟进记录</td><td>时间轴展示历次跟进（进度 · 备注 · 时间 · 领取人 · 通话录音）</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td>数据权限</td><td>按业务线数据隔离；销售仅见本人领取，组长可见并可重分配组内范围线索，超管/管理员可见全业务线全部线索；通话记录非超管/组长仅见本人坐席记录</td><td><span class="pill p0">P0</span></td></tr>
           </tbody>
         </table>
 
-        <div class="callout info"><div class="ic">📞</div><div><b>外呼系统与 CRM 轻量集成：</b>坐席在「我的跟进」中点客户号码即可发起外呼，挂断后填写通话小结，系统自动把通话记录归档到<b>客户档案</b>与<b>销售跟进记录</b>，无需在两套系统间来回登记。</div></div>
+        <div class="callout info"><div class="ic">📞</div><div><b>外呼系统与 CRM 轻量集成：</b>坐席在「我的跟进」中点客户号码即可发起外呼，挂断后 <b>AI 自动生成通话小结</b>（可编辑）并生成<b>通话录音</b>，系统自动把通话记录归档到<b>客户档案</b>与<b>销售跟进记录</b>，无需在两套系统间来回登记。</div></div>
 
         <h3>通话记录字段</h3>
         <table class="bordered">
@@ -827,8 +848,19 @@
             <tr><td>客户 / 手机号 / 业务线</td><td>被呼叫线索的客户姓名、号码与所属业务线</td></tr>
             <tr><td>通话结果</td><td>已接通 / 无人接听</td></tr>
             <tr><td>时长</td><td>通话时长（<code>mm:ss</code>）；无人接听为「—」</td></tr>
-            <tr><td>本次跟进记录</td><td>坐席填写的通话小结（必填），同步写入销售跟进记录</td></tr>
+            <tr><td>通话录音 <span class="pill ph2" style="font-size:10px">新增</span></td><td>已接通的通话生成录音，可内嵌播放器回放；无人接听为「—」</td></tr>
+            <tr><td>本次跟进记录（AI 小结）</td><td>AI 生成、坐席可编辑的通话小结（必填），同步写入销售跟进记录</td></tr>
             <tr><td>外呼坐席</td><td>发起外呼的操作人</td></tr>
+          </tbody>
+        </table>
+
+        <h3>分配与掉库设置（销售组长）<span class="pill ph2" style="font-size:12px">新增</span></h3>
+        <table class="bordered">
+          <thead><tr><th style="width:160px">配置项</th><th>说明</th></tr></thead>
+          <tbody>
+            <tr><td>掉库开关 + 时长</td><td>开启后，线索被领取超过设定小时数仍无跟进 → <b>自动掉回待领取池</b>并重新分配</td></tr>
+            <tr><td>分配比例（坐席权重）</td><td>为组内各销售配置分配权重，掉库 / 自动分配时按权重随机分配；权重为 0 表示不参与分配</td></tr>
+            <tr><td>手动重新分配</td><td>组长可将任一线索直接指派给组内某销售，动作写入跟进记录</td></tr>
           </tbody>
         </table>
 
@@ -860,12 +892,13 @@
 
         <h3>关键交互流程</h3>
         <div class="step"><div class="n">1</div><div class="c">「待领取注册用户」Tab 中，销售按关键字/业务线筛选线索，点「领取跟进」认领 → 自动进入「我的跟进」。</div></div>
-        <div class="step"><div class="n">2</div><div class="c">在「我的跟进」点「更新跟进」→ 选择进度（跟进中 / 暂不跟进 / 已付费）、填下次跟进时间与本次备注（必填）→ 保存写入跟进记录。</div></div>
+        <div class="step"><div class="n">2</div><div class="c">在「我的跟进」点「更新跟进」→ 选择进度（跟进中 / 暂不跟进 / 已付费）、填本次备注（必填）→ 保存写入跟进记录。</div></div>
         <div class="step"><div class="n">3</div><div class="c">若本次跟进选「已付费」→ 用户状态改写为「付费」，该用户离开销售中心，在用户中心可查。</div></div>
-        <div class="step"><div class="n">4</div><div class="c">在「我的跟进」点客户号码旁「外呼」→ 弹窗「正在呼叫 → 通话中」→ 挂断后填通话结果 / 时长 / 通话小结（必填）→ 保存，生成通话记录并归档到跟进记录。</div></div>
-        <div class="step"><div class="n">5</div><div class="c">切到「通话记录」Tab 查看全部外呼历史；弹窗底部时间轴亦可查看该线索历次跟进（进度 · 备注 · 时间 · 领取人）。</div></div>
+        <div class="step"><div class="n">4</div><div class="c">在「我的跟进」点客户号码旁「外呼」→ 弹窗「正在呼叫 → 通话中」→ 挂断后 <b>AI 自动生成通话小结</b>（可编辑）+ 通话结果 / 时长 / 通话录音 → 保存，生成通话记录并归档到跟进记录。</div></div>
+        <div class="step"><div class="n">5</div><div class="c">切到「通话记录」Tab 查看全部外呼历史（含录音回放）；弹窗底部时间轴亦可查看该线索历次跟进（进度 · 备注 · 时间 · 领取人 · 录音）。</div></div>
+        <div class="step"><div class="n">6</div><div class="c"><b>销售组长</b>：点「分配与掉库设置」配置自动分配权重与掉库时长；对任一线索点「重新分配」指派给组内其他销售。</div></div>
 
-        <div class="callout warn"><div class="ic">📌</div><div>销售中心为<b>三期</b>能力，纳入角色权限：销售 / 客服 / 管理员为「可操作」，运营为「可查看」，市场投放不可见。数据权限按业务线隔离，非超管销售仅见本人领取的线索与本人外呼记录。</div></div>
+        <div class="callout warn"><div class="ic">📌</div><div>销售中心为<b>二期</b>能力，纳入角色权限：销售 / 销售组长 / 客服 / 管理员为「可操作」，运营为「可查看」，市场投放不可见；<b>自动分配 / 掉库设置、重新分配</b>仅销售组长可操作。数据权限按业务线隔离，非超管销售仅见本人领取的线索与本人外呼记录。</div></div>
 
         <div class="proto" data-route="sales"></div>
       </section>
@@ -911,7 +944,7 @@
 
       <!-- ====================== P2: PACKAGES ====================== -->
       <section class="view" id="view-p2-packages">
-        <h2 class="title">2.2 商品包管理 <span class="pill ph2" style="vertical-align:middle">二期</span> <span class="pill p1" style="vertical-align:middle">P1</span></h2>
+        <h2 class="title">3.2 商品包管理 <span class="pill ph3" style="vertical-align:middle">三期</span> <span class="pill p1" style="vertical-align:middle">P1</span></h2>
         <p class="lead">运营自助维护商品包（商品）：新增、编辑、上下架，作为订单与优惠券绑定的商品基础；列表直接展示创建人 / 创建时间 / 状态。</p>
 
         <h3>用户故事</h3>
@@ -921,8 +954,9 @@
         <table class="bordered">
           <thead><tr><th style="width:170px">功能点</th><th>说明</th><th style="width:90px">优先级</th></tr></thead>
           <tbody>
-            <tr><td>新增商品包</td><td>业务线 / 名称 / 币种 / 价格 / 有效期；默认上架；ID 自动生成并去重（<code>PKG####</code>）</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td>新增商品包</td><td>业务线 / 名称 / 币种 / 价格 / 有效期 / Best Value；默认上架；ID 自动生成并去重（<code>PKG####</code>）</td><td><span class="pill p1">P1</span></td></tr>
             <tr><td>编辑商品包</td><td>修改上述字段</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td>Best Value 推荐标签 <span class="pill ph3" style="font-size:10px">新增</span></td><td>可为商品包打开 <b>Best Value</b> 开关，前端 / 落地页在该商品包名称旁展示醒目「Best Value」推荐标签，突出主推套餐</td><td><span class="pill p1">P1</span></td></tr>
             <tr><td>列表展示创建信息 <span class="pill ph1" style="font-size:10px">调整</span></td><td>列表直接展示<b>创建人 / 创建时间 / 状态</b>（原「详情」弹窗已移除，信息前置到列表列）</td><td><span class="pill p1">P1</span></td></tr>
             <tr><td>上 / 下架</td><td>二次确认；下架后不可被新券绑定</td><td><span class="pill p1">P1</span></td></tr>
             <tr><td>搜索 / 筛选</td><td>商品包ID / 名称；业务线筛选项来源于当前数据范围内实际存在的业务线</td><td><span class="pill p1">P1</span></td></tr>
@@ -937,34 +971,35 @@
             <tr><td>业务线</td><td>归属业务线</td><td>决定可选币种</td></tr>
             <tr><td>币种</td><td>本地币种 + USD</td><td>见附录映射</td></tr>
             <tr><td>价格 / 有效期</td><td>售价 + 起止时间</td><td>有效期为时间段</td></tr>
+            <tr><td>Best Value <span class="pill ph3" style="font-size:10px">新增</span></td><td>是否主推套餐，开启后前端 / 落地页展示「Best Value」标签</td><td>开关，默认关闭</td></tr>
             <tr><td>创建人 / 创建时间 <span class="pill ph1" style="font-size:10px">列</span></td><td>创建操作人与生成时间，列表直接展示</td><td>无则显示「—」</td></tr>
             <tr><td>商品包状态</td><td>上架 / 下架</td><td>下架不可售卖/绑券</td></tr>
           </tbody>
         </table>
 
-        <div class="callout info"><div class="ic">🔗</div><div>商品包 <code>商品包ID</code> 是二期优惠券「可用商品」的绑定键；优惠券通过商品包 ID 回车搜索添加可用商品。</div></div>
+        <div class="callout info"><div class="ic">🔗</div><div>商品包 <code>商品包ID</code> 是优惠券「可用商品」的绑定键；优惠券通过商品包 ID 回车搜索添加可用商品。</div></div>
 
         <div class="proto" data-route="packages"></div>
       </section>
 
       <!-- ====================== P2: COUPONS ====================== -->
       <section class="view" id="view-p2-coupons">
-        <h2 class="title">2.3 优惠券管理 <span class="pill ph2" style="vertical-align:middle">二期</span> <span class="pill p1" style="vertical-align:middle">P1</span></h2>
-        <p class="lead">运营自助配置满减券：定义发放/领取规则、使用规则（绑定可用商品包）、满减权益，并支持编辑、延长、停止发放。</p>
+        <h2 class="title">3.3 优惠券管理 <span class="pill ph3" style="vertical-align:middle">三期</span> <span class="pill p1" style="vertical-align:middle">P1</span></h2>
+        <p class="lead">运营自助配置<b>折扣券</b>：定义发放规则、使用规则（绑定可用商品包）、折扣权益（折扣率 %），并支持编辑、延长、停止发放。</p>
 
         <h3>用户故事</h3>
-        <div class="story">作为<b>运营同学</b>，我希望为某业务线生成满减券，设置发放数量、<b>按 KOL 生成多个优惠码</b>、领取/使用有效期、可用商品包与「满 X 减 Y」权益，并能在活动中途追加优惠码、调整或停止发放，<b>按优惠码维度统计使用量做结算</b>。</div>
+        <div class="story">作为<b>运营同学</b>，我希望为某业务线生成折扣券，设置发放数量、<b>按 KOL 生成多个优惠码</b>、使用有效期、可用商品包与<b>折扣率（如立减 10%）</b>权益，并能在活动中途追加优惠码、调整或停止发放，<b>按优惠码维度统计使用量做结算</b>。</div>
 
         <h3>功能清单</h3>
         <table class="bordered">
           <thead><tr><th style="width:170px">功能点</th><th>说明</th><th style="width:90px">优先级</th></tr></thead>
           <tbody>
-            <tr><td>生成券（选业务线）</td><td>先选业务类型 → 进入满减券表单（一期券类型仅满减券）</td><td><span class="pill p1">P1</span></td></tr>
-            <tr><td>发放及领取规则</td><td>发放数量、<b>优惠码（按 KOL 生成多个）</b>、领取有效期</td><td><span class="pill p1">P1</span></td></tr>
-            <tr><td>多优惠码 / 结算 <span class="pill ph2" style="font-size:10px">新增</span></td><td>一券多码，每码绑定 KOL，独立统计已使用量；支持批量复制（仅码 / KOL+码）</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td>生成券（选业务线）</td><td>先选业务类型 → 进入折扣券表单（<b>券类型为折扣券</b>）</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td>发放规则</td><td>发放数量、<b>优惠码（按 KOL 生成多个）</b></td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td>多优惠码 / 结算 <span class="pill ph3" style="font-size:10px">新增</span></td><td>一券多码，每码绑定 KOL，独立统计已使用量；支持批量复制（仅码 / KOL+码）</td><td><span class="pill p1">P1</span></td></tr>
             <tr><td>使用规则</td><td>使用有效期 + 可用商品（按商品包ID搜索添加）</td><td><span class="pill p1">P1</span></td></tr>
-            <tr><td>权益规则</td><td>满减：满 X 减 Y（抵扣 ≤ 门槛）</td><td><span class="pill p1">P1</span></td></tr>
-            <tr><td>编辑可用商品 / 管理优惠码 / 延长领取时间</td><td>列表内操作；管理优惠码可为新 KOL 追加码</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td>权益规则 <span class="pill ph3" style="font-size:10px">变更</span></td><td><b>折扣券：按折扣率立减</b>（如折扣率 10% 即立减 10%）；由原「满减券（满 X 减 Y）」改为折扣率制</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td>编辑可用商品 / 管理优惠码 / 延长使用时间</td><td>列表内操作；管理优惠码可为新 KOL 追加码</td><td><span class="pill p1">P1</span></td></tr>
             <tr><td>停止发放</td><td>二次确认 → 领取状态置「已结束」</td><td><span class="pill p1">P1</span></td></tr>
           </tbody>
         </table>
@@ -975,11 +1010,12 @@
           <tbody>
             <tr><td>券ID</td><td>优惠券唯一标识（<code>CP####</code>）；系统生成时对已有券 ID 去重</td></tr>
             <tr><td>优惠码（多个） <span class="pill ph2" style="font-size:10px">新增</span></td><td>一券多码，每码含 KOL / 使用方、优惠码、已使用数量；列表显示「N 个优惠码」</td></tr>
+            <tr><td>券类型</td><td><b>折扣券</b>（本轮由「满减券」调整为「折扣券」）</td></tr>
             <tr><td>业务线 / 币种</td><td>生成时锁定，与商品包一致</td></tr>
             <tr><td>券总量 / 剩余数量</td><td>发放总量与库存</td></tr>
-            <tr><td>领取有效期 / 使用有效期</td><td>两段独立时间</td></tr>
+            <tr><td>使用有效期</td><td>券可核销的时间区间</td></tr>
             <tr><td>可用商品</td><td>商品包列表（ID / 用户侧名称 / 现价）</td></tr>
-            <tr><td>满减规则</td><td>满 thresholdAmount 减 deductAmount</td></tr>
+            <tr><td>折扣率 <span class="pill ph3" style="font-size:10px">变更</span></td><td>折扣百分比 <code>discountRate</code>（1–99%），如 10 表示立减 10%</td></tr>
             <tr><td>领取状态</td><td>已生效 / 已结束</td></tr>
           </tbody>
         </table>
@@ -999,9 +1035,9 @@
           <li>一张券至少包含一个优惠码；同券内 KOL / 使用方不可重复。</li>
           <li>优惠码由系统生成并<b>全局唯一</b>：生成时对全部券的已有码去重，追加新码时也会避开本券尚未保存的码。</li>
           <li>各优惠码的「已使用」数量独立统计，用于按 KOL 结算。</li>
-          <li>抵扣金额不得大于门槛金额（表单校验）。</li>
+          <li>折扣率取值 1–99%（表单校验），如 10 表示立减 10%。</li>
           <li>可用商品必须为<b>已存在的商品包</b>，按商品包 ID 校验，不存在则报错。</li>
-          <li>停止发放后不可继续领取；领取截止时间可向后延长以恢复「已生效」。</li>
+          <li>停止发放后不可继续领取；使用截止时间可向后延长以恢复「已生效」。</li>
           <li>券币种、业务线与所绑商品包须一致（前置约束）。</li>
         </ul>
 
@@ -1010,17 +1046,19 @@
 
       <!-- ====================== P2: LANDING ====================== -->
       <section class="view" id="view-p2-landing">
-        <h2 class="title">2.4 落地页管理 <span class="pill ph2" style="vertical-align:middle">二期</span> <span class="pill p1" style="vertical-align:middle">P1</span> <span class="pill ph2" style="vertical-align:middle;font-size:10px">新增模块</span></h2>
-        <p class="lead">一键生成投放落地页链接，关联渠道、商品包与优惠券（优惠码）；不同业务线使用各自的落地页模版生成对应链接，作为投放与归因的统一出口。</p>
+        <h2 class="title">3.4 落地页管理 <span class="pill ph3" style="vertical-align:middle">三期</span> <span class="pill p1" style="vertical-align:middle">P1</span> <span class="pill ph3" style="vertical-align:middle;font-size:10px">新增模块</span></h2>
+        <p class="lead">一键生成投放落地页链接，关联渠道、<b>多个商品包（可设划线原价）</b>与优惠券（优惠码）；不同业务线使用各自的落地页模版生成对应链接，作为投放与归因的统一出口。</p>
 
         <h3>用户故事</h3>
-        <div class="story">作为<b>市场投放同学</b>，我希望选择业务线、渠道（已生成 code）、商品包、（可选）优惠券与具体 KOL 优惠码，再设投放有效期，<b>一键生成可直接投放的落地页链接</b>并复制，无需手工拼参数。</div>
+        <div class="story">作为<b>市场投放同学</b>，我希望选择业务线、渠道（已生成 code）、<b>一个或多个商品包</b>、（可选）划线原价、（可选）优惠券与具体 KOL 优惠码，再设投放有效期，<b>一键生成可直接投放的落地页链接</b>并复制，无需手工拼参数。</div>
 
         <h3>功能清单</h3>
         <table class="bordered">
           <thead><tr><th style="width:170px">功能点</th><th>说明</th><th style="width:90px">优先级</th></tr></thead>
           <tbody>
-            <tr><td>生成落地页</td><td>选 业务线 → 渠道 → 商品包 →（可选）优惠券/优惠码 → 活动有效期，按业务线模版生成链接</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td>生成落地页</td><td>选 业务线 → 渠道 → <b>商品包（可多选）</b> →（可选）划线原价 →（可选）优惠券/优惠码 → 活动有效期，按业务线模版生成链接</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td>多商品包 <span class="pill ph3" style="font-size:10px">新增</span></td><td>一个落地页可关联<b>多个商品包</b>（<code>packageIds</code>），落地页按套餐组合展示供用户选择</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td>划线原价 <span class="pill ph3" style="font-size:10px">新增</span></td><td>可为落地页设置<b>划线原价（<code>originalPrice</code>）</b>，与商品包现价形成对比，突出促销力度</td><td><span class="pill p1">P1</span></td></tr>
             <tr><td>渠道参数带入 <span class="pill ph1" style="font-size:10px">新增</span></td><td>所选渠道若配置了 参数1/参数2，生成时自动拼接为 <code>&p1=…&p2=…</code>；表单内提示该渠道参数，列表内以标签展示；未配置则提示「无渠道参数」</td><td><span class="pill p1">P1</span></td></tr>
             <tr><td>链接预览 / 复制</td><td>生成前可预览拼装后的链接；列表内一键复制 / 打开</td><td><span class="pill p1">P1</span></td></tr>
             <tr><td>业务线模版校验</td><td>该业务线未配置落地页模版时不可生成并提示</td><td><span class="pill p1">P1</span></td></tr>
@@ -1035,7 +1073,8 @@
             <tr><td>业务线</td><td>决定使用哪套落地页模版（已配置：韩国 / 越南 / 印尼 / 马来）</td></tr>
             <tr><td>渠道</td><td>渠道层级路径 + 渠道 code（来源于渠道管理已生成 code 的渠道）</td></tr>
             <tr><td>渠道参数 <span class="pill ph1" style="font-size:10px">新增</span></td><td>所选渠道配置的 参数1/参数2（若有），随链接以 <code>&p1/ &p2</code> 带入并在列表标签展示</td></tr>
-            <tr><td>商品包</td><td>关联的商品包（必填，部分模版会带入商品包 ID）</td></tr>
+            <tr><td>商品包（可多个）<span class="pill ph3" style="font-size:10px">新增</span></td><td>关联的商品包（必填，支持多选 <code>packageIds</code>；部分模版会带入商品包 ID）</td></tr>
+            <tr><td>划线原价 <span class="pill ph3" style="font-size:10px">新增</span></td><td>可选的 <code>originalPrice</code>，落地页以划线价与现价对比展示</td></tr>
             <tr><td>优惠券 / 优惠码</td><td>可选；可指定某个 KOL 的优惠码写入链接参数</td></tr>
             <tr><td>活动有效期</td><td>落地页投放的起止时间（当地时间）</td></tr>
             <tr><td>落地页链接</td><td>按业务线模版拼装的最终投放链接，可复制 / 打开</td></tr>
@@ -1050,7 +1089,7 @@
 
       <!-- ====================== P2: SYSTEM CONFIG ====================== -->
       <section class="view" id="view-p2-system">
-        <h2 class="title">2.6 系统配置 · 角色权限 <span class="pill ph2" style="vertical-align:middle">二期</span> <span class="pill p1" style="vertical-align:middle">P1</span> <span class="pill ph2" style="vertical-align:middle;font-size:10px">新增模块</span></h2>
+        <h2 class="title">2.2 系统配置 · 角色权限 <span class="pill ph2" style="vertical-align:middle">二期</span> <span class="pill p1" style="vertical-align:middle">P1</span> <span class="pill ph2" style="vertical-align:middle;font-size:10px">新增模块</span></h2>
         <p class="lead">面向内部 B 端使用者的角色与权限配置：定义每个角色可访问的功能模块及操作级别，并为成员账号分配角色与数据权限（业务线）范围；角色与成员账号的变更留痕可审计。</p>
 
         <h3>用户故事</h3>
@@ -1063,6 +1102,7 @@
             <tr><td>权限级别</td><td><span class="pill" style="background:#e9f0ff;color:#2f6bff">只读</span> 仅查看 / 导出 ·　<span class="pill" style="background:#e6f7ee;color:#0a9c6f">可操作</span> 查看 + 新增 / 编辑 ·　<span class="pill" style="background:#eef0f3;color:#5b6573">无权限</span> 菜单不可见</td></tr>
             <tr><td>数据权限</td><td><b>全部业务线</b>（可见所有业务线数据）/ <b>指定业务线</b>（仅可见被分配业务线，如韩国团队只看韩国数据）</td></tr>
             <tr><td>受控模块</td><td>渠道管理 · 用户中心 · 销售中心 · 订单中心 · 商品包管理 · 优惠券管理 · 落地页管理 · 系统配置</td></tr>
+            <tr><td>子权限 <span class="pill ph2" style="font-size:10px">新增</span></td><td>权限已由「模块级」细分到<b>子权限（操作级）</b>：如渠道管理下有 新增 / 编辑 / 删除 / 生码 / 参数；优惠券下有 创建 / 延长 / 停止发放 / 编辑；销售中心下有 领取 / 外呼 / 更新 / 重新分配 / 分配掉库设置；系统配置下有 角色增删改 / 成员增改。可按角色逐项授予 无 / 只读 / 可操作</td></tr>
             <tr><td>角色类型</td><td><span class="pill" style="background:#eef2ff;color:#3b5bdb">内置</span> 内置角色不可删除 ·　<span class="pill" style="background:#fff4e6;color:#e8590c">后期引入</span> 随服务节点上线的预置角色</td></tr>
           </tbody>
         </table>
@@ -1071,33 +1111,34 @@
         <table class="bordered">
           <thead><tr><th style="width:170px">功能点</th><th>说明</th><th style="width:90px">优先级</th></tr></thead>
           <tbody>
-            <tr><td>角色权限管理</td><td>新增 / 编辑 / 删除角色；按模块设权限级别 + 选择数据权限范围；内置角色不可删除</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td>角色权限管理</td><td>新增 / 编辑 / 删除角色；按模块<b>及其子权限</b>设权限级别 + 选择数据权限范围；内置角色不可删除</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td>子权限矩阵 <span class="pill ph2" style="font-size:10px">新增</span></td><td>模块可展开为子权限（操作级）逐项授权，如「渠道生码」「优惠券延长」「销售外呼」「销售重新分配」等</td><td><span class="pill p1">P1</span></td></tr>
             <tr><td>权限矩阵</td><td>「模块 × 角色」一览各角色在每个模块的权限级别</td><td><span class="pill p1">P1</span></td></tr>
             <tr><td>成员账号管理</td><td>新增 / 编辑成员（姓名、登录邮箱、角色、业务线范围）、启用 / 停用</td><td><span class="pill p1">P1</span></td></tr>
-            <tr><td>操作日志</td><td>记录 时间 / 操作人 / 操作 / 操作对象，支持审计追溯；当前覆盖角色与成员账号的变更</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td>操作日志</td><td>记录 时间 / 操作人 / 操作 / 操作对象，支持审计追溯；覆盖角色与成员账号变更、<b>用户资料修改</b>与<b>销售外呼 / 跟进</b>等关键操作</td><td><span class="pill p1">P1</span></td></tr>
             <tr><td>权限全局生效</td><td>菜单过滤、路由重定向、操作按钮显隐、数据按业务线过滤</td><td><span class="pill p1">P1</span></td></tr>
           </tbody>
         </table>
 
         <h3>内置角色与权限矩阵</h3>
         <p class="muted" style="font-size:12.5px;margin-top:-4px">● 可操作　◐ 只读　— 无权限（菜单不可见）。数据权限：除「管理员」为全部业务线外，其余默认按指定业务线隔离。</p>
-        <div class="callout info" style="margin-bottom:12px"><div class="ic">📍</div><div><b>当前使用方映射：</b>「运营」对应内置角色 <b>运营 / 商业化</b>；「销售」暂复用 <b>客服 / 用户支持</b> 模板（用户中心可操作 + 订单只读），待业务稳定后再独立为「销售」角色。</div></div>
+        <div class="callout info" style="margin-bottom:12px"><div class="ic">📍</div><div><b>当前使用方映射：</b>「运营」对应内置角色 <b>运营 / 商业化</b>；「销售」按团队分为 <b>销售组长</b>（可配置自动分配/掉库、重新分配、查看组内全部线索）与销售专员（复用 <b>客服 / 用户支持</b> 模板：用户中心可操作 + 销售中心可操作 + 订单只读）。</div></div>
         <table class="bordered">
           <thead><tr>
-            <th style="width:130px">模块 \ 角色</th>
-            <th>市场投放<br>/ 增长</th><th>运营<br>/ 商业化</th><th>客服<br>/ 用户支持</th><th>管理员<br>/ 系统配置</th>
+            <th style="width:120px">模块 \ 角色</th>
+            <th>市场投放<br>/ 增长</th><th>运营<br>/ 商业化</th><th>客服 / 用户支持<br><span class="muted" style="font-weight:400">（销售专员）</span></th><th>销售组长<br><span class="muted" style="font-weight:400">新增</span></th><th>管理员<br>/ 系统配置</th>
             <th>学习服务 / 班主任<br><span class="muted" style="font-weight:400">后期</span></th>
           </tr></thead>
           <tbody style="text-align:center">
-            <tr><td style="text-align:left">渠道管理</td><td>●</td><td>◐</td><td>—</td><td>●</td><td>—</td></tr>
-            <tr><td style="text-align:left">落地页管理</td><td>●</td><td>●</td><td>—</td><td>●</td><td>—</td></tr>
-            <tr><td style="text-align:left">商品包管理</td><td>◐</td><td>●</td><td>—</td><td>●</td><td>—</td></tr>
-            <tr><td style="text-align:left">优惠券管理</td><td>◐</td><td>●</td><td>—</td><td>●</td><td>—</td></tr>
-            <tr><td style="text-align:left">用户中心</td><td>—</td><td>◐</td><td>●</td><td>●</td><td>◐</td></tr>
-            <tr><td style="text-align:left">销售中心 <span class="pill ph1" style="font-size:10px">新增</span></td><td>—</td><td>◐</td><td>●</td><td>●</td><td>●</td></tr>
-            <tr><td style="text-align:left">订单中心</td><td>—</td><td>◐</td><td>◐</td><td>●</td><td>◐</td></tr>
-            <tr><td style="text-align:left">系统配置</td><td>—</td><td>—</td><td>—</td><td>●</td><td>—</td></tr>
-            <tr><td style="text-align:left"><b>数据权限</b></td><td>指定业务线</td><td>指定业务线</td><td>指定业务线</td><td><b>全部业务线</b></td><td>指定业务线</td></tr>
+            <tr><td style="text-align:left">渠道管理</td><td>●</td><td>◐</td><td>—</td><td>—</td><td>●</td><td>—</td></tr>
+            <tr><td style="text-align:left">落地页管理</td><td>●</td><td>●</td><td>—</td><td>—</td><td>●</td><td>—</td></tr>
+            <tr><td style="text-align:left">商品包管理</td><td>◐</td><td>●</td><td>—</td><td>—</td><td>●</td><td>—</td></tr>
+            <tr><td style="text-align:left">优惠券管理</td><td>◐</td><td>●</td><td>—</td><td>—</td><td>●</td><td>—</td></tr>
+            <tr><td style="text-align:left">用户中心</td><td>—</td><td>◐</td><td>●</td><td>◐</td><td>●</td><td>◐</td></tr>
+            <tr><td style="text-align:left">销售中心 <span class="pill ph2" style="font-size:10px">二期</span></td><td>—</td><td>◐</td><td>●</td><td>● <span class="muted" style="font-size:10px">含分配/掉库/重分配</span></td><td>●</td><td>●</td></tr>
+            <tr><td style="text-align:left">订单中心</td><td>—</td><td>◐</td><td>◐</td><td>◐</td><td>●</td><td>◐</td></tr>
+            <tr><td style="text-align:left">系统配置</td><td>—</td><td>—</td><td>—</td><td>—</td><td>●</td><td>—</td></tr>
+            <tr><td style="text-align:left"><b>数据权限</b></td><td>指定业务线</td><td>指定业务线</td><td>指定业务线</td><td>指定业务线</td><td><b>全部业务线</b></td><td>指定业务线</td></tr>
           </tbody>
         </table>
 
@@ -1119,8 +1160,8 @@
           <li>内置角色不可删除；角色下仍有成员时不可删除（需先转移成员）。</li>
           <li>成员数据权限随其角色的数据范围生效：「指定业务线」必须至少选择一个业务线。</li>
           <li>无某模块权限时该菜单不可见，直接访问其路由会重定向到第一个可访问页面。</li>
-          <li>「只读」仅能查看/导出，「可操作」才显示新增/编辑等操作入口。</li>
-          <li>操作日志当前记录<b>角色与成员账号的变更</b>（新增/编辑/删除角色、新增/编辑/启停成员）；用户、商品包、优惠券、落地页等业务模块的操作暂不计入。</li>
+          <li>「只读」仅能查看/导出，「可操作」才显示新增/编辑等操作入口；权限可细分到<b>子权限（操作级）</b>逐项授予。</li>
+          <li>操作日志记录<b>角色与成员账号变更</b>（新增/编辑/删除角色、新增/编辑/启停成员），并覆盖<b>用户资料修改</b>与<b>销售外呼 / 跟进</b>等关键操作。</li>
         </ul>
 
         <div class="proto" data-route="system"></div>
@@ -1174,21 +1215,22 @@
             <tr><td>一期归因口径</td><td>用户中心（一期）按<b>应用商店来源（App Store / Google Play）+ 国家（注册 IP）</b>做粗归因，无渠道树与业务线</td></tr>
             <tr><td>用户类型（正式 / 测试）</td><td>用户中心、订单中心均支持「用户类型」列与筛选；<b>手机号 / kakao</b> 登录用户按手机号归一化后<b>前 5 位连续为 0</b>（<code>00000…</code>）自动判定为测试用户（不可改），其余第三方登录用户由后台手动设置（默认正式用户），便于剔除测试数据</td></tr>
             <tr><td>用户资料修改历史</td><td>用户中心（一期）对每次资料修改按字段记录<b>变更前 → 变更后</b>、操作时间与修改人；点击列表「最近修改人」即可查看完整历史，用于追溯与审计</td></tr>
-            <tr><td>销售中心（线索跟进）</td><td>「注册（未付费）+ 有手机号」用户自动进入销售中心线索池，经「待领取 → 领取跟进 → 更新进度」跟进；转「已付费」后用户状态改写为「付费」并回流用户中心。<b>不支持手动录入手机号</b>；数据按业务线隔离，销售仅见本人领取（超管可见全部）</td></tr>
+            <tr><td>销售中心（线索跟进）</td><td>「未付费-未体验 + 有手机号」用户自动进入销售中心线索池，经「待领取 → 领取跟进 → 更新进度 → 外呼」跟进；转「已付费」后用户状态改写为「付费」并回流用户中心。<b>不支持手动录入手机号</b>；<b>销售组长</b>可配置自动分配/掉库并重新分配；数据按业务线隔离，销售仅见本人领取（组长/超管可见范围内全部）</td></tr>
             <tr><td>渠道参数</td><td>为<b>已生成 code</b> 的渠道填写的自定义参数（暂 2 个：参数1 / 参数2），落地页生成链接时拼接为 <code>&p1=…&p2=…</code> 带入投放侧信息</td></tr>
-            <tr><td>用户状态（精简为 3 类）</td><td>本轮由 5 类精简为 <b>注册 / 付费 / 付费逾期</b>，移除「体验中 / 体验逾期」；未付费一律为「注册」，付费转化交由销售中心跟进</td></tr>
-            <tr><td>业务线筛选（二期）</td><td>业务线筛选用于<b>用户中心·二期</b>（按渠道归因）；<b>一期用户中心与订单中心均不含业务线</b>，统一改按<b>国家</b>筛选/展示</td></tr>
+            <tr><td>用户状态（5 类）</td><td>本轮为 <b>未付费-未体验 / 未付费-体验中 / 未付费-已体验 / 付费 / 付费逾期</b>，由<b>是否付费 + 体验课完课情况</b>联合自动判定；「未付费-未体验 + 有手机号」进入销售中心跟进</td></tr>
+            <tr><td>业务线筛选（三期）</td><td>业务线筛选用于<b>用户中心·二期</b>（按渠道归因）；<b>一期用户中心与订单中心均不含业务线</b>，统一改按<b>国家</b>筛选/展示</td></tr>
             <tr><td>登录鉴权</td><td>邮箱验证码登录，仅允许 @dinoai.ai</td></tr>
-            <tr><td>角色权限（RBAC）</td><td>角色按模块分级（无权限/只读/可操作）；菜单过滤、路由重定向、操作按钮显隐均按权限生效</td></tr>
+            <tr><td>角色权限（RBAC 子权限）</td><td>角色按模块<b>及子权限（操作级）</b>分级（无权限/只读/可操作）；菜单过滤、路由重定向、操作按钮显隐均按权限生效</td></tr>
             <tr><td>数据权限</td><td>全部业务线 / 指定业务线；列表数据按成员可见业务线隔离</td></tr>
-            <tr><td>操作日志</td><td>角色与成员账号的变更留痕：时间 · 操作人 · 操作 · 对象（当前不含业务模块操作）</td></tr>
-            <tr><td>营销中心（菜单分组）</td><td>二期将 <b>渠道管理 / 商品包 / 优惠券 / 落地页</b> 收拢到「营销中心」一级菜单下作为子菜单；用户中心·二期、系统配置作为独立菜单项；<b>销售中心属三期</b>，原型已提前实现</td></tr>
-            <tr><td>期次标记</td><td>营销中心（渠道/商品包/优惠券/落地页）/ 用户中心·二期 / 系统配置 为<b>二期</b>；<b>销售中心（分配/跟进 leads + 外呼）为三期</b>；导航按期次带标签</td></tr>
-            <tr><td>落地页模版</td><td>按业务线维护各自落地页链接模版（已配置：韩国 / 越南 / 印尼 / 马来），无模版业务线不可生成</td></tr>
-            <tr><td>外呼 / 通话记录（销售中心）</td><td>坐席在「我的跟进」点客户号码发起外呼（无手机号不可外呼），挂断后填通话小结（结果/时长/跟进记录），系统生成通话记录并<b>自动归档到客户档案与销售跟进记录</b>；「通话记录」Tab 集中查看，数据按业务线隔离、非超管仅见本人坐席记录</td></tr>
+            <tr><td>操作日志</td><td>关键操作留痕：时间 · 操作人 · 操作 · 对象；覆盖角色与成员账号变更、<b>用户资料修改</b>与<b>销售外呼 / 跟进</b></td></tr>
+            <tr><td>营销中心（菜单分组）</td><td>三期将 <b>渠道管理 / 商品包 / 优惠券 / 落地页</b> 收拢到「营销中心」一级菜单下作为子菜单；用户中心·二期作为独立菜单项；<b>销售中心、系统配置属二期</b>，原型已就绪</td></tr>
+            <tr><td>期次标记</td><td><b>销售中心（分配/跟进 leads + 外呼）/ 系统配置 为二期</b>；营销中心（渠道/商品包/优惠券/落地页）/ 用户中心·二期 为<b>三期</b>；导航按期次带标签</td></tr>
+            <tr><td>落地页模版</td><td>按业务线维护各自落地页链接模版（已配置：韩国 / 越南 / 印尼 / 马来），无模版业务线不可生成；支持多商品包 + 划线原价</td></tr>
+            <tr><td>外呼 / 通话记录（销售中心）</td><td>坐席在「我的跟进」点客户号码发起外呼（无手机号不可外呼），挂断后 <b>AI 自动生成通话小结</b>（可编辑）+ 通话结果/时长/<b>通话录音</b>，系统生成通话记录并<b>自动归档到客户档案与销售跟进记录</b>；「通话记录」Tab 集中查看（含录音回放），数据按业务线隔离、非超管仅见本人坐席记录</td></tr>
+            <tr><td>销售自动分配 / 掉库（销售组长）</td><td>销售组长可配置<b>按坐席权重自动分配</b>与<b>领取超时未跟进自动掉库</b>并重新分配，也可手动<b>重新分配</b>组内任一线索</td></tr>
             <tr><td>code / ID 生成唯一性</td><td>渠道 code（7 位）、优惠码（12 位）、商品包 ID（<code>PKG####</code>）、优惠券 ID（<code>CP####</code>）生成时均对<b>已有集合自动查重去重</b>；极端情况下追加计数器兜底，保证<b>全局绝对唯一</b>，避免归因/核销/绑定冲突</td></tr>
             <tr><td>筛选项动态来源</td><td>商品包 / 优惠券 / 销售中心等列表的<b>业务线筛选项来源于当前数据范围内实际存在的值</b>（而非全部业务线常量），随权限数据范围自动收敛</td></tr>
-            <tr><td>用户详情页与课程信息（用户中心·二期）</td><td>二期用户中心点用户ID进入<b>详情页</b>：上部基本信息、下部<b>课程信息</b>（已完课课标：体验课 + 正式课，倒序）。报告分 <b>Trial Report</b>（体验课外链）/ <b>Lesson Report</b>（正式课弹窗：能力评估星级 + 课堂小结 + 老师评语 + 课后作业）；课时可全屏<b>回放</b>。一期仅提供「试听报告」临时入口。详情页受业务线数据权限约束</td></tr>
+            <tr><td>用户详情页与课程信息（用户中心·二期）</td><td>「用户中心·二期」点用户ID进入<b>详情页</b>：上部基本信息、下部<b>课程信息</b>（已完课课标：体验课 + 正式课，倒序）。报告分 <b>Trial Report</b>（体验课外链）/ <b>Lesson Report</b>（正式课弹窗：能力评估星级 + 课堂小结 + 老师评语 + 课后作业）；课时可全屏<b>回放</b>。一期仅提供「试听报告」临时入口。详情页受业务线数据权限约束</td></tr>
           </tbody>
         </table>
 
@@ -1222,11 +1264,13 @@
 
         <h3>用户状态定义</h3>
         <table class="bordered">
-          <thead><tr><th style="width:110px">用户状态</th><th>定义</th></tr></thead>
+          <thead><tr><th style="width:130px">用户状态</th><th>定义</th></tr></thead>
           <tbody>
-            <tr><td>注册</td><td>已注册未付费（有手机号者进入销售中心跟进）</td></tr>
+            <tr><td>未付费-未体验</td><td>已注册、未付费，体验课一节都没上完（有手机号者进入销售中心跟进）</td></tr>
+            <tr><td>未付费-体验中</td><td>已注册、未付费，体验课进行中（有进行中体验课、无已完课）</td></tr>
+            <tr><td>未付费-已体验</td><td>已注册、未付费，已完课过体验课</td></tr>
             <tr><td>付费</td><td>付费正式商品包，且在有效期内（可能首次付费，也可能到期后自动订阅）</td></tr>
-            <tr><td>付费逾期</td><td>付费正式商品包，已过有效期且未续订（原「流失」）</td></tr>
+            <tr><td>付费逾期</td><td>付费正式商品包，已过有效期且未续订</td></tr>
           </tbody>
         </table>
 
@@ -1242,20 +1286,21 @@
           <tbody>
             <tr><td>用户类型</td><td>正式用户 / 测试用户；手机号归一化后前 5 位连续为 0 即测试用户（手机号/kakao 自动判定），其余第三方登录可手动设置</td></tr>
             <tr><td>注册渠道（一期）</td><td>一期口径，仅区分应用商店来源：App Store / Google Play</td></tr>
-            <tr><td>渠道 code</td><td>投放与归因的唯一标识，由渠道管理生成（二期）</td></tr>
+            <tr><td>渠道 code</td><td>投放与归因的唯一标识，由渠道管理生成（三期）</td></tr>
+            <tr><td>Best Value</td><td>商品包主推标签：开启后前端 / 落地页在商品包名称旁展示「Best Value」推荐标识</td></tr>
             <tr><td>渠道参数</td><td>已生码渠道的自定义参数（参数1/参数2），随落地页链接带入（<code>&p1/ &p2</code>）</td></tr>
-            <tr><td>销售中心</td><td>面向销售的注册线索跟进工作台：注册+有手机号用户自动进入，付费后回流用户中心</td></tr>
-            <tr><td>销售线索</td><td>「已注册未付费 + 能拿到手机号」的用户；不含无手机号或已付费用户</td></tr>
+            <tr><td>销售中心</td><td>面向销售的注册线索跟进工作台（二期）：未付费-未体验+有手机号用户自动进入，付费后回流用户中心；含外呼、自动分配/掉库、组长重分配</td></tr>
+            <tr><td>销售线索</td><td>「未付费-未体验 + 能拿到手机号」的用户；不含无手机号、已体验或已付费用户</td></tr>
             <tr><td>跟进进度</td><td>销售线索在销售中心的状态：待领取 / 跟进中 / 暂不跟进；转「已付费」即离开销售中心</td></tr>
-            <tr><td>外呼 / 通话记录</td><td>坐席点号码发起外呼，挂断后填通话小结（结果 已接通/无人接听、时长、跟进记录），自动归档到客户档案与销售跟进记录</td></tr>
+            <tr><td>外呼 / 通话记录</td><td>坐席点号码发起外呼，挂断后 <b>AI 自动生成通话小结</b>（可编辑）+ 通话结果（已接通/无人接听）/时长/<b>通话录音</b>，自动归档到客户档案与销售跟进记录</td></tr>
             <tr><td>手动加会员（待评估）</td><td>四期规划：管台内对单个用户手动添加会员有效期，替代找产研改库；高风险写操作，权限开放对象与风控措施待评估</td></tr>
             <tr><td>课标 / 上课记录</td><td>用户已完成课时的记录，以「课标」（如 <code>TCELA-L1-U2-LC1-11</code>）标识，含体验课 / 正式课、老师、完课时间、报告与回放</td></tr>
             <tr><td>Trial Report / Lesson Report</td><td>体验课报告（Trial Report，外链原型页）与正式课报告（Lesson Report，管台弹窗：能力评估 + 课堂小结 + 老师评语 + 课后作业）</td></tr>
             <tr><td>课程回放</td><td>课时录播视频，在用户详情页点「回放」新标签全屏播放（原型无真实录播时用占位视频）</td></tr>
             <tr><td>本地化配置平台（四期）</td><td>把现有本地化文案 / 物料自助配置平台迁入 CRM，业务按业务线 / 语言自助维护文案与物料</td></tr>
             <tr><td>业务线</td><td>按国家 / 地区划分的运营单元</td></tr>
-            <tr><td>商品包</td><td>面向用户售卖的商品（原「课包」，本期统一更名为商品包）</td></tr>
-            <tr><td>满减券</td><td>满 X 减 Y 的优惠券，绑定可用商品包</td></tr>
+            <tr><td>商品包</td><td>面向用户售卖的商品（原「课包」，本期统一更名为商品包）；可标记 Best Value 主推标签</td></tr>
+            <tr><td>折扣券</td><td>按折扣率立减的优惠券（如立减 10%），绑定可用商品包（本轮由「满减券」调整为「折扣券」）</td></tr>
             <tr><td>优惠码</td><td>同一张券下分发给不同 KOL / 使用方的码，独立统计使用量用于结算</td></tr>
             <tr><td>落地页</td><td>关联渠道 + 商品包 + 优惠码、按业务线模版生成的投放链接出口</td></tr>
           </tbody>
@@ -1289,8 +1334,8 @@
   const VIEW_SUB = {
     overview:'Overview', positioning:'Positioning & Personas', roadmap:'Roadmap', mapping:'Requirement Mapping',
     'p1-users':'一期 · P0', 'p1-orders':'一期 · P0',
-    'p2-channels':'二期 · P1', 'p2-packages':'二期 · P1', 'p2-coupons':'二期 · P1', 'p2-landing':'二期 · P1', 'p2-users':'二期 · P1', 'p2-system':'二期 · P1',
-    'p3-sales':'三期 · P1',
+    'p3-sales':'二期 · 销售中心', 'p2-system':'二期 · 系统配置',
+    'p2-channels':'三期 · 营销中心', 'p2-packages':'三期 · 营销中心', 'p2-coupons':'三期 · 营销中心', 'p2-landing':'三期 · 营销中心', 'p2-users':'三期 · 用户中心',
     prototype:'Live Prototype', appendix:'Appendix'
   };
 
