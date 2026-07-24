@@ -100,6 +100,8 @@
   .phase.one .head{background:linear-gradient(120deg,#2f6bff,#5b86ff)}
   .phase.two .head{background:linear-gradient(120deg,#7a5af8,#9d83ff)}
   .phase.three .head{background:linear-gradient(120deg,#4a5468,#6b7689)}
+  .phase.bridge{border-style:dashed;border-color:#0a9c6f}
+  .phase.bridge .head{background:linear-gradient(120deg,#0a9c6f,#16b8a6)}
   .phase .head .badge{background:rgba(255,255,255,.22);padding:3px 11px;border-radius:30px;font-size:12px;font-weight:600}
   .phase .head b{font-size:17px}
   .phase .head .when{margin-left:auto;font-size:13px;opacity:.9}
@@ -225,6 +227,8 @@
             <tr><td rowspan="2"><span class="pill ph1">一期</span><br><span class="muted" style="font-size:12px">基础查询 · 当前目标 7/24</span></td>
               <td><b>用户中心（一期）</b></td><td>查看用户基本信息 + 改资料；应用商店来源 + 国家</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td><b>订单中心</b></td><td>查看订单基本信息 + 筛选</td><td><span class="pill p0">P0</span></td></tr>
+            <tr><td><span class="pill" style="background:#dff5ee;color:#0a9c6f">二期短期替代</span><br><span class="muted" style="font-size:12px">越南站 · 借道国际化 1V1</span></td>
+              <td><b>越南站外呼与数据打通</b></td><td>① Dino 注册成功同步 Leads 到国际化 1V1 后台外呼；② Dino 用户 ID 与国际化 1V1 用户 ID 关联，打通广告→注册→付费；③ 线下表增加销售跟进记录（二期销售中心上线后收敛）</td><td><span class="pill" style="background:#dff5ee;color:#0a9c6f">短期</span></td></tr>
             <tr><td rowspan="2"><span class="pill ph2">二期</span><br><span class="muted" style="font-size:12px">销售与权限 · 目标 8/7</span></td>
               <td><b>销售中心</b> <span class="pill ph1" style="font-size:10px">原型已就绪</span></td><td>销售分配 leads + 跟进 leads + <b>外呼（录音 / AI 小结）</b> + 自动分配/掉库 + 组长重分配 + 转化闭环</td><td><span class="pill p1">P1</span></td></tr>
             <tr><td><b>系统配置 · 角色权限</b></td><td>RBAC 子权限 + 成员 + 日志</td><td><span class="pill p1">P1</span></td></tr>
@@ -374,7 +378,7 @@
       <!-- ====================== ROADMAP ====================== -->
       <section class="view" id="view-roadmap">
         <h2 class="title">迭代计划 / 路线图</h2>
-        <p class="lead">按官方计划分四期推进：<b>过渡期</b>（一期上线前先以线下导表支持业务触达）→ 一期查询（排期 7/9 → 7/16 → <b>当前目标 7/24 上午</b>：7/20 提测、测试约 3 天）→ 二期销售分配 / 跟进 leads（接入外呼）+ 角色权限（<b>8/7 上线</b>）→ 三期配置渠道 / 商品(SKU) / 投放链接 + 用户中心精准归因（<b>8/21 上线</b>）→ 四期本地化配置自助 + 用户触达与服务节点。下列时间为相对排期建议（四期暂无上线时间，可按实际研发资源调整）。</p>
+        <p class="lead">按官方计划分四期推进：<b>过渡期</b>（一期上线前先以线下导表支持业务触达）→ 一期查询（排期 7/9 → 7/16 → <b>当前目标 7/24 上午</b>：7/20 提测、测试约 3 天）→ <b>二期短期替代方案</b>（越南站借道国际化 1V1 先做外呼与数据打通，二期销售中心上线后收敛）→ 二期销售分配 / 跟进 leads（接入外呼）+ 角色权限（<b>8/7 上线</b>）→ 三期配置渠道 / 商品(SKU) / 投放链接 + 用户中心精准归因（<b>8/21 上线</b>）→ 四期本地化配置自助 + 用户触达与服务节点。下列时间为相对排期建议（四期暂无上线时间，可按实际研发资源调整）。</p>
 
         <div class="grid" style="gap:18px">
           <!-- phase 0 · 过渡期 -->
@@ -410,6 +414,18 @@
                 <li>用户中心可按 应用商店来源 + 国家 + 状态 检索；可修改基本资料并记录最近修改人。</li>
                 <li>登录鉴权（@dinoai.ai 邮箱验证码）可用。</li>
               </ul>
+            </div>
+          </div>
+
+          <!-- 二期短期替代方案 · 越南站外呼与数据打通 -->
+          <div class="phase bridge">
+            <div class="head"><span class="badge">二期 · 短期替代方案</span><b>越南站外呼与数据打通（借道国际化 1V1）</b><span class="when">二期销售中心上线前 · 越南站</span></div>
+            <div class="body">
+              <p class="goal">在二期「销售中心（分配 / 跟进 leads + 外呼）」完整能力上线前，为满足<b>越南站</b>的外呼需求与「广告 → 付费」的数据可见性，先<b>借道国际化 1V1 后台</b>做短期替代支持；系统能力就绪后由二期销售中心正式收敛替代。</p>
+              <div class="feat"><div class="ic">📞</div><div><div class="t">方案一 · 销售外呼能力（Leads 同步链路） <span class="pill" style="background:#dff5ee;color:#0a9c6f;font-size:10px">短期</span></div><div class="d">为满足越南站的外呼需求：用户在 <b>Dino English</b> 注册成功后，把 <b>Leads 同步到国际化 1V1 的后台</b>，支持销售在国际化 1V1 后台上进行外呼。链路：<b>用户 →（注册成功）Dino English →（同步 Leads）国际化 1V1 后台 →（外呼）销售</b>。</div></div></div>
+              <div class="feat"><div class="ic">🔗</div><div><div class="t">方案二 · 全链路数据打通（用户 ID 关联） <span class="pill" style="background:#dff5ee;color:#0a9c6f;font-size:10px">短期</span></div><div class="d">痛点：越南站无法看到从广告到注册的用户销售触达情况，也看不到用户<b>付费、体验课完成</b>的情况。方案：将 <b>Dino English 用户 ID 与国际化 1V1 用户 ID 做关联</b>，打通<b>广告 → 注册 → 销售触达 → 体验课完成 → 付费</b>的完整用户旅程。</div></div></div>
+              <div class="feat"><div class="ic">📋</div><div><div class="t">线下表升级 · 增加销售跟进记录 <span class="pill" style="background:#dff5ee;color:#0a9c6f;font-size:10px">短期</span></div><div class="d">在<b>现有线下表</b>的基础上，再加上<b>销售的跟进记录</b>（外呼 / 沟通记录），让销售触达过程可追溯并沉淀。</div></div></div>
+              <div class="callout info"><div class="ic">🔄</div><div><b>与二期的关系：</b>本方案是二期「销售中心 + 外呼」正式上线前的<b>短期替代方案</b>——方案一先打通「注册 → 外呼」执行链路，方案二先打通「广告 → 付费」数据链路，销售跟进记录先沉淀在线下表；待二期销售中心（外呼 + AI 通话小结 + 自动分配/掉库 + 数据回流）上线后，由 CRM 内部收敛替代。</div></div>
             </div>
           </div>
 
