@@ -1,1 +1,0 @@
-{"root":["./src/app.tsx","./src/auth.ts","./src/main.tsx","./src/store.ts","./src/types.ts","./src/components/applayout.tsx","./src/pages/channelmanagement.tsx","./src/pages/coupon.tsx","./src/pages/coursepackage.tsx","./src/pages/login.tsx","./src/pages/ordercenter.tsx","./src/pages/usercenter.tsx"],"errors":true,"version":"5.9.3"}
