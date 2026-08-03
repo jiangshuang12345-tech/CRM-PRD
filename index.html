@@ -634,15 +634,18 @@
           <tbody>
             <tr><td>关键字搜索</td><td>支持 用户ID / 姓名 / 登录账号 模糊搜索（登录账号即覆盖手机号场景）</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td>多注册方式展示</td><td>谷歌邮箱 / Facebook / kakao / 手机号 / AppID，含登录账号；支持非手机号注册</td><td><span class="pill p0">P0</span></td></tr>
-            <tr><td>条件筛选</td><td>用户类型（正式/测试）、注册方式、渠道来源（落地页 / App）、国家、用户状态（未付费-未体验 / 未付费-体验中 / 未付费-已体验 / 付费 / 付费逾期）</td><td><span class="pill p0">P0</span></td></tr>
+            <tr><td>条件筛选</td><td>用户类型（正式/测试）、注册方式、渠道来源（落地页 / App）、国家、用户状态（未付费-未体验 / 未付费-体验中 / 未付费-已体验 / 付费 / 付费逾期）；其中<b>渠道来源-App 为「一级渠道 → 子渠道」两级级联筛选</b>（见下方交互说明）</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td>用户类型识别 <span class="pill ph1" style="font-size:10px">新增</span></td><td>正式用户 / 测试用户；手机号 / kakao 登录按手机号规则<b>自动判定</b>，其余第三方登录可后台手动设置</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td>列表 + 分页</td><td>展示基本信息字段，支持分页与每页条数</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td>到期时间 / 最近修改人</td><td>展示会员到期时间（无则—）与最近一次资料修改人（无则—）</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td>修改基本信息</td><td>本地名 / 年龄段 / 用户类型（仅第三方登录可改）；保存后记录「最近修改人」（国家只读、不可修改）</td><td><span class="pill p1">P1</span></td></tr>
             <tr><td>修改历史 <span class="pill ph1" style="font-size:10px">新增</span></td><td>点击「最近修改人」查看该用户的资料修改记录：操作时间、变更内容（字段修改前 → 修改后）、修改人</td><td><span class="pill p1">P1</span></td></tr>
             <tr><td>试听报告（临时入口）<span class="pill ph1" style="font-size:10px">新增</span></td><td>对有「已完课体验课且带报告」的用户，操作列展示「试听报告」链接，点击跳转外部 <b>Trial Report</b> 原型页；一期不做完整详情页，仅提供此临时入口，完整课程信息见「用户中心·二期」详情页</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td>添加会员 / 加有效期 <span class="pill ph1" style="font-size:10px">新增</span></td><td>操作列「添加会员」按钮 → 弹窗选择会员有效期「<b>开始时间 - 结束时间</b>」，确认后把用户<b>到期时间</b>更新为所选结束时间（并记录「最近修改人」/ 写入修改历史）。开始时间可选范围按付费状态区分（见下方规则）</td><td><span class="pill p1">P1</span></td></tr>
           </tbody>
         </table>
+
+        <div class="callout warn"><div class="ic">🎫</div><div><b>添加会员·有效期选择规则：</b><br>① <b>未付费用户</b>（未付费-未体验 / 体验中 / 已体验）：<b>开始时间、结束时间均无限制</b>，可自由选择任意起止日期。<br>② <b>已付费用户</b>（付费 / 付费逾期）：<b>开始时间必须晚于当前「到期时间」</b>（只能从现有到期时间<b>之后</b>开始选，避免与已有有效期重叠 / 回退），<b>结束时间无限制</b>。<br>确认后系统将用户<b>到期时间更新为所选结束时间</b>，并记录操作人与修改历史。</div></div>
 
         <h3>数据字典（列表字段）</h3>
         <table class="bordered">
@@ -653,17 +656,22 @@
             <tr><td>用户状态</td><td>未付费-未体验 / 未付费-体验中 / 未付费-已体验 / 付费 / 付费逾期（由是否付费 + 体验课完课情况自动判定）</td><td>否（系统流转）</td></tr>
             <tr><td>用户类型 <span class="pill ph1" style="font-size:10px">新增</span></td><td>正式用户 / 测试用户；手机号 / kakao 登录由规则自动判定（不可改），其余第三方登录可手动设置</td><td>部分可编辑</td></tr>
             <tr><td>年龄段 <span class="pill ph1" style="font-size:10px">新增</span></td><td>3-5 / 6-8 / 9-12 / 13-17 / 18+（替代原「性别 / 出生日期」编辑项）</td><td>可编辑</td></tr>
+            <tr><td>课程等级 <span class="pill ph1" style="font-size:10px">新增</span></td><td>用户<b>最近一次完课的级别</b>（如 Level1 / Level2…），数据口径同线下表；无则显示「—」</td><td>否</td></tr>
             <tr><td>注册方式</td><td>谷歌邮箱 / Facebook / kakao / 手机号 / AppID</td><td>否</td></tr>
             <tr><td>登录账号</td><td>邮箱 / Facebook / kakao ID / AppID / 手机号</td><td>否</td></tr>
             <tr><td>渠道来源（落地页）<span class="pill ph1" style="font-size:10px">一期口径</span></td><td>有渠道 code（落地页投放）时展示<b>广告渠道名称</b>；无则显示「—」</td><td>否</td></tr>
-            <tr><td>渠道来源（App）<span class="pill ph1" style="font-size:10px">一期口径</span></td><td>无渠道 code（直接投 App）时展示<b>三方归因：投放渠道 / 子渠道</b>（如 Meta Ads / Instagram、googleadwords_int / ACI_Search）；无则「—」</td><td>否</td></tr>
+            <tr><td>渠道来源（App）<span class="pill ph1" style="font-size:10px">一期口径</span></td><td>无渠道 code（直接投 App）时展示<b>三方归因：投放渠道 / 子渠道</b>（如 Meta Ads / Instagram、googleadwords_int / ACI_Search）；无则「—」。对应<b>筛选器为两级级联</b>：一级取 <code>adChannel</code>（投放渠道），二级取该投放渠道下的 <code>subChannel</code>（子渠道）</td><td>否</td></tr>
             <tr><td>渠道 code</td><td>投放回传的原始渠道 code；一期不接入渠道树解析（三期由渠道管理解析为「业务线 · 渠道」路径）；无则「—」</td><td>否</td></tr>
             <tr><td>国家 <span class="pill ph1" style="font-size:10px">一期口径</span></td><td>注册时 IP 对应的国家（替代「用户中心·二期」的业务线展示）</td><td>否</td></tr>
             <tr><td>注册时间</td><td>底层以 UTC 存储，按<b>注册国家</b>换算为当地时间展示，并标注时区（如 <code>UTC+09:00</code>）</td><td>否</td></tr>
-            <tr><td>到期时间</td><td>会员/商品包到期时间，按<b>注册国家</b>换算为当地时间展示并标注时区；无则显示「—」</td><td>否</td></tr>
+            <tr><td>到期时间</td><td>会员/商品包到期时间，按<b>注册国家</b>换算为当地时间展示并标注时区；无则显示「—」。可通过操作列「<b>添加会员</b>」更新为所选结束时间</td><td>否（经「添加会员」更新）</td></tr>
+            <tr><td>优惠码 <span class="pill ph1" style="font-size:10px">新增</span></td><td>用户使用的 <b>Promo Code</b>（优惠码）；无则显示「—」</td><td>否</td></tr>
+            <tr><td>CC <span class="pill ph1" style="font-size:10px">新增</span></td><td>用户<b>当前跟进的 CC（课程顾问）姓名</b>；无跟进人则显示「-」</td><td>否</td></tr>
             <tr><td>最近修改人 <span class="pill ph1" style="font-size:10px">可查历史</span></td><td>最近一次资料修改的操作人（无则显示「—」）；<b>点击可查看完整「修改历史」</b>（时间 / 变更前后 / 修改人）</td><td>否（系统记录）</td></tr>
           </tbody>
         </table>
+
+        <div class="callout info"><div class="ic">🔗</div><div><b>渠道来源-App 两级级联筛选：</b>「渠道来源-App」筛选器由单选升级为<b>级联（Cascader）</b>——先选<b>一级渠道</b>（投放渠道 <code>adChannel</code>，如 Facebook Ads、googleadwords_int），再选<b>子渠道</b>（<code>subChannel</code>，如 Facebook / Instagram / ACI_Search）。选项从当前数据范围内所有「直投 App」用户的来源实时聚合：同一 <code>adChannel</code> 作为一级父节点，其挂载的多个 <code>subChannel</code> 作为二级子节点。<b>支持只选一级</b>（changeOnSelect）：勾选某个一级渠道即筛出其下<b>所有子渠道</b>的用户；也可继续下钻精确到某个具体子渠道。</div></div>
 
         <div class="callout info"><div class="ic">🧪</div><div><b>测试用户判定规则：</b>对<b>手机号 / kakao</b> 登录用户，将手机号去除国家码并归一化后，若<b>前 5 位连续为 0</b>（<code>00000…</code>）则判定为<b>测试用户</b>，否则为正式用户——该类用户类型<b>系统自动判定、不可手动修改</b>；谷歌邮箱 / Facebook / AppID 等第三方登录用户无手机号，其用户类型由后台<b>手动设置</b>（默认正式用户）。</div></div>
 
@@ -681,10 +689,11 @@
         <div class="callout info"><div class="ic">🔄</div><div>状态为系统自动流转、不可手工编辑：由<b>是否有付费订单</b> + <b>体验课完课情况</b>联合判定；正式包到期后自动订阅成功仍为「付费」，到期未续订则转为「付费逾期」。其中「<b>未付费-未体验 + 能拿到手机号</b>」的用户会自动进入<b>销售中心</b>做线索跟进。</div></div>
 
         <h3>关键交互流程</h3>
-        <div class="step"><div class="n">1</div><div class="c">输入关键字（用户ID/姓名/登录账号）或选择 用户类型（正式/测试）/ 注册方式 / 渠道来源（落地页 / App）/ 国家 / 用户状态（5 类）→ 列表实时过滤。</div></div>
+        <div class="step"><div class="n">1</div><div class="c">输入关键字（用户ID/姓名/登录账号）或选择 用户类型（正式/测试）/ 注册方式 / 渠道来源（落地页 / App）/ 国家 / 用户状态（5 类）→ 列表实时过滤。其中<b>渠道来源-App 为两级级联</b>：先选一级渠道（如 Facebook Ads），可只勾选一级即筛出其下<b>所有子渠道</b>的用户，或继续下钻选具体子渠道（如 Facebook / Instagram / ACI_Search）。</div></div>
         <div class="step"><div class="n">2</div><div class="c">查看「注册方式」「登录账号」列定位用户来源；非手机号方式登录账号为邮箱/第三方账号。对有「已完课体验课且带报告」的用户，操作列出现「试听报告」入口，点击跳转外部 Trial Report 原型页。</div></div>
         <div class="step"><div class="n">3</div><div class="c">点「修改信息」→ 弹窗编辑本地名 / 年龄段 / 用户类型（国家只读；手机号/kakao 用户的用户类型由规则自动判定、不可改）→ 保存，系统按字段记录变更前后并写入「修改历史」，同时更新「最近修改人」。</div></div>
         <div class="step"><div class="n">4</div><div class="c">点列表中的「最近修改人」→ 弹出「修改历史」，按时间倒序展示每次操作的<b>变更内容（字段：修改前 → 修改后）</b>与修改人。</div></div>
+        <div class="step"><div class="n">5</div><div class="c">点操作列「<b>添加会员</b>」→ 弹窗选择会员有效期「开始时间 - 结束时间」：<b>未付费</b>用户起止时间无限制；<b>已付费</b>用户开始时间须晚于当前到期时间 → 确认后到期时间更新为所选结束时间，并记录最近修改人与修改历史。</div></div>
 
         <div class="proto" data-route="users"></div>
       </section>
@@ -694,7 +703,7 @@
         <h2 class="title">3.5 用户中心 · 二期 <span class="pill ph3" style="vertical-align:middle">三期</span> <span class="pill p1" style="vertical-align:middle">P1</span></h2>
         <p class="lead">渠道管理上线后，用户中心升级为按「业务线 · 渠道 · 渠道 code」精准归因的增强版：在一期基础上，把粗粒度的「渠道来源（落地页/App）+ 国家」替换为完整的渠道归因，并支持业务线全局筛选。</p>
 
-        <div class="callout info"><div class="ic">🆕</div><div><b>相对一期新增：</b>① 列表「注册渠道」展示「业务线 · 渠道」并关联渠道树；② 新增「渠道 code」「所属业务线」字段；③ 筛选项由「渠道来源（落地页/App）+ 国家」升级为<b>业务线（全局共享）</b>+ 国家 + 用户类型 + 用户状态；④ 新增列 <b>课程等级 / campaign / campaign_id / 体验状况 / 付费状况 / 支付端</b>；⑤ <b>用户ID 可点击进入「用户详情页」</b>，查看完整基本信息与<b>课程信息（上课记录 + 课程报告 + 回放）</b>。其余（查询、改资料、状态口径）与一期一致。</div></div>
+        <div class="callout info"><div class="ic">🆕</div><div><b>相对一期新增：</b>① 列表「注册渠道」展示「业务线 · 渠道」并关联渠道树；② 新增「渠道 code」「所属业务线」字段；③ 筛选项由「渠道来源（落地页/App）+ 国家」升级为<b>业务线（全局共享）</b>+ 国家 + 用户类型 + 用户状态；④ 新增列 <b>campaign / campaign_id / 体验状况 / 付费状况 / 支付端</b>（<b>课程等级已在一期列出</b>）；⑤ <b>用户ID 可点击进入「用户详情页」</b>，查看完整基本信息与<b>课程信息（上课记录 + 课程报告 + 回放）</b>。其余（查询、改资料、状态口径）与一期一致。</div></div>
 
         <h3>用户故事</h3>
         <div class="story">作为<b>运营 / 销售同学</b>，我希望输入学生ID / 姓名 / 登录账号 / 手机号即可查到该用户，并看到他的注册方式、登录账号、业务线、注册渠道、注册时间与当前状态，以便快速响应咨询——即使用户用谷歌邮箱 / Facebook / AppID 等<b>非手机号方式</b>注册也能查到。</div>
@@ -715,11 +724,11 @@
             <tr><td>课程信息（上课记录）<span class="pill ph1" style="font-size:10px">新增</span></td><td>详情页展示该用户所有<b>「已完课」</b>课标（体验课 + 正式课），按完课时间倒序：课标 / 课时类型 / 老师 / 完课时间 / 报告 / 回放</td><td><span class="pill p1">P1</span></td></tr>
             <tr><td>课程报告 <span class="pill ph1" style="font-size:10px">新增</span></td><td><b>体验课 → Trial Report</b>（跳外部原型页）；<b>正式课 → Lesson Report</b>（内部弹窗：能力评估星级 + 课堂小结 + 老师评语 + 课后作业）</td><td><span class="pill p1">P1</span></td></tr>
             <tr><td>课程回放 <span class="pill ph1" style="font-size:10px">新增</span></td><td>有回放链接的课时可点「回放」，新标签页全屏播放录播视频（无真实录播时用占位视频）</td><td><span class="pill p1">P1</span></td></tr>
-            <tr><td>手动加会员 / 加有效期 <span class="pill" style="background:#e9f0ff;color:#2f6bff;font-size:10px">四期</span> <span class="pill" style="background:#fff4e6;color:#e8590c;font-size:10px">待评估</span></td><td>对单个用户手动添加不同时长的会员有效期，替代当前「找产研后台改库」的方式；<b>属高风险写操作，已排入四期并评估开放范围与审批流</b>（详见下方说明）</td><td><span class="pill" style="background:#fff4e6;color:#e8590c">评估中</span></td></tr>
+            <tr><td>添加会员 / 加有效期 <span class="pill ph1" style="font-size:10px">复用一期</span></td><td>复用<a href="#p1-users" onclick="setTimeout(()=>document.querySelector('[data-view=p1-users]').click(),0)">用户中心（一期）</a>的「添加会员」能力：操作列点「添加会员」→ 弹窗选有效期「开始 - 结束时间」，确认后到期时间更新为结束时间（未付费无限制；已付费开始时间须晚于当前到期时间）</td><td><span class="pill p1">P1</span></td></tr>
           </tbody>
         </table>
 
-        <div class="callout warn"><div class="ic">⚠️</div><div><b>四期规划（待评估）· 手动给单个用户加会员：</b>当前业务同学需要找产研为某个用户添加不同长短的有效期，希望迁移到管台自助操作。<b>该功能为高风险写操作</b>（直接影响用户权益 / 收入口径），已排入<b>四期</b>需求并<b>专项评估</b>：<br>① <b>权限开放对象</b>——开放给谁（销售 / 运营 / 仅管理员？）需与业务确认；<br>② <b>风控措施</b>——建议加操作审批 / 二次确认、单次时长上限、全量操作日志与可回溯；<br>③ <b>数据口径</b>——手动加会员是否计入付费/续费统计、与订单/对账如何区分。评估通过后再确定四期是否落地及具体交互。</div></div>
+        <div class="callout warn"><div class="ic">⚠️</div><div><b>「添加会员 / 加有效期」已前置到一期落地：</b>该能力（替代「找产研后台改库」）已在<a href="#p1-users" onclick="setTimeout(()=>document.querySelector('[data-view=p1-users]').click(),0)">用户中心（一期）</a>实现——操作列「添加会员」弹窗选有效期，未付费无限制、已付费开始时间须晚于当前到期时间。<b>因其为写操作、直接影响用户权益 / 收入口径</b>，仍建议持续完善风控：<br>① <b>权限开放对象</b>——开放给谁（销售 / 运营 / 仅管理员？）需与业务确认；<br>② <b>风控措施</b>——操作审批 / 二次确认、单次时长上限、全量操作日志与可回溯；<br>③ <b>数据口径</b>——手动加会员是否计入付费/续费统计、与订单/对账如何区分。</div></div>
 
         <h3>数据字典（列表字段）</h3>
         <table class="bordered">
@@ -846,6 +855,7 @@
             <tr><td>转化闭环</td><td>进度选「已付费」→ 用户状态改写为「付费」，从销售中心流转到用户中心</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td>外呼（点号码拨打）<span class="pill ph2" style="font-size:10px">新增</span></td><td>「我的跟进」操作列点「外呼」按钮发起呼叫（<b>无手机号不可外呼</b>）；弹窗模拟「正在呼叫 → 通话中 → 挂断」，挂断后填写通话小结（通话结果 / 时长 / 本次跟进记录）</td><td><span class="pill p1">P1</span></td></tr>
             <tr><td>AI 通话小结 <span class="pill ph2" style="font-size:10px">新增</span></td><td>已接通并挂断后，系统<b>AI 自动生成通话小结</b>填入「本次跟进记录」，销售可在保存前编辑修改</td><td><span class="pill p1">P1</span></td></tr>
+            <tr><td>购买意向标记 <span class="pill ph2" style="font-size:10px">新增</span></td><td>外呼结束的小结弹窗内新增「<b>购买意向</b>」下拉（未填写 / 有意向 / 无意向）；保存后<b>同步更新列表「购买意向」列</b>（有意向绿 / 无意向红 / 未填写灰）</td><td><span class="pill p1">P1</span></td></tr>
             <tr><td>通话录音 <span class="pill ph2" style="font-size:10px">新增</span></td><td>已接通的通话生成<b>通话录音</b>，归档到跟进记录时间轴，可内嵌播放器回放</td><td><span class="pill p1">P1</span></td></tr>
             <tr><td>通话自动归档 <span class="pill ph2" style="font-size:10px">新增</span></td><td>保存通话小结后，系统生成一条通话记录，并自动<b>归档到该线索的销售跟进记录</b>（备注前缀「【外呼自动记录】」）</td><td><span class="pill p1">P1</span></td></tr>
             <tr><td>通话记录（Tab）<span class="pill ph2" style="font-size:10px">新增</span></td><td>集中查看历史外呼：起呼时间 / 客户 / 手机号 / 业务线 / 通话结果 / 时长 / 跟进记录 / 坐席；支持关键字（手机号/用户ID/客户/备注）+ 通话结果筛选</td><td><span class="pill p1">P1</span></td></tr>
@@ -887,6 +897,7 @@
           <thead><tr><th style="width:140px">字段</th><th>说明</th></tr></thead>
           <tbody>
             <tr><td>用户ID / 姓名</td><td>复用用户中心二期字段（本地名优先）</td></tr>
+            <tr><td>购买意向 <span class="pill ph2" style="font-size:10px">新增</span></td><td>未填写 / 有意向 / 无意向；由外呼小结弹窗的「购买意向」下拉写入。<b>未填写</b>（默认）灰色横线、<b>有意向</b>绿色标签、<b>无意向</b>红色标签</td></tr>
             <tr><td>用户类型</td><td>正式用户 / 测试用户（按规则识别，便于剔除测试线索）</td></tr>
             <tr><td>年龄段 / 登录账号 / 业务线</td><td>复用用户中心字段</td></tr>
             <tr><td>注册渠道</td><td>展示「业务线 · 渠道」</td></tr>
@@ -912,7 +923,7 @@
         <div class="step"><div class="n">1</div><div class="c">「待领取注册用户」Tab 中，销售按关键字/业务线筛选线索，点「领取跟进」认领 → 自动进入「我的跟进」。</div></div>
         <div class="step"><div class="n">2</div><div class="c">在「我的跟进」点「更新跟进」→ 选择进度（跟进中 / 暂不跟进 / 已付费）、填本次备注（必填）→ 保存写入跟进记录。</div></div>
         <div class="step"><div class="n">3</div><div class="c">若本次跟进选「已付费」→ 用户状态改写为「付费」，该用户离开销售中心，在用户中心可查。</div></div>
-        <div class="step"><div class="n">4</div><div class="c">在「我的跟进」点客户号码旁「外呼」→ 弹窗「正在呼叫 → 通话中」→ 挂断后 <b>AI 自动生成通话小结</b>（可编辑）+ 通话结果 / 时长 / 通话录音 → 保存，生成通话记录并归档到跟进记录。</div></div>
+        <div class="step"><div class="n">4</div><div class="c">在「我的跟进」点客户号码旁「外呼」→ 弹窗「正在呼叫 → 通话中」→ 挂断后 <b>AI 自动生成通话小结</b>（可编辑）+ 通话结果 / 时长 / 通话录音 + 选择「<b>购买意向</b>」（未填写 / 有意向 / 无意向）→ 保存，生成通话记录并归档到跟进记录，同时同步列表「购买意向」列。</div></div>
         <div class="step"><div class="n">5</div><div class="c">切到「通话记录」Tab 查看全部外呼历史（含录音回放）；弹窗底部时间轴亦可查看该线索历次跟进（进度 · 备注 · 时间 · 领取人 · 录音）。</div></div>
         <div class="step"><div class="n">6</div><div class="c"><b>销售组长</b>：点「分配与掉库设置」配置自动分配权重与掉库时长；对任一线索点「重新分配」指派给组内其他销售。</div></div>
 
