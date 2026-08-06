@@ -173,6 +173,12 @@
       <a data-view="p1-orders"><span class="num">3.2</span>订单详情 · 子订单流水<span class="tag-p3">P3期</span></a>
       <a data-view="p3-sales"><span class="num">3.3</span>销售中心 · 用户详情 / Leads 导入<span class="tag-p3">P3期</span></a>
 
+      <div class="group">四期 · 营销中心</div>
+      <a data-view="p2-channels"><span class="num">4.1</span>渠道管理<span class="tag-p3">P4期</span></a>
+      <a data-view="p2-packages"><span class="num">4.2</span>SKU 管理<span class="tag-p3">P4期</span></a>
+      <a data-view="p2-coupons"><span class="num">4.3</span>优惠券管理<span class="tag-p3">P4期</span></a>
+      <a data-view="p2-landing"><span class="num">4.4</span>落地页管理<span class="tag-p3">P4期</span></a>
+
       <div class="group">参考</div>
       <a data-view="prototype"><span class="num">03</span>交互原型预览</a>
       <a data-view="appendix"><span class="num">04</span>附录 / 数据字典</a>
@@ -195,12 +201,12 @@
       <!-- ====================== OVERVIEW ====================== -->
       <section class="view active" id="view-overview">
         <h2 class="title">Dino English 运营平台（CRM）产品需求文档</h2>
-        <p class="lead">本文档基于「CRM 与运营平台需求对齐」会议纪要与最新迭代计划更新。<b>一期</b>已于 <b>7 月 23 日验收完成并投入使用</b>；<b>二期短期替代方案</b>已于 <b>7 月 30 日上线</b>；<b>二期</b>（销售分配 / 跟进 leads、外呼、角色权限）计划于 <b>8 月 19 日上线</b>，较原计划顺延一天，以补齐手机号明文查看与用户、订单列表导出权限。<b>三期</b>聚焦销售谈单支持：补齐用户学习信息、主子订单流水和 Leads 导入；<b>四期</b>建设下载、标签与 push 能力；<b>五期</b>进行本地化配置。文档内嵌可交互原型，可逐模块体验。</p>
+        <p class="lead">本文档基于「CRM 与运营平台需求对齐」会议纪要与最新迭代计划更新。<b>一期</b>已于 <b>7 月 23 日验收完成并投入使用</b>；<b>二期短期替代方案</b>已于 <b>7 月 30 日上线</b>；<b>二期</b>（销售分配 / 跟进 leads、外呼、角色权限）计划于 <b>8 月 19 日上线</b>，较原计划顺延一天，以补齐手机号明文查看与用户、订单列表导出权限。<b>三期</b>聚焦销售谈单支持：补齐用户学习信息、主子订单流水和 Leads 导入；<b>四期</b>建设营销中心，配置渠道、SKU、优惠券并生成落地页；<b>五期</b>进行本地化配置。push 暂考虑通过第三方平台承载。文档内嵌可交互原型，可逐模块体验。</p>
 
         <div class="grid c4">
           <div class="card"><div class="kpi" style="color:var(--p1)">一期</div><div class="kpi-label">基础查询<br>7/23 验收完成并投入使用</div></div>
           <div class="card"><div class="kpi" style="color:var(--p2)">二期</div><div class="kpi-label">销售 leads(外呼) + 权限<br>计划 8 月 19 日上线</div></div>
-          <div class="card"><div class="kpi" style="color:#0a9c6f">三 / 四 / 五期</div><div class="kpi-label">销售谈单支持 · 用户运营 · 本地化配置<br>需求中 / 规划中</div></div>
+          <div class="card"><div class="kpi" style="color:#0a9c6f">三 / 四 / 五期</div><div class="kpi-label">销售谈单支持 · 营销中心 · 本地化配置<br>需求中 / 规划中</div></div>
           <div class="card"><div class="kpi">9</div><div class="kpi-label">已建原型模块<br>可点击交互</div></div>
         </div>
 
@@ -210,7 +216,7 @@
           <div class="grid c3" style="margin-top:14px">
             <div><h4>一期价值</h4><ul class="clean"><li>用户 / 订单一处可查，替代散表</li><li>用户按渠道来源（落地页 / App 三方归因）+ 国家粗归因</li><li>运营 / 销售按多条件秒级定位用户/订单</li></ul></div>
             <div><h4>二期价值</h4><ul class="clean"><li>注册线索自动沉淀销售中心、分配 / 跟进闭环</li><li>接入外呼：点号码拨打 + 通话录音 + AI 通话小结自动归档</li><li>销售组长按权重自动分配、超时掉库、重新分配</li><li>角色权限（RBAC 子权限）+ 数据隔离 + 操作日志</li></ul></div>
-            <div><h4>三 / 四期价值</h4><ul class="clean"><li>渠道结构标准化、可生成投放 code</li><li>用户中心升级为「业务线 · 渠道」精准归因</li><li>商品包自助上下架 + 折扣券（KOL 多码结算）+ 落地页一键投放</li><li>本地化文案 / 物料自助、单点触达与服务节点</li></ul></div>
+            <div><h4>三 / 四 / 五期价值</h4><ul class="clean"><li>销售可快速查看用户学习信息与完整订单流水</li><li>渠道结构标准化、可生成投放 code</li><li>SKU 自助上下架 + 优惠券配置 + 落地页一键投放</li><li>本地化配置自助；push 暂考虑通过第三方平台承载</li></ul></div>
           </div>
         </div>
 
@@ -231,8 +237,10 @@
             <tr><td rowspan="3"><span class="pill ph3">三期</span><br><span class="muted" style="font-size:12px">销售谈单支持 · 需求中</span></td><td><b>用户详情</b></td><td>展示用户上课记录、报告、回放，支撑销售谈单</td><td><span class="pill p1">P1</span></td></tr>
             <tr><td><b>订单详情</b></td><td>记录主订单下所有子订单流水，解决主子订单展示混乱</td><td><span class="pill p1">P1</span></td></tr>
             <tr><td><b>销售中心增强</b></td><td>增加用户详情（上课记录、报告、回放）与 Leads 导入入口，兼容更多业务场景</td><td><span class="pill p1">P1</span></td></tr>
-            <tr><td rowspan="2"><span class="pill" style="background:#e9f0ff;color:#2f6bff">四期</span><br><span class="muted" style="font-size:12px">用户与订单运营</span></td><td><b>用户列表、订单列表下载</b></td><td>支持下载；角色权限中新增下载权限</td><td><span class="pill p2">P2</span></td></tr>
-            <tr><td><b>用户标签体系 / push 配置</b></td><td>建立用户标签体系并支持配置 push</td><td><span class="pill p2">P2</span></td></tr>
+            <tr><td rowspan="4"><span class="pill" style="background:#e9f0ff;color:#2f6bff">四期</span><br><span class="muted" style="font-size:12px">营销中心</span></td><td><b>渠道管理</b></td><td>配置渠道层级、渠道 code 与渠道参数</td><td><span class="pill p2">P2</span></td></tr>
+            <tr><td><b>SKU 管理</b></td><td>配置 SKU、价格、有效期与上下架</td><td><span class="pill p2">P2</span></td></tr>
+            <tr><td><b>优惠券管理</b></td><td>配置优惠券与优惠码</td><td><span class="pill p2">P2</span></td></tr>
+            <tr><td><b>落地页管理</b></td><td>关联渠道、SKU、优惠券并生成落地页</td><td><span class="pill p2">P2</span></td></tr>
             <tr><td><span class="pill" style="background:#e9f0ff;color:#2f6bff">五期</span></td><td><b>本地化配置</b></td><td>业务自助维护本地化配置</td><td><span class="pill p2">P2</span></td></tr>
             <tr><td><span class="pill later">后续</span></td><td>标签体系 · 黑名单 · 邀约/提报 · 第三方整合（Breeze/Apespire）· 活跃测试</td><td>暂不归因到一~四期</td><td><span class="pill p2">P2+</span></td></tr>
           </tbody>
@@ -244,7 +252,7 @@
       <!-- ====================== POSITIONING ====================== -->
       <section class="view" id="view-positioning">
         <h2 class="title">产品定位 &amp; 目标用户</h2>
-        <p class="lead">基于一期基础查询、二期销售与权限、三期销售谈单支持、四期用户运营及五期本地化配置，明确平台的产品定位、能力演进与目标用户。</p>
+        <p class="lead">基于一期基础查询、二期销售与权限、三期销售谈单支持、四期营销中心及五期本地化配置，明确平台的产品定位、能力演进与目标用户。</p>
 
         <div class="callout info"><div class="ic">🎯</div><div><b>一句话定位：</b>Dino English 运营平台（CRM）是面向海外多业务线的<b>一体化运营中台</b>——以「<b>用户 · 渠道 · 商品</b>」三大主数据为核心，打通「<b>渠道归因 → 商品/促销配置 → 投放落地 → 用户触达 → 服务履约</b>」的运营闭环，让市场、运营、客服等<b>非研发角色自助完成日常运营</b>，把对研发的依赖降到最低。</div></div>
 
@@ -272,7 +280,7 @@
             <tr><td><span class="pill ph1">一期</span></td><td><b>数据可查 · 看得清</b></td><td>用户中心（渠道来源（落地页 / App 三方归因）+ 国家粗归因）、订单中心查询；多语言</td><td>运营 · 销售</td></tr>
             <tr><td><span class="pill ph2">二期</span></td><td><b>销售 leads · 够得着</b></td><td><b>销售中心：分配 leads、跟进 leads、接入外呼（点号码拨打 + 通话录音 + AI 通话小结）与通话归档、销售组长按权重自动分配 / 超时掉库 / 重新分配，注册线索转化闭环；角色权限（RBAC 子权限）+ 数据隔离 + 操作日志</b></td><td>销售 · 客服 · 管理员</td></tr>
             <tr><td><span class="pill ph3">三期</span></td><td><b>销售谈单支持 · 看得全、导得进</b></td><td>用户详情（上课记录 / 报告 / 回放）、订单详情（主订单下全部子订单流水）、销售中心用户详情与 Leads 导入</td><td>销售 · 运营</td></tr>
-            <tr><td><span class="pill" style="background:#e9f0ff;color:#2f6bff">四期</span></td><td><b>用户运营 · 可导出、可触达</b></td><td>用户列表、订单列表下载（新增权限）；用户标签体系、push 配置</td><td>运营 · 客服 · 管理员</td></tr>
+            <tr><td><span class="pill" style="background:#e9f0ff;color:#2f6bff">四期</span></td><td><b>营销中心 · 可配置、可投放</b></td><td>配置渠道、SKU、优惠券并生成落地页</td><td>运营 · 市场投放</td></tr>
             <tr><td><span class="pill" style="background:#e9f0ff;color:#2f6bff">五期</span></td><td><b>本地化自助 · 改得动</b></td><td>本地化配置</td><td>运营 · 本地化</td></tr>
           </tbody>
         </table>
@@ -334,43 +342,43 @@
         <div class="callout info" style="margin-top:12px"><div class="ic">🛡️</div><div>上述角色已在<b>「系统配置 · 角色权限」</b>中落地为<b>内置角色</b>，并按模块细分为 无权限 / 只读 / 可操作；数据可见范围按业务线隔离。详见 <a href="#p2-system" onclick="setTimeout(()=>document.querySelector('[data-view=p2-system]').click(),0)">2.2 系统配置 · 角色权限</a>。</div></div>
 
         <h3>二期能力：销售分配 / 跟进 leads（外呼）</h3>
-        <p class="muted" style="font-size:13px;margin-top:-4px">二期核心是<b>销售中心（分配 / 跟进 leads + 外呼）</b>与<b>角色权限（系统配置）</b>，原型已就绪，详见 <a href="#p3-sales" onclick="setTimeout(()=>document.querySelector('[data-view=p3-sales]').click(),0)">2.1 销售中心</a>。用户触达与服务节点已并入四期。</p>
+        <p class="muted" style="font-size:13px;margin-top:-4px">二期核心是<b>销售中心（分配 / 跟进 leads + 外呼）</b>与<b>角色权限（系统配置）</b>，原型已就绪，详见 <a href="#p3-sales" onclick="setTimeout(()=>document.querySelector('[data-view=p3-sales]').click(),0)">2.1 销售中心</a>。四期将建设营销中心，集中承载渠道、SKU、优惠券与落地页配置。</p>
 
-        <h3>四期能力前瞻：本地化配置 + 用户触达与服务</h3>
+        <h3>四期能力前瞻：营销中心</h3>
         <div class="card" style="margin-bottom:14px">
-          <h4 style="margin-top:0">🌏 本地化配置平台迁入 CRM <span class="pill" style="background:#e9f0ff;color:#2f6bff;font-size:10px">四期</span></h4>
-          <p style="font-size:13px;margin:6px 0">现有一个独立平台可供业务自助修改本地化文案与物料；四期目标是把该平台<b>整体迁入 CRM</b>，与渠道 / 落地页 / 触达能力打通，统一账号、权限与业务线口径。</p>
+          <h4 style="margin-top:0">🌿 渠道管理 <span class="pill" style="background:#e9f0ff;color:#2f6bff;font-size:10px">四期</span></h4>
+          <p style="font-size:13px;margin:6px 0">统一维护渠道层级、渠道 code 与渠道参数，为投放归因及落地页生成提供标准化配置来源。</p>
           <ul class="clean" style="font-size:12.5px">
-            <li><b>能力：</b>按业务线 / 语言维护界面与投放<b>文案</b>；维护各地区<b>物料</b>（图片 / Banner / 素材）供落地页与触达复用</li>
-            <li><b>价值：</b>业务自助改文案/物料，减少对研发与外部工具依赖；本地化与投放链路一体化</li>
-            <li><b>受益角色：</b>运营、市场投放、本地化 / 内容</li>
+            <li><b>能力：</b>维护渠道层级、生成渠道 code、配置渠道参数</li>
+            <li><b>价值：</b>让投放归因与落地页配置使用统一渠道口径</li>
+            <li><b>受益角色：</b>运营、市场投放</li>
           </ul>
         </div>
         <div class="grid c2">
-          <div class="card"><h4 style="margin-top:0">📨 单点触达用户 <span class="pill" style="background:#e9f0ff;color:#2f6bff;font-size:10px">四期</span></h4>
-            <p style="font-size:13px;margin:6px 0">从用户中心选定单个用户或人群，触发 push / 站内信 / 短信 / EDM / 客服外呼等触达动作。</p>
+          <div class="card"><h4 style="margin-top:0">📦 SKU 与优惠券配置 <span class="pill" style="background:#e9f0ff;color:#2f6bff;font-size:10px">四期</span></h4>
+            <p style="font-size:13px;margin:6px 0">业务可配置 SKU 的价格、有效期与上下架状态，并配置优惠券与优惠码承接促销活动。</p>
             <ul class="clean" style="font-size:12.5px">
-              <li><b>场景：</b>体验转化、到期续费提醒、流失召回、关怀通知</li>
-              <li><b>抓手：</b>复用已有「用户状态（注册/付费/付费逾期）」「销售中心线索跟进 / 外呼记录」与业务线/渠道维度做精准圈选</li>
-              <li><b>受益角色：</b>运营、客服、学习服务</li>
+              <li><b>能力：</b>SKU 配置、上下架、优惠券与优惠码配置</li>
+              <li><b>价值：</b>提升促销活动配置效率，减少研发介入</li>
+              <li><b>受益角色：</b>运营、市场投放</li>
             </ul>
           </div>
-          <div class="card"><h4 style="margin-top:0">🧩 增加服务节点 <span class="pill" style="background:#e9f0ff;color:#2f6bff;font-size:10px">四期</span></h4>
-            <p style="font-size:13px;margin:6px 0">在用户生命周期上编排服务节点，形成 SOP 与任务流转，把触达沉淀为可跟踪的服务动作。</p>
+          <div class="card"><h4 style="margin-top:0">🔗 落地页生成 <span class="pill" style="background:#e9f0ff;color:#2f6bff;font-size:10px">四期</span></h4>
+            <p style="font-size:13px;margin:6px 0">关联渠道、SKU 和优惠券，生成可直接用于投放的落地页。</p>
             <ul class="clean" style="font-size:12.5px">
-              <li><b>场景：</b>体验期跟进、付费引导、续费提醒、流失挽回、学习陪伴</li>
-              <li><b>抓手：</b>以订单有效期 / 到期时间驱动节点触发，任务可分派、可记录结果</li>
-              <li><b>受益角色：</b>学习服务/班主任、客服、运营</li>
+              <li><b>能力：</b>选择渠道、SKU、优惠券并生成落地页</li>
+              <li><b>价值：</b>缩短投放物料与链接准备时间</li>
+              <li><b>受益角色：</b>运营、市场投放</li>
             </ul>
           </div>
         </div>
-        <div class="callout info" style="margin-top:14px"><div class="ic">🔄</div><div>各阶段天然衔接：一期沉淀的<b>用户状态与归因数据</b>是触达的圈选依据，二期的<b>商品包/优惠券/销售跟进</b>是触达与服务节点的转化承接，四期的<b>本地化文案/物料</b>又回哺渠道与落地页，形成「<b>查得到 → 配得了 → 够得着 → 改得动</b>」的完整运营闭环。</div></div>
+        <div class="callout info" style="margin-top:14px"><div class="ic">🔄</div><div>各阶段天然衔接：一期沉淀用户与订单数据，二期沉淀销售跟进与权限能力，三期补齐谈单信息，四期通过营销中心完成「渠道 → SKU / 优惠券 → 落地页」的投放配置闭环。<b>push 暂考虑通过第三方平台承载。</b></div></div>
       </section>
 
       <!-- ====================== ROADMAP ====================== -->
       <section class="view" id="view-roadmap">
         <h2 class="title">迭代计划 / 路线图</h2>
-        <p class="lead">当前按五期推进：<b>一期</b>基础查询已于 <b>7 月 23 日验收完成并投入使用</b>；<b>二期短期替代方案</b>（越南站借道国际化 1V1 外呼与数据打通）已于 <b>7 月 30 日上线</b>；<b>二期</b>销售分配 / 跟进 leads（接入外呼）+ 角色权限计划于 <b>8 月 19 日上线</b>，较原计划顺延一天；<b>三期</b>为销售谈单支持，补齐学习信息、主子订单流水与 Leads 导入；<b>四期</b>建设下载、标签与 push 能力；<b>五期</b>进行本地化配置。</p>
+        <p class="lead">当前按五期推进：<b>一期</b>基础查询已于 <b>7 月 23 日验收完成并投入使用</b>；<b>二期短期替代方案</b>（越南站借道国际化 1V1 外呼与数据打通）已于 <b>7 月 30 日上线</b>；<b>二期</b>销售分配 / 跟进 leads（接入外呼）+ 角色权限计划于 <b>8 月 19 日上线</b>，较原计划顺延一天；<b>三期</b>为销售谈单支持，补齐学习信息、主子订单流水与 Leads 导入；<b>四期</b>建设营销中心，配置渠道、SKU、优惠券并生成落地页；<b>五期</b>进行本地化配置。push 暂考虑通过第三方平台承载。</p>
 
         <div class="grid" style="gap:18px">
           <!-- phase 0 · 过渡期 -->
@@ -449,14 +457,14 @@
 
           <!-- phase 4 -->
           <div class="phase three">
-            <div class="head"><span class="badge">四期</span><b>用户与订单运营能力</b><span class="when">规划中</span></div>
+            <div class="head"><span class="badge">四期</span><b>营销中心</b><span class="when">规划中</span></div>
             <div class="body">
-              <p class="goal">目标：补齐用户与订单的运营基础能力，让有权限的业务人员能够导出所需数据、查看完整详情，并基于用户标签配置 push。</p>
-              <div class="feat"><div class="ic">⬇️</div><div><div class="t">用户列表、订单列表下载 <span class="pill p2">P2</span></div><div class="d">用户列表与订单列表支持下载；在角色权限中增加对应下载权限，按授权范围控制可下载的数据。</div></div></div>
-              <div class="feat"><div class="ic">🏷️</div><div><div class="t">用户标签体系 <span class="pill p2">P2</span></div><div class="d">建立用户标签体系，支持用户运营分层与后续触达配置。</div></div></div>
-              <div class="feat"><div class="ic">📲</div><div><div class="t">配置 push <span class="pill p2">P2</span></div><div class="d">支持按已确认的运营规则配置 push，实现面向用户的触达。</div></div></div>
-              <div class="feat"><div class="ic">👤</div><div><div class="t">用户详情 <span class="pill p2">P2</span></div><div class="d">补齐用户详情页，集中查看用户相关信息与运营记录。</div></div></div>
-              <div class="feat"><div class="ic">🧾</div><div><div class="t">订单详情 <span class="pill p2">P2</span></div><div class="d">补齐订单详情页，集中查看订单相关信息。</div></div></div>
+              <p class="goal">目标：将渠道、SKU、优惠券和落地页配置集中到营销中心，支持业务自助完成投放与促销配置，并快速生成可用于投放的落地页。</p>
+              <div class="feat"><div class="ic">🌿</div><div><div class="t">渠道管理 <span class="pill p2">P2</span></div><div class="d">配置渠道层级、渠道 code 与渠道参数，为投放归因和落地页生成提供统一来源。</div></div></div>
+              <div class="feat"><div class="ic">📦</div><div><div class="t">SKU 管理 <span class="pill p2">P2</span></div><div class="d">配置 SKU 的名称、价格、有效期和上下架状态。</div></div></div>
+              <div class="feat"><div class="ic">🎟️</div><div><div class="t">优惠券管理 <span class="pill p2">P2</span></div><div class="d">配置优惠券及优惠码，支持促销活动使用。</div></div></div>
+              <div class="feat"><div class="ic">🔗</div><div><div class="t">落地页管理 <span class="pill p2">P2</span></div><div class="d">关联渠道、SKU、优惠券，生成用于投放的落地页。</div></div></div>
+              <div class="callout info"><div class="ic">📲</div><div><b>push：</b>不纳入四期 CRM 自建范围，暂考虑通过第三方平台承载。</div></div>
             </div>
           </div>
 
@@ -490,7 +498,7 @@
             <tr><td><b>M2 · 二期短期替代</b><br><span class="muted" style="font-size:11px">7/30 已上线</span></td><td>越南站外呼与数据打通（借道国际化 1V1）</td><td>—</td></tr>
             <tr><td><b>M3 · 二期</b><br><span class="muted" style="font-size:11px">计划 8 月 19 日上线</span></td><td>销售中心、角色权限、手机号明文查看与用户/订单列表导出</td><td>外呼服务对接方案；权限配置与导出数据范围确认</td></tr>
             <tr><td><b>M4 · 三期</b><br><span class="muted" style="font-size:11px">需求中</span></td><td>用户详情（上课记录 / 报告 / 回放）、订单详情（主子订单流水）、销售中心用户详情与 Leads 导入</td><td>用户学习数据、订单主子关系与 Leads 导入规则确认</td></tr>
-            <tr><td><b>M5 · 四期</b></td><td>用户列表、订单列表下载（含权限）；用户标签体系、push 配置</td><td>依赖前序用户与订单数据</td></tr>
+            <tr><td><b>M5 · 四期</b></td><td>营销中心：渠道、SKU、优惠券与落地页配置</td><td>渠道、SKU、优惠券与落地页的业务规则和权限范围确认</td></tr>
             <tr><td><b>M6 · 五期</b></td><td>本地化配置</td><td>明确配置项、权限范围与发布流程</td></tr>
           </tbody>
         </table>
@@ -523,10 +531,10 @@
             <tr><td>市场渠道管理</td><td>非手机号注册支持：谷歌邮箱 / Facebook / kakao / AppID 等多注册方式</td><td>用户中心</td><td><span class="pill ph1">一期</span></td></tr>
             <tr><td>用户数据体系</td><td>用户状态：未付费-未体验 / 未付费-体验中 / 未付费-已体验 / 付费 / 付费逾期</td><td>用户中心</td><td><span class="pill ph1">一期</span></td></tr>
             <tr><td>商品/订单</td><td>订单信息查询：订单状态、原价/实付、支付方式</td><td>订单中心</td><td><span class="pill ph1">一期</span></td></tr>
-            <tr><td>市场配置</td><td>渠道、商品、优惠券与落地页等配置能力保留在后续规划，待重新排期</td><td>营销中心</td><td><span class="pill later">后续</span></td></tr>
+            <tr><td>市场配置</td><td>配置渠道、SKU、优惠券并生成落地页，支撑投放与促销配置</td><td>营销中心</td><td><span class="pill" style="background:#e9f0ff;color:#2f6bff">四期</span></td></tr>
             <tr><td>权限与安全</td><td>角色权限（RBAC 子权限）、数据权限（业务线隔离）、成员账号、操作日志审计</td><td>系统配置</td><td><span class="pill ph2">二期</span></td></tr>
-            <tr><td>用户触达与服务</td><td>单点触达用户（push/站内信/短信/EDM/外呼）、增加服务节点（生命周期 SOP、任务流转、召回/续费/关怀）</td><td>触达 / 服务节点</td><td><span class="pill" style="background:#e9f0ff;color:#2f6bff">四期</span></td></tr>
-            <tr><td>本地化运营</td><td>本地化文案与物料自助配置：把现有本地化配置平台迁入 CRM，业务按业务线/语言自助维护</td><td>本地化配置平台</td><td><span class="pill" style="background:#e9f0ff;color:#2f6bff">四期</span></td></tr>
+            <tr><td>用户触达与服务</td><td>push 暂考虑通过第三方平台承载；服务节点等能力后续评估</td><td>第三方平台 / 服务节点</td><td><span class="pill later">后续</span></td></tr>
+            <tr><td>本地化运营</td><td>本地化文案与物料自助配置：把现有本地化配置平台迁入 CRM，业务按业务线/语言自助维护</td><td>本地化配置平台</td><td><span class="pill" style="background:#e9f0ff;color:#2f6bff">五期</span></td></tr>
             <tr><td>用户数据体系</td><td>标签能力、黑名单识别</td><td>—</td><td><span class="pill later">后续</span></td></tr>
             <tr><td>市场与销售运营</td><td>邀约场景、提报成单率</td><td>—</td><td><span class="pill later">后续</span></td></tr>
             <tr><td>第三方系统整合</td><td>Breeze 消息推送、Apespire 流量进度、第三方推送会话</td><td>—</td><td><span class="pill later">后续</span></td></tr>
@@ -539,7 +547,7 @@
 
       <!-- ====================== P1: CHANNELS ====================== -->
       <section class="view" id="view-p2-channels">
-        <h2 class="title">3.1 渠道管理 <span class="pill ph3" style="vertical-align:middle">三期</span> <span class="pill p1" style="vertical-align:middle">P1</span></h2>
+        <h2 class="title">4.1 渠道管理 <span class="pill ph3" style="vertical-align:middle">四期</span> <span class="pill p2" style="vertical-align:middle">P2</span></h2>
         <p class="lead">维护标准化的渠道分级结构，并在任意层级生成实际投放使用的渠道 code，作为用户注册归因的唯一口径。<b>渠道体系为三期能力</b>：一期用户中心按渠道来源（落地页广告渠道 / App 三方归因）与国家做粗归因（无渠道树 / 业务线），三期引入渠道树后，用户中心升级为「用户中心 · 二期」并按「业务线 · 渠道」精准归因。</p>
 
         <h3>用户故事</h3>
@@ -953,7 +961,7 @@
 
       <!-- ====================== P2: PACKAGES ====================== -->
       <section class="view" id="view-p2-packages">
-        <h2 class="title">3.2 商品包管理 <span class="pill ph3" style="vertical-align:middle">三期</span> <span class="pill p1" style="vertical-align:middle">P1</span></h2>
+        <h2 class="title">4.2 SKU 管理 <span class="pill ph3" style="vertical-align:middle">四期</span> <span class="pill p2" style="vertical-align:middle">P2</span></h2>
         <p class="lead">运营自助维护商品包（商品）：新增、编辑、上下架，作为订单与优惠券绑定的商品基础；列表直接展示创建人 / 创建时间 / 状态。</p>
 
         <h3>用户故事</h3>
@@ -993,7 +1001,7 @@
 
       <!-- ====================== P2: COUPONS ====================== -->
       <section class="view" id="view-p2-coupons">
-        <h2 class="title">3.3 优惠券管理 <span class="pill ph3" style="vertical-align:middle">三期</span> <span class="pill p1" style="vertical-align:middle">P1</span></h2>
+        <h2 class="title">4.3 优惠券管理 <span class="pill ph3" style="vertical-align:middle">四期</span> <span class="pill p2" style="vertical-align:middle">P2</span></h2>
         <p class="lead">运营自助配置<b>折扣券</b>：定义发放规则、使用规则（绑定可用商品包）、折扣权益（折扣率 %），并支持编辑、延长、停止发放。</p>
 
         <h3>用户故事</h3>
@@ -1055,7 +1063,7 @@
 
       <!-- ====================== P2: LANDING ====================== -->
       <section class="view" id="view-p2-landing">
-        <h2 class="title">3.4 落地页管理 <span class="pill ph3" style="vertical-align:middle">三期</span> <span class="pill p1" style="vertical-align:middle">P1</span> <span class="pill ph3" style="vertical-align:middle;font-size:10px">新增模块</span></h2>
+        <h2 class="title">4.4 落地页管理 <span class="pill ph3" style="vertical-align:middle">四期</span> <span class="pill p2" style="vertical-align:middle">P2</span> <span class="pill ph3" style="vertical-align:middle;font-size:10px">新增模块</span></h2>
         <p class="lead">一键生成投放落地页链接，关联渠道、<b>多个商品包（可设划线原价）</b>与优惠券（优惠码）；不同业务线使用各自的落地页模版生成对应链接，作为投放与归因的统一出口。</p>
 
         <h3>用户故事</h3>
@@ -1302,7 +1310,7 @@
             <tr><td>销售线索</td><td>「未付费-未体验 + 能拿到手机号」的用户；不含无手机号、已体验或已付费用户</td></tr>
             <tr><td>跟进进度</td><td>销售线索在销售中心的状态：待领取 / 跟进中 / 暂不跟进；转「已付费」即离开销售中心</td></tr>
             <tr><td>外呼 / 通话记录</td><td>坐席点号码发起外呼，挂断后 <b>AI 自动生成通话小结</b>（可编辑）+ 通话结果（已接通/无人接听）/时长/<b>通话录音</b>，自动归档到客户档案与销售跟进记录</td></tr>
-            <tr><td>手动加会员（待评估）</td><td>四期规划：管台内对单个用户手动添加会员有效期，替代找产研改库；高风险写操作，权限开放对象与风控措施待评估</td></tr>
+            <tr><td>手动加会员（待评估）</td><td>二期补充能力：管台内对单个用户手动添加会员有效期，替代找产研改库；高风险写操作，权限开放对象与风控措施待评估</td></tr>
             <tr><td>课标 / 上课记录</td><td>用户已完成课时的记录，以「课标」（如 <code>TCELA-L1-U2-LC1-11</code>）标识，含体验课 / 正式课、老师、完课时间、报告与回放</td></tr>
             <tr><td>Trial Report / Lesson Report</td><td>体验课报告（Trial Report，外链原型页）与正式课报告（Lesson Report，管台弹窗：能力评估 + 课堂小结 + 老师评语 + 课后作业）</td></tr>
             <tr><td>课程回放</td><td>课时录播视频，在用户详情页点「回放」新标签全屏播放（原型无真实录播时用占位视频）</td></tr>
@@ -1344,7 +1352,7 @@
     overview:'Overview', positioning:'Positioning & Personas', roadmap:'Roadmap', mapping:'Requirement Mapping',
     'p1-users':'一期 · P0', 'p1-orders':'一期基础 · 三期增强',
     'p3-sales':'二期基础 · 三期增强', 'p2-system':'二期 · 系统配置',
-    'p2-channels':'后续规划', 'p2-packages':'后续规划', 'p2-coupons':'后续规划', 'p2-landing':'后续规划', 'p2-users':'三期 · 用户详情',
+    'p2-channels':'四期 · 营销中心', 'p2-packages':'四期 · 营销中心', 'p2-coupons':'四期 · 营销中心', 'p2-landing':'四期 · 营销中心', 'p2-users':'三期 · 用户详情',
     prototype:'Live Prototype', appendix:'Appendix'
   };
 
