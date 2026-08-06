@@ -1,0 +1,44 @@
+国家/业务线,渠道类型,渠道码（研发生成）,SKU名称,SKU ID（研发生成）,Landing Page 链接（渠道码和SKU生成后，再拼接）,带上 promo_code 参数版本
+"沙特
+",Meta Ads,Zr7Gx4d,1-week,1900000000000034,https://sa.dinoenglish.ai/website/landingpage/login/?channel=Zr7Gx4d,
+,,,1-month,1900000000000033,,
+,,,1-year,1900000000000031,,
+,Google Ads,Uw5Tn8f,1-week,1900000000000034,https://sa.dinoenglish.ai/website/landingpage/login/?channel=Uw5Tn8f,
+,,,1-month,1900000000000033,,
+,,,1-year,1900000000000031,,
+,"Snapchat
+",Xb3Mq6s,1-week,1900000000000034,https://sa.dinoenglish.ai/website/landingpage/login/?channel=Xb3Mq6s,
+,,,1-month,1900000000000033,,
+,,,1-year,1900000000000031,,
+,KOL,Fj9Cv2h,1-month-KOL,1900000000000035,https://sa.dinoenglish.ai/website/landingpage/login/?channel=Fj9Cv2h,"https://sa.dinoenglish.ai/website/landingpage/login/?channel=Fj9Cv2h&promo_code=DinoXXXX
+"
+,,,1-year-KOL,1900000000000036,,https://sa.dinoenglish.ai/website/landingpage/login/?channel=Fj9Cv2h&promo_code=DinoXXXX
+,默认,Rx5Fp2n,-,-,https://sa.dinoenglish.ai/website/landingpage/login/?channel=Rx5Fp2n,
+韩国,"Meta Ads
+",Kp7Nm3x,1-year,1900000000000004,https://kr.dinoenglish.ai/website/landingpage/login/?channel=Kp7Nm3x,
+,,,1-month,1900000000000003,,
+,,,1-week,1900000000000001,,
+,Google Ads,Rt4Hw9q,1-year,1900000000000004,https://kr.dinoenglish.ai/website/landingpage/login/?channel=Rt4Hw9q,
+,,,1-month,1900000000000003,,
+,,,1-week,1900000000000001,,
+,Snapchat,Jn2Yv6k,1-year,1900000000000004,https://kr.dinoenglish.ai/website/landingpage/login/?channel=Jn2Yv6k,
+,,,1-month,1900000000000003,,
+,,,1-week,1900000000000001,,
+,KOL,Bf8Dc5m,1-month-KOL,1900000000000005,https://kr.dinoenglish.ai/website/landingpage/login/?channel=Bf8Dc5m,https://kr.dinoenglish.ai/website/landingpage/login/?channel=Fj9Cv2h&promo_code=DinoXXXX
+,,,1-year-KOL,1900000000000006,,https://kr.dinoenglish.ai/website/landingpage/login/?channel=Fj9Cv2h&promo_code=DinoXXXX
+,默认,Tb6Wr9k,-,-,https://kr.dinoenglish.ai/website/landingpage/login/?channel=Tb6Wr9k,
+马来,Meta Ads,Ja8Kp6s,Pakej Asas,1900000000000026,https://ma.dinoenglish.ai/website/landingpage/login/?channel=Ja8Kp6s,
+,KOL,Ep4Wm8t,Pakej Spesial,1900000000000025,https://ma.dinoenglish.ai/website/landingpage/login/?channel=Ep4Wm8t,https://ma.dinoenglish.ai/website/landingpage/login/?channel=Fj9Cv2h&promo_code=DinoXXXX
+,Sales-Asas,h4UyVUX,Pakej Asas,1900000000000026,https://ma.dinoenglish.ai/website/landingpage/login/?channel=h4UyVUX,
+,Sales-Teroka,Wn4Ks8j,Pakej Teroka,1900000000000027,https://ma.dinoenglish.ai/website/landingpage/login/?channel=Wn4Ks8j,
+,Sales-Pintar,Bv7Rm3t,Pakej Pintar,1900000000000028,https://ma.dinoenglish.ai/website/landingpage/login/?channel=Bv7Rm3t,
+,Sales-Cemerlang,Px5Hd9c,Pakej Cemerlang,1900000000000029,https://ma.dinoenglish.ai/website/landingpage/login/?channel=Px5Hd9c,
+"
+",Default,Nc4Hs7m,Pakej Biasa,-,https://ma.dinoenglish.ai/website/landingpage/login/?channel=Nc4Hs7m,
+印尼,Meta Ads,Hv9Rn2w,Pakej Pintar,1900000000000013,https://in.dinoenglish.ai/website/landingpage/login/?channel=Hv9Rn2w,
+,KOL,Nm6Wx4t,Pakej Pintar,1900000000000013,https://in.dinoenglish.ai/website/landingpage/login/?channel=Nm6Wx4t,https://in.dinoenglish.ai/website/landingpage/login/?channel=Fj9Cv2h&promo_code=DinoXXXX
+,默认,Jw8Dq3v,Pakej Biasa,-,https://in.dinoenglish.ai/website/landingpage/login/?channel=Jw8Dq3v,
+越南,销售,Lw9Bc5r,1-week,1900000000000044,https://vn.dinoenglish.ai/website/landingpage/login/?channel=Lw9Bc5r,
+,,,1-month,1900000000000043,,
+,,,1-year,1900000000000041,,
+,默认,Pw3Ym8k,-,,https://vn.dinoenglish.ai/website/landingpage/login/?channel=Pw3Ym8k,
