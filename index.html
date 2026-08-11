@@ -239,7 +239,7 @@
             <tr><td><b>销售中心 · 用户详情</b></td><td>在线索跟进中展示用户上课记录、报告与回放</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td><b>修改试听课级别</b></td><td>销售或运营可在数据权限范围内手动修改试听课级别；选择系统级别枚举并记录修改前后、原因与操作人</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td><b>Facebook Lead Form 自动导入与自动注册</b></td><td>通过 Meta Lead Ads Webhook + Graph API 实时同步；按手机号关联已有用户或自动注册，再进入销售分配、跟进与外呼流程</td><td><span class="pill p0">P0</span></td></tr>
-            <tr><td><b>Leads 导入入口</b></td><td>兼容更多业务场景的线索进入与分配</td><td><span class="pill p2">P2</span></td></tr>
+            <tr><td><b>Leads 导入入口（手动导入）</b></td><td>兼容更多业务场景的线索进入与分配</td><td><span class="pill p1">P1</span></td></tr>
             <tr><td rowspan="4"><span class="pill" style="background:#e9f0ff;color:#2f6bff">四期</span><br><span class="muted" style="font-size:12px">营销中心</span></td><td><b>渠道管理</b></td><td>配置渠道层级、渠道 code 与渠道参数</td><td><span class="pill p2">P2</span></td></tr>
             <tr><td><b>SKU 管理</b></td><td>配置 SKU、价格、有效期与上下架</td><td><span class="pill p2">P2</span></td></tr>
             <tr><td><b>优惠券管理</b></td><td>配置优惠券与优惠码</td><td><span class="pill p2">P2</span></td></tr>
@@ -456,7 +456,7 @@
               <div class="feat"><div class="ic">🧾</div><div><div class="t">订单中心 · 订单详情 <span class="pill p1">P1</span></div><div class="d">增加订单详情，以主订单为入口记录其下全部子订单流水，清晰展示主子订单关系，便于快速核对。</div></div></div>
               <div class="feat"><div class="ic">📞</div><div><div class="t">销售中心 · 用户详情 <span class="pill p0">P0</span></div><div class="d">在线索跟进中增加用户详情，展示上课记录、报告与回放。</div></div></div>
               <div class="feat"><div class="ic">📥</div><div><div class="t">Facebook Lead Form 自动导入与自动注册 <span class="pill p0">P0</span></div><div class="d">通过 Meta Lead Ads Webhook 与 Graph API 实时同步表单；按手机号关联已有 Dino 用户，或调用既有自动注册服务创建用户，保留 Campaign / Ad Set / Ad / Form 归因，并进入 CRM 自动分配、跟进与外呼流程。</div></div></div>
-              <div class="feat"><div class="ic">📋</div><div><div class="t">Leads 导入入口 <span class="pill p2">P2</span></div><div class="d">导入后按既有销售分配、跟进与外呼流程处理，以兼容更多业务场景。</div></div></div>
+              <div class="feat"><div class="ic">📋</div><div><div class="t">Leads 导入入口（手动导入） <span class="pill p1">P1</span></div><div class="d">导入后按既有销售分配、跟进与外呼流程处理，以兼容更多业务场景。</div></div></div>
               <div class="callout info"><div class="ic">🎯</div><div><b>验收方向：</b>销售可在用户中心和销售中心查看学习信息；具备权限的销售或运营可修改其数据范围内用户的试听课级别并保留完整留痕；订单详情能完整展示主订单下所有子订单流水；有权限的角色可通过 Leads 导入入口将线索纳入销售闭环；Facebook Lead Form 提交后可自动完成用户关联或注册，并进入销售流程。</div></div>
             </div>
           </div>
@@ -847,7 +847,7 @@
             <tr><td>跟进记录</td><td>时间轴展示历次跟进（进度 · 备注 · 时间 · 领取人 · 通话录音）</td><td><span class="pill p1">P1</span></td></tr>
             <tr><td>用户详情 <span class="pill ph3" style="font-size:10px">三期新增</span></td><td>在线索列表或跟进详情中进入用户详情，展示上课记录、报告与回放；与用户中心数据口径一致</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td>修改试听课级别 <span class="pill ph3" style="font-size:10px">三期新增</span></td><td>销售或运营可在其数据权限范围内手动修改试听课级别；仅可选择系统级别枚举，须二次确认并保留修改前后、原因、操作人和时间</td><td><span class="pill p0">P0</span></td></tr>
-            <tr><td>Leads 导入入口 <span class="pill ph3" style="font-size:10px">三期新增</span></td><td>提供 Leads 导入入口；导入成功后按既有销售分配、跟进与外呼流程处理，兼容更多业务场景；入口受销售中心权限控制</td><td><span class="pill p2">P2</span></td></tr>
+            <tr><td>Leads 导入入口（手动导入） <span class="pill ph3" style="font-size:10px">三期新增</span></td><td>提供 Leads 导入入口；导入成功后按既有销售分配、跟进与外呼流程处理，兼容更多业务场景；入口受销售中心权限控制</td><td><span class="pill p1">P1</span></td></tr>
             <tr><td>Facebook Lead Form 自动导入与自动注册 <span class="pill ph3" style="font-size:10px">三期新增</span></td><td>通过 Meta Lead Ads Webhook + Graph API 实时同步；手机号匹配已有用户或调用既有自动注册服务，保留 Campaign / Ad Set / Ad / Form 信息后写入销售中心自动分配、跟进与外呼流程；重复回调可幂等处理、失败可追踪重试</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td>数据权限</td><td>按业务线数据隔离；销售仅见本人领取，组长可见并可重分配组内范围线索，超管/管理员可见全业务线全部线索；通话记录非超管/组长仅见本人坐席记录</td><td><span class="pill p0">P0</span></td></tr>
           </tbody>
