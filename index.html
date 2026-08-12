@@ -234,11 +234,11 @@
             <tr><td rowspan="2"><span class="pill ph2">二期</span><br><span class="muted" style="font-size:12px">销售与权限 · 计划 8 月 19 日上线</span></td>
               <td><b>销售中心</b> <span class="pill ph1" style="font-size:10px">原型已就绪</span></td><td>销售分配 leads + 跟进 leads + <b>外呼（录音 / AI 小结）</b> + 自动分配/掉库 + 组长重分配 + 转化闭环</td><td><span class="pill p1">P1</span></td></tr>
             <tr><td><b>系统配置 · 角色权限</b></td><td>RBAC 子权限 + 成员 + 日志</td><td><span class="pill p1">P1</span></td></tr>
-            <tr><td rowspan="6"><span class="pill ph3">三期</span><br><span class="muted" style="font-size:12px">销售谈单支持 · 8 月 17 日评审</span></td><td><b>用户中心 · 用户详情</b></td><td>展示用户上课记录、报告、回放，支撑销售谈单</td><td><span class="pill p0">P0</span></td></tr>
+            <tr><td rowspan="6"><span class="pill ph3">三期</span><br><span class="muted" style="font-size:12px">销售谈单支持 · 8 月 17 日评审</span></td><td><b>修改试听课级别</b></td><td>销售或运营可在数据权限范围内手动修改试听课级别；选择系统级别枚举并记录修改前后、原因与操作人</td><td><span class="pill p0">P0</span></td></tr>
+            <tr><td><b>Facebook Lead Form 自动导入与自动注册</b></td><td>通过 Meta Lead Ads Webhook + Graph API 实时同步；按手机号关联已有用户或自动注册，再进入销售分配、跟进与外呼流程</td><td><span class="pill p0">P0</span></td></tr>
+            <tr><td><b>用户中心 · 用户详情</b></td><td>展示用户上课记录、报告、回放，支撑销售谈单</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td><b>订单详情</b></td><td>记录主订单下所有子订单流水，解决主子订单展示混乱</td><td><span class="pill p1">P1</span></td></tr>
             <tr><td><b>销售中心 · 用户详情</b></td><td>在线索跟进中展示用户上课记录、报告与回放</td><td><span class="pill p0">P0</span></td></tr>
-            <tr><td><b>修改试听课级别</b></td><td>销售或运营可在数据权限范围内手动修改试听课级别；选择系统级别枚举并记录修改前后、原因与操作人</td><td><span class="pill p0">P0</span></td></tr>
-            <tr><td><b>Facebook Lead Form 自动导入与自动注册</b></td><td>通过 Meta Lead Ads Webhook + Graph API 实时同步；按手机号关联已有用户或自动注册，再进入销售分配、跟进与外呼流程</td><td><span class="pill p0">P0</span></td></tr>
             <tr><td><b>Leads 导入入口（手动导入）</b></td><td>兼容更多业务场景的线索进入与分配</td><td><span class="pill p1">P1</span></td></tr>
             <tr><td rowspan="4"><span class="pill" style="background:#e9f0ff;color:#2f6bff">四期</span><br><span class="muted" style="font-size:12px">营销中心</span></td><td><b>渠道管理</b></td><td>配置渠道层级、渠道 code 与渠道参数</td><td><span class="pill p2">P2</span></td></tr>
             <tr><td><b>SKU 管理</b></td><td>配置 SKU、价格、有效期与上下架</td><td><span class="pill p2">P2</span></td></tr>
@@ -451,11 +451,11 @@
             <div class="head"><span class="badge">三期</span><b>销售谈单支持</b><span class="when">8 月 17 日评审</span></div>
             <div class="body">
               <p class="goal">目标：用户的报告和回放对于销售谈单至关重要；同时解决主子订单展示混乱、试听课级别难以调整的问题，并让 Facebook Lead Form 线索自动进入 CRM。让销售在 CRM 内快速获得完整学习、订单与新线索信息，提升谈单效率。</p>
-              <div class="feat"><div class="ic">👤</div><div><div class="t">用户中心 · 用户详情 <span class="pill p0">P0</span></div><div class="d">增加用户详情，展示用户上课记录、报告与回放；销售可据此快速了解学习进展与体验情况。</div></div></div>
               <div class="feat"><div class="ic">✏️</div><div><div class="t">修改试听课级别 <span class="pill p0">P0</span></div><div class="d">销售或运营可在用户详情中手动调整试听课级别；仅可选择系统级别枚举，需校验数据范围、二次确认并记录修改前后、原因与操作人。</div></div></div>
+              <div class="feat"><div class="ic">📥</div><div><div class="t">Facebook Lead Form 自动导入与自动注册 <span class="pill p0">P0</span></div><div class="d">通过 Meta Lead Ads Webhook 与 Graph API 实时同步表单；按手机号关联已有 Dino 用户，或调用既有自动注册服务创建用户，保留 Campaign / Ad Set / Ad / Form 归因，并进入 CRM 自动分配、跟进与外呼流程。</div></div></div>
+              <div class="feat"><div class="ic">👤</div><div><div class="t">用户中心 · 用户详情 <span class="pill p0">P0</span></div><div class="d">增加用户详情，展示用户上课记录、报告与回放；销售可据此快速了解学习进展与体验情况。</div></div></div>
               <div class="feat"><div class="ic">🧾</div><div><div class="t">订单中心 · 订单详情 <span class="pill p1">P1</span></div><div class="d">增加订单详情，以主订单为入口记录其下全部子订单流水，清晰展示主子订单关系，便于快速核对。</div></div></div>
               <div class="feat"><div class="ic">📞</div><div><div class="t">销售中心 · 用户详情 <span class="pill p0">P0</span></div><div class="d">在线索跟进中增加用户详情，展示上课记录、报告与回放。</div></div></div>
-              <div class="feat"><div class="ic">📥</div><div><div class="t">Facebook Lead Form 自动导入与自动注册 <span class="pill p0">P0</span></div><div class="d">通过 Meta Lead Ads Webhook 与 Graph API 实时同步表单；按手机号关联已有 Dino 用户，或调用既有自动注册服务创建用户，保留 Campaign / Ad Set / Ad / Form 归因，并进入 CRM 自动分配、跟进与外呼流程。</div></div></div>
               <div class="feat"><div class="ic">📋</div><div><div class="t">Leads 导入入口（手动导入） <span class="pill p1">P1</span></div><div class="d">导入后按既有销售分配、跟进与外呼流程处理，以兼容更多业务场景。</div></div></div>
               <div class="callout info"><div class="ic">🎯</div><div><b>验收方向：</b>销售可在用户中心和销售中心查看学习信息；具备权限的销售或运营可修改其数据范围内用户的试听课级别并保留完整留痕；订单详情能完整展示主订单下所有子订单流水；有权限的角色可通过 Leads 导入入口将线索纳入销售闭环；Facebook Lead Form 提交后可自动完成用户关联或注册，并进入销售流程。</div></div>
             </div>
